@@ -94,22 +94,22 @@
     </header>
     <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
         <li>
-            <a class="entypo-telegrem" href="https://t.me/LxChatGroup" target="_blank"><span>Telegram</span></a>
+            <a class="entypo-facebook" href="#" target="_blank"><span>Facebook</span></a>
         </li>
-        <li>
+        <!-- <li>
             <a class="entypo-github" href="https://github.com/0AIB" target="_blank"><span>Github</span></a>
         </li>
         <li>
             <a class="entypo-gplus" href="https://www.quora.com/profile/Lx0980" target="_blank"><span>Google+</span></a>
-        </li>
+        </li> -->
         <li>
             <a class="entypo-instagrem" href="https://www.instagram.com/lx_0980"
                 target="_blank"><span>Instagram</span></a>
         </li>
-        <li>
+        <!-- <li>
             <a class="entypo-linkedin" href="https://www.linkedin.com/in/lx-rn-1310b0256"
                 target="_blank"><span>LinkedIn</span></a>
-        </li>
+        </li> -->
         <li>
             <a class="entypo-twitter" href="https://twitter.com/Lx0980" target="_blank"><span>Twitter</span></a>
         </li>
@@ -305,114 +305,118 @@
         <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
             <h2>Pricing</h2>
         </div>
-        <div class="container">
-            <div class="card">
-                <div class="circle">
-                    <h3>Solo Shoot</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Solo Shoot</div>
-                        <div>15 Minutes Session </div>
-                        <div>20 Digital Images</div>
-                        <div>Photo Release</div>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="card">
+                    <div class="circle">
+                        <h3>Solo Shoot</h3>
                     </div>
-                    <a href="#">see more</a>
+                    <div class="content">
+                        <div class="features">
+                            <div>Solo Shoot</div>
+                            <div>15 Minutes Session</div>
+                            <div>20 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Duo Shoot</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Duo Shoot</div>
+                            <div>30 Minutes Session</div>
+                            <div>30 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Trio Shoot</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Trio Shoot</div>
+                            <div>50 Minutes Session</div>
+                            <div>40 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Quad Shoot</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Quad Shoot</div>
+                            <div>50 Minutes Session</div>
+                            <div>40 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Deluxe</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Deluxe</div>
+                            <div>50 Minutes Session</div>
+                            <div>40 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Graduation</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Graduation</div>
+                            <div>50 Minutes Session</div>
+                            <div>40 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="circle">
+                        <h3>Group</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>Group</div>
+                            <div>50 Minutes Session</div>
+                            <div>40 Digital Images</div>
+                            <div>Photo Release</div>
+                        </div>
+                        <a href="#">see more</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Duo Shoot</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Duo Shoot</div>
-                        <div>30 Minutes Session </div>
-                        <div>30 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Trio Shoot</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Trio Shoot</div>
-                        <div>50 Minutes Session </div>
-                        <div>40 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Quad Shoot</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Quad Shoot</div>
-                        <div>50 Minutes Session </div>
-                        <div>40 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Deluxe</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Deluxe</div>
-                        <div>50 Minutes Session </div>
-                        <div>40 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Graduation</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Graduation</div>
-                        <div>50 Minutes Session </div>
-                        <div>40 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="circle">
-                    <h3>Group</h3>
-                </div>
-                <div class="content">
-                    <div class="features">
-                        <div>Group</div>
-                        <div>50 Minutes Session </div>
-                        <div>40 Digital Images</div>
-                        <div>Photo Release</div>
-                    </div>
-                    <a href="#">see more</a>
-                </div>
-            </div>
-
+            <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
+            <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
     </section>
+
 
     <section class="follow-area clearfix" data-aos="fade-right" data-aos-duration="3000">
         <div class="container">
@@ -430,7 +434,7 @@
         <div class="instragram-feed-area owl-carousel">
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x11.jpg.pagespeed.ic.EUL6KdRKnX.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -440,7 +444,7 @@
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x12.jpg.pagespeed.ic.KtvCPGmp2L.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -450,7 +454,7 @@
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/13.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -461,7 +465,7 @@
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/14.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -471,7 +475,7 @@
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/15.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -481,7 +485,7 @@
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/16.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -495,7 +499,7 @@
     <footer>
         <div class="wrapper" data-aos="fade-up" data-aos-duration="3000">
             <div class="containerUp">
-                <div class="connect">
+                <!-- <div class="connect">
                     <div>
                         <h2>Stay up to date on the latest from Lx Gallery</h2>
                     </div>
@@ -505,20 +509,16 @@
                             <button>Subscribe</button>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <div class="social-info">
-                    <h2>Follow LX GALLERY</h2>
+                    <h2>Follow Rommel Garcia</h2>
                     <div class="icons">
 
-                        <a href="https://www.linkedin.com/in/lx-rn-1310b0256/" target="_blank"><img
-                                src="./img/footer-icons/pinpng.com-linkedin-png-533635.png"></a>
-                        <a href="https://www.instagram.com/lx_0980" target="_blank"><img
-                                src="./img/footer-icons/insta.jpg"></a>
-                        <a href="https://in.pinterest.com/Lx0980/" target="_blank"><img
-                                src="./img/footer-icons/pinterest-new.png"></a>
-                        <a href="https://www.quora.com/profile/Lx0980" target="_blank"><img
-                                src="./img/footer-icons/quora.png"></a>
-                        <a href="https://github.com/0AIB" target="_blank"><img src="./img/footer-icons/gtihub.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/facebook.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/insta.jpg"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/twitter-4-48.png"></a>
+                        <!-- <a href="#" target="_blank"><img src="./img/footer-icons/quora.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/gtihub.png"></a> -->
 
                     </div>
                 </div>
@@ -532,7 +532,7 @@
                     <div class="count" style="color: #636363;">00</div>
                 </div>
                 <p>Copyright © 2023 All rights reserved | Made with <span class="heart">❤</span> by <a
-                        href="https://www.instagram.com/lx_0980" target="_blank"> Lx</a></p>
+                        href="https://www.instagram.com/lx_0980" target="_blank"> Rommel</a></p>
             </div>
         </div>
         </div>
@@ -540,13 +540,13 @@
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -554,11 +554,11 @@
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -567,22 +567,44 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
+</script>
+<script>
+let currentIndex = 0;
+
+function slide(direction) {
+    const cards = document.querySelectorAll('.card');
+    const totalCards = cards.length;
+    const cardWidth = 300 + 40; // card width + margin (20px left and right)
+
+
+    currentIndex += direction;
+
+
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
+    }
+
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
 </script>
 </body>
 

@@ -19,20 +19,20 @@
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.0VivtDGN1d.css">
 
     <style>
+    h1 {
+        color: #eaeaea;
+    }
+
+    @media only screen and (max-width: 767px) {
         h1 {
-            color: #eaeaea;
+            font-size: 1.8rem;
         }
 
-        @media only screen and (max-width: 767px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .classy-nav-container .classy-navbar .nav-brand {
-                max-width: fit-content;
-                margin-right: 15px;
-            }
+        .classy-nav-container .classy-navbar .nav-brand {
+            max-width: fit-content;
+            margin-right: 15px;
         }
+    }
     </style>
 </head>
 
@@ -72,7 +72,7 @@
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php">
-                            <h1>Lx Gallery </h1>
+                            <h1>Rommel</h1>
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -88,6 +88,7 @@
                             <div class="classynav">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
+                                    <li><a href="#">Appointment</a></li>
                                     <li><a href="about.php">About</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li class="active"><a href="blog.php">Blog</a></li>
@@ -420,11 +421,11 @@
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-        eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-        eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -433,18 +434,18 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"6990232adfac1baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-        </script>
+    </script>
 </body>
 
 <!-- Mirrored from preview.colorlib.com/theme/lx/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:50 GMT -->

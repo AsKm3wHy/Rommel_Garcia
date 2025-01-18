@@ -2567,8 +2567,7 @@ footer {
   color: #afb4bf;
 }
 
-/*Pricing Section CSS*/
-
+/* Pricing Section CSS */
 .pricing {
   padding: 5em 0;
 }
@@ -2577,17 +2576,20 @@ footer {
   text-align: center;
 }
 
-.pricing .container {
+.slider-container {
   position: relative;
-  width: 1150px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  max-width: 75rem;
+  margin: 0 auto;
 }
 
-.pricing .container .card {
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.card {
   position: relative;
   width: 300px;
   height: 420px;
@@ -2596,14 +2598,14 @@ footer {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  transition: 0.5s;
+  flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
-.pricing .container .card:hover {
-  transform: scale(1.1);
+.card:hover {
+  transform: scale(1.05);
 }
 
-.pricing .container .card .circle {
+.circle {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -2612,13 +2614,13 @@ footer {
   text-align: center;
 }
 
-.pricing .container .card .circle h3 {
+.circle h3 {
   color: #fff;
   font-size: 2em;
   padding: 60px 0;
 }
 
-.pricing .container .card .content {
+.content {
   position: absolute;
   width: 100%;
   bottom: 10px;
@@ -2628,12 +2630,12 @@ footer {
   font-weight: 600;
 }
 
-.pricing .container .card .content .features {
+.features {
   color: #666;
   margin-bottom: 8px;
 }
 
-.pricing .container .card .content a {
+.content a {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -2644,19 +2646,40 @@ footer {
   margin-top: 20px;
 }
 
-.pricing .container .card:nth-child(1) .circle,
-.pricing .container .card:nth-child(1) .content a {
+.card:nth-child(1) .circle,
+.card:nth-child(1) .content a {
   background: #ffaf00;
 }
 
-.pricing .container .card:nth-child(2) .circle,
-.pricing .container .card:nth-child(2) .content a {
+.card:nth-child(2) .circle,
+.card:nth-child(2) .content a {
   background: #da2268;
 }
 
-.pricing .container .card:nth-child(3) .circle,
-.pricing .container .card:nth-child(3) .content a {
+.card:nth-child(3) .circle,
+.card:nth-child(3) .content a {
   background: #bb02ff;
+}
+
+/* Positioning for buttons */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
 }
 
 /* moving body background   */
