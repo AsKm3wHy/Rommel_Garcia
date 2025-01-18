@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="img/core-img/favicon.png" />
+    <!-- <link rel="icon" href="img/core-img/favicon.png" /> -->
     <!-- animate on scroll css  -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Lx Gallery</title>
 
-    <link rel="icon" href="img/core-img/favicon.png" />
+    <!-- <link rel="icon" href="img/core-img/favicon.png" /> -->
 
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.0VivtDGN1d.css" />
     <!-- CSS only -->

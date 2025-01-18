@@ -9,11 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Lx Gallery | Gallery</title>
+    <title>Rommel | Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="img/core-img/favicon.png">
+    <!-- <link rel="icon" href="img/core-img/favicon.png"> -->
 
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.0VivtDGN1d.css">
     <!-- animate on scroll css  -->
