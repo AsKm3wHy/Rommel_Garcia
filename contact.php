@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Lx Gallery | Contact</title>
+    <title>Rommel | Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="icon" href="img/core-img/favicon.png" /> -->
     <!-- animate on scroll css  -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>Lx Gallery</title>
+    <title>Rommel Gallery</title>
 
     <!-- <link rel="icon" href="img/core-img/favicon.png" /> -->
 
@@ -25,225 +25,225 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
 
     <style>
-    @import url(https://weloveiconfonts.com/api/?family=entypo);
-    @import url(css/default-assets/themify-icons.css);
-    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@700&display=swap");
+        @import url(https://weloveiconfonts.com/api/?family=entypo);
+        @import url(css/default-assets/themify-icons.css);
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@700&display=swap");
 
-    .Query {
-        display: flex;
-        justify-content: space-around;
-        padding: 100px 40px 80px 0px;
-    }
-
-    h1 {
-        color: #eaeaea;
-        font-weight: 600;
-    }
-
-    .Query .left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .Query .center {
-        border-left: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .Query .left h2 {
-        font-size: 50px;
-    }
-
-    .Query .right form {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        padding: 30px 50px;
-        ;
-        text-align: center;
-    }
-
-    .contact-heading {
-        font-family: "Open Sans", sans-serif;
-        font-weight: 700;
-        line-height: 46px;
-        text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
-        color: #fff !important;
-    }
-
-    .Query .right form button {
-        padding: 10px 200px 10px 200px;
-        margin: 10px 10px;
-        color: #111;
-        font-weight: bold;
-        background: rgba(255, 255, 255, 0.6);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4.5px);
-        -webkit-backdrop-filter: blur(4.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .Query .right form button:hover {
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.397);
-    }
-
-    .Query .right form input {
-        background: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4.5px);
-        -webkit-backdrop-filter: blur(4.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .Query .right form textarea {
-        height: 100px;
-        background: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4.5px);
-        -webkit-backdrop-filter: blur(4.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    h2 {
-        text-align: center;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    h6 {
-        text-align: center;
-        position: relative;
-        top: -30px;
-        font-size: 18px;
-        z-index: 90;
-    }
-
-    .contact-OR {
-        background-color: #fc6060;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin-left: 47.5%;
-        margin-right: 47.5%;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
-    }
-
-    .form-control {
-        margin-top: 18px;
-    }
-
-    .row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .icons-container {
-        display: flex;
-        flex-direction: row;
-        border-radius: 5px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icons {
-        /* background-color: rgba(240, 248, 255, 0.185); */
-        text-align: center;
-        padding-left: 5px;
-        padding-right: 5px;
-        border-radius: 2px;
-        cursor: pointer;
-    }
-
-    #footer-icons {
-        /* background-color: rgba(240, 248, 255, 0.185); */
-        padding: 0 15%;
-        border-radius: 2px;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; */
-    }
-
-    .icons:hover {
-        transform: scale(1.1);
-    }
-
-    #footer-icons:hover {
-        transform: none;
-    }
-
-    @media (max-width: 1010px) {
         .Query {
-            padding: 100px 20px 80px 30px;
+            display: flex;
+            justify-content: space-around;
+            padding: 100px 40px 80px 0px;
         }
-    }
 
-    @media (max-width: 780px) {
-        .Query {
+        h1 {
+            color: #eaeaea;
+            font-weight: 600;
+        }
+
+        .Query .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
-            padding-left: 20px;
+        }
+
+        .Query .center {
+            border-left: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .Query .left h2 {
+            font-size: 50px;
+        }
+
+        .Query .right form {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 30px 50px;
+            ;
+            text-align: center;
+        }
+
+        .contact-heading {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 700;
+            line-height: 46px;
+            text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
+            color: #fff !important;
         }
 
         .Query .right form button {
             padding: 10px 200px 10px 200px;
-            width: 100%;
+            margin: 10px 10px;
+            color: #111;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4.5px);
+            -webkit-backdrop-filter: blur(4.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-    }
 
-    @media (max-width: 767px) {
-        h1 {
-            font-size: 1.8rem;
+        .Query .right form button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.397);
         }
 
-        .classy-nav-container .classy-navbar .nav-brand {
-            margin-left: 3px;
-            max-width: fit-content;
-            margin-top: 8px;
+        .Query .right form input {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4.5px);
+            -webkit-backdrop-filter: blur(4.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-    }
 
-    @media (max-width: 535px) {
-        .Query .right form button {
-            padding: 10px 175px 10px 175px;
+        .Query .right form textarea {
+            height: 100px;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4.5px);
+            -webkit-backdrop-filter: blur(4.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-    }
 
-    @media (max-width: 420px) {
+        h2 {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h6 {
+            text-align: center;
+            position: relative;
+            top: -30px;
+            font-size: 18px;
+            z-index: 90;
+        }
+
+        .contact-OR {
+            background-color: #fc6060;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 47.5%;
+            margin-right: 47.5%;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+        }
+
+        .form-control {
+            margin-top: 18px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .icons-container {
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-
-        .Query .right form button {
-            padding: 10px 30% 10px 30%;
+            flex-direction: row;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
         }
 
         .icons {
             /* background-color: rgba(240, 248, 255, 0.185); */
-            padding: 10%;
+            text-align: center;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 2px;
+            cursor: pointer;
         }
-    }
+
+        #footer-icons {
+            /* background-color: rgba(240, 248, 255, 0.185); */
+            padding: 0 15%;
+            border-radius: 2px;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; */
+        }
+
+        .icons:hover {
+            transform: scale(1.1);
+        }
+
+        #footer-icons:hover {
+            transform: none;
+        }
+
+        @media (max-width: 1010px) {
+            .Query {
+                padding: 100px 20px 80px 30px;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .Query {
+                flex-direction: column;
+                padding-left: 20px;
+            }
+
+            .Query .right form button {
+                padding: 10px 200px 10px 200px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .classy-nav-container .classy-navbar .nav-brand {
+                margin-left: 3px;
+                max-width: fit-content;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 535px) {
+            .Query .right form button {
+                padding: 10px 175px 10px 175px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .icons-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .Query .right form button {
+                padding: 10px 30% 10px 30%;
+            }
+
+            .icons {
+                /* background-color: rgba(240, 248, 255, 0.185); */
+                padding: 10%;
+            }
+        }
     </style>
     <link rel="stylesheet" href="contact.css" />
 </head>
@@ -315,7 +315,7 @@
     </header>
 
     <section class="breadcrumb-area bg-img bg-overlay jarallax" style="
-        background-image: url(img/lx-imges/lx3.jpg);
+        background-image: url(img/indexImage/empty.png);
       ">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -376,8 +376,8 @@
 
                     <div class="social-info">
                         <div class="icons">
-                            <a href="https://www.linkedin.com/in/lx-rn-1310b0256">
-                                <img src="img/linkedin.png" target="_blank" max-width="2%" />
+                            <a href="#">
+                                <img src="img/faceb.png" target="_blank" max-width="2%" />
                                 <p style="color: white; font-weight: bold;">Linkedin</p>
                             </a>
                         </div>
@@ -385,8 +385,7 @@
                 </div>
 
                 <!-- <div class="contact-info mb-30"> -->
-                <div class="contact-info">
-                    <!-- <p>Call Us</p> -->
+                <!-- <div class="contact-info">
                     <div class="social-info">
                         <div class="icons">
                             <a href="8543928256">
@@ -395,7 +394,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="col-12 col-lg-3"> -->
 
@@ -518,147 +517,105 @@
                 <div class="col-12">
                     <div class="section-heading text-center">
                         <h2>Follow Instagram</h2>
-                        <p>
-                            <a href="https://www.instagram.com/lx_0980/">@lx_0980</a>
-                        </p>
+                        <p><a href="https://www.instagram.com/lx_0980/">@Rommel_Garcia</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="instragram-feed-area owl-carousel">
+
             <div class="single-instagram-item">
-                <img src="img/bg-img/x11.jpg.pagespeed.ic.EUL6KdRKnX.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x12.jpg.pagespeed.ic.KtvCPGmp2L.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x13.jpg.pagespeed.ic.Yyn_qfYWhe.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x14.jpg.pagespeed.ic.HrODpshf0G.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x15.jpg.pagespeed.ic.E9v-lQJEPj.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x16.jpg.pagespeed.ic._rIX_EXu7n.jpg" alt="" />
-                <div class="
-              instagram-hover-content
-              text-center
-              d-flex
-              align-items-center
-              justify-content-center
-            ">
-                    <a href="#" style="font-size: 18px">
+                <img src="img/indexImage/empty.png" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
+
     <footer>
         <div class="wrapper">
             <div class="containerUp">
                 <div class="social-info">
-                    <h2>Follow Lx GALLERY</h2>
+                    <h2>Follow Rommel Garcia</h2>
                     <div class="icons">
-                        <a href="https://www.linkedin.com/in/lx-rn-1310b0256" target="_blank"><img
-                                src="./img/footer-icons/pinpng.com-linkedin-png-533635.png" /></a>
-                        <a href="https://www.instagram.com/lx_0980" target="_blank"><img
-                                src="./img/footer-icons/insta.jpg" /></a>
-                        <a href="https://in.pinterest.com/Lx0980/" target="_blank"><img
-                                src="./img/footer-icons/pinterest-new.png" /></a>
-                        <a href="https://www.quora.com/profile/Lx0980" target="_blank"><img
-                                src="./img/footer-icons/quora.png" /></a>
-                        <a href="https://github.com/0AIB" target="_blank"><img
-                                src="./img/footer-icons/gtihub.png" /></a>
+
+                        <a href="#" target="_blank"><img src="./img/footer-icons/facebook.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/insta.jpg"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/twitter-4-48.png"></a>
+                        <!-- <a href="#" target="_blank"><img src="./img/footer-icons/quora.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/gtihub.png"></a> -->
+
                     </div>
                 </div>
-                <div class="connect">
+                <!-- <div class="connect">
                     <h2>Stay up to date on the latest from Lx Gallery</h2>
                     <form>
-                        <input type="email" placeholder="Enter your email" />
+                        <input type="email" placeholder="Enter your email">
                         <button>Subscribe</button>
                     </form>
-                </div>
+                </div> -->
             </div>
-            <hr />
+            <hr>
             <div class="containerDown">
                 <div class="last">
-                    <p>
-                        Copyright © 2023 All rights reserved | Made with
-                        <span class="heart">❤</span> by
-                        <a href="#" target="_blank">Lx</a>
-                    </p>
+                    <p>Copyright © 2023 All rights reserved | Made with <span class="heart">❤</span> by <a href="#"
+                            target="_blank">Rommel</a></p>
                 </div>
             </div>
         </div>
@@ -668,11 +625,11 @@
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+        eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+        eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -681,24 +638,24 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-    gtag("config", "UA-23581568-13");
+        gtag("config", "UA-23581568-13");
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"6990232fef241baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+        </script>
 
     <script src="contact.js"></script>
     <!-- animate on scroll js  -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
 </body>
 

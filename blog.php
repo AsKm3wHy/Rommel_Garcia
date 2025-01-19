@@ -19,20 +19,20 @@
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.0VivtDGN1d.css">
 
     <style>
-    h1 {
-        color: #eaeaea;
-    }
-
-    @media only screen and (max-width: 767px) {
         h1 {
-            font-size: 1.8rem;
+            color: #eaeaea;
         }
 
-        .classy-nav-container .classy-navbar .nav-brand {
-            max-width: fit-content;
-            margin-right: 15px;
+        @media only screen and (max-width: 767px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .classy-nav-container .classy-navbar .nav-brand {
+                max-width: fit-content;
+                margin-right: 15px;
+            }
         }
-    }
     </style>
 </head>
 
@@ -107,7 +107,7 @@
     </header>
 
 
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/lx-imges/lx3.jpg)">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/empty.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -134,8 +134,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="100ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/x51.jpg.pagespeed.ic.dImSg_U6Mv.jpg"
-                                alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Photography</a>
 
@@ -152,7 +151,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="400ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/52.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Camera</a>
 
@@ -169,7 +168,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="700ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/53.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Country</a>
 
@@ -186,7 +185,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="100ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/54.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Camera</a>
 
@@ -203,7 +202,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="400ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/55.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Tips</a>
 
@@ -220,7 +219,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="700ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/56.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Photography</a>
 
@@ -237,7 +236,7 @@
                 <div class="col-12 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="100ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/57.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Country</a>
 
@@ -254,7 +253,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="400ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/58.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Camera</a>
 
@@ -271,7 +270,7 @@
                 <div class="col-12 col-lg-3">
                     <div class="single-post-area wow fadeInUpBig" data-wow-delay="700ms">
 
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/59.jpg" alt=""></a>
+                        <a href="#" class="post-thumbnail"><img src="img/indexImage/empty.png" alt=""></a>
 
                         <a href="#" class="btn post-catagory">Photography</a>
 
@@ -301,14 +300,15 @@
     </div>
 
 
+
+
     <div class="follow-area clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center">
                         <h2>Follow Instagram</h2>
-                        <p><a href="https://www.instagram.com/lx_0980/">@lx_0980</a></p>
-
+                        <p><a href="https://www.instagram.com/lx_0980/">@Rommel_Garcia</a></p>
                     </div>
                 </div>
             </div>
@@ -317,61 +317,61 @@
         <div class="instragram-feed-area owl-carousel">
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x11.jpg.pagespeed.ic.EUL6KdRKnX.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x12.jpg.pagespeed.ic.KtvCPGmp2L.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x13.jpg.pagespeed.ic.Yyn_qfYWhe.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x14.jpg.pagespeed.ic.HrODpshf0G.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x15.jpg.pagespeed.ic.E9v-lQJEPj.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
 
             <div class="single-instagram-item">
-                <img src="img/bg-img/x16.jpg.pagespeed.ic._rIX_EXu7n.jpg" alt="">
+                <img src="img/indexImage/empty.png" alt="">
                 <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
                     <a href="#" style="font-size: 18px;">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>lx_0980</span>
+                        <span>Rommel_Garcia</span>
                     </a>
                 </div>
             </div>
@@ -382,50 +382,45 @@
         <div class="wrapper">
             <div class="containerUp">
                 <div class="social-info">
-                    <h2>Follow Lx GALLERY</h2>
+                    <h2>Follow Rommel Garcia</h2>
                     <div class="icons">
 
-                        <a href="https://www.linkedin.com/in/lx-rn-1310b0256" target="_blank"><img
-                                src="./img/footer-icons/pinpng.com-linkedin-png-533635.png"></a>
-                        <a href="https://www.instagram.com/lx_0980" target="_blank"><img
-                                src="./img/footer-icons/insta.jpg"></a>
-                        <a href="https://in.pinterest.com/Lx0980/" target="_blank"><img
-                                src="./img/footer-icons/pinterest-new.png"></a>
-                        <a href="https://www.quora.com/profile/Lx0980" target="_blank"><img
-                                src="./img/footer-icons/quora.png"></a>
-                        <a href="https://github.com/0AIB" target="_blank"><img src="./img/footer-icons/gtihub.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/facebook.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/insta.jpg"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/twitter-4-48.png"></a>
+                        <!-- <a href="#" target="_blank"><img src="./img/footer-icons/quora.png"></a>
+                        <a href="#" target="_blank"><img src="./img/footer-icons/gtihub.png"></a> -->
 
                     </div>
                 </div>
-                <div class="connect">
+                <!-- <div class="connect">
                     <h2>Stay up to date on the latest from Lx Gallery</h2>
                     <form>
                         <input type="email" placeholder="Enter your email">
                         <button>Subscribe</button>
                     </form>
-                </div>
+                </div> -->
             </div>
             <hr>
             <div class="containerDown">
                 <div class="last">
                     <p>Copyright © 2023 All rights reserved | Made with <span class="heart">❤</span> by <a href="#"
-                            target="_blank">Lx</a></p>
+                            target="_blank">Rommel</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
 
-
     <script src="js/jquery.min.js"></script>
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+        eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+        eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -434,18 +429,18 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+        gtag('config', 'UA-23581568-13');
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"6990232adfac1baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+        </script>
 </body>
 
 <!-- Mirrored from preview.colorlib.com/theme/lx/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:50 GMT -->

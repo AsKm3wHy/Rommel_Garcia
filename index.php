@@ -125,12 +125,12 @@
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>I'm Lx</h2>
+                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>Guest!</h2>
                                 <p data-animation="bounceInUp" data-delay="500ms">I photograph very instinctively. I
                                     see how it is taken like that. I do not follow certain styles, philosophies or
                                     teachers.</p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get a Quote</a>
+                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>I'm Lx</h2>
+                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>Guest!</h2>
                                 <p data-animation="bounceInUp" data-delay="500ms">I photograph very instinctively. It`s
                                     about
                                     finding something intresting in an ordinary place... I've found it has little to do
@@ -153,7 +153,7 @@
                                     the things you see and everything to do with the way you see them.
                                 </p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get a Quote</a>
+                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -499,17 +499,17 @@
     <footer>
         <div class="wrapper" data-aos="fade-up" data-aos-duration="3000">
             <div class="containerUp">
-                <!-- <div class="connect">
-                    <div>
-                        <h2>Stay up to date on the latest from Lx Gallery</h2>
-                    </div>
-                    <div class="connect-form">
+                <div class="connect">
+                    <!-- <div>
+                        <h2>Follow Rommel Garcia Photography</h2>
+                    </div> -->
+                    <!-- <div class="connect-form">
                         <form>
                             <input type="email" placeholder="Enter your email">
                             <button>Subscribe</button>
                         </form>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
                 <div class="social-info">
                     <h2>Follow Rommel Garcia</h2>
                     <div class="icons">
@@ -540,13 +540,13 @@
 </body>
 
 <script>
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
+    function updateCounter() {
+        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+            .then(res => res.json())
+            .then(data => counterElement.innerHTML = data.value)
+    }
+    updateCounter()
+    counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -554,11 +554,11 @@ counterElement = document.getElementsByClassName('count')[0];
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -567,44 +567,44 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 <script>
-let currentIndex = 0;
+    let currentIndex = 0;
 
-function slide(direction) {
-    const cards = document.querySelectorAll('.card');
-    const totalCards = cards.length;
-    const cardWidth = 300 + 40; // card width + margin (20px left and right)
-
-
-    currentIndex += direction;
+    function slide(direction) {
+        const cards = document.querySelectorAll('.card');
+        const totalCards = cards.length;
+        const cardWidth = 300 + 40; // card width + margin (20px left and right)
 
 
-    if (currentIndex < 0) {
-        currentIndex = totalCards - 1;
-    } else if (currentIndex >= totalCards) {
-        currentIndex = 0;
+        currentIndex += direction;
+
+
+        if (currentIndex < 0) {
+            currentIndex = totalCards - 1;
+        } else if (currentIndex >= totalCards) {
+            currentIndex = 0;
+        }
+
+        const slider = document.querySelector('.slider');
+        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
-
-    const slider = document.querySelector('.slider');
-    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-}
 </script>
 </body>
 
