@@ -316,14 +316,6 @@ function updateCounter() {
 }
 updateCounter()
 counterElement = document.getElementsByClassName('count')[0];
-
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -332,11 +324,9 @@ counterElement = document.getElementsByClassName('count')[0];
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
 eval(mod_pagespeed_2mSwO3vn68);
-eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
 eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
@@ -347,29 +337,20 @@ eval(mod_pagespeed_aQrG1NKKxL);
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
-window.dataLayer = window.dataLayer || [];
 
 function gtag() {
     dataLayer.push(arguments);
 }
 gtag('js', new Date());
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
-
-gtag('config', 'UA-23581568-13');
 gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
 </script>
-</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
 AOS.init();
 </script>
 <script>
@@ -379,30 +360,17 @@ function slide(direction) {
     const cards = document.querySelectorAll('.card');
     const totalCards = cards.length;
     const cardWidth = 300 + 40; // card width + margin (20px left and right)
-    function slide(direction) {
-        const cards = document.querySelectorAll('.card');
-        const totalCards = cards.length;
-        const cardWidth = 300 + 40; // card width + margin (20px left and right)
 
 
-        currentIndex += direction;
-        currentIndex += direction;
+    currentIndex += direction;
 
 
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
-        }
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
-        }
-
-        const slider = document.querySelector('.slider');
-        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
     }
+
     const slider = document.querySelector('.slider');
     slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 }
