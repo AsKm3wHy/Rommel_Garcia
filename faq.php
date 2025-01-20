@@ -77,8 +77,8 @@
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
                                     <li><a href="#">Appointment</a></li>
-                                    <li class="active"><a href="gallery.php">Gallery</a></li>
-                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li class="active"><a href="faq.php">FAQ</a></li>
                                 </ul>
 
 
