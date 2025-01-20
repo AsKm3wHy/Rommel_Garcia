@@ -25,225 +25,225 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
 
     <style>
-        @import url(https://weloveiconfonts.com/api/?family=entypo);
-        @import url(css/default-assets/themify-icons.css);
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@700&display=swap");
+    @import url(https://weloveiconfonts.com/api/?family=entypo);
+    @import url(css/default-assets/themify-icons.css);
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@700&display=swap");
 
+    .Query {
+        display: flex;
+        justify-content: space-around;
+        padding: 100px 40px 80px 0px;
+    }
+
+    h1 {
+        color: #eaeaea;
+        font-weight: 600;
+    }
+
+    .Query .left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .Query .center {
+        border-left: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .Query .left h2 {
+        font-size: 50px;
+    }
+
+    .Query .right form {
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 30px 50px;
+        ;
+        text-align: center;
+    }
+
+    .contact-heading {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        line-height: 46px;
+        text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
+        color: #fff !important;
+    }
+
+    .Query .right form button {
+        padding: 10px 200px 10px 200px;
+        margin: 10px 10px;
+        color: #111;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4.5px);
+        -webkit-backdrop-filter: blur(4.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .Query .right form button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.397);
+    }
+
+    .Query .right form input {
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4.5px);
+        -webkit-backdrop-filter: blur(4.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .Query .right form textarea {
+        height: 100px;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4.5px);
+        -webkit-backdrop-filter: blur(4.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h6 {
+        text-align: center;
+        position: relative;
+        top: -30px;
+        font-size: 18px;
+        z-index: 90;
+    }
+
+    .contact-OR {
+        background-color: #fc6060;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-left: 47.5%;
+        margin-right: 47.5%;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+    }
+
+    .form-control {
+        margin-top: 18px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icons-container {
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icons {
+        /* background-color: rgba(240, 248, 255, 0.185); */
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    #footer-icons {
+        /* background-color: rgba(240, 248, 255, 0.185); */
+        padding: 0 15%;
+        border-radius: 2px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; */
+    }
+
+    .icons:hover {
+        transform: scale(1.1);
+    }
+
+    #footer-icons:hover {
+        transform: none;
+    }
+
+    @media (max-width: 1010px) {
         .Query {
-            display: flex;
-            justify-content: space-around;
-            padding: 100px 40px 80px 0px;
+            padding: 100px 20px 80px 30px;
         }
+    }
 
-        h1 {
-            color: #eaeaea;
-            font-weight: 600;
-        }
-
-        .Query .left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    @media (max-width: 780px) {
+        .Query {
             flex-direction: column;
-        }
-
-        .Query .center {
-            border-left: 2px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .Query .left h2 {
-            font-size: 50px;
-        }
-
-        .Query .right form {
-            background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(3.5px);
-            -webkit-backdrop-filter: blur(3.5px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 30px 50px;
-            ;
-            text-align: center;
-        }
-
-        .contact-heading {
-            font-family: "Open Sans", sans-serif;
-            font-weight: 700;
-            line-height: 46px;
-            text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
-            color: #fff !important;
+            padding-left: 20px;
         }
 
         .Query .right form button {
             padding: 10px 200px 10px 200px;
-            margin: 10px 10px;
-            color: #111;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4.5px);
-            -webkit-backdrop-filter: blur(4.5px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        h1 {
+            font-size: 1.8rem;
         }
 
-        .Query .right form button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(3.5px);
-            -webkit-backdrop-filter: blur(3.5px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.397);
+        .classy-nav-container .classy-navbar .nav-brand {
+            margin-left: 3px;
+            max-width: fit-content;
+            margin-top: 8px;
         }
+    }
 
-        .Query .right form input {
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4.5px);
-            -webkit-backdrop-filter: blur(4.5px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+    @media (max-width: 535px) {
+        .Query .right form button {
+            padding: 10px 175px 10px 175px;
         }
+    }
 
-        .Query .right form textarea {
-            height: 100px;
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4.5px);
-            -webkit-backdrop-filter: blur(4.5px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        h6 {
-            text-align: center;
-            position: relative;
-            top: -30px;
-            font-size: 18px;
-            z-index: 90;
-        }
-
-        .contact-OR {
-            background-color: #fc6060;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-left: 47.5%;
-            margin-right: 47.5%;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
-            backdrop-filter: blur(3.5px);
-            -webkit-backdrop-filter: blur(3.5px);
-        }
-
-        .form-control {
-            margin-top: 18px;
-        }
-
-        .row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+    @media (max-width: 420px) {
         .icons-container {
             display: flex;
-            flex-direction: row;
-            border-radius: 5px;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .Query .right form button {
+            padding: 10px 30% 10px 30%;
         }
 
         .icons {
             /* background-color: rgba(240, 248, 255, 0.185); */
-            text-align: center;
-            padding-left: 5px;
-            padding-right: 5px;
-            border-radius: 2px;
-            cursor: pointer;
+            padding: 10%;
         }
-
-        #footer-icons {
-            /* background-color: rgba(240, 248, 255, 0.185); */
-            padding: 0 15%;
-            border-radius: 2px;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; */
-        }
-
-        .icons:hover {
-            transform: scale(1.1);
-        }
-
-        #footer-icons:hover {
-            transform: none;
-        }
-
-        @media (max-width: 1010px) {
-            .Query {
-                padding: 100px 20px 80px 30px;
-            }
-        }
-
-        @media (max-width: 780px) {
-            .Query {
-                flex-direction: column;
-                padding-left: 20px;
-            }
-
-            .Query .right form button {
-                padding: 10px 200px 10px 200px;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .classy-nav-container .classy-navbar .nav-brand {
-                margin-left: 3px;
-                max-width: fit-content;
-                margin-top: 8px;
-            }
-        }
-
-        @media (max-width: 535px) {
-            .Query .right form button {
-                padding: 10px 175px 10px 175px;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .icons-container {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-            }
-
-            .Query .right form button {
-                padding: 10px 30% 10px 30%;
-            }
-
-            .icons {
-                /* background-color: rgba(240, 248, 255, 0.185); */
-                padding: 10%;
-            }
-        }
+    }
     </style>
     <link rel="stylesheet" href="contact.css" />
 </head>
@@ -279,7 +279,9 @@
                 <div class="container">
                     <nav class="classy-navbar justify-content-between" id="lxNav">
                         <a class="nav-brand" href="index.php">
-                            <h1>Rommel</h1>
+                            <!-- <h1>Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo"
+                                style="margin-top:3rem; width:10rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -625,11 +627,11 @@
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-        eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-        eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -638,24 +640,24 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-        gtag("config", "UA-23581568-13");
+    gtag("config", "UA-23581568-13");
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"6990232fef241baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-        </script>
+    </script>
 
     <script src="contact.js"></script>
     <!-- animate on scroll js  -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
 </body>
 
