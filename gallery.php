@@ -24,9 +24,24 @@
         color: #eaeaea;
     }
 
+    h1 {
+        color: #eaeaea;
+    }
+
     @media only screen and (max-width: 767px) {
         h1 {
             font-size: 1.8rem;
+        }
+
+        @media only screen and (max-width: 767px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .classy-nav-container .classy-navbar .nav-brand {
+                max-width: fit-content;
+                margin-right: 15px;
+            }
         }
 
         .classy-nav-container .classy-navbar .nav-brand {
@@ -73,7 +88,9 @@
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <h1 class="home-logo">Rommel</h1>
+                            <!-- <h1 class="home-logo">Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo"
+                                style="margin-top:3rem; width:10rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
