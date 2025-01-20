@@ -374,7 +374,6 @@ AOS.init();
 </script>
 <script>
 let currentIndex = 0;
-let currentIndex = 0;
 
 function slide(direction) {
     const cards = document.querySelectorAll('.card');
