@@ -147,7 +147,7 @@
                         <option value="group">GROUP</option>
                     </select>
                     <label for="text">Price:</label>
-                    <input class="php" type="text" value="Php 500" readonly id="price">
+                    <input class="php" type="text" value="₱500" readonly id="price">
 
                 </div>
 
@@ -529,7 +529,7 @@
         }
 
 
-        priceInput.value = "Php " + price;
+        priceInput.value = "₱ " + price;
     }
 </script>
 </body>
