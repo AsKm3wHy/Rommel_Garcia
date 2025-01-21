@@ -279,9 +279,6 @@
             <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
             <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
-    </section>
-
-    <section class="pricing" style="padding:0!important;padding-bottom:5em!important;">
         <div class="container" data-aos="zoom-in-left" data-aos-duration="1000">
             <h2>Packages</h2>
         </div>
@@ -418,10 +415,6 @@
     </section>
 
 
-
-
-
-
     <footer>
         <div class="wrapper">
             <div class="containerUp">
@@ -448,13 +441,13 @@
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -462,11 +455,11 @@
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -475,57 +468,57 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 <script>
-    function slide(sliderElement, direction) {
+function slide(sliderElement, direction) {
 
-        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
-        const cards = sliderElement.querySelectorAll('.card, .card1');
-        const totalCards = cards.length;
-        const cardWidth = 300 + 40;
-
-
-        currentIndex += direction;
+    let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+    const cards = sliderElement.querySelectorAll('.card, .card1');
+    const totalCards = cards.length;
+    const cardWidth = 300 + 40;
 
 
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
-        }
+    currentIndex += direction;
 
 
-        const sliderInner = sliderElement.querySelector('.slider');
-        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-
-        sliderElement.setAttribute('data-current-index', currentIndex);
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
     }
 
-    document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
-        const prevButton = sliderContainer.querySelector('#prev');
-        const nextButton = sliderContainer.querySelector('#next');
+
+    const sliderInner = sliderElement.querySelector('.slider');
+    sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 
 
-        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
-        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
-    });
+    sliderElement.setAttribute('data-current-index', currentIndex);
+}
+
+document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+    const prevButton = sliderContainer.querySelector('#prev');
+    const nextButton = sliderContainer.querySelector('#next');
+
+
+    prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+    nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+});
 </script>
 </body>
 
