@@ -77,7 +77,7 @@
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">Appointment</a></li>
+                                    <li><a href="Appointment.php">Appointment</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li class="active"><a href="faq.php">FAQ</a></li>
                                 </ul>

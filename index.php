@@ -76,7 +76,7 @@
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
                                     <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="#">Appointment</a></li>
+                                    <li><a href="Appointment.php">Appointment</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
                                 </ul>
@@ -117,7 +117,8 @@
                                     fleeting moments into lasting keepsakes that you can reminisce about for years to
                                     come.</p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                        Appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,8 @@
                                     a special milestone, we help you save these precious memories, ensuring you can
                                     cherish and share them for years to come.</p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                        Appointment</a>
                                 </div>
                             </div>
                         </div>

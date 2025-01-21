@@ -105,7 +105,7 @@
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">Appointment</a></li>
+                                    <li><a href="Appointment.php">Appointment</a></li>
                                     <li class="active"><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
                                 </ul>
@@ -126,7 +126,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Gallery</h2>
+                        <h2 class="page-title">G A L L E R Y</h2>
                         <nav aria-label="breadcrumb">
 
                         </nav>
