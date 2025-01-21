@@ -163,7 +163,7 @@
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>SOLO</h3>
                     </div>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>DUO</h3>
                     </div>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>TRIO</h3>
                     </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>QUAD</h3>
                     </div>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>Deluxe</h3>
                     </div>
@@ -244,7 +244,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>GROUP</h3>
                     </div>
@@ -259,7 +259,7 @@
                         <a href="#">₱1,500</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" data-aos="flip-left">
                     <div class="circle">
                         <h3>GRADUATE</h3>
                     </div>
