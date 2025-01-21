@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
     <title>Rommel | Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
@@ -105,7 +106,7 @@
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">Appointment</a></li>
+                                    <li><a href="Appointment.php">Appointment</a></li>
                                     <li class="active"><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
                                 </ul>
@@ -126,7 +127,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Gallery</h2>
+                        <h2 class="page-title">G A L L E R Y</h2>
                         <nav aria-label="breadcrumb">
 
                         </nav>
