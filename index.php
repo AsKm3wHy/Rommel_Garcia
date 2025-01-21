@@ -59,8 +59,7 @@
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <!-- <h1 class="home-logo">Rommel</h1> -->
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
+                            <h1 class="home-logo">Rommel Garcia</h1>
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -77,14 +76,10 @@
                                 <ul id="nav">
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#">Appointment</a></li>
-                                    <li><a href="about.php">About</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
-                                    <li><a href="blog.php">Blog</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
                                 </ul>
 
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"> <i
-                                        class="fa fa-search" aria-hidden="true"></i></div>
                             </div>
 
                         </div>
@@ -95,41 +90,31 @@
     </header>
     <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
         <li>
-            <a class="entypo-facebook" href="#" target="_blank"><span>Facebook</span></a>
+            <a class="entypo-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+                target="_blank"><span>Facebook</span></a>
         </li>
-        <!-- <li>
-            <a class="entypo-github" href="https://github.com/0AIB" target="_blank"><span>Github</span></a>
-        </li>
-        <li>
-            <a class="entypo-gplus" href="https://www.quora.com/profile/Lx0980" target="_blank"><span>Google+</span></a>
-        </li> -->
-        <li>
-            <a class="entypo-instagrem" href="https://www.instagram.com/lx_0980"
-                target="_blank"><span>Instagram</span></a>
-        </li>
-        <!-- <li>
-            <a class="entypo-linkedin" href="https://www.linkedin.com/in/lx-rn-1310b0256"
-                target="_blank"><span>LinkedIn</span></a>
-        </li> -->
-        <li>
-            <a class="entypo-twitter" href="https://twitter.com/Lx0980" target="_blank"><span>Twitter</span></a>
-        </li>
+
     </ul>
 
 
     <section class="welcome-area" data-aos="fade-right-up" data-aos-duration="3000">
         <div class="welcome-slides owl-carousel">
 
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/indexImage/logo.jpg);">
+            <div class="single-welcome-slide bg-img bg-overlay"
+                style="background-image: url(img/indexImage/empty.png);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>Guest!</h2>
-                                <p data-animation="bounceInUp" data-delay="500ms">I photograph very instinctively. I
-                                    see how it is taken like that. I do not follow certain styles, philosophies or
-                                    teachers.</p>
+                                <h2 data-animation="bounceInUp" data-delay="100ms">Welcome to a Journey of Memories!
+                                </h2>
+                                <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
+                                    Photography, we believe that every moment is a treasure waiting to be captured. Our
+                                    instinctive approach allows us to freeze time, preserving the emotions and stories
+                                    that make life beautiful. Let us help you save your most cherished memories, turning
+                                    fleeting moments into lasting keepsakes that you can reminisce about for years to
+                                    come.</p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                     <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
                                 </div>
@@ -146,13 +131,14 @@
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Hello <br>Guest!</h2>
-                                <p data-animation="bounceInUp" data-delay="500ms">I photograph very instinctively. It`s
-                                    about
-                                    finding something intresting in an ordinary place... I've found it has little to do
-                                    with
-                                    the things you see and everything to do with the way you see them.
-                                </p>
+                                <h2 data-animation="bounceInUp" data-delay="100ms">Preserve the Moments That Matter!
+                                </h2>
+                                <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
+                                    Photography, we are dedicated to capturing the moments that truly matter in your
+                                    life. Our instinctive approach allows us to create stunning images that reflect the
+                                    emotions and stories behind each event. Whether it’s a wedding, a family reunion, or
+                                    a special milestone, we help you save these precious memories, ensuring you can
+                                    cherish and share them for years to come.</p>
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                     <a href="#" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an Appointment</a>
                                 </div>
@@ -166,141 +152,7 @@
 
 
 
-    <div class="lx-portfolio-area section-padding-80 ">
-        <div class="container-fluid" data-aos="zoom-in" data-aos-duration="3000">
-            <div class="row">
-                <div class="col-12">
 
-                    <div class="lx-projects-menu">
-                        <div class="portfolio-menu text-center">
-                            <button class="btn active" data-filter="*">All</button>
-                            <button class="btn" data-filter=".human">Human</button>
-                            <button class="btn" data-filter=".nature">Nature</button>
-                            <button class="btn" data-filter=".country">Country</button>
-                            <button class="btn" data-filter=".video">Video</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row lx-portfolio">
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-6 single_gallery_item video country mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="700ms">
-                    <a href="#" class="btn lx-btn btn-2 mt-15">View More</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="pricing">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
@@ -310,61 +162,65 @@
             <div class="slider">
                 <div class="card">
                     <div class="circle">
-                        <h3>Solo Shoot</h3>
+                        <h3>SOLO</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Solo Shoot</div>
-                            <div>15 Minutes Session</div>
-                            <div>20 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱500</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="circle">
-                        <h3>Duo Shoot</h3>
+                        <h3>DUO</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Duo Shoot</div>
-                            <div>30 Minutes Session</div>
-                            <div>30 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>2 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱800</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="circle">
-                        <h3>Trio Shoot</h3>
+                        <h3>TRIO</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Trio Shoot</div>
-                            <div>50 Minutes Session</div>
-                            <div>40 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>3 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱900</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="circle">
-                        <h3>Quad Shoot</h3>
+                        <h3>QUAD</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Quad Shoot</div>
-                            <div>50 Minutes Session</div>
-                            <div>40 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>4 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱1,000</a>
                     </div>
                 </div>
 
@@ -374,42 +230,47 @@
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Deluxe</div>
-                            <div>50 Minutes Session</div>
-                            <div>40 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>3 Pax</div>
+                            <div>40 Minutes Self Portrait</div>
+                            <div>3 Backdrop Color</div>
+                            <div>8 4R Size Print</div>
+                            <div>Free use of balloons and letter box</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱2,500</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="circle">
-                        <h3>Graduation</h3>
+                        <h3>GROUP</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Graduation</div>
-                            <div>50 Minutes Session</div>
-                            <div>40 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>6 Pax</div>
+                            <div>30 Minutes Self Portrait</div>
+                            <div>3 Backdrop Color</div>
+                            <div>6 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱1,500</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="circle">
-                        <h3>Group</h3>
+                        <h3>GRADUATE</h3>
                     </div>
                     <div class="content">
                         <div class="features">
-                            <div>Group</div>
-                            <div>50 Minutes Session</div>
-                            <div>40 Digital Images</div>
-                            <div>Photo Release</div>
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
                         </div>
-                        <a href="#">see more</a>
+                        <a href="#">₱800</a>
                     </div>
                 </div>
             </div>
@@ -419,135 +280,42 @@
     </section>
 
 
-    <section class="follow-area clearfix" data-aos="fade-right" data-aos-duration="3000">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <a href="https://www.instagram.com/lx_0980/">
-                            <h2>Instagram</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="instragram-feed-area owl-carousel">
 
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>@my_gallery_4u</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>my_gallery_4u</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>my_gallery_4u
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>my_gallery_4u</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>my_gallery_4u</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/indexImage/empty.png" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>my_gallery_4u</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
-        <div class="wrapper" data-aos="fade-up" data-aos-duration="3000">
+        <div class="wrapper">
             <div class="containerUp">
-                <div class="connect">
-                    <!-- <div>
-                        <h2>Follow Rommel Garcia Photography</h2>
-                    </div> -->
-                    <!-- <div class="connect-form">
-                        <form>
-                            <input type="email" placeholder="Enter your email">
-                            <button>Subscribe</button>
-                        </form>
-                    </div> -->
-                </div>
                 <div class="social-info">
-                    <h2>Follow Rommel Garcia</h2>
-                    <div class="icons">
+                    <h2>Rommel Garcia Digital Video and Photography </h2>
 
-                        <a href="#" target="_blank"><img src="./img/footer-icons/facebook.png"></a>
-                        <a href="#" target="_blank"><img src="./img/footer-icons/insta.jpg"></a>
-                        <a href="#" target="_blank"><img src="./img/footer-icons/twitter-4-48.png"></a>
-                        <!-- <a href="#" target="_blank"><img src="./img/footer-icons/quora.png"></a>
-                        <a href="#" target="_blank"><img src="./img/footer-icons/gtihub.png"></a> -->
-
-                    </div>
                 </div>
-
+                <!-- <div class="connect">
+                    <h2>Stay up to date on the latest from Lx Gallery</h2>
+                    <form>
+                        <input type="email" placeholder="Enter your email">
+                        <button>Subscribe</button>
+                    </form>
+                </div> -->
             </div>
-
             <hr>
             <div class="containerDown">
                 <div class="last">
-                    <div class="head" style="color: #636363;">Total Website Visit</div>
-                    <div class="count" style="color: #636363;">00</div>
+
                 </div>
-                <p>Copyright © 2023 All rights reserved | Made with <span class="heart">❤</span> by <a
-                        href="https://www.instagram.com/lx_0980" target="_blank"> Rommel</a></p>
             </div>
-        </div>
         </div>
     </footer>
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -555,11 +323,11 @@
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -568,44 +336,44 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 <script>
-    let currentIndex = 0;
+let currentIndex = 0;
 
-    function slide(direction) {
-        const cards = document.querySelectorAll('.card');
-        const totalCards = cards.length;
-        const cardWidth = 300 + 40; // card width + margin (20px left and right)
-
-
-        currentIndex += direction;
+function slide(direction) {
+    const cards = document.querySelectorAll('.card');
+    const totalCards = cards.length;
+    const cardWidth = 300 + 40; // card width + margin (20px left and right)
 
 
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
-        }
+    currentIndex += direction;
 
-        const slider = document.querySelector('.slider');
-        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
     }
+
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
 </script>
 </body>
 
