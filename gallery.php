@@ -20,20 +20,35 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-    h1 {
-        color: #eaeaea;
-    }
-
-    @media only screen and (max-width: 767px) {
         h1 {
-            font-size: 1.8rem;
+            color: #eaeaea;
         }
 
-        .classy-nav-container .classy-navbar .nav-brand {
-            max-width: fit-content;
-            margin-right: 15px;
+        h1 {
+            color: #eaeaea;
         }
-    }
+
+        @media only screen and (max-width: 767px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            @media only screen and (max-width: 767px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                .classy-nav-container .classy-navbar .nav-brand {
+                    max-width: fit-content;
+                    margin-right: 15px;
+                }
+            }
+
+            .classy-nav-container .classy-navbar .nav-brand {
+                max-width: fit-content;
+                margin-right: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -73,7 +88,8 @@
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <h1 class="home-logo">Rommel</h1>
+                            <!-- <h1 class="home-logo">Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -90,14 +106,11 @@
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
                                     <li><a href="#">Appointment</a></li>
-                                    <li><a href="about.php">About</a></li>
                                     <li class="active"><a href="gallery.php">Gallery</a></li>
-                                    <li><a href="blog.php">Blog</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
                                 </ul>
 
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"> <i
-                                        class="fa fa-search" aria-hidden="true"></i></div>
+
                             </div>
 
                         </div>
@@ -108,18 +121,14 @@
     </header>
 
 
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/lx-imges/lx3.jpg)">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/empty.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
                         <h2 class="page-title">Gallery</h2>
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                            </ol>
+
                         </nav>
                     </div>
                 </div>
@@ -136,297 +145,292 @@
                     <div class="lx-projects-menu wow fadeInUp" data-wow-delay="100ms">
                         <div class="portfolio-menu text-center">
                             <button class="btn active" data-filter="*">All</button>
-                            <button class="btn" data-filter=".human">Human</button>
-                            <button class="btn" data-filter=".nature">Nature</button>
-                            <button class="btn" data-filter=".country">Country</button>
-                            <button class="btn" data-filter=".video">Video</button>
+                            <button class="btn" data-filter=".trio">Trio</button>
+                            <button class="btn" data-filter=".duo">Duo</button>
+                            <button class="btn" data-filter=".quad">Quad</button>
+                            <button class="btn" data-filter=".deluxe">Deluxe</button>
+                            <button class="btn" data-filter=".group">Group</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row lx-portfolio">
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x39.jpg.pagespeed.ic.MLLXHm2RCl.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/39.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x40.jpg.pagespeed.ic.oYJYDcxUpG.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/40.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x41.jpg.pagespeed.ic.6b5kUn681s.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/41.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x42.jpg.pagespeed.ic.h8-xyeYXTi.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/42.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x43.jpg.pagespeed.ic.ZOg-OySSEV.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/43.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x44.jpg.pagespeed.ic.um3ddr6rYM.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/44.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/45.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/45.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/46.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/46.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/47.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/47.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x48.jpg.pagespeed.ic.ZwS4OSeMPn.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/48.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x49.jpg.pagespeed.ic.I0h3N4wQ81.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/49.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/bg-img/x50.jpg.pagespeed.ic.oqqQP9zpZy.jpg" alt="">
+                        <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
-                            <a href="img/bg-img/50.jpg" class="portfolio-img">+</a>
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="800ms">
-                    <a href="#" class="btn lx-btn btn-2 mt-15">View More</a>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/indexImage/empty.png" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="800ms">
+                        <!-- <a href="#" class="btn lx-btn btn-2 mt-15">View More</a> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="follow-area clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2>Follow Instagram</h2>
-                        <p><a href="https://www.instagram.com/lx_0980/">@lx_0980</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="instragram-feed-area owl-carousel">
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x11.jpg.pagespeed.ic.EUL6KdRKnX.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x12.jpg.pagespeed.ic.KtvCPGmp2L.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x13.jpg.pagespeed.ic.Yyn_qfYWhe.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x14.jpg.pagespeed.ic.HrODpshf0G.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x15.jpg.pagespeed.ic.E9v-lQJEPj.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="single-instagram-item">
-                <img src="img/bg-img/x16.jpg.pagespeed.ic._rIX_EXu7n.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#" style="font-size: 18px;">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <span>Lx_0980</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <footer>
-        <div class="wrapper">
-            <div class="containerUp">
-                <div class="social-info">
-                    <h2>Follow LX GALLERY</h2>
-                    <div class="icons">
-
-                        <a href="https://www.linkedin.com/in/lx-rn-1310b0256/" target="_blank"><img
-                                src="./img/footer-icons/pinpng.com-linkedin-png-533635.png"></a>
-                        <a href="https://www.instagram.com/lx0980" target="_blank"><img
-                                src="./img/footer-icons/insta.jpg"></a>
-                        <a href="https://in.pinterest.com/Lx0980/" target="_blank"><img
-                                src="./img/footer-icons/pinterest-new.png"></a>
-                        <a href="https://www.quora.com/profile/Lx0980" target="_blank"><img
-                                src="./img/footer-icons/quora.png"></a>
-                        <a href="https://github.com/0AIB" target="_blank"><img src="./img/footer-icons/gtihub.png"></a>
+        <div class="follow-area clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
 
                     </div>
                 </div>
-                <div class="connect">
+            </div>
+
+
+
+
+            <footer>
+                <div class="wrapper">
+                    <div class="containerUp">
+                        <div class="social-info">
+                            <h2>Visit Our Facebook Page</h2>
+                            <div class="icons">
+                                <a href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+                                    target="_blank"><img src="./img/footer-icons/facebook.png"></a>
+                            </div>
+                        </div>
+                        <!-- <div class="connect">
                     <h2>Stay up to date on the latest from Lx Gallery</h2>
                     <form>
                         <input type="email" placeholder="Enter your email">
                         <button>Subscribe</button>
                     </form>
+                </div> -->
+                    </div>
+                    <hr>
+                    <div class="containerDown">
+                        <div class="last">
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <div class="containerDown">
-                <div class="last">
-                    <p>Copyright © 2023 All rights reserved | Made with <span class="heart">❤</span> by <a href="#"
-                            target="_blank">Avinash Singh</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+            </footer>
 
 
 
 
-    <script src="js/jquery.min.js"></script>
+            <script src="js/jquery.min.js"></script>
 
-    <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-    <script>
-    eval(mod_pagespeed_2mSwO3vn68);
-    </script>
+            <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+            <script>
+                eval(mod_pagespeed_2mSwO3vn68);
+            </script>
 
-    <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
-    </script>
+            <script>
+                eval(mod_pagespeed_aQrG1NKKxL);
+            </script>
 
-    <script src="js/lx.bundle.js"></script>
+            <script src="js/lx.bundle.js"></script>
 
-    <script src="js/default-assets/active.js"></script>
+            <script src="js/default-assets/active.js"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
-    </script>
-    <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
-    <!-- animate on scroll js  -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-    AOS.init();
-    </script>
-    <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
+                gtag('config', 'UA-23581568-13');
+            </script>
+            <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+                data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+                </script>
+            <!-- animate on scroll js  -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+                AOS.init();
+            </script>
+            <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
 </body>
 
 </html>

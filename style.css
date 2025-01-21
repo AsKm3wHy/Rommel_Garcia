@@ -2592,7 +2592,7 @@ footer {
 .card {
   position: relative;
   width: 300px;
-  height: 420px;
+  height: 500px;
   background: #fff;
   margin: 20px;
   border-radius: 20px;
@@ -2648,17 +2648,52 @@ footer {
 
 .card:nth-child(1) .circle,
 .card:nth-child(1) .content a {
-  background: #ffaf00;
+  background: #ffaf00; /* Yellow */
 }
 
 .card:nth-child(2) .circle,
 .card:nth-child(2) .content a {
-  background: #da2268;
+  background: #da2268; /* Pink */
 }
 
 .card:nth-child(3) .circle,
 .card:nth-child(3) .content a {
-  background: #bb02ff;
+  background: #bb02ff; /* Purple */
+}
+
+.card:nth-child(4) .circle,
+.card:nth-child(4) .content a {
+  background: #00aaff; /* Light Blue */
+}
+
+.card:nth-child(5) .circle,
+.card:nth-child(5) .content a {
+  background: #ff4500; /* Orange Red */
+}
+
+.card:nth-child(6) .circle,
+.card:nth-child(6) .content a {
+  background: #32cd32; /* Lime Green */
+}
+
+.card:nth-child(7) .circle,
+.card:nth-child(7) .content a {
+  background: #ff69b4; /* Hot Pink */
+}
+
+.card:nth-child(8) .circle,
+.card:nth-child(8) .content a {
+  background: #ffd700; /* Gold */
+}
+
+.card:nth-child(9) .circle,
+.card:nth-child(9) .content a {
+  background: #9370db; /* Medium Purple */
+}
+
+.card:nth-child(10) .circle,
+.card:nth-child(10) .content a {
+  background: #ff8c00; /* Dark Orange */
 }
 
 /* Positioning for buttons */
@@ -2727,3 +2762,4 @@ body {
 .pagination a:hover:not(.active) {
   background-color: #ddd;
 }
+
