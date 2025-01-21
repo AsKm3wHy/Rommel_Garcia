@@ -4,13 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Appointment Dashboard</title>
+  <link rel="stylesheet" href="css/appointment.css">
+  <!-- <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css"> -->
 
-  <style type="text/css">
+  <style>
+    .popup {
+      animation: transitionIn-Y-bottom 0.5s;
+    }
 
-
+    .sub-table {
+      animation: transitionIn-Y-bottom 0.5s;
+    }
   </style>
+
 </head>
 
 <body>
@@ -181,7 +190,7 @@
         </svg>
       </button>
     </form> -->
-      <span class="nav-title">Dashboard</span>
+      <span class="nav-title">Appointment</span>
       <div class="admin-profile">
 
         <!-- <span class="greeting">Hello admin</span> -->
@@ -199,15 +208,652 @@
           </div>
         </div>
 
-
-        <!-- <div class="notifications">
-        <span class="badge">1</span>
-        <svg>
-          <use xlink:href="#users"></use>
-        </svg>
-      </div> -->
       </div>
     </section>
+
+    <div class="dash-body">
+      <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
+
+
+        <tr>
+          <td colspan="2">
+            <p class="heading-main12">Add New Client</p>
+          </td>
+          <td colspan="2">
+            <a href="?action=add&id=none&error=0" class="non-style-link"><button class="login-btn btn-primary btn button-icon add-btn-table" style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add New</font></button>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <p class="heading-main12">All Client (0)</p>
+          </td>
+
+        </tr>
+
+
+        <tr>
+          <td colspan="4">
+            <center>
+              <div class="abc scroll">
+                <table width="93%" class="sub-table scrolldown" border="0">
+                  <thead>
+                    <tr>
+                      <th class="table-headin">
+
+
+                        Appointment number
+
+                      </th>
+                      <th class="table-headin">
+
+
+                        Client Name
+
+                      </th>
+                      <th class="table-headin">
+                        Email
+                      </th>
+                      <th class="table-headin">
+
+                        Category
+
+                      </th>
+                      <th class="table-headin">
+
+                        Date
+
+                      </th>
+                      <th class="table-headin">
+
+                        Time
+
+                      </th>
+                      <th class="table-headin">
+
+                        Events
+
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <!--                            <tr>
+                                    <td colspan="4">
+                                    <br><br><br><br>
+                                    <center>
+                                    <img src="../img/notfound.svg" width="25%">
+                                    
+                                    <br>
+                                    <p class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49)">We  couldnt find anything related to your keywords !</p>
+                                    <a class="non-style-link" href="doctors.php"><button  class="login-btn btn-primary-soft btn"  style="display: flex;justify-content: center;align-items: center;margin-left:20px;">&nbsp; Show all Doctors &nbsp;</font></button>
+                                    </a>
+                                    </center>
+                                    <br><br><br><br>
+                                    </td>
+                                    </tr> -->
+                    <tr>
+                      <td>123</td>
+                      <td>
+                        Michael Jan Natividad
+                      </td>
+                      <td>
+                        michaeljannatividadgmail.com
+                      </td>
+                      <td>
+                        Group
+                      </td>
+                      <td>
+                        1/23/25
+                      </td>
+                      <td>
+                        11:00 AM
+                      </td>
+
+
+                      <td>
+                        <div style="display:flex;justify-content: center;">
+                          <a href="?action=edit&id=#&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
+                              <font class="tn-in-text">Edit</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
+                              <font class="tn-in-text">View</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=done&id=#&name=" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+                              <font class="tn-in-text">Done</font>
+                            </button></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td> &nbsp;asddasd</td>
+                      <td>
+                        asdasdad
+                      </td>
+                      <td>
+                        asdasd
+                      </td>
+                      <td>
+                        asdasdad
+                      </td>
+                      <td>
+                        1/23/25
+                      </td>
+                      <td>
+                        11:00 AM
+                      </td>
+
+                      <td>
+                        <div style="display:flex;justify-content: center;">
+                          <a href="?action=edit&id=&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
+                              <font class="tn-in-text">Edit</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
+                              <font class="tn-in-text">View</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=done&id=# &name=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+                              <font class="tn-in-text">Done</font>
+                            </button></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td> &nbsp;asddasd</td>
+                      <td>
+                        asdasdad
+                      </td>
+                      <td>
+                        asdasd
+                      </td>
+                      <td>
+                        asdasdad
+                      </td>
+                      <td>
+                        1/23/25
+                      </td>
+                      <td>
+                        11:00 AM
+                      </td>
+
+                      <td>
+                        <div style="display:flex;justify-content: center;">
+                          <a href="?action=edit&id=#&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
+                              <font class="tn-in-text">Edit</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
+                              <font class="tn-in-text">View</font>
+                            </button></a>
+                          &nbsp;&nbsp;&nbsp;
+                          <a href="?action=done&id=#&name='.$name.'" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+                              <font class="tn-in-text">Done</font>
+                            </button></a>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+
+                </table>
+              </div>
+            </center>
+          </td>
+        </tr>
+
+
+
+      </table>
+    </div>
+
+
+    <?php
+    if ($_GET) {
+      $action = $_GET["action"];
+      if ($action == 'done') {
+
+        echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                        <h2>Are you sure?</h2>
+                        <a class="close" href="Appointment.php">&times;</a>
+                        <div class="content">
+                            You want to delete this record<br>().
+                            
+                        </div>
+                        <div style="display: flex;justify-content: center;">
+                        <a href="Appointment.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="Appointment.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
+
+                        </div>
+                    </center>
+            </div>
+            </div>
+            ';
+      } elseif ($action == 'view') {
+
+        echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                        <h2></h2>
+                        <a class="close" href=" Appointment.php">&times;</a>
+                        
+                        <div style="display: flex;justify-content: center;">
+                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                        
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                
+                                <td class="label-td" colspan="2">
+                                    <label for="name" class="form-label">Name: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                  josh <br><br>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Email" class="form-label">Email: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                @gmail.com <br><br>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Tele" class="form-label">Telephone: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                               12312312<br><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Category: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> Duo
+                            <br><br>
+                            </td>
+                            </tr>
+
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Specialties: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> 1/2/25 12:00 PM
+                            <br><br>
+                            </td>
+                            </tr>
+
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Payment Method: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> Gcash
+                            <br><br>
+                            </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <a href="Appointment.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
+                                
+                                    
+                                </td>
+                
+                            </tr>
+                           
+
+                        </table>
+                        </div>
+                    </center>
+                    <br><br>
+            </div>
+            </div>
+            ';
+      } elseif ($action == 'add') {
+        $error_1 = $_GET["error"];
+
+
+
+
+        if ($error_1 != '4') {
+          echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                    
+                        <a class="close" href="Appointment.php">&times;</a> 
+                        <div style="display: flex;justify-content: center;">
+                        <div class="abc-popup">
+                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                        <tr>
+                                <td class="label-td" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Add New Client.</p><br><br>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <form action="add-new.php" method="POST" class="add-new-form">
+                                <td class="label-td" colspan="2">
+                                    <label for="name" class="form-label">Name: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="text" name="name" class="input-text" placeholder="Client Name" required><br>
+                                </td>
+                                
+                            </tr>
+                           
+                          
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Tele" class="form-label">Phone: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="tel" name="Tele" class="input-text" placeholder="Phone Number" required><br>
+                                </td>
+                            </tr>
+                               <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="spec" class="form-label">Choose category: (Current )</label>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <select name="spec" id="" class="box">
+                                            <option value="Trion">Trion</option>
+                                            <option value="Duo">Duo</option>
+                                            <option value="Solo">Solo</option>
+                                            <option value="Quad">Quad</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Group">Group</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Package2">Package 2</option>
+                                            <option value="Package3">Package 3</option>
+                                            <option value="Package4">Package 4</option>
+                                            <option value="Unopackage">Uno Package</option>
+                                            <option value="Dospackage">Dos Package</option>
+                                            <option value="Trespackage">Tres Package</option>
+                                            <option value="Cuatropackage">Cuantro Package</option>
+                                            <option value="Cincopackage">Cinco Package</option>
+                                            <option value="Seispackage">Seis Package</option>
+                                            
+
+                                                   </select><br><br>
+                                        </td>
+                                    </tr>
+
+                                     <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="date" class="form-label">Date: </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <input type="datetime-local" id="datetime" class="input-text" name="datetime" required><br>
+                                        </td>
+                                    </tr>
+                                   
+                                   <tr>
+                                        <td class="label-td" colspan="2">
+                                            <form action="#" method="POST" class="add-new-form">
+                                            <label for="Email" class="form-label">Email: </label>
+                                            <input type="hidden" value="" name="id00">
+                                            <input type="hidden" name="oldemail" value="" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" required><br>
+                                        </td>
+                                    </tr>
+                            
+                
+                            <tr>
+                                <td colspan="2">
+                                    <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                    <input type="submit" value="Add" class="login-btn btn-primary btn">
+                                </td>
+                
+                            </tr>
+                           
+                            </form>
+                            </tr>
+                        </table>
+                        </div>
+                        </div>
+                    </center>
+                    <br><br>
+            </div>
+            </div>
+            ';
+        } else {
+          echo '
+                    <div id="popup1" class="overlay">
+                            <div class="popup">
+                            <center>
+                            <br><br><br><br>
+                                <h2>New Record Added Successfully!</h2>
+                                <a class="close" href="Appointment.php">&times;</a>
+                                <div class="content">
+                                    
+                                    
+                                </div>
+                                <div style="display: flex;justify-content: center;">
+                                
+                                <a href="Appointment.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+
+                                </div>
+                                <br><br>
+                            </center>
+                    </div>
+                    </div>
+        ';
+        }
+
+
+
+        // /////////////////////////////////  END ADD   /////////////////////////
+      } elseif ($action == 'edit') {
+
+
+
+
+        $errorlist = array(
+          '1' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>',
+          '2' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Password Conformation Error! Reconform Password</label>',
+          '3' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>',
+          '4' => "",
+          '0' => '',
+
+        );
+
+        if ($error_1 != '4') {
+          echo '
+                    <div id="popup1" class="overlay">
+                            <div class="popup">
+                            <center>
+                            
+                                <a class="close" href="Appointment.php">&times;</a> 
+                                <div style="display: flex;justify-content: center;">
+                                <div class="abc-popup">
+                                <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                                <tr>
+                                        <td class="label-td" colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Client Details.</p>
+                                        Client ID :  (Auto Generated)<br><br>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        
+                                        <td class="label-td" colspan="2">
+                                            <label for="name" class="form-label">Name: </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <input type="text" name="name" class="input-text" placeholder="Client Name" value="" required><br>
+                                        </td>
+                                        
+                                    </tr>
+                                    
+                                   
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="Tele" class="form-label">Phone: </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="" required><br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="spec" class="form-label">Choose category: (Current )</label>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <select name="spec" id="" class="box">
+                                            <option value="Trion">Trion</option>
+                                            <option value="Duo">Duo</option>
+                                            <option value="Solo">Solo</option>
+                                            <option value="Quad">Quad</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Group">Group</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Package2">Package 2</option>
+                                            <option value="Package3">Package 3</option>
+                                            <option value="Package4">Package 4</option>
+                                            <option value="Unopackage">Uno Package</option>
+                                            <option value="Dospackage">Dos Package</option>
+                                            <option value="Trespackage">Tres Package</option>
+                                            <option value="Cuatropackage">Cuantro Package</option>
+                                            <option value="Cincopackage">Cinco Package</option>
+                                            <option value="Seispackage">Seis Package</option>
+                                            
+
+                                                   </select><br><br>
+                                        </td>
+                                    </tr>
+
+                                     <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="date" class="form-label">Date: </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <input type="datetime-local" id="datetime" class="input-text" name="datetime" required><br>
+                                        </td>
+                                    </tr>
+                                   
+                                   <tr>
+                                        <td class="label-td" colspan="2">
+                                            <form action="#" method="POST" class="add-new-form">
+                                            <label for="Email" class="form-label">Email: </label>
+                                            <input type="hidden" value="" name="id00">
+                                            <input type="hidden" name="oldemail" value="" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" required><br>
+                                        </td>
+                                    </tr>
+                                    
+                        
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                            <input type="submit" value="Save" class="login-btn btn-primary btn">
+                                        </td>
+                        
+                                    </tr>
+                                
+                                    </form>
+                                    </tr>
+                                </table>
+                                </div>
+                                </div>
+                            </center>
+                            <br><br>
+                    </div>
+                    </div>
+                    ';
+        } else {
+          echo '
+                <div id="popup1" class="overlay">
+                        <div class="popup">
+                        <center>
+                        <br><br><br><br>
+                            <h2>Edit Successfully!</h2>
+                            <a class="close" href="Appointment.php">&times;</a>
+                            <div class="content">
+                                
+                                
+                            </div>
+                            <div style="display: flex;justify-content: center;">
+                            
+                            <a href="Appointment.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+
+                            </div>
+                            <br><br>
+                        </center>
+                </div>
+                </div>
+    ';
+        };
+      };
+    };
+
+    ?>
 
 
 
