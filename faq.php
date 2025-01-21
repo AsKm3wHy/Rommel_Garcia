@@ -60,7 +60,8 @@
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <h1 class="home-logo">Rommel</h1>
+                            <!-- <h1 class="home-logo">Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -205,28 +206,28 @@
             </div>
 
             <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const accordions = document.querySelectorAll('.faq-accordion');
+                document.addEventListener('DOMContentLoaded', function () {
+                    const accordions = document.querySelectorAll('.faq-accordion');
 
-                if (accordions.length > 0) {
-                    accordions.forEach(button => {
-                        button.addEventListener('click', function() {
-                            // Toggle active class
-                            this.classList.toggle('active');
+                    if (accordions.length > 0) {
+                        accordions.forEach(button => {
+                            button.addEventListener('click', function () {
+                                // Toggle active class
+                                this.classList.toggle('active');
 
-                            // Get panel
-                            const panel = this.nextElementSibling;
+                                // Get panel
+                                const panel = this.nextElementSibling;
 
-                            // Toggle panel
-                            if (panel.style.maxHeight) {
-                                panel.style.maxHeight = null;
-                            } else {
-                                panel.style.maxHeight = panel.scrollHeight + "px";
-                            }
+                                // Toggle panel
+                                if (panel.style.maxHeight) {
+                                    panel.style.maxHeight = null;
+                                } else {
+                                    panel.style.maxHeight = panel.scrollHeight + "px";
+                                }
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
             </script>
 
         </div>
@@ -263,13 +264,13 @@
 </body>
 
 <script>
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
+    function updateCounter() {
+        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+            .then(res => res.json())
+            .then(data => counterElement.innerHTML = data.value)
+    }
+    updateCounter()
+    counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -277,11 +278,11 @@ counterElement = document.getElementsByClassName('count')[0];
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -290,22 +291,22 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 </body>
 

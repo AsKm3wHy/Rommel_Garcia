@@ -20,17 +20,12 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-    h1 {
-        color: #eaeaea;
-    }
-
-    h1 {
-        color: #eaeaea;
-    }
-
-    @media only screen and (max-width: 767px) {
         h1 {
-            font-size: 1.8rem;
+            color: #eaeaea;
+        }
+
+        h1 {
+            color: #eaeaea;
         }
 
         @media only screen and (max-width: 767px) {
@@ -38,17 +33,22 @@
                 font-size: 1.8rem;
             }
 
+            @media only screen and (max-width: 767px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                .classy-nav-container .classy-navbar .nav-brand {
+                    max-width: fit-content;
+                    margin-right: 15px;
+                }
+            }
+
             .classy-nav-container .classy-navbar .nav-brand {
                 max-width: fit-content;
                 margin-right: 15px;
             }
         }
-
-        .classy-nav-container .classy-navbar .nav-brand {
-            max-width: fit-content;
-            margin-right: 15px;
-        }
-    }
     </style>
 </head>
 
@@ -89,8 +89,7 @@
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
                             <!-- <h1 class="home-logo">Rommel</h1> -->
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo"
-                                style="margin-top:3rem; width:10rem;">
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -401,11 +400,11 @@
 
             <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
             <script>
-            eval(mod_pagespeed_2mSwO3vn68);
+                eval(mod_pagespeed_2mSwO3vn68);
             </script>
 
             <script>
-            eval(mod_pagespeed_aQrG1NKKxL);
+                eval(mod_pagespeed_aQrG1NKKxL);
             </script>
 
             <script src="js/lx.bundle.js"></script>
@@ -414,22 +413,22 @@
 
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
             <script>
-            window.dataLayer = window.dataLayer || [];
+                window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
 
-            gtag('config', 'UA-23581568-13');
+                gtag('config', 'UA-23581568-13');
             </script>
             <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
                 data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-            </script>
+                </script>
             <!-- animate on scroll js  -->
             <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             <script>
-            AOS.init();
+                AOS.init();
             </script>
             <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
 </body>
