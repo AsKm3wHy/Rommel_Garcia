@@ -2599,7 +2599,7 @@ footer {
 .card {
   position: relative;
   width: 300px;
-  height: 500px;
+  height: 475px;
   background: #fff;
   margin: 20px;
   border-radius: 20px;
@@ -2609,6 +2609,22 @@ footer {
 }
 
 .card:hover {
+  transform: scale(1.05);
+}
+
+.card1 {
+  position: relative;
+  width: 36rem;
+  height: 475px;
+  background: #fff;
+  margin: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.card1:hover {
   transform: scale(1.05);
 }
 
@@ -2629,10 +2645,11 @@ footer {
 
 .content {
   position: absolute;
-  width: 100%;
+  width: auto;
   bottom: 10px;
   padding-bottom: 20px;
-  text-align: center;
+  /* text-align: center; */
+  padding-left: 2rem;
   font-size: 18px;
   font-weight: 600;
 }
@@ -2640,6 +2657,21 @@ footer {
 .features {
   color: #666;
   margin-bottom: 8px;
+}
+.features1 {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.features1 {
+  color: #666;
+  margin-bottom: 8px;
+}
+.features1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-left: 0.5rem;
 }
 
 .content a {
@@ -2700,6 +2732,58 @@ footer {
 
 .card:nth-child(10) .circle,
 .card:nth-child(10) .content a {
+  background: #ff8c00; /* Dark Orange */
+}
+
+/* cad1 */
+
+.card1:nth-child(1) .circle,
+.card1:nth-child(1) .content a {
+  background: #ffaf00; /* Yellow */
+}
+
+.card1:nth-child(2) .circle,
+.card1:nth-child(2) .content a {
+  background: #da2268; /* Pink */
+}
+
+.card1:nth-child(3) .circle,
+.card1:nth-child(3) .content a {
+  background: #bb02ff; /* Purple */
+}
+
+.card1:nth-child(4) .circle,
+.card1:nth-child(4) .content a {
+  background: #00aaff; /* Light Blue */
+}
+
+.card1:nth-child(5) .circle,
+.card1:nth-child(5) .content a {
+  background: #ff4500; /* Orange Red */
+}
+
+.card1:nth-child(6) .circle,
+.card1:nth-child(6) .content a {
+  background: #32cd32; /* Lime Green */
+}
+
+.card1:nth-child(7) .circle,
+.card1:nth-child(7) .content a {
+  background: #ff69b4; /* Hot Pink */
+}
+
+.card1:nth-child(8) .circle,
+.card1:nth-child(8) .content a {
+  background: #ffd700; /* Gold */
+}
+
+.card1:nth-child(9) .circle,
+.card1:nth-child(9) .content a {
+  background: #9370db; /* Medium Purple */
+}
+
+.card1:nth-child(10) .circle,
+.card1:nth-child(10) .content a {
   background: #ff8c00; /* Dark Orange */
 }
 

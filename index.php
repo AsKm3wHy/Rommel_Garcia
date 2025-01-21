@@ -259,7 +259,6 @@
                         <a href="#">₱1,500</a>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="circle">
                         <h3>GRADUATE</h3>
@@ -281,6 +280,143 @@
             <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
     </section>
+
+    <section class="pricing" style="padding:0!important;padding-bottom:5em!important;">
+        <div class="container" data-aos="zoom-in-left" data-aos-duration="1000">
+            <h2>Packages</h2>
+        </div>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="card1">
+                    <div class="circle">
+                        <h4>Graduation Portrait</h4>
+                        <h2 style="color: #fff;">Package 2</h2>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>8 Shots</div>
+                            <div>Academic Gown</div>
+                            <div>Hardcopy</div>
+                            <div>2 Toga Shot with Cap</div>
+                            <div>Filipiniana</div>
+                            <div>Softcopy</div>
+                            <div>2 Toga Shot without Cap</div>
+                            <div>Barong Tagalog</div>
+                            <div>Edited</div>
+                            <div>2 Formal Shot</div>
+                            <div></div>
+                            <div></div>
+                            <div>2 Creative Shot</div>
+                            <div></div>
+                        </div>
+                        <a href="#">₱2599</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="circle">
+                        <h4>Graduation Portrait</h4>
+                        <h2 style="color: #fff;">Package 3</h2>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>2 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱3599</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="circle">
+                        <h4>Graduation Portrait</h4>
+                        <h2 style="color: #fff;">Package 4</h2>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>3 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱899</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="circle">
+                        <h3>Package 1</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>4 Pax</div>
+                            <div>20 Minutes Self Portrait</div>
+                            <div>2 Backdrop Color</div>
+                            <div>4 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱199</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="circle">
+                        <h3>Package 2</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>3 Pax</div>
+                            <div>40 Minutes Self Portrait</div>
+                            <div>3 Backdrop Color</div>
+                            <div>8 4R Size Print</div>
+                            <div>Free use of balloons and letter box</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱299</a>
+                    </div>
+                </div>
+
+                <div class="card1">
+                    <div class="circle">
+                        <h3>Package 3</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>6 Pax</div>
+                            <div>30 Minutes Self Portrait</div>
+                            <div>3 Backdrop Color</div>
+                            <div>6 4R Size Print</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱399</a>
+                    </div>
+                </div>
+                <div class="card1">
+                    <div class="circle">
+                        <h3>Package 4</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features1">
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱499</a>
+                    </div>
+                </div>
+            </div>
+            <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
+            <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
+        </div>
+    </section>
+
 
 
 
@@ -357,12 +493,12 @@
     AOS.init();
 </script>
 <script>
-    let currentIndex = 0;
+    function slide(sliderElement, direction) {
 
-    function slide(direction) {
-        const cards = document.querySelectorAll('.card');
+        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+        const cards = sliderElement.querySelectorAll('.card, .card1');
         const totalCards = cards.length;
-        const cardWidth = 300 + 40; // card width + margin (20px left and right)
+        const cardWidth = 300 + 40;
 
 
         currentIndex += direction;
@@ -374,9 +510,22 @@
             currentIndex = 0;
         }
 
-        const slider = document.querySelector('.slider');
-        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+        const sliderInner = sliderElement.querySelector('.slider');
+        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+
+        sliderElement.setAttribute('data-current-index', currentIndex);
     }
+
+    document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+        const prevButton = sliderContainer.querySelector('#prev');
+        const nextButton = sliderContainer.querySelector('#next');
+
+
+        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+    });
 </script>
 </body>
 
