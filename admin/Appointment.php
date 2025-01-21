@@ -120,7 +120,7 @@
 
   <header class="page-header">
     <nav>
-      <a href="index.html" aria-label="forecastr logo" class="logo">
+      <a href="dashboard.php" aria-label="forecastr logo" class="logo">
 
         <img src="img/rommel-logo-v3.svg" alt="logo" width="150">
       </a>
@@ -131,7 +131,7 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="index.php">
+          <a href="dashboard.php">
             <svg>
               <use xlink:href="#dashboard"></use>
             </svg>
@@ -148,7 +148,7 @@
           </a>
         </li>
         <li>
-          <a href="#0">
+          <a href="history.php">
             <svg>
               <use xlink:href="#history"></use>
             </svg>
@@ -182,18 +182,22 @@
   </header>
   <section class="page-content">
     <section class="search-and-user">
-      <!-- <form>
-      <input type="search" placeholder="Search Pages...">
-      <button type="submit" aria-label="submit form">
-        <svg aria-hidden="true">
-          <use xlink:href="#search"></use>
-        </svg>
-      </button>
-    </form> -->
-      <span class="nav-title">Appointment</span>
+
+      <!-- <span class="nav-title">Appointment Manager </span>
+
+      <form action="" method="post" class="header-search">
+
+        <input type="search" name="search" class="input-text header-searchbar" placeholder="Search Client name or Email" list="Clientname" style=" background-image: url('img/search.svg');">&nbsp;&nbsp;
+
+
+        <input type="Submit" value="Search" class="login-btn btn-primary btn " style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+
+      </form>
+
       <div class="admin-profile">
 
-        <!-- <span class="greeting">Hello admin</span> -->
+
+
         <div class="row-date">
           <div class="column-date">
             <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
@@ -208,7 +212,50 @@
           </div>
         </div>
 
+      </div> -->
+
+
+      <div class="dash-body" style="padding-right: 0px;">
+        <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
+          <tr>
+            <td width="13%">
+              <a href="dashboard.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
+                  <font class="tn-in-text">Back</font>
+                </button></a>
+            </td>
+
+            <td>
+
+              <form action="" method="post" class="header-search">
+
+                <input type="search" name="search" class="input-text header-searchbar" placeholder="Search Client Name " list="clientname" style="background-image: url('img/search.svg');" autocomplete="off">&nbsp;&nbsp;
+
+
+
+                <input type="Submit" value="Search" class="login-btn btn-primary btn" style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+
+              </form>
+
+            </td>
+            <td width="15%">
+              <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
+                Today's Date
+              </p>
+              <p class="heading-sub12">
+                2025-6-3
+              </p>
+            </td>
+            <td width="4%">
+              <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button>
+            </td>
+
+
+          </tr>
+
+        </table>
       </div>
+
+
     </section>
 
     <div class="dash-body">

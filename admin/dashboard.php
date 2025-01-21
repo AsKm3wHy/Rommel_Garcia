@@ -111,7 +111,7 @@
 
   <header class="page-header">
     <nav>
-      <a href="index.html" aria-label="forecastr logo" class="logo">
+      <a href="dashboard.php" aria-label="forecastr logo" class="logo">
 
         <img src="img/rommel-logo-v3.svg" alt="logo" width="150">
       </a>
@@ -127,7 +127,7 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="index.php" class="active">
+          <a href="dashboard.php" class="active">
             <svg>
               <use xlink:href="#dashboard"></use>
             </svg>
@@ -151,32 +151,13 @@
           </a>
         </li>
         <li>
-          <a href="#0">
+          <a href="history.php">
             <svg>
               <use xlink:href="#history"></use>
             </svg>
             <span>History</span>
           </a>
         </li>
-        <!--  <li>
-        <a href="#0">
-          <svg>
-            <use xlink:href="#comments"></use>
-          </svg>
-          <span>Comments</span>
-        </a>
-      </li> -->
-        <!--  <li>
-        <a href="#0">
-          <svg>
-            <use xlink:href="#appearance"></use>
-          </svg>
-          <span>Appearance</span>
-        </a>
-      </li> -->
-        <!-- <li class="menu-heading">
-        <h3>Settings</h3>
-      </li> -->
         <li>
           <a href="#0">
             <svg>
@@ -333,7 +314,7 @@
       <tr>
         <td>
           <p style="padding:10px;padding-left:48px;padding-bottom:0;font-size:23px;font-weight:700;color:var(--primarycolor);">
-            Upcoming Appointments Until Saturday
+            Today’s Appointment Schedule
           </p>
           <p style="padding-bottom:19px;padding-left:50px;font-size:15px;font-weight:500;color:#212529e3;line-height: 20px;">
             Here's Quick access to Upcoming Appointments until 7 days<br>
