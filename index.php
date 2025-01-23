@@ -279,7 +279,7 @@
             <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
             <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
-        <div class="container" data-aos="zoom-in-left" data-aos-duration="1000">
+        <div class="container" data-aos="zoom-in-left" data-aos-duration="1000" style="margin-top:5rem;">
             <h2>Packages</h2>
         </div>
         <div class="slider-container">
