@@ -140,7 +140,7 @@
                 </li>
 
                 <li>
-                    <a href="Appointment.php">
+                    <a href="index.php">
                         <svg>
                             <use xlink:href="#bookmark"></use>
                         </svg>
