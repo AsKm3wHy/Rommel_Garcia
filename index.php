@@ -310,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="card1">
+                <div class="card1" data-aos="flip-down" data-aos-duration="1000">
                     <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 3</h2>
