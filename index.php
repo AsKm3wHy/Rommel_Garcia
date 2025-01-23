@@ -279,12 +279,12 @@
             <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
             <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
-        <div class="container" data-aos="zoom-in-left" data-aos-duration="1000" style="margin-top:5rem;">
+        <div class="container" data-aos="zoom-in-up" data-aos-duration="1000" style="margin-top:5rem;">
             <h2>Packages</h2>
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card1" data-aos="flip-down" data-aos-duration="1000">
+                <div class="card1" data-aos="flip-left" data-aos-duration="900">
                     <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 2</h2>
@@ -310,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="card1" data-aos="flip-down" data-aos-duration="1000">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 3</h2>
@@ -327,7 +327,7 @@
                     </div>
                 </div>
 
-                <div class="card1">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 4</h2>
@@ -344,7 +344,7 @@
                     </div>
                 </div>
 
-                <div class="card1">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h3>Package 1</h3>
                     </div>
@@ -360,7 +360,7 @@
                     </div>
                 </div>
 
-                <div class="card1">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h3>Package 2</h3>
                     </div>
@@ -377,7 +377,7 @@
                     </div>
                 </div>
 
-                <div class="card1">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h3>Package 3</h3>
                     </div>
@@ -392,7 +392,7 @@
                         <a href="#">₱399</a>
                     </div>
                 </div>
-                <div class="card1">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
                     <div class="circle">
                         <h3>Package 4</h3>
                     </div>
