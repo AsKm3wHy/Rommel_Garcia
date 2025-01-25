@@ -38,7 +38,9 @@
       <path d="M3 9H21M12 18V12M15 15.001L9 15M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#242e42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
 
-
+    <symbol id="calendar-btn" viewBox="0 0 448 512">
+      <path d="M152 64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0C141.3 0 152 10.75 152 24V64zM48 448C48 456.8 55.16 464 64 464H384C392.8 464 400 456.8 400 448V192H48V448z" />
+    </symbol>
 
 
     <!--  <symbol id="collection" viewBox="0 0 16 16">
@@ -131,7 +133,7 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="dashboard.php">
+          <a href="index.php">
             <svg>
               <use xlink:href="#dashboard"></use>
             </svg>
@@ -140,11 +142,19 @@
         </li>
 
         <li>
-          <a href="index.php" class="active">
+          <a href="appointment.php" class="active">
             <svg>
               <use xlink:href="#bookmark"></use>
             </svg>
             <span>Appointment</span>
+          </a>
+        </li>
+        <li>
+          <a href="calendar.php">
+            <svg>
+              <use xlink:href="#calendar-btn"></use>
+            </svg>
+            <span>Calendar</span>
           </a>
         </li>
         <li>
@@ -156,14 +166,7 @@
           </a>
         </li>
 
-        <li>
-          <a href="#0">
-            <svg>
-              <use xlink:href="#options"></use>
-            </svg>
-            <span>Settings</span>
-          </a>
-        </li>
+
 
         <li>
 

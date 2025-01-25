@@ -721,6 +721,10 @@ body {
 
 /*////////////////////////////////table css////////////////////////////////////////////////////*/
 
+.logout-btn span {
+  margin-left: 2rem;
+}
+
 .abc {
   width: 100%;
   overflow: auto;
