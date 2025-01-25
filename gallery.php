@@ -122,7 +122,8 @@
     </header>
 
 
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/empty.png)">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax"
+        style="background-image:url(img/indexImage/Gallery.jpg)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -146,8 +147,9 @@
                     <div class="lx-projects-menu wow fadeInUp" data-wow-delay="100ms">
                         <div class="portfolio-menu text-center">
                             <button class="btn active" data-filter="*">All</button>
-                            <button class="btn" data-filter=".trio">Trio</button>
+                            <button class="btn" data-filter=".solo">Solo</button>
                             <button class="btn" data-filter=".duo">Duo</button>
+                            <button class="btn" data-filter=".trio">Trio</button>
                             <button class="btn" data-filter=".quad">Quad</button>
                             <button class="btn" data-filter=".deluxe">Deluxe</button>
                             <button class="btn" data-filter=".group">Group</button>
@@ -167,9 +169,19 @@
                     </div>
                 </div>
 
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Solo1.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/empty.png" alt="">
                         <div class="hover-content">
                             <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
                         </div>
@@ -179,9 +191,19 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Quad1.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Quad1.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Solo4.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Solo4.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -189,9 +211,19 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Quad2.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Quad2.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Solo3.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Solo3.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -199,9 +231,29 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Quad3.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Quad3.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Solo2.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Solo2.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Solo5.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Solo5.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -307,9 +359,9 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Group1.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Group1.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -385,12 +437,12 @@
                     </form>
                 </div> -->
                     </div>
-                    <hr>
+                    <!-- <hr>
                     <div class="containerDown">
                         <div class="last">
 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </footer>
 

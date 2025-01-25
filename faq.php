@@ -93,7 +93,7 @@
     </header>
 
 
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/empty.png)">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/2.png); ">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">

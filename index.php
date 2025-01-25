@@ -102,7 +102,7 @@
         <div class="welcome-slides owl-carousel">
 
             <div class="single-welcome-slide bg-img bg-overlay"
-                style="background-image: url(img/indexImage/empty.png);">
+                style="background-image: url(img/pic/A2.jpg); background-size: 100% 100%;background-repeat: no-repeat;">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
 
@@ -110,14 +110,15 @@
                             <div class="welcome-text">
                                 <h2 data-animation="bounceInUp" data-delay="100ms">Welcome to a Journey of Memories!
                                 </h2>
-                                <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
+                                <!-- <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
                                     Photography, we believe that every moment is a treasure waiting to be captured. Our
                                     instinctive approach allows us to freeze time, preserving the emotions and stories
                                     that make life beautiful. Let us help you save your most cherished memories, turning
                                     fleeting moments into lasting keepsakes that you can reminisce about for years to
-                                    come.</p>
+                                    come.</p> -->
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4"
+                                        style="margin-top: 10rem;">Get an
                                         Appointment</a>
                                 </div>
                             </div>
@@ -441,13 +442,13 @@
 </body>
 
 <script>
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
+    function updateCounter() {
+        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+            .then(res => res.json())
+            .then(data => counterElement.innerHTML = data.value)
+    }
+    updateCounter()
+    counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -455,11 +456,11 @@ counterElement = document.getElementsByClassName('count')[0];
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -468,57 +469,57 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 <script>
-function slide(sliderElement, direction) {
+    function slide(sliderElement, direction) {
 
-    let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
-    const cards = sliderElement.querySelectorAll('.card, .card1');
-    const totalCards = cards.length;
-    const cardWidth = 300 + 40;
-
-
-    currentIndex += direction;
+        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+        const cards = sliderElement.querySelectorAll('.card, .card1');
+        const totalCards = cards.length;
+        const cardWidth = 300 + 40;
 
 
-    if (currentIndex < 0) {
-        currentIndex = totalCards - 1;
-    } else if (currentIndex >= totalCards) {
-        currentIndex = 0;
+        currentIndex += direction;
+
+
+        if (currentIndex < 0) {
+            currentIndex = totalCards - 1;
+        } else if (currentIndex >= totalCards) {
+            currentIndex = 0;
+        }
+
+
+        const sliderInner = sliderElement.querySelector('.slider');
+        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+
+        sliderElement.setAttribute('data-current-index', currentIndex);
     }
 
-
-    const sliderInner = sliderElement.querySelector('.slider');
-    sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-
-    sliderElement.setAttribute('data-current-index', currentIndex);
-}
-
-document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
-    const prevButton = sliderContainer.querySelector('#prev');
-    const nextButton = sliderContainer.querySelector('#next');
+    document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+        const prevButton = sliderContainer.querySelector('#prev');
+        const nextButton = sliderContainer.querySelector('#next');
 
 
-    prevButton.addEventListener('click', () => slide(sliderContainer, -1));
-    nextButton.addEventListener('click', () => slide(sliderContainer, 1));
-});
+        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+    });
 </script>
 </body>
 
