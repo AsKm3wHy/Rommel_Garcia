@@ -127,7 +127,7 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="dashboard.php" class="active">
+          <a href="index.php" class="active">
             <svg>
               <use xlink:href="#dashboard"></use>
             </svg>
@@ -143,7 +143,7 @@
         </a>
       </li> -->
         <li>
-          <a href="index.php">
+          <a href="appointment.php">
             <svg>
               <use xlink:href="#bookmark"></use>
             </svg>

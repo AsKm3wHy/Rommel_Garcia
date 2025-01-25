@@ -219,7 +219,7 @@
         <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
           <tr>
             <td width="13%">
-              <a href="dashboard.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
+              <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
                   <font class="tn-in-text">Back</font>
                 </button></a>
             </td>
@@ -318,11 +318,16 @@
                       </th>
                       <th class="table-headin">
 
+                        Status
+
+                      </th>
+                      <th class="table-headin">
+
                         Events
 
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="client-table-body">
 
                     <!--                            <tr>
                                     <td colspan="4">
@@ -355,6 +360,10 @@
                       <td>
                         11:00 AM
                       </td>
+                      <td>
+
+                        <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
+                      </td>
 
 
                       <td>
@@ -367,9 +376,19 @@
                               <font class="tn-in-text">View</font>
                             </button></a>
                           &nbsp;&nbsp;&nbsp;
-                          <a href="?action=done&id=#&name=" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+
+                          <a href="?action=done&id=#&name=" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-done" style="background-image: url(' img/icon/done_iceblue.svg')">
                               <font class="tn-in-text">Done</font>
                             </button></a>
+
+
+                          &nbsp;&nbsp;&nbsp;
+
+
+                          <a href="?action=cancel&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-cancel" style="background-image: url(' img/icon/cancel-iceblue.svg')">
+                              <font class="tn-in-text">Cancel</font>
+                            </button></a>
+
                         </div>
                       </td>
                     </tr>
@@ -389,6 +408,9 @@
                       </td>
                       <td>
                         11:00 AM
+                      </td>
+                      <td>
+                        <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                       </td>
 
                       <td>
@@ -401,8 +423,16 @@
                               <font class="tn-in-text">View</font>
                             </button></a>
                           &nbsp;&nbsp;&nbsp;
-                          <a href="?action=done&id=# &name=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+                          <a href="?action=done&id=#&name=" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-done" style="background-image: url(' img/icon/done_iceblue.svg')">
                               <font class="tn-in-text">Done</font>
+                            </button></a>
+
+
+                          &nbsp;&nbsp;&nbsp;
+
+
+                          <a href="?action=cancel&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-cancel" style="background-image: url(' img/icon/cancel-iceblue.svg')">
+                              <font class="tn-in-text">Cancel</font>
                             </button></a>
                         </div>
                       </td>
@@ -424,6 +454,9 @@
                       <td>
                         11:00 AM
                       </td>
+                      <td>
+                        <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
+                      </td>
 
                       <td>
                         <div style="display:flex;justify-content: center;">
@@ -435,8 +468,16 @@
                               <font class="tn-in-text">View</font>
                             </button></a>
                           &nbsp;&nbsp;&nbsp;
-                          <a href="?action=done&id=#&name='.$name.'" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image: url(' img/icon/done_iceblue.svg')">
+                          <a href="?action=done&id=#&name=" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-done" style="background-image: url(' img/icon/done_iceblue.svg')">
                               <font class="tn-in-text">Done</font>
+                            </button></a>
+
+
+                          &nbsp;&nbsp;&nbsp;
+
+
+                          <a href="?action=cancel&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-cancel" style="background-image: url(' img/icon/cancel-iceblue.svg')">
+                              <font class="tn-in-text">Cancel</font>
                             </button></a>
                         </div>
                       </td>
@@ -590,10 +631,6 @@
             ';
       } elseif ($action == 'add') {
         $error_1 = $_GET["error"];
-
-
-
-
         if ($error_1 != '4') {
           echo '
             <div id="popup1" class="overlay">
@@ -670,7 +707,7 @@
 
                                      <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="date" class="form-label">Date: </label>
+                                            <label for="date" class="form-label"> Date: </label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -742,20 +779,7 @@
         // /////////////////////////////////  END ADD   /////////////////////////
       } elseif ($action == 'edit') {
 
-
-
-
-        $errorlist = array(
-          '1' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>',
-          '2' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Password Conformation Error! Reconform Password</label>',
-          '3' => '<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>',
-          '4' => "",
-          '0' => '',
-
-        );
-
-        if ($error_1 != '4') {
-          echo '
+        echo '
                     <div id="popup1" class="overlay">
                             <div class="popup">
                             <center>
@@ -831,7 +855,7 @@
 
                                      <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="date" class="form-label">Date: </label>
+                                            <label for="date" class="form-label"> Appointment Date: </label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -874,8 +898,8 @@
                     </div>
                     </div>
                     ';
-        } else {
-          echo '
+      } else {
+        echo '
                 <div id="popup1" class="overlay">
                         <div class="popup">
                         <center>
@@ -896,9 +920,9 @@
                 </div>
                 </div>
     ';
-        };
       };
     };
+
 
     ?>
 
@@ -909,11 +933,9 @@
     
     </footer> -->
   </section>
-  <script>
 
-  </script>
 
-  <script src="js/dashboard.js"></script>
+  <script src="js/search-filter-appointment.js"></script>
 
 
 </body>

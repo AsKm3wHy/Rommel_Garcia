@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History Dashboard</title>
     <link rel="stylesheet" href="css/history.css">
-    <!-- <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/admin.css"> -->
+    <!-- Additional CSS files can be uncommented if needed -->
 
     <style>
         .popup {
@@ -24,7 +22,6 @@
 
 <body>
     <svg style="display:none;">
-
 
         <symbol id="down" viewBox="0 0 16 16">
             <polygon points="3.81 4.38 8 8.57 12.19 4.38 13.71 5.91 8 11.62 2.29 5.91 3.81 4.38" />
@@ -114,35 +111,30 @@
             <path d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z" />
         </symbol>
 
-
     </svg>
-
 
     <header class="page-header">
         <nav>
             <a href="dashboard.html" aria-label="forecastr logo" class="logo">
-
                 <img src="img/rommel-logo-v3.svg" alt="logo" width="150">
             </a>
-
 
             <ul class="admin-menu">
                 <li class="menu-heading">
                     <h3>Admin</h3>
                 </li>
                 <li>
-                    <a href="dashboard.php">
+                    <a href="index.php">
                         <svg>
-                            <use xlink:href="#dashboard"></use>
+                            <use href="#dashboard"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Dashboard</span>
                     </a>
                 </li>
-
                 <li>
-                    <a href="index.php">
+                    <a href="appointment.php">
                         <svg>
-                            <use xlink:href="#bookmark"></use>
+                            <use href="#bookmark"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Appointment</span>
                     </a>
@@ -150,50 +142,35 @@
                 <li>
                     <a href="history.php" class="active">
                         <svg>
-                            <use xlink:href="#history"> </use>
+                            <use href="#history"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>History</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#0">
                         <svg>
-                            <use xlink:href="#options"></use>
+                            <use href="#options"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Settings</span>
                     </a>
                 </li>
-
                 <li>
-
                     <button class="logout-btn" aria-expanded="true" aria-label="collapse menu">
                         <svg aria-hidden="true">
-                            <use xlink:href="#logout"></use>
+                            <use href="#logout"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Logout</span>
                     </button>
                 </li>
-
             </ul>
-
         </nav>
-
     </header>
+
     <section class="page-content">
         <section class="search-and-user">
-            <!-- <form>
-      <input type="search" placeholder="Search Pages...">
-      <button type="submit" aria-label="submit form">
-        <svg aria-hidden="true">
-          <use xlink:href="#search"></use>
-        </svg>
-      </button>
-    </form> -->
             <span class="nav-title">History Manager</span>
             <div class="admin-profile">
-
-                <!-- <span class="greeting">Hello admin</span> -->
                 <div class="row-date">
                     <div class="column-date">
                         <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
@@ -204,184 +181,112 @@
                         </p>
                     </div>
                     <div class="column-button">
-                        <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button>
+                        <button class="btn-label" style="display: flex;justify-content: center;align-items: center;">
+                            <img src="img/calendar.svg" width="100%">
+                        </button>
                     </div>
                 </div>
-
             </div>
         </section>
 
-
         <div class="dash-body">
-            <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
-
+            <table border="0" width="100%" style="border-spacing:0;margin:0;padding:0;margin-top:25px;">
                 <tr>
-                    <td colspan="4" style="padding-top:10px;width: 100%;">
-
-                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)">All Appointments (0)</p>
+                    <td colspan="4" style="padding-top:10px;width:100%;">
+                        <p class="heading-main12" style="text-align:left;margin-left:45px;font-size:18px;color:rgb(49, 49, 49)">All Appointments (<span id="appointment-count">0</span>)</p>
                     </td>
-
                 </tr>
                 <tr>
-                    <td colspan="4" style="padding-top:0px;width: 100%;">
+                    <td colspan="4" style="padding-top:0px;width:100%;">
                         <center>
                             <table class="filter-container" border="0">
                                 <tr>
-                                    <td width="10%">
-
-                                    </td>
-                                    <td width="5%" style="text-align: center;">
-                                        Date:
-                                    </td>
+                                    <td width="5%" style="text-align:center;">Date:</td>
                                     <td width="30%">
-                                        <form action="" method="post">
-
-                                            <input type="date" name="sheduledate" id="date" class="input-text filter-container-items" style="margin: 0;width: 95%;">
-
+                                        <input type="date" name="scheduledate" id="date" class="input-text filter-container-items" style="margin:0;width:95%;">
                                     </td>
-                                    <td width="10%" style="text-align: center;">
-                                        Client Name:
-                                    </td>
+                                    <td width="10%" style="text-align:center;">Client Name:</td>
                                     <td width="30%">
-                                        <input type="text" name="docid" id="" class="box filter-container-items"
-                                            style="width: 90%; height: 37px; margin: 0;" placeholder="Client Name from the list">
+                                        <input type="text" name="clientname" id="clientname" class="box filter-container-items" style="width:90%;height:37px;margin:0;" placeholder="Client Name from the list">
                                     </td>
                                     <td width="12%">
-                                        <input type="submit" name="filter" value=" Filter" class=" btn-primary-soft btn button-icon btn-filter" style="padding: 15px; margin :0;width:100%; background-image: url('img/icon/filter-iceblue.svg'); ">
-                                        </form>
+                                        <button id="filter-button" class="btn-primary-soft btn button-icon btn-filter" style="background-image:url('img/icon/filter-iceblue.svg');"> Filter </button>
                                     </td>
-
                                 </tr>
                             </table>
-
                         </center>
                     </td>
-
                 </tr>
-
-
-
                 <tr>
-                    <td colspan=" 4">
+                    <td colspan="4">
                         <center>
                             <div class="abc scroll">
-                                <table width="93%" class="sub-table scrolldown" border="0">
+                                <table width="93%" class="sub-table scrolldown" border="0" id="appointments-table">
                                     <thead>
                                         <tr>
-                                            <th class="table-headin">
-                                                Appointment number
-
-                                            </th>
-                                            <th class="table-headin">
-
-                                                Client Name
-
-                                            </th>
-
-
-
-                                            <th class="table-headin">
-
-
-                                                Category
-
-                                            </th>
-
-                                            <th class="table-headin">
-
-                                                Session Date & Time
-
-                                            </th>
-
-                                            <th class="table-headin">
-
-                                                Appointment Date
-
-                                            </th>
-
-                                            <th class="table-headin">
-
-                                                Events
-
+                                            <th class="table-headin">Appointment number</th>
+                                            <th class="table-headin">Client Name</th>
+                                            <th class="table-headin">Category</th>
+                                            <th class="table-headin">Session Date & Time</th>
+                                            <th class="table-headin">Appointment Date</th>
+                                            <th class="table-headin">Status</th>
+                                            <th class="table-headin">Events</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <!-- <tr>
-                                    <td colspan="7">
-                                    <br><br><br><br>
-                                    <center>
-                                    <img src="../img/notfound.svg" width="25%">
-                                    
-                                    <br>
-                                    <p class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49)">We  couldnt find anything related to your keywords !</p>
-                                    <a class="non-style-link" href="appointment.php"><button  class="login-btn btn-primary-soft btn"  style="display: flex;justify-content: center;align-items: center;margin-left:20px;">&nbsp; Show all Appointments &nbsp;</font></button>
-                                    </a>
-                                    </center>
-                                    <br><br><br><br>
-                                    </td>
-                                    </tr> -->
-
-                                        <tr>
-                                            <td style="font-weight:600;"> &nbsp; 123</td>
-
-                                            <td style="text-align:center;font-size:23px;font-weight:500; color: var(--btnnicetext);">
-                                                Russel Requina
-
-                                            </td>
-
+                                        <tr data-appointment-date="2025-01-02" data-client-name="Russel Requina">
+                                            <td style="font-weight:600;">123</td>
+                                            <td style="text-align:center;font-size:23px;font-weight:500;color:var(--btnnicetext);">Russel Requina</td>
+                                            <td>Duo</td>
+                                            <td style="text-align:center;font-size:12px;">1/2/25 <br>11:00 AM</td>
+                                            <td style="text-align:center;">1/2/25</td>
+                                            <td><input name="status" type="text" value="Completed" readonly style="text-align:center;"></td>
                                             <td>
-                                                Duo
-                                            </td>
-                                            <td style="text-align:center;font-size:12px;">
-                                                1/2/25 <br>11:00 AM
-                                            </td>
 
-                                            <td style="text-align:center;">
-                                                1/2/25
-                                            </td>
 
-                                            <td>
-                                                <div style="display:flex;justify-content: center;">
-
-                                                    <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;">
+                                                <div style="display:flex;justify-content:center;">
+                                                    <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
                                                             <font class="tn-in-text">View</font>
                                                         </button></a>
                                                     &nbsp;&nbsp;&nbsp;
-                                                    <!-- <a href="?action=drop&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;">
-                                                            <font class="tn-in-text">Cancel</font>
+                                                    <a href="?action=drop&id=123" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-appointment-date="2025-01-03" data-client-name="Ivan Requina">
+                                            <td style="font-weight:600;">124</td>
+                                            <td style="text-align:center;font-size:23px;font-weight:500;color:var(--btnnicetext);">Ivan Requina</td>
+                                            <td>Group</td>
+                                            <td style="text-align:center;font-size:12px;">1/3/25 <br>11:30 AM</td>
+                                            <td style="text-align:center;">1/3/25</td>
+                                            <td><input name="status" type="text" value="Cancelled" readonly style="text-align:center;"></td>
+                                            <td>
+                                                <div style="display:flex;justify-content:center;">
+                                                    <a href="?action=view&id=#" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
+                                                            <font class="tn-in-text">View</font>
                                                         </button></a>
-                                                    &nbsp;&nbsp;&nbsp; -->
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <a href="?action=drop&id=124" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete" style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
                                                 </div>
                                             </td>
                                         </tr>
 
-                                    </tbody>
 
+                                    </tbody>
                                 </table>
+                                <p id="no-results" class="heading-main12 no-results">We couldn't find anything related to your keywords!</p>
                             </div>
                         </center>
                     </td>
                 </tr>
-
-
-
             </table>
         </div>
 
 
 
-        <!-- <footer class="page-footer">
-    
-    </footer> -->
+
+        <script src="js/search-filter-history.js"></script>
     </section>
-    <script>
-
-    </script>
-
-    <script src="js/dashboard.js"></script>
-
-
 </body>
 
 </html>

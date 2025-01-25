@@ -897,7 +897,8 @@ input-search-name:hover {
 
 .btn-edit,
 .btn-view,
-.btn-delete {
+.btn-done,
+.btn-cancel {
   padding-left: 40px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -979,7 +980,6 @@ input-search-name:hover {
 
 .add-doc-form-container {
   padding: 25px;
-  margin-top: 30px;
 }
 
 .box {
