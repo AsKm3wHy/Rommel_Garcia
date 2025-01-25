@@ -2618,9 +2618,9 @@ footer {
 
 .card1 {
   position: relative;
-  width: 36rem;
+  width: 30rem;
   height: 475px;
-  background: #fff;
+  background: rgb(255, 255, 255);
   margin: 20px;
   border-radius: 20px;
   overflow: hidden;
