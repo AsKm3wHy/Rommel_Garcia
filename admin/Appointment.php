@@ -504,7 +504,31 @@
     <?php
     if ($_GET) {
       $action = $_GET["action"];
+
       if ($action == 'done') {
+
+        echo '
+              <div id="popup1" class="overlay">
+                        <div class="popup">
+                        <center>
+                        <br><br><br><br>
+                            <h2> Successfully Completed!</h2>
+                            <a class="close" href="Appointment.php">&times;</a>
+                            <div class="content">
+                                
+                                
+                            </div>
+                            <div style="display: flex;justify-content: center;">
+                            
+                            <a href="Appointment.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+
+                            </div>
+                            <br><br>
+                        </center>
+                </div>
+                </div>
+            ';
+      } elseif ($action == 'cancel') {
 
         echo '
             <div id="popup1" class="overlay">
@@ -513,7 +537,7 @@
                         <h2>Are you sure?</h2>
                         <a class="close" href="Appointment.php">&times;</a>
                         <div class="content">
-                            You want to delete this record<br>().
+                            You want to Cancel this record<br>().
                             
                         </div>
                         <div style="display: flex;justify-content: center;">

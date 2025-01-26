@@ -286,6 +286,145 @@
         </div>
 
 
+        <?php
+        if ($_GET) {
+            $action = $_GET["action"];
+
+            if ($action == 'drop') {
+
+                echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                        <h2>Are you sure?</h2>
+                        <a class="close" href="history.php">&times;</a>
+                        <div class="content">
+                            You want to Delete this record<br>().
+                            
+                        </div>
+                        <div style="display: flex;justify-content: center;">
+                        <a href="history.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
+
+                        </div>
+                    </center>
+            </div>
+            </div>
+            ';
+            } elseif ($action == 'view') {
+
+                echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                        <h2></h2>
+                        <a class="close" href=" history.php">&times;</a>
+                        
+                        <div  style="display: flex;justify-content: center;">
+                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                        
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                
+                                <td class="label-td" colspan="2">
+                                    <label for="name" class="form-label">Name: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                  josh <br><br>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Email" class="form-label">Email: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                @gmail.com <br><br>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Tele" class="form-label">Telephone: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                               12312312<br><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Category: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> Duo
+                            <br><br>
+                            </td>
+                            </tr>
+
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Specialties: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> 1/2/25 12:00 PM
+                            <br><br>
+                            </td>
+                            </tr>
+
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Payment Method: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2"> Gcash
+                            <br><br>
+                            </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <a href="history.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
+                                
+                                    
+                                </td>
+                
+                            </tr>
+                           
+
+                        </table>
+                        </div>
+                    </center>
+                    <br><br>
+            </div>
+            </div>
+            ';
+            }
+        };
+
+
+        ?>
+
+
 
 
         <script src="js/search-filter-history.js"></script>
