@@ -285,8 +285,9 @@
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card1" data-aos="flip-left" data-aos-duration="900">
-                    <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="900"
+                    style="background-image:url(img/pic/Package3.jpg); background-size:100% 100%;">
+                    <!-- <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 2</h2>
                     </div>
@@ -308,11 +309,12 @@
                             <div></div>
                         </div>
                         <a href="#">₱2599</a>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000"
+                    style="background-image:url(img/pic/Package2.jpg); background-size:100% 100%;">
+                    <!-- <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 3</h2>
                     </div>
@@ -325,11 +327,12 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱3599</a>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000"
+                    style="background-image:url(img/pic/Package1.jpg); background-size:100% 100%;">
+                    <!-- <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 4</h2>
                     </div>
@@ -342,7 +345,7 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱899</a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="card1" data-aos="flip-left" data-aos-duration="1000">
