@@ -871,6 +871,7 @@ input-search-name:hover {
   background-color: #f0f0f073;
   border: 1px solid rgba(57, 108, 240, 0.1);
   font-family: "Inter", sans-serif;
+  width: 3rem;
 }
 
 .non-style-link {
@@ -1021,4 +1022,26 @@ input[type="search"] {
   background-repeat: no-repeat !important;
   transition: 0.5s;
   padding: 8px 20px 8px 40px;
+}
+
+.events-td {
+  display: flex;
+  justify-content: center;
+}
+
+.table-appointment {
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* //////////////////////////////////responsive css/////////////////////////////////// */
+
+@media screen and (max-width: 1000px) {
+  .events-td {
+    display: grid;
+    justify-content: center;
+  }
 }
