@@ -239,7 +239,7 @@
                                     <tbody>
                                         <tr data-appointment-date="2025-01-02" data-client-name="Russel Requina">
                                             <td style="font-weight:600;">123</td>
-                                            <td style="text-align:center;font-size:23px;font-weight:500;color:var(--btnnicetext);">Russel Requina</td>
+                                            <td style="text-align:center;">Russel Requina</td>
                                             <td>Duo</td>
                                             <td style="text-align:center;font-size:12px;">1/2/25 <br>11:00 AM</td>
                                             <td style="text-align:center;">1/2/25</td>
@@ -258,7 +258,7 @@
                                         </tr>
                                         <tr data-appointment-date="2025-01-03" data-client-name="Ivan Requina">
                                             <td style="font-weight:600;">124</td>
-                                            <td style="text-align:center;font-size:23px;font-weight:500;color:var(--btnnicetext);">Ivan Requina</td>
+                                            <td style="text-align:center;">Ivan Requina</td>
                                             <td>Group</td>
                                             <td style="text-align:center;font-size:12px;">1/3/25 <br>11:30 AM</td>
                                             <td style="text-align:center;">1/3/25</td>

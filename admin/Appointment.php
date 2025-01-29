@@ -219,7 +219,7 @@
 
 
       <div class="dash-body" style="padding-right: 0px;">
-        <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
+        <table class="table-appointment" border="0">
           <tr>
             <td width="13%">
               <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
@@ -262,7 +262,7 @@
     </section>
 
     <div class="dash-body">
-      <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
+      <table class="table-appointment" border="0">
 
 
         <tr>
@@ -314,11 +314,7 @@
                         Date
 
                       </th>
-                      <th class="table-headin">
 
-                        Time
-
-                      </th>
                       <th class="table-headin">
 
                         Status
@@ -360,9 +356,7 @@
                       <td>
                         1/23/25
                       </td>
-                      <td>
-                        11:00 AM
-                      </td>
+
                       <td>
 
                         <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
@@ -370,7 +364,7 @@
 
 
                       <td>
-                        <div style="display:flex;justify-content: center;">
+                        <div class="events-td">
                           <a href="?action=edit&id=#&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
                               <font class="tn-in-text">Edit</font>
                             </button></a>
@@ -409,15 +403,13 @@
                       <td>
                         1/23/25
                       </td>
-                      <td>
-                        11:00 AM
-                      </td>
+
                       <td>
                         <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                       </td>
 
                       <td>
-                        <div style="display:flex;justify-content: center;">
+                        <div class="events-td">
                           <a href="?action=edit&id=&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
                               <font class="tn-in-text">Edit</font>
                             </button></a>
@@ -454,15 +446,13 @@
                       <td>
                         1/23/25
                       </td>
-                      <td>
-                        11:00 AM
-                      </td>
+
                       <td>
                         <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                       </td>
 
                       <td>
-                        <div style="display:flex;justify-content: center;">
+                        <div class="events-td">
                           <a href="?action=edit&id=#&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
                               <font class="tn-in-text">Edit</font>
                             </button></a>
