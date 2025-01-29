@@ -258,55 +258,67 @@
         </tr>
         <tr>
           <td style="width: 25%;">
-            <div class="dashboard-items">
-              <div>
-                <div class="h1-dashboard"> 12
-                </div><br>
-                <div class="h3-dashboard">
-                  Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="appointment.php">
+              <div class="dashboard-items">
+                <div>
+                  <div class="h1-dashboard"> 12
+                  </div><br>
+                  <div class="h3-dashboard">
+                    Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
                 </div>
+                <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Appointment.svg');"></div>
               </div>
-              <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Appointment.svg');"></div>
-            </div>
+            </a>
+
           </td>
           <td style="width: 25%;">
-            <div class="dashboard-items">
-              <div>
-                <div class="h1-dashboard">
-                  43
-                </div><br>
-                <div class="h3-dashboard">
-                  New Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="appointment.php">
+              <div class="dashboard-items">
+                <div>
+                  <div class="h1-dashboard">
+                    43
+                  </div><br>
+                  <div class="h3-dashboard">
+                    New Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
                 </div>
+                <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/New-Appointment.svg');"></div>
               </div>
-              <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/New-Appointment.svg');"></div>
-            </div>
+            </a>
+
           </td>
           <td style="width: 25%;">
-            <div class="dashboard-items">
-              <div>
-                <div class="h1-dashboard">
-                  13
-                </div><br>
-                <div class="h3-dashboard">
-                  Today Sessions &nbsp;&nbsp;
+            <a href="appointment.php">
+              <div class="dashboard-items">
+                <div>
+                  <div class="h1-dashboard">
+                    13
+                  </div><br>
+                  <div class="h3-dashboard">
+                    Today Sessions &nbsp;&nbsp;
+                  </div>
                 </div>
+                <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Today-Sessions.svg');"></div>
               </div>
-              <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Today-Sessions.svg');"></div>
-            </div>
+            </a>
+
           </td>
           <td style="width: 25%;">
-            <div class="dashboard-items">
-              <div>
-                <div class="h1-dashboard">
-                  76
-                </div><br>
-                <div class="h3-dashboard">
-                  Upcomming Sessions
+            <a href="appointment.php">
+              <div class="dashboard-items">
+                <div>
+                  <div class="h1-dashboard">
+                    76
+                  </div><br>
+                  <div class="h3-dashboard">
+                    Upcomming Sessions
+                  </div>
                 </div>
+                <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Upcomming-Sessions.svg');"></div>
               </div>
-              <div class="btn-icon-back dashboard-icons" style="background-image: url('img/icon/Upcomming-Sessions.svg');"></div>
-            </div>
+            </a>
+
           </td>
 
         </tr>
