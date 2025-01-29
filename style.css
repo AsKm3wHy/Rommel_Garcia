@@ -646,6 +646,7 @@ input:required {
   position: relative;
   z-index: 1;
   min-width: 160px;
+  margin-top: 18.5rem;
   height: 46px;
   line-height: 42px;
   font-size: 16px;
@@ -1086,10 +1087,30 @@ input:required {
   -webkit-text-fill-color: transparent;
 }
 
+h3 {
+  font-weight: 700;
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  background: -webkit-linear-gradient(#fff299, #ffe89e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media only screen and (max-width: 767px) {
-  .single-welcome-slide .welcome-text h2 {
+  .single-welcome-slide .welcome-text h2,
+  h2 {
     font-size: 42px;
     margin-top: 4rem !important;
+  }
+  .new {
+    margin: 0 !important;
+    font-size: 0.5rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin-top: 0 !important;
   }
   .lx-btn {
     margin-top: 11rem;
@@ -1112,7 +1133,6 @@ input:required {
 .single-welcome-slide .welcome-text .hero-mail-contact:focus {
   color: #fc6060;
 }
-
 /* :: 9.0 Follow CSS */
 
 .single-instagram-item {
@@ -2578,6 +2598,8 @@ footer {
 
 .pricing h2 {
   text-align: center;
+  margin-top: 2rem;
+  color: #fff;
 }
 
 .slider-container {
@@ -2596,6 +2618,9 @@ footer {
 @media only screen and (max-width: 767px) {
   .slider {
     margin-left: 1rem !important;
+  }
+  .pricing h2 {
+    margin-top: -3rem !important;
   }
 }
 
@@ -2818,7 +2843,8 @@ footer {
 body {
   height: 100%;
   width: 100%;
-  background: linear-gradient(45deg, yellow, violet, orange, grey);
+  /* background: linear-gradient(45deg, yellow, violet, orange, grey); */
+  background: linear-gradient(45deg, #000, #1a120b);
   background-size: 300% 300%;
   animation: color 5s ease-in-out infinite;
 }

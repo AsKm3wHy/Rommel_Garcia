@@ -108,7 +108,8 @@
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Welcome to a Journey of Memories!
+                                <h2 data-animation="bounceInUp" data-delay="100ms" style="margin-top:3rem;">Welcome to a
+                                    Journey of Memories!
                                 </h2>
                                 <!-- <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
                                     Photography, we believe that every moment is a treasure waiting to be captured. Our
@@ -117,18 +118,23 @@
                                     fleeting moments into lasting keepsakes that you can reminisce about for years to
                                     come.</p> -->
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4"
-                                        style="margin-top: 10rem;">Get an
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
                                         Appointment</a>
                                 </div>
                             </div>
+                            <h3 data-animation="bounceInUp" data-delay="1000ms">360 Video Photobooth</h3>
+                            <h3 data-animation="bounceInUp" data-delay="1200ms">Self Mirror Photobooth</h3>
+                            <span class="new" style="color: #f7b315; font-weight: bold;" data-animation="bounceInUp"
+                                data-delay="1400ms">New!</span>
+                            <h3 data-animation="bounceInUp" data-delay="1400ms" style="margin-top:0;">Self-Portrait
+                                Photobooth</h3>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="single-welcome-slide bg-img bg-overlay" data-aos="fade-left" data-aos-duration="3000"
-                style="background-image: url(img/indexImage/empty.png);">
+            <!-- <div class="single-welcome-slide bg-img bg-overlay" data-aos="fade-left" data-aos-duration="3000"
+                style="background-image: url(img/indexImage/empty.png); background-size: 100% 100%;">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
 
@@ -150,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -160,12 +166,14 @@
 
     <section class="pricing">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
-            <h2>Pricing</h2>
+            <h2>Pick your perfect shot!</h2>
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <a href="Appointment.php">
+                    <div class="card" data-aos="flip-left"
+                        style="background-image:url(img/pic/Solo.png); background-size:100% 100%; cursor:pointer;">
+                        <!-- <div class="circle">
                         <h3>SOLO</h3>
                     </div>
                     <div class="content">
@@ -177,8 +185,9 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱500</a>
+                    </div> -->
                     </div>
-                </div>
+                </a>
 
                 <div class="card" data-aos="flip-left">
                     <div class="circle">
@@ -212,8 +221,9 @@
                     </div>
                 </div>
 
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/Quad.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
                         <h3>QUAD</h3>
                     </div>
                     <div class="content">
@@ -225,7 +235,7 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱1,000</a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="card" data-aos="flip-left">
@@ -260,8 +270,9 @@
                         <a href="#">₱1,500</a>
                     </div>
                 </div>
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/Graduate.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
                         <h3>GRADUATE</h3>
                     </div>
                     <div class="content">
@@ -274,20 +285,90 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱800</a>
+                    </div> -->
+                </div>
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/p1.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
+                        <h3>GRADUATE</h3>
                     </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱800</a>
+                    </div> -->
+                </div>
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/p2.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
+                        <h3>GRADUATE</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱800</a>
+                    </div> -->
+                </div>
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/p3.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
+                        <h3>GRADUATE</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱800</a>
+                    </div> -->
+                </div>
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/p4.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
+                        <h3>GRADUATE</h3>
+                    </div>
+                    <div class="content">
+                        <div class="features">
+                            <div>1 Pax</div>
+                            <div>15 Minutes Self Portrait</div>
+                            <div>1 Backdrop Color</div>
+                            <div>2 4R Size Print</div>
+                            <div>Free use of Toga, Alampay and Coat</div>
+                            <div>All digital copies are FREE</div>
+                        </div>
+                        <a href="#">₱800</a>
+                    </div> -->
                 </div>
             </div>
             <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
             <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
         </div>
+        <hr style="color:#fff; border: solid 1px;">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="1000" style="margin-top:5rem;">
             <h2>Packages</h2>
+            <h5 style="text-align:center; color:#fff; margin-bottom:2rem;">Capture the Moments, One Smile at a Time!
+            </h5>
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card1" data-aos="flip-left" data-aos-duration="900"
-                    style="background-image:url(img/pic/Package3.jpg); background-size:100% 100%;">
-                    <!-- <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="900">
+                    <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 2</h2>
                     </div>
@@ -309,12 +390,11 @@
                             <div></div>
                         </div>
                         <a href="#">₱2599</a>
-                    </div> -->
+                    </div>
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000"
-                    style="background-image:url(img/pic/Package2.jpg); background-size:100% 100%;">
-                    <!-- <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
+                    <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 3</h2>
                     </div>
@@ -327,12 +407,11 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱3599</a>
-                    </div> -->
+                    </div>
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000"
-                    style="background-image:url(img/pic/Package1.jpg); background-size:100% 100%;">
-                    <!-- <div class="circle">
+                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
+                    <div class="circle">
                         <h4>Graduation Portrait</h4>
                         <h2 style="color: #fff;">Package 4</h2>
                     </div>
@@ -345,7 +424,7 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱899</a>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="card1" data-aos="flip-left" data-aos-duration="1000">
