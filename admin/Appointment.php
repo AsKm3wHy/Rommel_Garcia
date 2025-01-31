@@ -180,7 +180,8 @@
               </p>
             </td>
             <td width="4%">
-              <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button>
+              <a href="calendar.php"> <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button></a>
+
             </td>
 
 
