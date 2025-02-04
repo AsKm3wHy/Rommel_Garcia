@@ -154,7 +154,12 @@
                 <div class="partition"></div>
 
                 <div class="calendar-container">
-
+                    <label for="btn1" style="text-align: left;">Photobooth Type: </label>
+                    <div class="button-container">
+                        <button class="btn1" id="personalBtn">360 Video</button>
+                        <button class="btn1" id="videoBtn">Self Mirror</button>
+                        <button class="btn1" id="portraitBtn">Self-Portrait</button>
+                    </div>
                     <div class="month-select">
                         <button class="nav-btn" id="prev-month">&#10094;</button>
                         <div>
@@ -176,7 +181,7 @@
                     <div class="available-times" id="available-times"></div>
 
                     <form id="appointment-form" style="display: none;">
-                        <hr>
+                        <hr><br>
                         <!-- <label for="appointment">Select an Appointment Type:</label>
                 <select id="appointment" name="appointment" required>
                     <option value="consultation">TRIO</option>
@@ -193,6 +198,53 @@
                 </div>
             </div>
 
+
+            <script>
+                let buttonSelected = false;
+
+
+                const personalBtn = document.getElementById('personalBtn');
+                const videoBtn = document.getElementById('videoBtn');
+                const portraitBtn = document.getElementById('portraitBtn');
+
+
+                function setActiveButton(selectedButton) {
+                    // Remove active class from all buttons
+                    personalBtn.classList.remove('active1', 'personal');
+                    videoBtn.classList.remove('active1', 'video');
+                    portraitBtn.classList.remove('active1', 'portrait');
+
+
+                    if (selectedButton === 'personal') {
+                        personalBtn.classList.add('active1', 'personal');
+                    } else if (selectedButton === 'video') {
+                        videoBtn.classList.add('active1', 'video');
+                    } else if (selectedButton === 'portrait') {
+                        portraitBtn.classList.add('active1', 'portrait');
+                    }
+
+                    buttonSelected = true;
+                    enableSubmitButton();
+                }
+
+
+                personalBtn.addEventListener('click', () => setActiveButton('personal'));
+                videoBtn.addEventListener('click', () => setActiveButton('video'));
+                portraitBtn.addEventListener('click', () => setActiveButton('portrait'));
+
+
+                function enableSubmitButton() {
+                    const submitButton = document.querySelector('.submit-btn');
+                    if (buttonSelected) {
+                        submitButton.disabled = false;
+                    } else {
+                        submitButton.disabled = true;
+                    }
+                }
+
+
+                document.addEventListener('DOMContentLoaded', enableSubmitButton);
+            </script>
 
 
             <script>
@@ -424,7 +476,7 @@
                 }
 
                 // Navigation buttons
-                document.getElementById('prev-month').onclick = function () {
+                document.getElementById('prev-month').onclick = function() {
                     if (currentMonth === 0) {
                         currentMonth = 11;
                         currentYear--;
@@ -435,7 +487,7 @@
                     generateCalendar();
                 };
 
-                document.getElementById('next-month').onclick = function () {
+                document.getElementById('next-month').onclick = function() {
                     if (currentMonth === 11) {
                         currentMonth = 0;
                         currentYear++;
@@ -447,12 +499,12 @@
                 };
 
 
-                document.getElementById('month-select').addEventListener('change', function () {
+                document.getElementById('month-select').addEventListener('change', function() {
                     currentMonth = parseInt(this.value);
                     generateCalendar();
                 });
 
-                document.getElementById('year-select').addEventListener('change', function () {
+                document.getElementById('year-select').addEventListener('change', function() {
                     currentYear = parseInt(this.value);
                     generateCalendar();
                 });
@@ -462,12 +514,12 @@
                 generateCalendar();
             </script>
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
                     const accordions = document.querySelectorAll('.faq-accordion');
 
                     if (accordions.length > 0) {
                         accordions.forEach(button => {
-                            button.addEventListener('click', function () {
+                            button.addEventListener('click', function() {
                                 // Toggle active class
                                 this.classList.toggle('active');
 
@@ -558,7 +610,7 @@
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

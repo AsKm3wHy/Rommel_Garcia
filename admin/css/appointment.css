@@ -47,10 +47,6 @@ button {
   cursor: pointer;
 }
 
-input {
-  -webkit-appearance: none;
-}
-
 [type="checkbox"] {
   position: absolute;
   left: -9999px;
@@ -1039,9 +1035,9 @@ input[type="search"] {
 
 /* //////////////////////////////////responsive css/////////////////////////////////// */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 100px) {
   .events-td {
-    display: grid;
+    display: grid !important;
     justify-content: center;
   }
 }
