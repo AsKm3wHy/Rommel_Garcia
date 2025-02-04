@@ -109,6 +109,10 @@
         </div>
     </section>
 
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
         <div class="container-fluid">
 

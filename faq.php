@@ -30,7 +30,9 @@
         <div class="loader"></div>
     </div>
 
-
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
     <div class="top-search-area">
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -206,12 +208,12 @@
             </div>
 
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
                     const accordions = document.querySelectorAll('.faq-accordion');
 
                     if (accordions.length > 0) {
                         accordions.forEach(button => {
-                            button.addEventListener('click', function () {
+                            button.addEventListener('click', function() {
                                 // Toggle active class
                                 this.classList.toggle('active');
 
@@ -302,7 +304,7 @@
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

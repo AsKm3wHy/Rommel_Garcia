@@ -43,6 +43,7 @@ Last Update: Feb 22, 2019
 @import url(css/font-awesome.min.css);
 @import url(css/default-assets/themify-icons.css);
 @import url(css/style.css);
+
 /* :: 01.0 Reboot CSS */
 
 * {
@@ -133,7 +134,9 @@ h6 {
 }
 
 #social-sidebar a span {
-  font: 12px "Poppins", sans-serif;
+  font:
+    12px "Poppins",
+    sans-serif;
   text-transform: uppercase;
   border-radius: 3px;
   line-height: 24px;
@@ -142,7 +145,9 @@ h6 {
   opacity: 0;
   padding: 4px 8px;
   position: absolute;
-  transition: opacity 0.3s, left 0.4s;
+  transition:
+    opacity 0.3s,
+    left 0.4s;
   top: 50%;
   z-index: -1;
 }
@@ -646,7 +651,7 @@ input:required {
   position: relative;
   z-index: 1;
   min-width: 160px;
-  margin-top: 18.5rem;
+  margin-top: 12.5rem;
   height: 46px;
   line-height: 42px;
   font-size: 16px;
@@ -727,6 +732,7 @@ input:required {
   cursor: pointer;
   transition: 0.5s;
 }
+
 .header-area .search-icon i:hover {
   transition: 0.5s;
   color: #fc6060;
@@ -865,38 +871,10 @@ input:required {
   color: #252525;
 }
 
-.classy-nav-container
-  .classy-navbar
-  .classynav
-  ul
-  li.cn-dropdown-item
-  ul
-  li
-  a:focus,
-.classy-nav-container
-  .classy-navbar
-  .classynav
-  ul
-  li.cn-dropdown-item
-  ul
-  li
-  a:hover,
-.classy-nav-container
-  .classy-navbar
-  .classynav
-  ul
-  li.megamenu-item
-  ul
-  li
-  a:focus,
-.classy-nav-container
-  .classy-navbar
-  .classynav
-  ul
-  li.megamenu-item
-  ul
-  li
-  a:hover {
+.classy-nav-container .classy-navbar .classynav ul li.cn-dropdown-item ul li a:focus,
+.classy-nav-container .classy-navbar .classynav ul li.cn-dropdown-item ul li a:hover,
+.classy-nav-container .classy-navbar .classynav ul li.megamenu-item ul li a:focus,
+.classy-nav-container .classy-navbar .classynav ul li.megamenu-item ul li a:hover {
   color: #fc6060;
 }
 
@@ -1113,7 +1091,7 @@ h3 {
     margin-top: 0 !important;
   }
   .lx-btn {
-    margin-top: 11rem;
+    margin-top: 12rem;
   }
 }
 
@@ -1133,6 +1111,7 @@ h3 {
 .single-welcome-slide .welcome-text .hero-mail-contact:focus {
   color: #fc6060;
 }
+
 /* :: 9.0 Follow CSS */
 
 .single-instagram-item {
@@ -2452,10 +2431,12 @@ footer {
   margin: 10px auto;
   padding-right: 15px;
 }
+
 .social-info h2,
 .connect h2 {
   font-size: 22px;
 }
+
 .social-info > .icons {
   margin: 0 auto;
   transition: 0.5s;
@@ -2507,7 +2488,6 @@ footer {
   text-align: center;
   margin: 0 auto;
   margin-top: 30px;
-
   /*  border: 0.5px white solid;
   border-radius: 8px;
   */
@@ -2592,6 +2572,7 @@ footer {
 }
 
 /* Pricing Section CSS */
+
 .pricing {
   padding: 5em 0;
 }
@@ -2599,7 +2580,7 @@ footer {
 .pricing h2 {
   text-align: center;
   margin-top: 2rem;
-  color: #fff;
+  color: #000;
 }
 
 .slider-container {
@@ -2634,7 +2615,8 @@ footer {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0; /* Prevent cards from shrinking */
+  flex-shrink: 0;
+  /* Prevent cards from shrinking */
 }
 
 .card:hover {
@@ -2650,7 +2632,8 @@ footer {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0; /* Prevent cards from shrinking */
+  flex-shrink: 0;
+  /* Prevent cards from shrinking */
 }
 
 .card1:hover {
@@ -2688,6 +2671,7 @@ footer {
   /* color: #ffffff; */
   margin-bottom: 8px;
 }
+
 .features1 {
   color: #666;
   margin-bottom: 8px;
@@ -2697,6 +2681,7 @@ footer {
   color: #666;
   margin-bottom: 8px;
 }
+
 .features1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2717,107 +2702,128 @@ footer {
 
 .card:nth-child(1) .circle,
 .card:nth-child(1) .content a {
-  background: #ffaf00; /* Yellow */
+  background: #ffaf00;
+  /* Yellow */
 }
 
 .card:nth-child(2) .circle,
 .card:nth-child(2) .content a {
-  background: #da2268; /* Pink */
+  background: #da2268;
+  /* Pink */
 }
 
 .card:nth-child(3) .circle,
 .card:nth-child(3) .content a {
-  background: #bb02ff; /* Purple */
+  background: #bb02ff;
+  /* Purple */
 }
 
 .card:nth-child(4) .circle,
 .card:nth-child(4) .content a {
-  background: #00aaff; /* Light Blue */
+  background: #00aaff;
+  /* Light Blue */
 }
 
 .card:nth-child(5) .circle,
 .card:nth-child(5) .content a {
-  background: #ff4500; /* Orange Red */
+  background: #ff4500;
+  /* Orange Red */
 }
 
 .card:nth-child(6) .circle,
 .card:nth-child(6) .content a {
-  background: #32cd32; /* Lime Green */
+  background: #32cd32;
+  /* Lime Green */
 }
 
 .card:nth-child(7) .circle,
 .card:nth-child(7) .content a {
-  background: #ff69b4; /* Hot Pink */
+  background: #ff69b4;
+  /* Hot Pink */
 }
 
 .card:nth-child(8) .circle,
 .card:nth-child(8) .content a {
-  background: #ffd700; /* Gold */
+  background: #ffd700;
+  /* Gold */
 }
 
 .card:nth-child(9) .circle,
 .card:nth-child(9) .content a {
-  background: #9370db; /* Medium Purple */
+  background: #9370db;
+  /* Medium Purple */
 }
 
 .card:nth-child(10) .circle,
 .card:nth-child(10) .content a {
-  background: #ff8c00; /* Dark Orange */
+  background: #ff8c00;
+  /* Dark Orange */
 }
 
 /* cad1 */
 
 .card1:nth-child(1) .circle,
 .card1:nth-child(1) .content a {
-  background: #ffaf00; /* Yellow */
+  background: #ffaf00;
+  /* Yellow */
 }
 
 .card1:nth-child(2) .circle,
 .card1:nth-child(2) .content a {
-  background: #da2268; /* Pink */
+  background: #da2268;
+  /* Pink */
 }
 
 .card1:nth-child(3) .circle,
 .card1:nth-child(3) .content a {
-  background: #bb02ff; /* Purple */
+  background: #bb02ff;
+  /* Purple */
 }
 
 .card1:nth-child(4) .circle,
 .card1:nth-child(4) .content a {
-  background: #00aaff; /* Light Blue */
+  background: #00aaff;
+  /* Light Blue */
 }
 
 .card1:nth-child(5) .circle,
 .card1:nth-child(5) .content a {
-  background: #ff4500; /* Orange Red */
+  background: #ff4500;
+  /* Orange Red */
 }
 
 .card1:nth-child(6) .circle,
 .card1:nth-child(6) .content a {
-  background: #32cd32; /* Lime Green */
+  background: #32cd32;
+  /* Lime Green */
 }
 
 .card1:nth-child(7) .circle,
 .card1:nth-child(7) .content a {
-  background: #ff69b4; /* Hot Pink */
+  background: #ff69b4;
+  /* Hot Pink */
 }
 
 .card1:nth-child(8) .circle,
 .card1:nth-child(8) .content a {
-  background: #ffd700; /* Gold */
+  background: #ffd700;
+  /* Gold */
 }
 
 .card1:nth-child(9) .circle,
 .card1:nth-child(9) .content a {
-  background: #9370db; /* Medium Purple */
+  background: #9370db;
+  /* Medium Purple */
 }
 
 .card1:nth-child(10) .circle,
 .card1:nth-child(10) .content a {
-  background: #ff8c00; /* Dark Orange */
+  background: #ff8c00;
+  /* Dark Orange */
 }
 
 /* Positioning for buttons */
+
 .slider-button {
   position: absolute;
   top: 50%;
@@ -2844,7 +2850,7 @@ body {
   height: 100%;
   width: 100%;
   /* background: linear-gradient(45deg, yellow, violet, orange, grey); */
-  background: linear-gradient(45deg, #000, #1a120b);
+  /* background: linear-gradient(45deg, #000, #1a120b); */
   background-size: 300% 300%;
   animation: color 5s ease-in-out infinite;
 }
@@ -2860,6 +2866,54 @@ body {
     background-position: 0 50%;
   }
 }
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content1 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
 .pagination {
   display: inline-block;
 }
