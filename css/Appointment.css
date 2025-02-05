@@ -125,11 +125,9 @@
     margin: 1rem !important;
     padding: 1rem !important;
   }
-
   .photo-studio-faq h2.faq-header {
     font-size: 2rem !important;
   }
-
   .photo-studio-faq .faq-accordion {
     font-size: 1rem !important;
     padding: 1rem !important;
@@ -139,6 +137,7 @@
 /*------calendar----- */
 
 /* calendar */
+
 .container1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   width: 100% !important;
@@ -147,7 +146,7 @@
   padding: 1.875rem !important;
   color: #e0e0e0 !important;
   /* background-color: rgba(30, 30, 30, 0.5) !important; */
-  background-color: rgba(41, 40, 40) !important;
+  background-color: rgb(41 40 40 / 60%);
   border-radius: 0.75rem !important;
   box-shadow: 0 0.375rem 1.25rem rgba(128, 128, 128, 0.5) !important;
   display: flex !important;
@@ -297,7 +296,6 @@ select {
     grid-template-columns: repeat(7, 2.5rem) !important;
     margin-left: -1rem !important;
   }
-
   .container1 {
     flex-direction: column !important;
     gap: 1.25rem !important;
@@ -334,7 +332,7 @@ select:focus {
 }
 
 .month-select {
-  margin-bottom: 1.5625rem !important;
+  /* margin-bottom: 1.5625rem !important; */
   /* background-color: rgb(250 250 250 / 10%) !important; */
   padding: 0.9375rem !important;
   border-radius: 0.625rem !important;
@@ -374,80 +372,94 @@ select:focus {
   }
 }
 
-.checkbox-wrapper-47 input[type="radio"] {
-  display: none;
-  visibility: hidden !important;
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100% !important;
 }
 
-.checkbox-wrapper-47 label {
-  position: relative;
-  padding-left: 2em;
-  padding-right: 1em;
-  line-height: 2;
+.btn1 {
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
-  display: inline-flex !important;
-  /* font-size: 2rem !important; */
-}
-
-.checkbox-wrapper-47 label:before {
-  box-sizing: border-box;
-  content: " ";
-  position: absolute;
-  top: 0.3em;
-  left: 0;
-  display: block;
-  width: 1.4em;
-  height: 1.4em;
-  border: 2px solid #9098a9;
-  border-radius: 6px;
-  z-index: -1 !important;
-}
-
-.checkbox-wrapper-47 input[type="radio"]:checked + label {
-  padding-left: 2em;
-  color: #fff !important;
-}
-.checkbox-wrapper-47 input[type="radio"]:checked + label:before {
-  top: 0;
+  font-size: 16px;
+  background-color: rgb(187 209 233 / 10%);
+  border: 1px solid;
+  color: white;
   width: 100%;
-  height: 2em;
-  background: rgb(0, 0, 0, 0.1);
-  border-color: #fff !important;
+  border-radius: 1rem;
+  transition: background-color 0.3s;
 }
 
-.checkbox-wrapper-47 label,
-.checkbox-wrapper-47 label::before {
-  transition: 0.25s all ease !important;
-  margin-right: 5rem !important;
+.btn1:hover {
+  background-color: #fff;
+  color: #000;
 }
 
-.photobooth {
-  /* border: 1px solid; */
-  text-align: center !important;
+.active1 {
+  background-color: #fff;
+  color: #000;
 }
 
-@media (max-width: 768px) {
-  .checkbox-wrapper-47 label {
-    /* font-size: 1.5rem !important;  */
-    padding-left: 1em; /* Adjust padding */
-    padding-right: 0.5em; /* Adjust padding */
-    margin-right: 2rem !important; /* Adjust margin */
+.personal {
+  background-color: #fff;
+  color: #000;
+}
+
+.video {
+  background-color: #fff;
+  color: #000;
+}
+
+.portrait {
+  background-color: #fff;
+  color: #000;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content1 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
   }
-
-  .checkbox-wrapper-47 input[type="radio"]:checked + label:before {
-    height: 1.5em; /* Adjust height for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .checkbox-wrapper-47 label {
-    /* font-size: 1.2rem !important; */
-    margin-right: 1rem !important; /* Further adjust margin */
-    padding-left: 0.5em; /* Further adjust padding */
-    padding-right: 0.5em; /* Further adjust padding */
-  }
-
-  .checkbox-wrapper-47 input[type="radio"]:checked + label:before {
-    height: 1.2em; /* Further adjust height */
+  100% {
+    transform: translateX(25%);
   }
 }
