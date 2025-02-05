@@ -112,7 +112,6 @@
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
         <div class="container-fluid">
 
-
             <div class="container1">
 
                 <div class="left-section">
@@ -124,17 +123,17 @@
 
                     <div class="form-group">
                         <label for="name">Name: (Fullname)</label>
-                        <input type="text" id="name" name="name" required placeholder="Full Name" required>
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Contact #:</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number" required>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required placeholder="Email Address" required>
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
                     </div>
                     <label for="appointment">Select an Appointment Type:</label>
                     <select id="appointment" name="appointment" required onchange="updatePrice()">
@@ -168,7 +167,6 @@
 
 
                     <div class="calendar" id="calendar"></div>
-
 
                     <div class="selected-date" id="selected-date"></div>
 
@@ -292,12 +290,13 @@
                     ]
                 };
 
-
                 let selectedDate = null;
                 let selectedTimeSlot = null;
-                let currentMonth = 0;
-                let currentYear = 2025;
 
+
+                const today = new Date();
+                let currentMonth = today.getMonth();
+                let currentYear = today.getFullYear();
 
                 function populateMonthYear() {
                     const monthSelect = document.getElementById('month-select');
@@ -322,8 +321,8 @@
                         yearSelect.appendChild(option);
                     }
 
-                    monthSelect.value = currentMonth;
-                    yearSelect.value = currentYear;
+                    monthSelect.value = currentMonth; // Set to current month
+                    yearSelect.value = currentYear; // Set to current year
                 }
 
                 function generateCalendar() {
@@ -335,14 +334,7 @@
                     const totalDaysInMonth = lastDayOfMonth.getDate();
                     const availableDates = Object.keys(availableTimes).map(Number);
 
-
-                    const today = new Date();
-                    const todayDay = today.getDate();
-                    const todayMonth = today.getMonth();
-                    const todayYear = today.getFullYear();
-
                     calendar.innerHTML = '';
-
 
                     const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
                     daysOfWeek.forEach(day => {
@@ -350,7 +342,6 @@
                         dayElement.innerText = day;
                         calendar.appendChild(dayElement);
                     });
-
 
                     for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
                         const emptyElement = document.createElement('div');
@@ -361,6 +352,10 @@
                         const dateElement = document.createElement('div');
                         dateElement.innerText = day;
 
+                        const today = new Date();
+                        const todayDay = today.getDate();
+                        const todayMonth = today.getMonth();
+                        const todayYear = today.getFullYear();
 
                         if (
                             currentYear < todayYear ||
@@ -407,17 +402,14 @@
                     }
                 }
 
-
                 function selectTimeSlot(timeSlotElement, time) {
                     const selectedDateDisplay = document.getElementById('selected-date');
                     selectedDateDisplay.innerText =
                         `Selected Date: ${currentMonth + 1}/${selectedDate}/${currentYear} at ${time}`;
 
-
                     if (selectedTimeSlot) {
                         selectedTimeSlot.classList.remove('selected');
                     }
-
 
                     selectedTimeSlot = timeSlotElement;
                     selectedTimeSlot.classList.add('selected');
@@ -446,7 +438,6 @@
                     generateCalendar();
                 };
 
-
                 document.getElementById('month-select').addEventListener('change', function () {
                     currentMonth = parseInt(this.value);
                     generateCalendar();
@@ -457,7 +448,7 @@
                     generateCalendar();
                 });
 
-
+                // Populate the dropdowns and generate the calendar.
                 populateMonthYear();
                 generateCalendar();
             </script>
