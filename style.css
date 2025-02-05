@@ -134,9 +134,7 @@ h6 {
 }
 
 #social-sidebar a span {
-  font:
-    12px "Poppins",
-    sans-serif;
+  font: 12px "Poppins", sans-serif;
   text-transform: uppercase;
   border-radius: 3px;
   line-height: 24px;
@@ -145,9 +143,7 @@ h6 {
   opacity: 0;
   padding: 4px 8px;
   position: absolute;
-  transition:
-    opacity 0.3s,
-    left 0.4s;
+  transition: opacity 0.3s, left 0.4s;
   top: 50%;
   z-index: -1;
 }
@@ -871,10 +867,38 @@ input:required {
   color: #252525;
 }
 
-.classy-nav-container .classy-navbar .classynav ul li.cn-dropdown-item ul li a:focus,
-.classy-nav-container .classy-navbar .classynav ul li.cn-dropdown-item ul li a:hover,
-.classy-nav-container .classy-navbar .classynav ul li.megamenu-item ul li a:focus,
-.classy-nav-container .classy-navbar .classynav ul li.megamenu-item ul li a:hover {
+.classy-nav-container
+  .classy-navbar
+  .classynav
+  ul
+  li.cn-dropdown-item
+  ul
+  li
+  a:focus,
+.classy-nav-container
+  .classy-navbar
+  .classynav
+  ul
+  li.cn-dropdown-item
+  ul
+  li
+  a:hover,
+.classy-nav-container
+  .classy-navbar
+  .classynav
+  ul
+  li.megamenu-item
+  ul
+  li
+  a:focus,
+.classy-nav-container
+  .classy-navbar
+  .classynav
+  ul
+  li.megamenu-item
+  ul
+  li
+  a:hover {
   color: #fc6060;
 }
 
@@ -1091,7 +1115,7 @@ h3 {
     margin-top: 0 !important;
   }
   .lx-btn {
-    margin-top: 12rem;
+    margin-top: 10rem;
   }
 }
 

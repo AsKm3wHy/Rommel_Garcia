@@ -366,7 +366,8 @@
         <hr style="color:#fff; border: solid 1px;">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="1000" style="margin-top:5rem;">
             <h2>Packages</h2>
-            <h5 style="text-align:center; color:#0000008a; margin-bottom:2rem;">Capture the Moments, One Smile at a Time!
+            <h5 style="text-align:center; color:#000000bd; margin-bottom:2rem;">Capture the Moments, One Smile at a
+                Time!
             </h5>
         </div>
         <div class="slider-container">
@@ -566,7 +567,7 @@
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
