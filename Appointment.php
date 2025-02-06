@@ -1,3 +1,8 @@
+<?php 
+define('SECURE_ACCESS', true);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
