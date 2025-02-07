@@ -22,6 +22,7 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         'P' => 
         array (
             'PhpOption\\' => 10,
+            'Pecee\\' => 6,
         ),
         'G' => 
         array (
@@ -49,6 +50,10 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Pecee\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pecee/simple-router/src/Pecee',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (

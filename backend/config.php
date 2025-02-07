@@ -1,5 +1,5 @@
 <?php
-// Prevent direct access to this file
+
 if (!defined('SECURE_ACCESS')) {
     header('HTTP/1.0 403 Forbidden');
     exit;
@@ -17,7 +17,7 @@ if ($_ENV['APP_ENV'] === 'development') {
     error_reporting(0);
 }
 
-// Security headers
+// // Security headers
 header("X-Content-Type-Options: nosniff");
 header("X-Frame-Options: SAMEORIGIN");
 header("X-XSS-Protection: 1; mode=block");
@@ -201,3 +201,4 @@ session_start([
 
 // Create global instance of AppointmentManager
 $appointmentManager = new AppointmentManager();
+?>
