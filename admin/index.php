@@ -237,7 +237,7 @@
           </p>
           <p style="padding-bottom:19px;text-align:right;padding-right:50px;font-size:15px;font-weight:500;color:#212529e3;line-height: 20px;">
             Here's Quick access to Upcoming Appointments that Scheduled next week 7 days<br>
-            Add,Remove and Many features available in @Schedule section.
+            Add,Remove and Many features available in @Appointment section.
           </p>
 
 

@@ -47,10 +47,6 @@ button {
   cursor: pointer;
 }
 
-input {
-  -webkit-appearance: none;
-}
-
 [type="checkbox"] {
   position: absolute;
   left: -9999px;
@@ -860,4 +856,8 @@ input-search-name:hover {
   background-color: #f0f0f073;
   border: 1px solid rgba(57, 108, 240, 0.1);
   font-family: "Inter", sans-serif;
+}
+
+.btn-label:hover {
+  background-color: #e9e9e9;
 }

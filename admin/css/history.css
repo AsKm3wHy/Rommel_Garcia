@@ -47,10 +47,6 @@ button {
     cursor: pointer;
 }
 
-input {
-    -webkit-appearance: none;
-}
-
 [type="checkbox"] {
     position: absolute;
     left: -9999px;
@@ -1019,4 +1015,8 @@ input-search-name:hover {
 
 td {
     text-align: center;
+}
+
+.btn-label:hover {
+    background-color: #e9e9e9;
 }
