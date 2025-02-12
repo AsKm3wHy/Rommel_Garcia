@@ -1,3 +1,8 @@
+<?php 
+define('SECURE_ACCESS', true);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +65,7 @@
 
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
-                        <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
+                        <a class="nav-brand" href="index.php" z>
                             <!-- <h1 class="home-logo">Rommel</h1> -->
                             <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
                         </a>

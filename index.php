@@ -575,15 +575,12 @@
 </script>
 <script>
     function slide(sliderElement, direction) {
-
         let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
         const cards = sliderElement.querySelectorAll('.card, .card1');
         const totalCards = cards.length;
         const cardWidth = 300 + 40;
 
-
         currentIndex += direction;
-
 
         if (currentIndex < 0) {
             currentIndex = totalCards - 1;
@@ -591,22 +588,44 @@
             currentIndex = 0;
         }
 
-
         const sliderInner = sliderElement.querySelector('.slider');
         sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
 
         sliderElement.setAttribute('data-current-index', currentIndex);
     }
 
-    document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+    function setupSlider(sliderContainer) {
         const prevButton = sliderContainer.querySelector('#prev');
         const nextButton = sliderContainer.querySelector('#next');
 
-
         prevButton.addEventListener('click', () => slide(sliderContainer, -1));
         nextButton.addEventListener('click', () => slide(sliderContainer, 1));
-    });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        sliderContainer.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        sliderContainer.addEventListener('touchend', () => {
+            const swipeThreshold = 50; // Minimum swipe distance to trigger slide
+
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left
+                slide(sliderContainer, 1);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right
+                slide(sliderContainer, -1);
+            }
+        });
+    }
+
+    document.querySelectorAll('.slider-container').forEach(setupSlider);
 </script>
 </body>
 

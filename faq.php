@@ -139,6 +139,9 @@
                 <button class="faq-accordion">Do you have a parking area?</button>
                 <div class="faq-panel">
                     <p>Yes, we have a parking space.</p>
+                    <br>
+                    <a href="https://www.google.com/maps/place/Rommel+Garcia+Digital+and+Photography/@15.6595974,120.764427,18.5z/data=!4m6!3m5!1s0x33912d004b564cc9:0xba10bc86c12f74e8!8m2!3d15.6602187!4d120.7655935!16s%2Fg%2F11vwlmlzh6?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D" target="_blank"> <img src="img/gmapv3.png"></a>
+                    <p>For more information, please contact us.</p>
                 </div>
 
                 <button class="faq-accordion">Do you accept walk in?</button>
