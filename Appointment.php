@@ -202,13 +202,33 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                     <option value="followup">GROUP</option>
                 </select> -->
 
-                        <button type="button" class="submit-btn" data-toggle="modal"
-                            data-target="#exampleModalCenter">Book Appointment</button>
+                        <button type="button" class="submit-btn" onclick="window.dialog.showModal();">Book Appointment</button>
                     </form>
                 </div>
             </div>
 
-            <!-- Modal -->
+            <dialog id="dialog">
+                <form action="">
+  <label for="number" style="margin-bottom: 0!important;">Reference Number:</label>
+  <input type="number" value="12345676" readonly>
+  <label for="name" style="margin-bottom: 0!important;">Name: </label>
+  <input type="text" value="" readonly>
+   <label for="number" style="margin-bottom: 0!important;">Contact: </label>
+  <input type="number" value="" readonly>
+   <label for="email" style="margin-bottom: 0!important;">Email: </label>
+  <input type="email" value="" readonly>
+  <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
+  <input type="text" value="" readonly>
+   <label for="price" style="margin-bottom: 0!important;">Total: </label>
+  <input type="number" style="margin-bottom: .9rem;" value="" readonly>
+
+  <button class="submit-btn">Confirm</button>
+  </form>
+  <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+</dialog>
+
+
+<!--            
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -228,7 +248,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <script>

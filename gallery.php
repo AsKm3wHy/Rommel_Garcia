@@ -174,7 +174,7 @@
                     <div class="single-portfolio-content">
                         <img src="img/pic/Solo1.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Solo1.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -405,85 +405,86 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div class="follow-area clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+    <div class="follow-area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
 
-                    </div>
                 </div>
             </div>
+        </div>
 
 
 
 
-            <footer>
-                <div class="wrapper">
-                    <div class="containerUp">
-                        <div class="social-info">
-                            <h2>Visit Our Facebook Page</h2>
-                            <div class="icons">
-                                <a href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-                                    target="_blank"><img src="./img/footer-icons/facebook.png"></a>
-                            </div>
+        <footer>
+            <div class="wrapper">
+                <div class="containerUp">
+                    <div class="social-info">
+                        <h2>Visit Our Facebook Page</h2>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+                                target="_blank"><img src="./img/footer-icons/facebook.png"></a>
                         </div>
-                        <!-- <div class="connect">
+                    </div>
+                    <!-- <div class="connect">
                     <h2>Stay up to date on the latest from Lx Gallery</h2>
                     <form>
                         <input type="email" placeholder="Enter your email">
                         <button>Subscribe</button>
                     </form>
                 </div> -->
-                    </div>
-                    <!-- <hr>
+                </div>
+                <!-- <hr>
                     <div class="containerDown">
                         <div class="last">
 
                         </div>
                     </div> -->
-                </div>
-            </footer>
+            </div>
+        </footer>
 
 
 
 
-            <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
 
-            <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-            <script>
-                eval(mod_pagespeed_2mSwO3vn68);
+        <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+        <script>
+            eval(mod_pagespeed_2mSwO3vn68);
+        </script>
+
+        <script>
+            eval(mod_pagespeed_aQrG1NKKxL);
+        </script>
+
+        <script src="js/lx.bundle.js"></script>
+
+        <script src="js/default-assets/active.js"></script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-23581568-13');
+        </script>
+        <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
             </script>
-
-            <script>
-                eval(mod_pagespeed_aQrG1NKKxL);
-            </script>
-
-            <script src="js/lx.bundle.js"></script>
-
-            <script src="js/default-assets/active.js"></script>
-
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag('js', new Date());
-
-                gtag('config', 'UA-23581568-13');
-            </script>
-            <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-                data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-                </script>
-            <!-- animate on scroll js  -->
-            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-            <script>
-                AOS.init();
-            </script>
-            <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
+        <!-- animate on scroll js  -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
 </body>
 
 </html>
