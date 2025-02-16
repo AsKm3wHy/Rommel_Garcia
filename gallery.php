@@ -21,12 +21,17 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        h1 {
-            color: #eaeaea;
-        }
+    h1 {
+        color: #eaeaea;
+    }
 
+    h1 {
+        color: #eaeaea;
+    }
+
+    @media only screen and (max-width: 767px) {
         h1 {
-            color: #eaeaea;
+            font-size: 1.8rem;
         }
 
         @media only screen and (max-width: 767px) {
@@ -34,22 +39,17 @@
                 font-size: 1.8rem;
             }
 
-            @media only screen and (max-width: 767px) {
-                h1 {
-                    font-size: 1.8rem;
-                }
-
-                .classy-nav-container .classy-navbar .nav-brand {
-                    max-width: fit-content;
-                    margin-right: 15px;
-                }
-            }
-
             .classy-nav-container .classy-navbar .nav-brand {
                 max-width: fit-content;
                 margin-right: 15px;
             }
         }
+
+        .classy-nav-container .classy-navbar .nav-brand {
+            max-width: fit-content;
+            margin-right: 15px;
+        }
+    }
     </style>
 </head>
 
@@ -159,243 +159,227 @@
             </div>
             <div class="row lx-portfolio">
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                <?php
+                $portfolio_items = [
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'solo',
+                        'image' => 'img/pic/Solo1.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Solo1.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'duo',
+                        'image' => 'img/pic/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad1.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad1.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'solo',
+                        'image' => 'img/pic/Solo4.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Solo4.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad2.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad2.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'solo',
+                        'image' => 'img/pic/Solo3.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Solo3.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad3.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad3.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad 8.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad 8.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'solo',
+                        'image' => 'img/pic/Solo2.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Solo2.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'solo',
+                        'image' => 'img/pic/Solo5.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Solo5.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'duo',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/pic/Trio1.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Trio1.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad 4.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad 4.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad 6.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad 6.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'deluxe',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'duo',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad 5.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad 5.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'quad',
+                        'image' => 'img/pic/Quad 7.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Quad 7.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/pic/Trio3.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Trio3.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'deluxe',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/pic/Trio2.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Trio2.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/pic/Trio4.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Trio4.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'trio',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'group',
+                        'image' => 'img/pic/Group1.jpg',
+                        'alt' => '',
+                        'hover_image' => 'img/pic/Group1.jpg',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'group',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'group',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ],
+                    [
+                        'filter' => 'deluxe',
+                        'image' => 'img/indexImage/empty.png',
+                        'alt' => '',
+                        'hover_image' => 'img/indexImage/empty.png',
+                        'delay' => '100ms'
+                    ]
+                ];
+
+                foreach ($portfolio_items as $item) {
+                    echo '
+                    <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp ' . $item['filter'] . '"
+                        data-wow-delay="' . $item['delay'] . '">
+                        <div class="single-portfolio-content">
+                            <img src="' . $item['image'] . '" alt="' . $item['alt'] . '">
+                            <div class="hover-content">
+                                <a href="' . $item['hover_image'] . '" class="portfolio-img">+</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo4.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo4.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad2.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad2.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo3.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo3.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad3.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad3.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo2.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo2.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo5.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo5.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Group1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Group1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
+                    ';
+                }
+                ?>
 
 
                 <div class="row">
@@ -454,11 +438,11 @@
 
         <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
         <script>
-            eval(mod_pagespeed_2mSwO3vn68);
+        eval(mod_pagespeed_2mSwO3vn68);
         </script>
 
         <script>
-            eval(mod_pagespeed_aQrG1NKKxL);
+        eval(mod_pagespeed_aQrG1NKKxL);
         </script>
 
         <script src="js/lx.bundle.js"></script>
@@ -467,22 +451,22 @@
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-            gtag('config', 'UA-23581568-13');
+        gtag('config', 'UA-23581568-13');
         </script>
         <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
             data-cf-beacon='{"rayId":"699023286d631bc2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-            </script>
+        </script>
         <!-- animate on scroll js  -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
-            AOS.init();
+        AOS.init();
         </script>
         <!-- Mirrored from preview.colorlib.com/theme/lx/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Oct 2021 17:30:46 GMT -->
 </body>

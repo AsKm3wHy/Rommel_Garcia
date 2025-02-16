@@ -102,7 +102,7 @@
         <div class="welcome-slides owl-carousel">
 
             <div class="single-welcome-slide bg-img bg-overlay"
-                style="background-image: url(img/pic/A2.jpg); background-size: 100% 100%;background-repeat: no-repeat;">
+                style="background-image: url(img/indexImage/IMG_9290.JPG); background-size: 100% 100%;background-repeat: no-repeat;">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
 
@@ -133,21 +133,17 @@
                 </div>
             </div>
 
-            <!-- <div class="single-welcome-slide bg-img bg-overlay" data-aos="fade-left" data-aos-duration="3000"
-                style="background-image: url(img/indexImage/empty.png); background-size: 100% 100%;">
+            <div class="single-welcome-slide bg-img bg-overlay" data-aos="fade-left" data-aos-duration="3000"
+                style="background-image: url(img/indexImage/IMG_9294.JPG); background-size: 100% 100%;">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms">Preserve the Moments That Matter!
+                                <h2 data-animation="bounceInUp" data-delay="100ms" style="margin-top:3rem;">Making
+                                    Memories, One Click at a Time.
                                 </h2>
-                                <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
-                                    Photography, we are dedicated to capturing the moments that truly matter in your
-                                    life. Our instinctive approach allows us to create stunning images that reflect the
-                                    emotions and stories behind each event. Whether it’s a wedding, a family reunion, or
-                                    a special milestone, we help you save these precious memories, ensuring you can
-                                    cherish and share them for years to come.</p>
+
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                     <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
                                         Appointment</a>
@@ -156,7 +152,28 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+
+            <div class="single-welcome-slide bg-img bg-overlay" data-aos="fade-left" data-aos-duration="3000"
+                style="background-image: url(img/indexImage/IMG_9287.JPG); background-size: 100% 100%;">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+
+                        <div class="col-12 col-lg-8 col-xl-6">
+                            <div class="welcome-text">
+                                <h2 data-animation="bounceInUp" data-delay="100ms" style="margin-top:3rem;">Elegant
+                                    Memories, Captured Beautifully.
+                                </h2>
+
+                                <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                        Appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -209,8 +226,9 @@
                     </div>
                 </div>
 
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/Trio.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle" >
                         <h3>TRIO</h3>
                     </div>
                     <div class="content">
@@ -222,7 +240,7 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱900</a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="card" data-aos="flip-left"
@@ -601,6 +619,16 @@
                     </div>
                 </div>
 
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Quad 8.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Quad 8.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
@@ -633,6 +661,15 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
+                        <img src="img/pic/Trio1.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Trio1.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
                         <img src="img/indexImage/empty.png" alt="">
                         <div class="hover-content">
                             <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
@@ -643,12 +680,22 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Quad 4.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Quad 4.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Quad 6.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Quad 6.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
                     data-wow-delay="100ms">
@@ -672,9 +719,18 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Quad 5.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Quad 5.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Quad 7.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Quad 7.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -682,9 +738,9 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Trio3.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Trio3.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -702,9 +758,18 @@
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
+                        <img src="img/pic/Trio2.jpg" alt="">
                         <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
+                            <a href="img/pic/Trio2.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                    data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/pic/Trio4.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/pic/Trio4.jpg" class="portfolio-img">+</a>
                         </div>
                     </div>
                 </div>
@@ -797,13 +862,13 @@
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -811,11 +876,11 @@
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -824,76 +889,76 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 <script>
-    function slide(sliderElement, direction) {
-        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
-        const cards = sliderElement.querySelectorAll('.card, .card1');
-        const totalCards = cards.length;
-        const cardWidth = 300 + 40;
+function slide(sliderElement, direction) {
+    let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+    const cards = sliderElement.querySelectorAll('.card, .card1');
+    const totalCards = cards.length;
+    const cardWidth = 300 + 40;
 
-        currentIndex += direction;
+    currentIndex += direction;
 
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
+    }
+
+    const sliderInner = sliderElement.querySelector('.slider');
+    sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    sliderElement.setAttribute('data-current-index', currentIndex);
+}
+
+function setupSlider(sliderContainer) {
+    const prevButton = sliderContainer.querySelector('#prev');
+    const nextButton = sliderContainer.querySelector('#next');
+
+    prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+    nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchend', () => {
+        const swipeThreshold = 50; // Minimum swipe distance to trigger slide
+
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left
+            slide(sliderContainer, 1);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right
+            slide(sliderContainer, -1);
         }
+    });
+}
 
-        const sliderInner = sliderElement.querySelector('.slider');
-        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-        sliderElement.setAttribute('data-current-index', currentIndex);
-    }
-
-    function setupSlider(sliderContainer) {
-        const prevButton = sliderContainer.querySelector('#prev');
-        const nextButton = sliderContainer.querySelector('#next');
-
-        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
-        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        });
-
-        sliderContainer.addEventListener('touchmove', (e) => {
-            touchEndX = e.touches[0].clientX;
-        });
-
-        sliderContainer.addEventListener('touchend', () => {
-            const swipeThreshold = 50; // Minimum swipe distance to trigger slide
-
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe left
-                slide(sliderContainer, 1);
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe right
-                slide(sliderContainer, -1);
-            }
-        });
-    }
-
-    document.querySelectorAll('.slider-container').forEach(setupSlider);
+document.querySelectorAll('.slider-container').forEach(setupSlider);
 </script>
 </body>
 
