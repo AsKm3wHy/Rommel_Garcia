@@ -145,7 +145,8 @@
                                 </h2>
 
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4"
+                                        style="margin-top: 2rem;">Get an
                                         Appointment</a>
                                 </div>
                             </div>
@@ -166,7 +167,8 @@
                                 </h2>
 
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
+                                    <a href="Appointment.php" class="btn lx-btn mb-3 mb-sm-0 mr-4"
+                                        style="margin-top: 2rem;">Get an
                                         Appointment</a>
                                 </div>
                             </div>
