@@ -392,35 +392,55 @@
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card" data-aos="flip-left" data-aos-duration="900"
-                    style="background-image:url(img/pic/Uno.png); background-size:100% 100%; cursor:pointer;">
-                </div>
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="900"
+                        style="background-image:url(img/pic/Uno.png); background-size:100% 100%; cursor:pointer;">
+                    </div>
+                </a>
 
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
 
-                </div>
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                    </div>
+                </a>
 
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
 
-                </div>
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000"
+                        style="background-image:url(img/pic/TRES.png); background-size:100% 100%; cursor:pointer;">
+                    </div>
+                </a>
 
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
 
-                </div>
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000"
+                        style="background-image:url(img/pic/CUATRO.png); background-size:100% 100%; cursor:pointer;">
+                    </div>
+                </a>
 
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
 
-                </div>
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                    </div>
+                </a>
 
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
 
-                </div>
-                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                    </div>
+                </a>
 
-                </div>
-                <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
-                <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
+
+                <a href="Packages.php">
+                    <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                    </div>
+                </a>
+
+
             </div>
+            <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
+            <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
+        </div>
     </section>
 
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
