@@ -392,134 +392,35 @@
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="card1" data-aos="flip-left" data-aos-duration="900">
-                    <div class="circle">
-                        <h4>Graduation Portrait</h4>
-                        <h2 style="color: #fff;">Package 2</h2>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>8 Shots</div>
-                            <div>Academic Gown</div>
-                            <div>Hardcopy</div>
-                            <div>2 Toga Shot with Cap</div>
-                            <div>Filipiniana</div>
-                            <div>Softcopy</div>
-                            <div>2 Toga Shot without Cap</div>
-                            <div>Barong Tagalog</div>
-                            <div>Edited</div>
-                            <div>2 Formal Shot</div>
-                            <div></div>
-                            <div></div>
-                            <div>2 Creative Shot</div>
-                            <div></div>
-                        </div>
-                        <a href="#">₱2599</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="900"
+                    style="background-image:url(img/pic/Uno.png); background-size:100% 100%; cursor:pointer;">
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h4>Graduation Portrait</h4>
-                        <h2 style="color: #fff;">Package 3</h2>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>2 Pax</div>
-                            <div>20 Minutes Self Portrait</div>
-                            <div>2 Backdrop Color</div>
-                            <div>4 4R Size Print</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱3599</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h4>Graduation Portrait</h4>
-                        <h2 style="color: #fff;">Package 4</h2>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>3 Pax</div>
-                            <div>20 Minutes Self Portrait</div>
-                            <div>2 Backdrop Color</div>
-                            <div>4 4R Size Print</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱899</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h3>Package 1</h3>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>4 Pax</div>
-                            <div>20 Minutes Self Portrait</div>
-                            <div>2 Backdrop Color</div>
-                            <div>4 4R Size Print</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱199</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h3>Package 2</h3>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>3 Pax</div>
-                            <div>40 Minutes Self Portrait</div>
-                            <div>3 Backdrop Color</div>
-                            <div>8 4R Size Print</div>
-                            <div>Free use of balloons and letter box</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱299</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
 
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h3>Package 3</h3>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>6 Pax</div>
-                            <div>30 Minutes Self Portrait</div>
-                            <div>3 Backdrop Color</div>
-                            <div>6 4R Size Print</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱399</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
-                <div class="card1" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="circle">
-                        <h3>Package 4</h3>
-                    </div>
-                    <div class="content">
-                        <div class="features1">
-                            <div>1 Pax</div>
-                            <div>15 Minutes Self Portrait</div>
-                            <div>1 Backdrop Color</div>
-                            <div>2 4R Size Print</div>
-                            <div>Free use of Toga, Alampay and Coat</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱499</a>
-                    </div>
+                <div class="card" data-aos="flip-left" data-aos-duration="1000">
+
                 </div>
+                <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
+                <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
             </div>
-            <button id="prev" class="slider-button" onclick="slide(-1)">&#10094;</button>
-            <button id="next" class="slider-button" onclick="slide(1)">&#10095;</button>
-        </div>
     </section>
 
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
@@ -864,13 +765,13 @@
 </body>
 
 <script>
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
+    function updateCounter() {
+        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+            .then(res => res.json())
+            .then(data => counterElement.innerHTML = data.value)
+    }
+    updateCounter()
+    counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -878,11 +779,11 @@ counterElement = document.getElementsByClassName('count')[0];
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -891,76 +792,76 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 <script>
-function slide(sliderElement, direction) {
-    let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
-    const cards = sliderElement.querySelectorAll('.card, .card1');
-    const totalCards = cards.length;
-    const cardWidth = 300 + 40;
+    function slide(sliderElement, direction) {
+        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+        const cards = sliderElement.querySelectorAll('.card, .card1');
+        const totalCards = cards.length;
+        const cardWidth = 300 + 40;
 
-    currentIndex += direction;
+        currentIndex += direction;
 
-    if (currentIndex < 0) {
-        currentIndex = totalCards - 1;
-    } else if (currentIndex >= totalCards) {
-        currentIndex = 0;
+        if (currentIndex < 0) {
+            currentIndex = totalCards - 1;
+        } else if (currentIndex >= totalCards) {
+            currentIndex = 0;
+        }
+
+        const sliderInner = sliderElement.querySelector('.slider');
+        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+        sliderElement.setAttribute('data-current-index', currentIndex);
     }
 
-    const sliderInner = sliderElement.querySelector('.slider');
-    sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    function setupSlider(sliderContainer) {
+        const prevButton = sliderContainer.querySelector('#prev');
+        const nextButton = sliderContainer.querySelector('#next');
 
-    sliderElement.setAttribute('data-current-index', currentIndex);
-}
+        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
 
-function setupSlider(sliderContainer) {
-    const prevButton = sliderContainer.querySelector('#prev');
-    const nextButton = sliderContainer.querySelector('#next');
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    prevButton.addEventListener('click', () => slide(sliderContainer, -1));
-    nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
 
-    let touchStartX = 0;
-    let touchEndX = 0;
+        sliderContainer.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
 
-    sliderContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-    });
+        sliderContainer.addEventListener('touchend', () => {
+            const swipeThreshold = 50; // Minimum swipe distance to trigger slide
 
-    sliderContainer.addEventListener('touchmove', (e) => {
-        touchEndX = e.touches[0].clientX;
-    });
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left
+                slide(sliderContainer, 1);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right
+                slide(sliderContainer, -1);
+            }
+        });
+    }
 
-    sliderContainer.addEventListener('touchend', () => {
-        const swipeThreshold = 50; // Minimum swipe distance to trigger slide
-
-        if (touchStartX - touchEndX > swipeThreshold) {
-            // Swipe left
-            slide(sliderContainer, 1);
-        } else if (touchEndX - touchStartX > swipeThreshold) {
-            // Swipe right
-            slide(sliderContainer, -1);
-        }
-    });
-}
-
-document.querySelectorAll('.slider-container').forEach(setupSlider);
+    document.querySelectorAll('.slider-container').forEach(setupSlider);
 </script>
 </body>
 

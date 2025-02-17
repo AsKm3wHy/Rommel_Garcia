@@ -146,6 +146,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         <option value="DELUXE">DELUXE</option>
                         <option value="GRADUATE">GRADUATE</option>
                         <option value="GROUP">GROUP</option>
+                        <option value="PACKAGE 1">PACKAGE 1</option>
+                        <option value="PACKAGE 2">PACKAGE 2</option>
+                        <option value="PACKAGE 3">PACKAGE 3</option>
+                        <option value="PACKAGE 4">PACKAGE 4</option>
                     </select>
 
                     <label for="text">Price:</label>
@@ -663,8 +667,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
             price = 2500;
         } else if (appointment === "GROUP") {
             price = 1500;
-        } else if (appointment === "GRADUATE") {
-            price = 800;
+        } else if (appointment === "PACKAGE 1") {
+            price = 899;
+        }else if (appointment === "PACKAGE 2") {
+            price = 1599;
+        }else if (appointment === "PACKAGE 3") {
+            price = 2599;
+        }else if (appointment === "PACKAGE 4") {
+            price = 3599;
         }
 
         priceInput.value = "₱ " + price;
