@@ -3,13 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Dashboard</title>
-    <link rel="stylesheet" href="css/calendar.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Posts</title>
+    <link rel="stylesheet" href="css/post.css">
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.js'></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -59,7 +76,7 @@
                 <li>
                     <a href="index.php">
                         <svg>
-                            <use href="#dashboard"></use>
+                            <use href="#dashboard"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Dashboard</span>
                     </a>
@@ -67,15 +84,15 @@
                 <li>
                     <a href="appointment.php">
                         <svg>
-                            <use href="#bookmark"></use>
+                            <use href="#bookmark"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Appointment</span>
                     </a>
                 </li>
                 <li>
-                    <a href="calendar.php" class="active">
+                    <a href="calendar.php">
                         <svg>
-                            <use href="#calendar-btn"></use>
+                            <use href="#calendar-btn"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Calendar</span>
                     </a>
@@ -83,13 +100,13 @@
                 <li>
                     <a href="history.php">
                         <svg>
-                            <use href="#history"></use>
+                            <use href="#history"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>History</span>
                     </a>
                 </li>
                 <li>
-                    <a href="post.php">
+                    <a href="post.php" class="active">
                         <svg>
                             <use xlink:href="#pin"></use>
                         </svg>
@@ -100,7 +117,7 @@
                 <li>
                     <button class="logout-btn" aria-expanded="true" aria-label="collapse menu">
                         <svg aria-hidden="true">
-                            <use href="#logout"></use>
+                            <use href="#logout"></use> <!-- Changed xlink:href to href -->
                         </svg>
                         <span>Logout</span>
                     </button>
@@ -111,7 +128,7 @@
 
     <section class="page-content">
         <section class="search-and-user">
-            <span class="nav-title">Calendar</span>
+            <span class="nav-title">Posts </span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
@@ -123,28 +140,19 @@
                         </p>
                     </div>
                     <div class="column-button">
-                        <button class="btn-label" style="display: flex;justify-content: center;align-items: center;">
-                            <img src="img/calendar.svg" width="100%">
-                        </button>
+                        <a href="calendar.php"> <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="dash-body">
-            <div id='calendar'></div>
-        </div>
+        <!-- ///////////////////////////here Gallery starts///////////////////////////////// -->
+
+
+
 
     </section>
 
-
-
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.js'></script>
-
-    <script src="js/calendar.js">
-
-    </script>
 </body>
 
 </html>
