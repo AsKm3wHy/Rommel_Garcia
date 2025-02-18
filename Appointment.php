@@ -1,8 +1,113 @@
 <?php
-define('SECURE_ACCESS', true);
+define('AUTHORIZED', true);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
-?>
 
+$appointmentManager = new AppointmentManager();
+
+$name = $phone = $email = $photobooth_type = $appointment_type = $price = '';
+$successMessage = null;
+$errorMessage = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    
+    if (isset($_GET['name'])) {
+        $name = htmlspecialchars(trim($_GET['name']));
+    }
+    if (isset($_GET['phone'])) {
+        $phone = htmlspecialchars(trim($_GET['phone']));
+    }
+     if (isset($_GET['email'])) {
+        $email = htmlspecialchars(trim($_GET['email']));
+    }
+    if (isset($_GET['photobooth_type'])) {
+        $photobooth_type = htmlspecialchars(trim($_GET['photobooth_type']));
+    }
+     if (isset($_GET['appointment_type'])) {
+        $appointment_type = htmlspecialchars(trim($_GET['appointment_type']));
+    }
+    if (isset($_GET['price'])) {
+        $price = htmlspecialchars(trim($_GET['price']));
+    }
+    
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 1. CSRF Protection (IMPORTANT!)
+    if (!CSRFProtection::verifyToken($_POST['csrf_token'])) {
+        http_response_code(403); // Forbidden
+        $errorMessage = "CSRF token validation failed. Please refresh the page and try again.";
+    } else {
+
+        // 2. Get and Sanitize Form Data (Always sanitize!)
+        $name = htmlspecialchars(trim($_POST['name'])); // From the hidden field
+        $phone = htmlspecialchars(trim($_POST['phone'])); // From the hidden field
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL); // Sanitize email
+        $photobooth_type = htmlspecialchars(trim($_POST['photobooth_type'])); // Hidden field
+        $appointment_type = htmlspecialchars(trim($_POST['appointment_type'])); // Hidden field
+        $price_raw = htmlspecialchars(trim($_POST['price'])); // Hidden field
+        $price = str_replace(['₱', ' '], '', $price_raw);
+        $appointment_date = trim($_POST['appointment_date']);
+        $appointment_time = htmlspecialchars(trim($_POST['appointment_time']));
+
+
+
+        $errors = [];
+        if (empty($name)) {
+            $errors[] = "Name is required.";
+        }
+        if (empty($phone)) {
+            $errors[] = "Phone is required.";
+        }
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Valid email is required.";
+        }
+        if (empty($appointment_type)) {
+            $errors[] = "Appointment Type is required.";
+        }
+         if (empty($price) || !is_numeric($price)) {
+            $errors[] = "Price is required and must be a number.";
+        }
+        if (empty($photobooth_type)) {
+            $errors[] = "Photobooth Type is required.";
+        }
+        if (empty($appointment_date)) {
+            $errors[] = "Appointment Date is required.";
+        }
+        if (empty($appointment_time)) {
+            $errors[] = "Appointment Time is required.";
+        }
+
+        if (empty($errors)) {
+            $appointmentData = [
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'appointment_type' => $appointment_type,
+                'price' => $price,
+                'photobooth_type' => $photobooth_type,
+                'appointment_date' => $appointment_date,
+                'appointment_time' => $appointment_time
+            ];
+
+            $result = $appointmentManager->createAppointment($appointmentData);
+
+            if ($result['success']) {
+                // Success!
+                $successMessage = "Appointment created successfully! Reference number: " . sanitizeOutput($result['reference_number']);
+                // Log the action
+                logActivity('Appointment Confirmed', "Reference Number: " . $result['reference_number'] . ", Name: $name", 'Admin'); // Example log
+                // Redirect or clear the form
+            } else {
+                // Error
+                $errorMessage = "Error creating appointment: " . $result['message'];
+                logActivity('Appointment Confirmation Failed', "Error: " . $result['message'] . ", Data: " . json_encode($appointmentData), 'Admin');
+            }
+        }
+    }
+}
+$csrfToken = CSRFProtection::generateToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +179,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
+                            <div class="classynav" >
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
                                     <li class="active"><a href="Appointment.php">Appointment</a></li>
@@ -111,7 +216,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
 
-    <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
+    <div class="lx-portfolio-area section-padding-80 clearfix" >
         <div class="container-fluid">
 
             <div class="container1">
@@ -201,30 +306,50 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
             </div>
 
             <dialog id="dialog">
-                <form action="">
+                <?php if (isset($successMessage)): ?>
+        <p style="color: green;"><?php echo sanitizeOutput($successMessage); ?></p>
+    <?php endif; ?>
 
-                    <label for="name" style="margin-bottom: 0!important;">Name: </label>
-                    <input type="text" id="dialogName" value="" readonly>
+    <?php if (isset($errorMessage)): ?>
+        <p style="color: red;"><?php echo sanitizeOutput($errorMessage); ?></p>
+    <?php endif; ?>
 
-                    <label for="number" style="margin-bottom: 0!important;">Contact: </label>
-                    <input type="number" id="dialogPhone" value="" readonly>
+    <?php if (isset($errors) && !empty($errors)): ?>
+        <div style="color: red;">
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                    <li><?php echo sanitizeOutput($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
 
-                    <label for="email" style="margin-bottom: 0!important;">Email: </label>
-                    <input type="email" id="dialogEmail" value="" readonly>
+        <label for="name" style="margin-bottom: 0!important;">Name: </label>
+        <input type="text" id="dialogName" name="name" value="<?php echo sanitizeOutput($name); ?>" readonly>
 
-                    <label for="photobooth" style="margin-bottom: 0!important;">Photobooth Type: </label>
-                    <input type="text" id="dialogPhotoboothType" value="" readonly>
+        <label for="number" style="margin-bottom: 0!important;">Contact: </label>
+        <input type="number" id="dialogPhone" name="phone" value="<?php echo sanitizeOutput($phone); ?>" readonly>
 
-                    <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
-                    <input type="text" id="dialogAppointmentType" value="" readonly>
+        <label for="email" style="margin-bottom: 0!important;">Email: </label>
+        <input type="email" id="dialogEmail" name="email" value="<?php echo sanitizeOutput($email); ?>" readonly>
 
-                    <label for="price" style="margin-bottom: 0!important;">Total: </label>
-                    <input type="text" id="dialogPrice" value="" readonly style="margin-bottom: 1rem !important;">  
+        <label for="photobooth" style="margin-bottom: 0!important;">Photobooth Type: </label>
+        <input type="text" id="dialogPhotoboothType" name="photobooth_type" value="<?php echo sanitizeOutput($photobooth_type); ?>" readonly>
+
+        <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
+        <input type="text" id="dialogAppointmentType" name="appointment_type" value="<?php echo sanitizeOutput($appointment_type); ?>" readonly>
+
+        <label for="price" style="margin-bottom: 0!important;">Total: </label>
+        <input type="text" id="dialogPrice" name="price" value="<?php echo sanitizeOutput($price); ?>" readonly style="margin-bottom: 1rem !important;">
+
+         <input type="hidden" name="appointment_date" value="<?php echo date('Y-m-d'); ?>">
+        <input type="hidden" name="appointment_time" value="<?php echo date('g:i A'); ?>">
 
 
-
-                    <button class="submit-btn">Confirm</button>
-                </form>
+        <button class="submit-btn" type="submit">Confirm</button>
+    </form> 
                 <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
             </dialog>
 
