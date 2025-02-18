@@ -187,7 +187,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         <input type="hidden" id="emailHidden" name="email" value="">
                         <input type="hidden" id="appointmentTypeHidden" name="appointmentType" value="">
                         <input type="hidden" id="priceHidden" name="price" value="">
-                        <input type="hidden" id="photoboothTypeHidden" name="photoboothType" value="">  
+                        <input type="hidden" id="photoboothTypeHidden" name="photoboothType" value="">
+                        <!-- Hidden fields for date and time -->
+                        <input type="hidden" id="selectedDateHidden" name="selectedDate" value="">
+                        <input type="hidden" id="selectedTimeHidden" name="selectedTime" value="">
 
 
                         <button type="submit" class="submit-btn">Book Appointment</button>
@@ -213,8 +216,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                     <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
                     <input type="text" id="dialogAppointmentType" value="" readonly>
 
+ <label for="date" style="margin-bottom: 0!important;">Date & Time: </label>
+                    <div class="datetime">
+                    <input type="text" id="dialogDate" value="" readonly><input type="text" id="dialogTime" value="" readonly>
+</div>
+                    
+
                     <label for="price" style="margin-bottom: 0!important;">Total: </label>
-                    <input type="text" id="dialogPrice" value="" readonly style="margin-bottom: 1rem !important;">  
+                    <input type="text" id="dialogPrice" value="" readonly style="margin-bottom: .1rem !important;">  
 
 
 
@@ -249,7 +258,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         const appointmentType = document.getElementById('appointment').value;
                         const price = document.getElementById('price').value;
                         const referenceNumber = document.getElementById('referenceNumber').value;
-                        const photoboothType = document.querySelector('.button-container .active1').textContent; 
+                        const photoboothType = document.querySelector('.button-container .active1').textContent;
+                        const selectedDate = document.getElementById('selectedDateHidden').value;
+                        const selectedTime = document.getElementById('selectedTimeHidden').value;
 
                         document.getElementById('dialogName').value = name;
                         document.getElementById('dialogPhone').value = phone;
@@ -257,6 +268,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         document.getElementById('dialogAppointmentType').value = appointmentType;
                         document.getElementById('dialogPrice').value = price;
                         document.getElementById('dialogPhotoboothType').value = photoboothType;
+                        document.getElementById('dialogDate').value = selectedDate; 
+                        document.getElementById('dialogTime').value = selectedTime; 
 
 
                         dialog.showModal();
@@ -434,8 +447,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         yearSelect.appendChild(option);
                     }
 
-                    monthSelect.value = currentMonth; 
-                    yearSelect.value = currentYear; 
+                    monthSelect.value = currentMonth;
+                    yearSelect.value = currentYear;
                 }
 
                 function generateCalendar() {
@@ -481,7 +494,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                         } else if (availableDates.includes(day)) {
                             dateElement.classList.add('available');
                             dateElement.addEventListener('click', () => {
-                                selectedDate = day;
+                                selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                                 selectedDateDisplay.innerText =
                                     `Selected Date: ${currentMonth + 1}/${day}/${currentYear}`;
                                 displayAvailableTimes(day);
@@ -518,7 +531,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
                 function selectTimeSlot(timeSlotElement, time) {
                     const selectedDateDisplay = document.getElementById('selected-date');
                     selectedDateDisplay.innerText =
-                        `Selected Date: ${currentMonth + 1}/${selectedDate}/${currentYear} at ${time}`;
+                        `Selected Date: ${currentMonth + 1}/${selectedDate.split('-')[2]}/${selectedDate.split('-')[0]} at ${time}`;
+
+                    document.getElementById('selectedDateHidden').value = selectedDate;
+                    document.getElementById('selectedTimeHidden').value = time;
+
 
                     if (selectedTimeSlot) {
                         selectedTimeSlot.classList.remove('selected');

@@ -9,26 +9,26 @@ $successMessage = null;
 $errorMessage = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    
+
     if (isset($_GET['name'])) {
         $name = htmlspecialchars(trim($_GET['name']));
     }
     if (isset($_GET['phone'])) {
         $phone = htmlspecialchars(trim($_GET['phone']));
     }
-     if (isset($_GET['email'])) {
+    if (isset($_GET['email'])) {
         $email = htmlspecialchars(trim($_GET['email']));
     }
     if (isset($_GET['photobooth_type'])) {
         $photobooth_type = htmlspecialchars(trim($_GET['photobooth_type']));
     }
-     if (isset($_GET['appointment_type'])) {
+    if (isset($_GET['appointment_type'])) {
         $appointment_type = htmlspecialchars(trim($_GET['appointment_type']));
     }
     if (isset($_GET['price'])) {
         $price = htmlspecialchars(trim($_GET['price']));
     }
-    
+
 }
 
 // Handle form submission
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($appointment_type)) {
             $errors[] = "Appointment Type is required.";
         }
-         if (empty($price) || !is_numeric($price)) {
+        if (empty($price) || !is_numeric($price)) {
             $errors[] = "Price is required and must be a number.";
         }
         if (empty($photobooth_type)) {
@@ -179,7 +179,7 @@ $csrfToken = CSRFProtection::generateToken();
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
 
-                            <div class="classynav" >
+                            <div class="classynav">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
                                     <li class="active"><a href="Appointment.php">Appointment</a></li>
@@ -197,7 +197,8 @@ $csrfToken = CSRFProtection::generateToken();
         </div>
     </header>
 
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image:url(img/indexImage/IMG_9287.JPG)">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax"
+        style="background-image:url(img/indexImage/IMG_9287.JPG)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -216,7 +217,7 @@ $csrfToken = CSRFProtection::generateToken();
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
 
-    <div class="lx-portfolio-area section-padding-80 clearfix" >
+    <div class="lx-portfolio-area section-padding-80 clearfix">
         <div class="container-fluid">
 
             <div class="container1">
@@ -234,7 +235,8 @@ $csrfToken = CSRFProtection::generateToken();
 
                     <div class="form-group">
                         <label for="phone">Contact #:</label>
-                        <input type="number" id="phone" name="phone" placeholder="Phone Number" min="1" pattern="[0-9]{0,11}" required>
+                        <input type="number" id="phone" name="phone" placeholder="Phone Number" min="1"
+                            pattern="[0-9]{0,11}" required>
                     </div>
 
                     <div class="form-group">
@@ -258,7 +260,7 @@ $csrfToken = CSRFProtection::generateToken();
                     </select>
 
                     <label for="text">Price:</label>
-                    <input class="php" id="price" type="text" value="₱ 500" readonly >
+                    <input class="php" id="price" type="text" value="₱ 500" readonly>
                 </div>
 
                 <div class="partition"></div>
@@ -297,7 +299,7 @@ $csrfToken = CSRFProtection::generateToken();
                         <input type="hidden" id="emailHidden" name="email" value="">
                         <input type="hidden" id="appointmentTypeHidden" name="appointmentType" value="">
                         <input type="hidden" id="priceHidden" name="price" value="">
-                        <input type="hidden" id="photoboothTypeHidden" name="photoboothType" value="">  
+                        <input type="hidden" id="photoboothTypeHidden" name="photoboothType" value="">
 
 
                         <button type="submit" class="submit-btn">Book Appointment</button>
@@ -307,49 +309,63 @@ $csrfToken = CSRFProtection::generateToken();
 
             <dialog id="dialog">
                 <?php if (isset($successMessage)): ?>
-        <p style="color: green;"><?php echo sanitizeOutput($successMessage); ?></p>
-    <?php endif; ?>
+                    <p style="color: green;"><?php echo sanitizeOutput($successMessage); ?></p>
+                <?php endif; ?>
 
-    <?php if (isset($errorMessage)): ?>
-        <p style="color: red;"><?php echo sanitizeOutput($errorMessage); ?></p>
-    <?php endif; ?>
+                <?php if (isset($errorMessage)): ?>
+                    <p style="color: red;"><?php echo sanitizeOutput($errorMessage); ?></p>
+                <?php endif; ?>
 
-    <?php if (isset($errors) && !empty($errors)): ?>
-        <div style="color: red;">
-            <ul>
-                <?php foreach ($errors as $error): ?>
-                    <li><?php echo sanitizeOutput($error); ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
+                <?php if (isset($errors) && !empty($errors)): ?>
+                    <div style="color: red;">
+                        <ul>
+                            <?php foreach ($errors as $error): ?>
+                                <li><?php echo sanitizeOutput($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
+                    <input type="hidden" name="csrf_token"
+                        value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
 
-        <label for="name" style="margin-bottom: 0!important;">Name: </label>
-        <input type="text" id="dialogName" name="name" value="<?php echo sanitizeOutput($name); ?>" readonly>
+                    <label for="name" style="margin-bottom: 0!important;">Name: </label>
+                    <input type="text" id="dialogName" name="name" value="<?php echo sanitizeOutput($name); ?>"
+                        readonly>
 
-        <label for="number" style="margin-bottom: 0!important;">Contact: </label>
-        <input type="number" id="dialogPhone" name="phone" value="<?php echo sanitizeOutput($phone); ?>" readonly>
+                    <label for="number" style="margin-bottom: 0!important;">Contact: </label>
+                    <input type="number" id="dialogPhone" name="phone" value="<?php echo sanitizeOutput($phone); ?>"
+                        readonly>
 
-        <label for="email" style="margin-bottom: 0!important;">Email: </label>
-        <input type="email" id="dialogEmail" name="email" value="<?php echo sanitizeOutput($email); ?>" readonly>
+                    <label for="email" style="margin-bottom: 0!important;">Email: </label>
+                    <input type="email" id="dialogEmail" name="email" value="<?php echo sanitizeOutput($email); ?>"
+                        readonly>
 
-        <label for="photobooth" style="margin-bottom: 0!important;">Photobooth Type: </label>
-        <input type="text" id="dialogPhotoboothType" name="photobooth_type" value="<?php echo sanitizeOutput($photobooth_type); ?>" readonly>
+                    <label for="photobooth" style="margin-bottom: 0!important;">Photobooth Type: </label>
+                    <input type="text" id="dialogPhotoboothType" name="photobooth_type"
+                        value="<?php echo sanitizeOutput($photobooth_type); ?>" readonly>
 
-        <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
-        <input type="text" id="dialogAppointmentType" name="appointment_type" value="<?php echo sanitizeOutput($appointment_type); ?>" readonly>
+                    <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
+                    <input type="text" id="dialogAppointmentType" name="appointment_type"
+                        value="<?php echo sanitizeOutput($appointment_type); ?>" readonly>
 
-        <label for="price" style="margin-bottom: 0!important;">Total: </label>
-        <input type="text" id="dialogPrice" name="price" value="<?php echo sanitizeOutput($price); ?>" readonly style="margin-bottom: 1rem !important;">
+                    <label for="date" style="margin-bottom: 0!important;">Date & Time: </label>
+                    <div class="datetime">
+                        <input type="text" id="dialogDate" value="<?php echo sanitizeOutput($appointment_date); ?>"
+                            readonly><input type="text" id="dialogTime"
+                            value="<?php echo sanitizeOutput($appointment_time); ?>" readonly>
+                    </div>
 
-         <input type="hidden" name="appointment_date" value="<?php echo date('Y-m-d'); ?>">
-        <input type="hidden" name="appointment_time" value="<?php echo date('g:i A'); ?>">
+                    <label for="price" style="margin-bottom: 0!important;">Total: </label>
+                    <input type="text" id="dialogPrice" name="price" value="<?php echo sanitizeOutput($price); ?>"
+                        readonly style="margin-bottom: 1rem !important;">
+
+                    <input type="hidden" name="appointment_date" value="<?php echo date('Y-m-d'); ?>">
+                    <input type="hidden" name="appointment_time" value="<?php echo date('g:i A'); ?>">
 
 
-        <button class="submit-btn" type="submit">Confirm</button>
-    </form> 
+                    <button class="submit-btn" type="submit">Confirm</button>
+                </form>
                 <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
             </dialog>
 
@@ -379,7 +395,8 @@ $csrfToken = CSRFProtection::generateToken();
                         const appointmentType = document.getElementById('appointment').value;
                         const price = document.getElementById('price').value;
                         const referenceNumber = document.getElementById('referenceNumber').value;
-                        const photoboothType = document.querySelector('.button-container .active1').textContent; 
+                        const photoboothType = document.querySelector('.button-container .active1')
+                            .textContent;
 
                         document.getElementById('dialogName').value = name;
                         document.getElementById('dialogPhone').value = phone;
@@ -387,6 +404,8 @@ $csrfToken = CSRFProtection::generateToken();
                         document.getElementById('dialogAppointmentType').value = appointmentType;
                         document.getElementById('dialogPrice').value = price;
                         document.getElementById('dialogPhotoboothType').value = photoboothType;
+                        document.getElementById('dialogDate').value = selectedDate;
+                        document.getElementById('dialogTime').value = selectedTime;
 
 
                         dialog.showModal();
@@ -564,8 +583,8 @@ $csrfToken = CSRFProtection::generateToken();
                         yearSelect.appendChild(option);
                     }
 
-                    monthSelect.value = currentMonth; 
-                    yearSelect.value = currentYear; 
+                    monthSelect.value = currentMonth;
+                    yearSelect.value = currentYear;
                 }
 
                 function generateCalendar() {
@@ -703,7 +722,7 @@ $csrfToken = CSRFProtection::generateToken();
                             button.addEventListener('click', function () {
                                 this.classList.toggle('active');
                                 const panel = this.nextElementSibling;
-                           
+
                                 if (panel.style.maxHeight) {
                                     panel.style.maxHeight = null;
                                 } else {
@@ -794,11 +813,11 @@ $csrfToken = CSRFProtection::generateToken();
             price = 1500;
         } else if (appointment === "PACKAGE 1") {
             price = 899;
-        }else if (appointment === "PACKAGE 2") {
+        } else if (appointment === "PACKAGE 2") {
             price = 1599;
-        }else if (appointment === "PACKAGE 3") {
+        } else if (appointment === "PACKAGE 3") {
             price = 2599;
-        }else if (appointment === "PACKAGE 4") {
+        } else if (appointment === "PACKAGE 4") {
             price = 3599;
         }
 
