@@ -22,7 +22,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/Appointment.css">
+    <link rel="stylesheet" href="css/Packages.css">
 </head>
 
 <body>
@@ -139,21 +139,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
 
                     <label for="appointment">Select an Appointment Type:</label>
                     <select id="appointment" name="appointment" required onchange="updatePrice()">
-                        <option value="SOLO">SOLO</option>
-                        <option value="DUO">DUO</option>
-                        <option value="TRIO">TRIO</option>
-                        <option value="QUAD">QUAD</option>
-                        <option value="DELUXE">DELUXE</option>
-                        <option value="GRADUATE">GRADUATE</option>
-                        <option value="GROUP">GROUP</option>
-                        <option value="PACKAGE 1">PACKAGE 1</option>
-                        <option value="PACKAGE 2">PACKAGE 2</option>
-                        <option value="PACKAGE 3">PACKAGE 3</option>
-                        <option value="PACKAGE 4">PACKAGE 4</option>
+                        <option value="UNO">UNO</option>
+                        <option value="DOS">DOS</option>
+                        <option value="TRES">TRES</option>
+                        <option value="CUATRO">CUATRO</option>
+                        <option value="CINCO">CINCO</option>
+                        <option value="SEIS">SEIS</option>
                     </select>
 
                     <label for="text">Price:</label>
-                    <input class="php" id="price" type="text" value="₱ 500" readonly >
+                    <input class="php" id="price" type="text" value="₱ 199" readonly >
                 </div>
 
                 <div class="partition"></div>
@@ -655,28 +650,19 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/backend/config.php';
         var priceInput = document.getElementById("price");
         let price = 500;
 
-        if (appointment === "SOLO") {
-            price = 500;
-        } else if (appointment === "DUO") {
-            price = 800;
-        } else if (appointment === "TRIO") {
-            price = 900;
-        } else if (appointment === "QUAD") {
-            price = 1000;
-        } else if (appointment === "DELUXE") {
-            price = 2500;
-        } else if (appointment === "GROUP") {
-            price = 1500;
-        } else if (appointment === "PACKAGE 1") {
-            price = 899;
-        }else if (appointment === "PACKAGE 2") {
-            price = 1599;
-        }else if (appointment === "PACKAGE 3") {
-            price = 2599;
-        }else if (appointment === "PACKAGE 4") {
-            price = 3599;
-        }
-
+        if (appointment === "UNO") {
+            price = 199;
+        } else if (appointment === "DOS") {
+            price = 299;
+        } else if (appointment === "TRES") {
+            price = 399;
+        } else if (appointment === "CUATRO") {
+            price = 499;
+        } else if (appointment === "CINCO") {
+            price = 599;
+        } else if (appointment === "SEIS") {
+            price = 699;
+        } 
         priceInput.value = "₱ " + price;
     }
 </script>

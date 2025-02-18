@@ -1,0 +1,529 @@
+.photo-studio-faq *,
+.photo-studio-faq *::before,
+.photo-studio-faq *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif !important;
+  line-height: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-shadow: none;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.photo-studio-faq {
+  all: initial;
+  display: block;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: "Arial", sans-serif !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.photo-studio-faq h2.faq-header {
+  all: initial;
+  display: block;
+  text-align: center !important;
+  color: #1f1f1f !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+  margin-bottom: 2rem !important;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  font-family: "Arial", sans-serif !important;
+}
+
+.photo-studio-faq .faq-accordion {
+  display: block;
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
+  color: #000 !important;
+  cursor: pointer;
+  padding: 1.2rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  text-align: left !important;
+  outline: none !important;
+  font-size: 1.1rem !important;
+  transition: all 0.4s ease !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 5px !important;
+  position: relative !important;
+  font-weight: 500 !important;
+  font-family: "Arial", sans-serif !important;
+  line-height: 1.5 !important;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.photo-studio-faq .faq-accordion:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.2),
+    rgba(107, 107, 255, 0.2)
+  ) !important;
+  transform: translateY(-2px) !important;
+}
+
+.photo-studio-faq .faq-accordion.active {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.4),
+    rgba(107, 107, 255, 0.4)
+  ) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.photo-studio-faq .faq-accordion::after {
+  content: "+" !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: bold !important;
+  float: right !important;
+  margin-left: 5px !important;
+  font-size: 1.2rem !important;
+}
+
+.photo-studio-faq .faq-accordion.active::after {
+  content: "−" !important;
+  color: white !important;
+}
+
+.photo-studio-faq .faq-panel {
+  padding: 0 1.2rem !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  margin-bottom: 0.5rem !important;
+  border-radius: 0 0 5px 5px !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.photo-studio-faq .faq-panel p {
+  all: initial;
+  display: block;
+  padding: 1rem 0 !important;
+  line-height: 1.6 !important;
+  color: rgba(22, 22, 22, 0.9) !important;
+  font-family: "Arial", sans-serif !important;
+  font-size: 1rem !important;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+@media (max-width: 768px) {
+  .photo-studio-faq {
+    margin: 1rem !important;
+    padding: 1rem !important;
+  }
+  .photo-studio-faq h2.faq-header {
+    font-size: 2rem !important;
+  }
+  .photo-studio-faq .faq-accordion {
+    font-size: 1rem !important;
+    padding: 1rem !important;
+  }
+}
+
+/*------calendar----- */
+
+/* calendar */
+
+.container1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  width: 100% !important;
+  max-width: 50.375rem !important;
+  margin: auto auto !important;
+  padding: 1.875rem !important;
+  color: #000000 !important;
+  /* background-color: rgba(30, 30, 30, 0.5) !important; */
+  background-color: rgb(212 188 188 / 60%);
+  border-radius: 0.75rem !important;
+  box-shadow: 0 0.375rem 1.25rem rgba(128, 128, 128, 0.5) !important;
+  display: flex !important;
+  gap: 2.5rem !important;
+}
+
+.left-section {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.partition {
+  width: 0.0625rem !important;
+  background-color: #dee2e6 !important;
+  margin: 0 1.25rem !important;
+}
+
+h1 {
+  text-align: center !important;
+  color: #000000 !important;
+  margin-bottom: 1.25rem !important;
+  font-size: 2rem !important;
+}
+
+label {
+  font-size: 1rem !important;
+  margin-bottom: 0.75rem !important;
+  display: block !important;
+}
+
+.form-group {
+  margin-bottom: 0.9375rem !important;
+}
+
+input,
+select {
+  width: 100% !important;
+  padding: 0.625rem !important;
+  border: 0.0625rem solid #555 !important;
+  border-radius: 0.375rem !important;
+  font-size: 1rem !important;
+  background-color: #ffffff73 !important;
+  color: #000 !important;
+}
+
+.calendar-container {
+  text-align: center !important;
+  flex: 1 !important;
+}
+
+.calendar {
+  display: inline-grid !important;
+  grid-template-columns: repeat(7, 3.125rem) !important;
+  grid-gap: 0.5rem !important;
+  margin: 1.25rem auto !important;
+  text-align: center !important;
+}
+
+.calendar div {
+  padding: 0.4375rem !important;
+  background-color: rgb(255 255 255 / 50%) !important;
+  border: 0.0625rem solid #fff !important;
+  border-radius: 0.5rem !important;
+  transition: background-color 0.3s transform 0.2s !important;
+  cursor: pointer;
+  color: #000;
+}
+
+.calendar .available {
+  background-color: #5b635b !important;
+  color: white !important;
+}
+
+.calendar .selected {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.calendar div:hover {
+  background-color: rgb(241, 241, 241, 0.5) !important;
+  transform: translateY(-0.125rem) !important;
+  color: #000 !important;
+}
+
+.calendar .disabled {
+  background-color: #f8f9fa !important;
+  color: #6c757d !important;
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+}
+
+.selected-date {
+  font-size: 1.125rem !important;
+  font-weight: bold !important;
+  margin-top: 0.9375rem !important;
+  text-align: center !important;
+  color: #000000 !important;
+}
+
+.available-times {
+  margin-top: 1.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.time-slot {
+  margin: 0.375rem 0 !important;
+  padding: 0.75rem !important;
+  background-color: #e7f1ff !important;
+  color: #000 !important;
+  border-radius: 0.375rem !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  text-align: center !important;
+  transition: background-color 0.3s transform 0.2s !important;
+}
+
+.time-slot:hover {
+  background-color: #d0ebff !important;
+  transform: translateY(-0.0625rem) !important;
+}
+
+.time-slot.selected {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.submit-btn {
+  width: 100% !important;
+  padding: 0.875rem !important;
+  background-color: #28a745 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  font-size: 1.125rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.submit-btn:hover {
+  background-color: #218838 !important;
+}
+
+@media (max-width: 37.5rem) {
+  .calendar {
+    grid-template-columns: repeat(7, 2.5rem) !important;
+    margin-left: -1rem !important;
+  }
+  .container1 {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    border-radius: 0rem !important;
+  }
+  .section-padding-80 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.reminder {
+  text-align: center !important;
+  font-size: 1rem !important;
+  margin-top: 1.25rem !important;
+  font-weight: bold !important;
+  color: #d9534f !important;
+}
+
+select {
+  padding: 0.625rem !important;
+  border: 0.0625rem solid #555 !important;
+  border-radius: 0.375rem !important;
+  font-size: 1rem !important;
+  width: 100% !important;
+  /* max-width: 8.75rem !important; */
+  transition: border-color 0.3s box-shadow 0.3s !important;
+  background-color: #ffffff73 !important;
+  color: #000 !important;
+  margin-bottom: 0.625rem !important;
+  text-align: center;
+}
+
+select:focus {
+  border-color: #80bdff !important;
+  box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25) !important;
+  outline: none !important;
+}
+
+.month-select {
+  /* margin-bottom: 1.5625rem !important; */
+  /* background-color: rgb(250 250 250 / 10%) !important; */
+  padding: 0.9375rem !important;
+  border-radius: 0.625rem !important;
+  /* box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3) !important; */
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background-color: rgb(255 255 255 / 0%) !important;
+}
+
+.nav-btn {
+  padding: 0.625rem 0.9375rem !important;
+  border: none !important;
+  background-color: rgba(0, 4, 9, 0.5) !important;
+  color: white !important;
+  border-radius: 0.3125rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.nav-btn:hover {
+  background-color: rgb(0, 86, 179, 0.5) !important;
+}
+
+.php {
+  font-size: 1.5rem !important;
+  /* color: #000 !important; */
+  color: #000000 !important;
+  text-align: center !important;
+  font-weight: bold;
+  background-color: rgb(255 255 255 / 20%) !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .lx-portfolio-area .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100% !important;
+}
+
+.btn1 {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: rgb(187 209 233 / 10%);
+  border: 1px solid;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  border-radius: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn1:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.active1 {
+  background-color: #fff;
+  color: #000;
+}
+
+.personal {
+  background-color: #fff;
+  color: #000;
+}
+
+.video {
+  background-color: #fff;
+  color: #000;
+}
+
+.portrait {
+  background-color: #fff;
+  color: #000;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content1 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+dialog {
+  padding: 1rem 3rem;
+  background: white;
+  /* max-width: 400px; */
+  padding-top: 2rem;
+  border-radius: 20px;
+  border: 0;
+  margin: auto;
+  box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+  animation: fadeIn 1s ease both;
+  &::backdrop {
+    animation: fadeIn 1s ease both;
+    background: rgb(255 255 255 / 40%);
+    z-index: 2;
+    backdrop-filter: blur(20px);
+  }
+  .x {
+    filter: grayscale(1);
+    border: none;
+    background: none;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    transition: ease filter, transform 0.3s;
+    cursor: pointer;
+    transform-origin: center;
+    &:hover {
+      filter: grayscale(0);
+      transform: scale(1.1);
+    }
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding: 0.5rem 0;
+    a {
+      &:visited {
+        color: rgb(var(--vs-primary));
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
