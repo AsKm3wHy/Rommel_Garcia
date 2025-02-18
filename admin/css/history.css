@@ -906,6 +906,10 @@ input-search-name:hover {
     /* box-shadow: 0 3px 5px 0 rgba(57, 108, 240, 0.3); */
 }
 
+.btn-primary-soft:hover {
+    background-color: #c6e6ff;
+}
+
 .btn-filter {
     background-position: 15px 50%;
     padding: 15px;
