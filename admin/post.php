@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="css/post.css">
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -58,8 +54,9 @@
             <path d="M19.1,4.9L19.1,4.9c-0.3-0.3-0.6-0.4-1.1-0.4c-0.8,0-1.5,0.7-1.5,1.5c0,0.4,0.2,0.8,0.4,1.1l0,0c0,0,0,0,0,0c0,0,0,0,0,0c1.3,1.3,2,3,2,4.9c0,3.9-3.1,7-7,7s-7-3.1-7-7c0-1.9,0.8-3.7,2.1-4.9l0,0C7.3,6.8,7.5,6.4,7.5,6c0-0.8-0.7-1.5-1.5-1.5c-0.4,0-0.8,0.2-1.1,0.4l0,0C3.1,6.7,2,9.2,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,9.2,20.9,6.7,19.1,4.9z" />
         </symbol>
 
-        <symbol id="pin" viewBox="0 0 20 20">
-            <path d="M16.729,4.271c-0.389-0.391-1.021-0.393-1.414-0.004c-0.104,0.104-0.176,0.227-0.225,0.355  c-0.832,1.736-1.748,2.715-2.904,3.293C10.889,8.555,9.4,9,7,9C6.87,9,6.74,9.025,6.618,9.076C6.373,9.178,6.179,9.373,6.077,9.617  c-0.101,0.244-0.101,0.52,0,0.764c0.051,0.123,0.124,0.234,0.217,0.326l3.243,3.243L5,20l6.05-4.537l3.242,3.242  c0.092,0.094,0.203,0.166,0.326,0.217C14.74,18.973,14.87,19,15,19s0.26-0.027,0.382-0.078c0.245-0.102,0.44-0.295,0.541-0.541  C15.974,18.26,16,18.129,16,18c0-2.4,0.444-3.889,1.083-5.166c0.577-1.156,1.556-2.072,3.293-2.904  c0.129-0.049,0.251-0.121,0.354-0.225c0.389-0.393,0.387-1.025-0.004-1.414L16.729,4.271z" />
+
+        <symbol id="gallery" viewBox="0 0 24 24">
+            <path d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
         </symbol>
     </svg>
 
@@ -108,9 +105,9 @@
                 <li>
                     <a href="post.php" class="active">
                         <svg>
-                            <use xlink:href="#pin"></use>
+                            <use xlink:href="#gallery"></use>
                         </svg>
-                        <span>Posts</span>
+                        <span>Gallery</span>
                     </a>
                 </li>
 
@@ -129,14 +126,15 @@
     <section class="page-content">
         <section class="search-and-user">
             <span class="nav-title">Posts </span>
+
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
                         <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
                             Today's Date
                         </p>
-                        <p class="heading-sub12">
-                            2025-6-3
+                        <p class="heading-sub12" id="currentDate">
+
                         </p>
                     </div>
                     <div class="column-button">
@@ -147,11 +145,472 @@
         </section>
 
         <!-- ///////////////////////////here Gallery starts///////////////////////////////// -->
+        <div class="dash-body">
+            <table border="0" width="100%" style="border-spacing:0;margin:0;padding:0;margin-top:25px;">
+                <tr>
+                    <td colspan="2">
+                        <a href="?action=add&id=none&error=0" class="non-style-link">
+                            <button class="login-btn btn-primary btn button-icon add-btn-table" style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">
+                                Add New Post
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="padding-top:10px;width:100%;">
+                        <p class="heading-main12" style="text-align:left;margin-left:45px;font-size:18px;color:rgb(49, 49, 49)">
+                            All Posts (<span id="post-count">2</span>)
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="padding-top:0px;width:100%;">
+                        <center>
+                            <table class="filter-container" border="0">
+                                <tr>
+                                    <td width="5%" style="text-align:center;">Date:</td>
+                                    <td width="30%">
+                                        <input type="date" name="scheduledate" id="date" class="input-text filter-container-items" style="margin:0;width:95%;">
+                                    </td>
+                                    <td width="10%" style="text-align:center;">Category:</td>
+                                    <td width="30%">
+                                        <select name="spec" id="category-list" class="box">
+                                            <option value="">All Categories</option>
+                                            <option value="Trion">Trion</option>
+                                            <option value="Duo">Duo</option>
+                                            <option value="Solo">Solo</option>
+                                            <option value="Quad">Quad</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Group">Group</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Package2">Package 2</option>
+                                            <option value="Package3">Package 3</option>
+                                            <option value="Package4">Package 4</option>
+                                            <option value="Unopackage">Uno Package</option>
+                                            <option value="Dospackage">Dos Package</option>
+                                            <option value="Trespackage">Tres Package</option>
+                                            <option value="Cuatropackage">Cuantro Package</option>
+                                            <option value="Cincopackage">Cinco Package</option>
+                                            <option value="Seispackage">Seis Package</option>
+                                        </select>
+                                    </td>
+                                    <td width="12%">
+                                        <button id="filter-button" class="btn-primary-soft btn button-icon btn-filter" style="background-image:url('img/icon/filter-iceblue.svg');">
+                                            Filter
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <center>
+                            <div class="abc scroll">
+                                <table width="93%" class="sub-table main-table scrolldown" border="0" id="post-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-headin">#</th>
+                                            <th class="table-headin">Featured Image</th>
+                                            <th class="table-headin">Category</th>
+                                            <th class="table-headin"> Date & Time</th>
+                                            <th class="table-headin">Events</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-post-date="2025-01-02" data-category-name="Quad">
+                                            <td style="font-weight:600;">123</td>
+                                            <td width="30%">
+                                                <div class="responsive">
+                                                    <div class="gallery">
+                                                        <a target="_blank" href="img/upload/QUAD.JPG">
+                                                            <img src="img/upload/QUAD.JPG" class="image-post" alt="sample">
+                                                            <div class="middle">
+                                                                <div class="text">View</div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Quad</td>
+                                            <td style="text-align:center;">1/2/25</td>
+                                            <td>
+                                                <div style="display:flex;justify-content:center;">
+                                                    <a href="?action=edit&id=#&error=0" class="non-style-link">
+                                                        <button class="btn-primary-soft btn button-icon btn-edit" style="background-image: url(' img/icon/edit-iceblue.svg')">
+                                                            <font class="tn-in-text">Edit</font>
+                                                        </button>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <a href="?action=drop&id=123" class="non-style-link">
+                                                        <button class="btn-primary-soft btn button-icon btn-delete" style="background-image:url('img/icon/delete-iceblue.svg')">
+                                                            Delete
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-post-date="2025-01-03" data-category-name="Solo">
+                                            <td style="font-weight:600;">124</td>
+                                            <td width="30%">
+                                                <div class="responsive">
+                                                    <div class="gallery">
+                                                        <a target="_blank" href="img/upload/solo.jpg">
+                                                            <img src="img/upload/solo.jpg" class="image-post" alt="sample">
+                                                            <div class="middle">
+                                                                <div class="text">View</div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Solo</td>
+                                            <td style="text-align:center;">1/3/25</td>
+                                            <td>
+                                                <div style="display:flex;justify-content:center;">
+                                                    <a href="?action=edit&id=#&error=0" class="non-style-link">
+                                                        <button class="btn-primary-soft btn button-icon btn-edit" style="background-image: url(' img/icon/edit-iceblue.svg')">
+                                                            <font class="tn-in-text">Edit</font>
+                                                        </button>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <a href="?action=drop&id=123" class="non-style-link">
+                                                        <button class="btn-primary-soft btn button-icon btn-delete" style="background-image:url('img/icon/delete-iceblue.svg')">
+                                                            Delete
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p id="no-results" class="heading-main12 no-results" style="display: none;">We couldn't find anything related to your keywords!</p>
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            document.getElementById("filter-button").addEventListener("click", function() {
+                let dateInput = document.getElementById("date").value;
+                let categoryList = document
+                    .getElementById("category-list")
+                    .value.toLowerCase();
+                let rows = document.querySelectorAll("#post-table tbody tr");
+                let visibleCount = 0;
+
+                // Hide the no results message initially
+                document.getElementById("no-results").style.display = "none";
+
+                rows.forEach((row) => {
+                    let appointmentDate = row.getAttribute("data-post-date");
+                    let categoryName = row.getAttribute("data-category-name").toLowerCase();
+
+                    // Date Comparison
+                    let dateMatches = !dateInput || appointmentDate === dateInput;
+
+                    // Category Comparison
+                    let categoryMatches = !categoryList || categoryName.includes(categoryList);
+
+                    if (dateMatches && categoryMatches) {
+                        row.style.display = "";
+                        visibleCount++;
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+
+                // Update post count
+                document.getElementById("post-count").textContent = visibleCount;
+
+                // Show or hide the no results message
+                document.getElementById("no-results").style.display =
+                    visibleCount === 0 ? "block" : "none";
+            });
+        </script>
+        <?php
+        if ($_GET) {
+            $action = $_GET["action"];
+
+            if ($action == 'drop') {
+
+                echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                        <h2>Are you sure?</h2>
+                        <a class="close" href="post.php">&times;</a>
+                        <div class="content">
+                            You want to Delete this record<br>().
+                            
+                        </div>
+                        <div style="display: flex;justify-content: center;">
+                        <a href="post.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="post.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
+
+                        </div>
+                    </center>
+            </div>
+            </div>
+            ';
+            } elseif ($action == 'add') {
+
+                echo '
+            <div id="popup1" class="overlay">
+                    <div class="popup">
+                    <center>
+                    
+                        <a class="close" href="post.php">&times;</a> 
+                        <div style="display: flex;justify-content: center;">
+                        <div class="abc-popup">
+                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                        <tr>
+                                <td class="label-td" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Add New Post</p>
+                                </td>
+                                
+                            </tr>
+                            <tr> 
+                            <td>
+                                 <div id="datetime"></div>
+                                </td>
+                                </tr>
+                        <tr>
+                        <td>
+                       <div class="file-upload">
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+    </div>
+  </div>
+</div>
+
+                        </td>
+                        </tr>
+                            
+                               <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="spec" class="form-label">Choose category:</label>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <select name="spec" id="" class="box">
+                                            <option value="Solo">Solo</option>
+                                            <option value="Trion">Trion</option>
+                                            <option value="Duo">Duo</option>
+                                            
+                                            <option value="Quad">Quad</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Group">Group</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Package2">Package 2</option>
+                                            <option value="Package3">Package 3</option>
+                                            <option value="Package4">Package 4</option>
+                                            <option value="Unopackage">Uno Package</option>
+                                            <option value="Dospackage">Dos Package</option>
+                                            <option value="Trespackage">Tres Package</option>
+                                            <option value="Cuatropackage">Cuantro Package</option>
+                                            <option value="Cincopackage">Cinco Package</option>
+                                            <option value="Seispackage">Seis Package</option>
+                                            
+
+                                                   </select><br><br>
+                                        </td>
+                                    </tr>
+
+                                   
+                                   
+                                
+                            
+                
+                            <tr>
+                                <td colspan="2">
+                                    <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                    
+                                    <a href="?action=newpost&id=123" class="non-style-link"><input type="submit" value="Post" class="login-btn btn-primary btn"></a>
+                                </td>
+                
+                            </tr>
+                           
+                            </form>
+                            </tr>
+                        </table>
+                        </div>
+                        </div>
+                    </center>
+                    <br><br>
+            </div>
+            </div>
+            ';
+            } elseif ($action == 'newpost') {
+                echo '
+                    <div id="popup1" class="overlay">
+                            <div class="popup">
+                            <center>
+                            <br><br><br><br>
+                                <h2>New Post Added Successfully!</h2>
+                                <a class="close" href="post.php">&times;</a>
+                                <div class="content">
+                                    
+                                    
+                                </div>
+                                <div style="display: flex;justify-content: center;">
+                                
+                                <a href="post.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+
+                                </div>
+                                <br><br>
+                            </center>
+                    </div>
+                    </div>
+        ';
+            } elseif ($action == 'edit') {
+
+                echo '
+                    <div id="popup1" class="overlay">
+                            <div class="popup">
+                            <center>
+                            
+                                <a class="close" href="post.php">&times;</a> 
+                                <div style="display: flex;justify-content: center;">
+                                <div class="abc-popup">
+                                <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                                <tr>
+                                        <td class="label-td" colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Post </p>
+                                       
+                                        </td>
+                                    </tr>
+                                       <tr> 
+                            <td>
+                                 <div id="datetime"></div>
+                                </td>
+                                </tr>
+                                     <tr>
+                        <td>
+                       <div class="file-upload">
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+    </div>
+  </div>
+</div>
+
+                        </td>
+                        </tr>
+                                    
+                                 
+                                   
+                                  
+                                    
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="spec" class="form-label">Choose category: (Current )</label>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <select name="spec" id="" class="box">
+                                            <option value="Trion">Trion</option>
+                                            <option value="Duo">Duo</option>
+                                            <option value="Solo">Solo</option>
+                                            <option value="Quad">Quad</option>
+                                            <option value="Deluxe">Deluxe</option>
+                                            <option value="Group">Group</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Package2">Package 2</option>
+                                            <option value="Package3">Package 3</option>
+                                            <option value="Package4">Package 4</option>
+                                            <option value="Unopackage">Uno Package</option>
+                                            <option value="Dospackage">Dos Package</option>
+                                            <option value="Trespackage">Tres Package</option>
+                                            <option value="Cuatropackage">Cuantro Package</option>
+                                            <option value="Cincopackage">Cinco Package</option>
+                                            <option value="Seispackage">Seis Package</option>
+                                            
+
+                                                   </select><br><br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                            <a href="?action=editpost&id=123" class="non-style-link"><input type="submit" value="Save" class="login-btn btn-primary btn"></a>
+                                        </td>
+                        
+                                    </tr>
+                                
+                                    </form>
+                                    </tr>
+                                </table>
+                                </div>
+                                </div>
+                            </center>
+                            <br><br>
+                    </div>
+                    </div>
+                    ';
+            } elseif ($action == 'editpost') {
+                echo '
+                <div id="popup1" class="overlay">
+                        <div class="popup">
+                        <center>
+                        <br><br><br><br>
+                            <h2>Edit Successfully!</h2>
+                            <a class="close" href="post.php">&times;</a>
+                            <div class="content">
+                                
+                                
+                            </div>
+                            <div style="display: flex;justify-content: center;">
+                            
+                            <a href="post.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+
+                            </div>
+                            <br><br>
+                        </center>
+                </div>
+                </div>
+    ';
+            };
+        };
 
 
+        ?>
 
 
     </section>
+    <script src="js/post.js"></script>
+
+    <script src="js/date.js"></script>
 
 </body>
 

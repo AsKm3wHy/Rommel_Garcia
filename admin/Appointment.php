@@ -49,8 +49,8 @@
       <path d="M19.1,4.9L19.1,4.9c-0.3-0.3-0.6-0.4-1.1-0.4c-0.8,0-1.5,0.7-1.5,1.5c0,0.4,0.2,0.8,0.4,1.1l0,0c0,0,0,0,0,0c0,0,0,0,0,0c1.3,1.3,2,3,2,4.9c0,3.9-3.1,7-7,7s-7-3.1-7-7c0-1.9,0.8-3.7,2.1-4.9l0,0C7.3,6.8,7.5,6.4,7.5,6c0-0.8-0.7-1.5-1.5-1.5c-0.4,0-0.8,0.2-1.1,0.4l0,0C3.1,6.7,2,9.2,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,9.2,20.9,6.7,19.1,4.9z" />
     </symbol>
 
-    <symbol id="pin" viewBox="0 0 20 20">
-      <path d="M16.729,4.271c-0.389-0.391-1.021-0.393-1.414-0.004c-0.104,0.104-0.176,0.227-0.225,0.355  c-0.832,1.736-1.748,2.715-2.904,3.293C10.889,8.555,9.4,9,7,9C6.87,9,6.74,9.025,6.618,9.076C6.373,9.178,6.179,9.373,6.077,9.617  c-0.101,0.244-0.101,0.52,0,0.764c0.051,0.123,0.124,0.234,0.217,0.326l3.243,3.243L5,20l6.05-4.537l3.242,3.242  c0.092,0.094,0.203,0.166,0.326,0.217C14.74,18.973,14.87,19,15,19s0.26-0.027,0.382-0.078c0.245-0.102,0.44-0.295,0.541-0.541  C15.974,18.26,16,18.129,16,18c0-2.4,0.444-3.889,1.083-5.166c0.577-1.156,1.556-2.072,3.293-2.904  c0.129-0.049,0.251-0.121,0.354-0.225c0.389-0.393,0.387-1.025-0.004-1.414L16.729,4.271z" />
+    <symbol id="gallery" viewBox="0 0 24 24">
+      <path d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
     </symbol>
   </svg>
 
@@ -104,9 +104,9 @@
         <li>
           <a href="post.php">
             <svg>
-              <use xlink:href="#pin"></use>
+              <use xlink:href="#gallery"></use>
             </svg>
-            <span>Posts</span>
+            <span>Gallery</span>
           </a>
         </li>
 
@@ -188,8 +188,8 @@
               <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
                 Today's Date
               </p>
-              <p class="heading-sub12">
-                2025-6-3
+              <p class="heading-sub12" id="currentDate">
+
               </p>
             </td>
             <td width="4%">
@@ -215,7 +215,7 @@
             <p class="heading-main12">Add New Client</p>
           </td>
           <td colspan="2">
-            <a href="?action=add&id=none&error=0" class="non-style-link"><button class="login-btn btn-primary btn button-icon add-btn-table" style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add New</font></button>
+            <a href="?action=add&id=none" class="non-style-link"><button class="login-btn btn-primary btn button-icon add-btn-table" style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add New</font></button>
             </a>
           </td>
         </tr>
@@ -592,9 +592,8 @@
             </div>
             ';
       } elseif ($action == 'add') {
-        $error_1 = $_GET["error"];
-        if ($error_1 != '4') {
-          echo '
+
+        echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
                     <center>
@@ -613,14 +612,14 @@
                             </tr>
                             
                             <tr>
-                                <form action="add-new.php" method="POST" class="add-new-form">
+                                <form action="" method="POST" class="add-new-form">
                                 <td class="label-td" colspan="2">
                                     <label for="name" class="form-label">Name: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="text" name="name" class="input-text" placeholder="Client Name" required><br>
+                                    <input type="text" name="name" class="input-text" placeholder="Client Name" ><br>
                                 </td>
                                 
                             </tr>
@@ -633,7 +632,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="tel" name="Tele" class="input-text" placeholder="Phone Number" required><br>
+                                    <input type="tel" name="Tele" class="input-text" placeholder="Phone Number" ><br>
                                 </td>
                             </tr>
                                <tr>
@@ -674,7 +673,7 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <input type="datetime-local" id="datetime" class="input-text" name="datetime" required><br>
+                                            <input type="datetime-local" id="datetime" class="input-text" name="datetime" ><br>
                                         </td>
                                     </tr>
                                    
@@ -688,7 +687,7 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" required><br>
+                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" ><br>
                                         </td>
                                     </tr>
                             
@@ -697,7 +696,7 @@
                                 <td colspan="2">
                                     <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                    <input type="submit" value="Add" class="login-btn btn-primary btn">
+                                    <a href="?action=added&id=123" class="non-style-link"> <input type="submit" value="Add" class="login-btn btn-primary btn"></a>
                                 </td>
                 
                             </tr>
@@ -712,8 +711,8 @@
             </div>
             </div>
             ';
-        } else {
-          echo '
+      } elseif ($action == 'added') {
+        echo '
                     <div id="popup1" class="overlay">
                             <div class="popup">
                             <center>
@@ -734,7 +733,7 @@
                     </div>
                     </div>
         ';
-        }
+
 
 
 
@@ -898,6 +897,7 @@
 
 
   <script src="js/search-filter-appointment.js"></script>
+  <script src="js/date.js"></script>
 
 
 </body>
