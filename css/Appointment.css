@@ -531,3 +531,7 @@ dialog {
 .datetime {
   display: flex;
 }
+.apptype {
+  display: flex;
+  margin-bottom: 1rem !important;
+}

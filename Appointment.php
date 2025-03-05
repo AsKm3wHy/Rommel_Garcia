@@ -93,15 +93,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = $appointmentManager->createAppointment($appointmentData);
 
             if ($result['success']) {
-                // Success!
+
                 $successMessage = "Appointment created successfully! Reference number: " . sanitizeOutput($result['reference_number']);
-                // Log the action
-                logActivity('Appointment Confirmed', "Reference Number: " . $result['reference_number'] . ", Name: $name", 'Admin'); // Example log
-                // Redirect or clear the form
             } else {
-                // Error
-                $errorMessage = "Error creating appointment: " . $result['message'];
-                logActivity('Appointment Confirmation Failed', "Error: " . $result['message'] . ", Data: " . json_encode($appointmentData), 'Admin');
+                $errorMessage = "Error creating appointment: " . sanitizeOutput($result['message']);
             }
         }
     }
@@ -325,6 +320,7 @@ $csrfToken = CSRFProtection::generateToken();
                         </ul>
                     </div>
                 <?php endif; ?>
+
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <input type="hidden" name="csrf_token"
                         value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
@@ -345,26 +341,25 @@ $csrfToken = CSRFProtection::generateToken();
                     <input type="text" id="dialogPhotoboothType" name="photobooth_type"
                         value="<?php echo sanitizeOutput($photobooth_type); ?>" readonly>
 
-                    <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
-                    <input type="text" id="dialogAppointmentType" name="appointment_type"
-                        value="<?php echo sanitizeOutput($appointment_type); ?>" readonly>
+
 
                     <label for="date" style="margin-bottom: 0!important;">Date & Time: </label>
                     <div class="datetime">
                         <input type="text" id="dialogDate" value="<?php echo sanitizeOutput($appointment_date); ?>"
-                            readonly><input type="text" id="dialogTime"
+                            readonly style="margin-right: .5rem;"><input type="text" id="dialogTime"
                             value="<?php echo sanitizeOutput($appointment_time); ?>" readonly>
                     </div>
 
-                    <label for="price" style="margin-bottom: 0!important;">Total: </label>
-                    <input type="text" id="dialogPrice" name="price" value="<?php echo sanitizeOutput($price); ?>"
-                        readonly style="margin-bottom: 1rem !important;">
-
-                    <input type="hidden" name="appointment_date" value="<?php echo date('Y-m-d'); ?>">
-                    <input type="hidden" name="appointment_time" value="<?php echo date('g:i A'); ?>">
-
-
+                    <label for="type" style="margin-bottom: 0!important;">Appointment Type: </label>
+                    <div class="apptype">
+                        <input type="text" id="dialogAppointmentType" name="appointment_type"
+                            value="<?php echo sanitizeOutput($appointment_type); ?>" style="margin-right: .5rem;"
+                            readonly>
+                        <input type="text" id="dialogPrice" name="price" value="<?php echo sanitizeOutput($price); ?>"
+                            readonly>
+                    </div>
                     <button class="submit-btn" type="submit">Confirm</button>
+                    <!-- <button type="button" onclick="dialog.close();">Cancel</button> -->
                 </form>
                 <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
             </dialog>
@@ -394,9 +389,12 @@ $csrfToken = CSRFProtection::generateToken();
                         const email = document.getElementById('email').value;
                         const appointmentType = document.getElementById('appointment').value;
                         const price = document.getElementById('price').value;
-                        const referenceNumber = document.getElementById('referenceNumber').value;
-                        const photoboothType = document.querySelector('.button-container .active1')
-                            .textContent;
+                        const photoboothType = document.querySelector('.button-container .active1') ?
+                            document.querySelector('.button-container .active1').innerText : '';
+                        const appointmentDate = selectedDate ?
+                            `${currentMonth + 1}/${selectedDate}/${currentYear}` : '';
+                        const appointmentTime = selectedTimeSlot ?
+                            selectedTimeSlot.innerText : '';
 
                         document.getElementById('dialogName').value = name;
                         document.getElementById('dialogPhone').value = phone;
@@ -404,9 +402,8 @@ $csrfToken = CSRFProtection::generateToken();
                         document.getElementById('dialogAppointmentType').value = appointmentType;
                         document.getElementById('dialogPrice').value = price;
                         document.getElementById('dialogPhotoboothType').value = photoboothType;
-                        document.getElementById('dialogDate').value = selectedDate;
-                        document.getElementById('dialogTime').value = selectedTime;
-
+                        document.getElementById('dialogDate').value = appointmentDate;
+                        document.getElementById('dialogTime').value = appointmentTime;
 
                         dialog.showModal();
                     });
@@ -446,7 +443,7 @@ $csrfToken = CSRFProtection::generateToken();
 
                 function enableSubmitButton() {
                     const submitButton = document.querySelector('.submit-btn');
-                    if (buttonSelected) {
+                    if (buttonSelected && selectedDate && selectedTimeSlot) {
                         submitButton.disabled = false;
                     } else {
                         submitButton.disabled = true;
