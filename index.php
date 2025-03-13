@@ -262,8 +262,9 @@
                     </div> -->
                 </div>
 
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/Deluxee.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
                         <h3>Deluxe</h3>
                     </div>
                     <div class="content">
@@ -276,11 +277,12 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱2,500</a>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="card" data-aos="flip-left">
-                    <div class="circle">
+                <div class="card" data-aos="flip-left"
+                    style="background-image:url(img/pic/Group.png); background-size:100% 100%; cursor:pointer;">
+                    <!-- <div class="circle">
                         <h3>GROUP</h3>
                     </div>
                     <div class="content">
@@ -292,7 +294,7 @@
                             <div>All digital copies are FREE</div>
                         </div>
                         <a href="#">₱1,500</a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="card" data-aos="flip-left"
                     style="background-image:url(img/pic/Graduate.png); background-size:100% 100%; cursor:pointer;">
