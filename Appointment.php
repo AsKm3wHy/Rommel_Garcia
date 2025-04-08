@@ -231,7 +231,7 @@ $csrfToken = CSRFProtection::generateToken();
                     <div class="form-group">
                         <label for="phone">Contact #:</label>
                         <input type="number" id="phone" name="phone" placeholder="Phone Number" min="1"
-                            pattern="[0-9]{0,11}" required>
+                            pattern="^\d{10}$" required>
                     </div>
 
                     <div class="form-group">
@@ -304,21 +304,21 @@ $csrfToken = CSRFProtection::generateToken();
 
             <dialog id="dialog">
                 <?php if (isset($successMessage)): ?>
-                    <p style="color: green;"><?php echo sanitizeOutput($successMessage); ?></p>
+                <p style="color: green;"><?php echo sanitizeOutput($successMessage); ?></p>
                 <?php endif; ?>
 
                 <?php if (isset($errorMessage)): ?>
-                    <p style="color: red;"><?php echo sanitizeOutput($errorMessage); ?></p>
+                <p style="color: red;"><?php echo sanitizeOutput($errorMessage); ?></p>
                 <?php endif; ?>
 
                 <?php if (isset($errors) && !empty($errors)): ?>
-                    <div style="color: red;">
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li><?php echo sanitizeOutput($error); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                <div style="color: red;">
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li><?php echo sanitizeOutput($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
 
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -377,358 +377,358 @@ $csrfToken = CSRFProtection::generateToken();
             </script> -->
 
             <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const appointmentForm = document.getElementById('appointment-form');
-                    const dialog = document.getElementById('dialog');
+            document.addEventListener('DOMContentLoaded', () => {
+                const appointmentForm = document.getElementById('appointment-form');
+                const dialog = document.getElementById('dialog');
 
-                    appointmentForm.addEventListener('submit', (event) => {
-                        event.preventDefault();
+                appointmentForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
 
-                        const name = document.getElementById('name').value;
-                        const phone = document.getElementById('phone').value;
-                        const email = document.getElementById('email').value;
-                        const appointmentType = document.getElementById('appointment').value;
-                        const price = document.getElementById('price').value;
-                        const photoboothType = document.querySelector('.button-container .active1') ?
-                            document.querySelector('.button-container .active1').innerText : '';
-                        const appointmentDate = selectedDate ?
-                            `${currentMonth + 1}/${selectedDate}/${currentYear}` : '';
-                        const appointmentTime = selectedTimeSlot ?
-                            selectedTimeSlot.innerText : '';
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const email = document.getElementById('email').value;
+                    const appointmentType = document.getElementById('appointment').value;
+                    const price = document.getElementById('price').value;
+                    const photoboothType = document.querySelector('.button-container .active1') ?
+                        document.querySelector('.button-container .active1').innerText : '';
+                    const appointmentDate = selectedDate ?
+                        `${currentMonth + 1}/${selectedDate}/${currentYear}` : '';
+                    const appointmentTime = selectedTimeSlot ?
+                        selectedTimeSlot.innerText : '';
 
-                        document.getElementById('dialogName').value = name;
-                        document.getElementById('dialogPhone').value = phone;
-                        document.getElementById('dialogEmail').value = email;
-                        document.getElementById('dialogAppointmentType').value = appointmentType;
-                        document.getElementById('dialogPrice').value = price;
-                        document.getElementById('dialogPhotoboothType').value = photoboothType;
-                        document.getElementById('dialogDate').value = appointmentDate;
-                        document.getElementById('dialogTime').value = appointmentTime;
+                    document.getElementById('dialogName').value = name;
+                    document.getElementById('dialogPhone').value = phone;
+                    document.getElementById('dialogEmail').value = email;
+                    document.getElementById('dialogAppointmentType').value = appointmentType;
+                    document.getElementById('dialogPrice').value = price;
+                    document.getElementById('dialogPhotoboothType').value = photoboothType;
+                    document.getElementById('dialogDate').value = appointmentDate;
+                    document.getElementById('dialogTime').value = appointmentTime;
 
-                        dialog.showModal();
-                    });
+                    dialog.showModal();
                 });
+            });
             </script>
 
 
 
             <script>
-                let buttonSelected = false;
+            let buttonSelected = false;
 
-                const personalBtn = document.getElementById('personalBtn');
-                const videoBtn = document.getElementById('videoBtn');
-                const portraitBtn = document.getElementById('portraitBtn');
+            const personalBtn = document.getElementById('personalBtn');
+            const videoBtn = document.getElementById('videoBtn');
+            const portraitBtn = document.getElementById('portraitBtn');
 
-                function setActiveButton(selectedButton) {
-                    // Remove active class from all buttons
-                    personalBtn.classList.remove('active1', 'personal');
-                    videoBtn.classList.remove('active1', 'video');
-                    portraitBtn.classList.remove('active1', 'portrait');
+            function setActiveButton(selectedButton) {
+                // Remove active class from all buttons
+                personalBtn.classList.remove('active1', 'personal');
+                videoBtn.classList.remove('active1', 'video');
+                portraitBtn.classList.remove('active1', 'portrait');
 
-                    if (selectedButton === 'personal') {
-                        personalBtn.classList.add('active1', 'personal');
-                    } else if (selectedButton === 'video') {
-                        videoBtn.classList.add('active1', 'video');
-                    } else if (selectedButton === 'portrait') {
-                        portraitBtn.classList.add('active1', 'portrait');
-                    }
-
-                    buttonSelected = true;
-                    enableSubmitButton();
+                if (selectedButton === 'personal') {
+                    personalBtn.classList.add('active1', 'personal');
+                } else if (selectedButton === 'video') {
+                    videoBtn.classList.add('active1', 'video');
+                } else if (selectedButton === 'portrait') {
+                    portraitBtn.classList.add('active1', 'portrait');
                 }
 
-                personalBtn.addEventListener('click', () => setActiveButton('personal'));
-                videoBtn.addEventListener('click', () => setActiveButton('video'));
-                portraitBtn.addEventListener('click', () => setActiveButton('portrait'));
+                buttonSelected = true;
+                enableSubmitButton();
+            }
 
-                function enableSubmitButton() {
-                    const submitButton = document.querySelector('.submit-btn');
-                    if (buttonSelected && selectedDate && selectedTimeSlot) {
-                        submitButton.disabled = false;
-                    } else {
-                        submitButton.disabled = true;
-                    }
+            personalBtn.addEventListener('click', () => setActiveButton('personal'));
+            videoBtn.addEventListener('click', () => setActiveButton('video'));
+            portraitBtn.addEventListener('click', () => setActiveButton('portrait'));
+
+            function enableSubmitButton() {
+                const submitButton = document.querySelector('.submit-btn');
+                if (buttonSelected && selectedDate && selectedTimeSlot) {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
                 }
+            }
 
-                document.addEventListener('DOMContentLoaded', enableSubmitButton);
+            document.addEventListener('DOMContentLoaded', enableSubmitButton);
             </script>
 
             <script>
-                const availableTimes = {
-                    1: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    2: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    3: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    4: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    5: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    6: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    7: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    8: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    9: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    10: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    11: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    12: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    13: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    14: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    15: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    16: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    17: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    18: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    19: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    20: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    21: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    22: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    23: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    24: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    25: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    26: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    27: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    28: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    29: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    30: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ],
-                    31: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-                        '5:00 PM'
-                    ]
-                };
+            const availableTimes = {
+                1: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                2: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                3: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                4: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                5: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                6: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                7: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                8: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                9: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                10: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                11: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                12: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                13: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                14: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                15: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                16: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                17: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                18: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                19: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                20: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                21: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                22: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                23: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                24: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                25: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                26: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                27: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                28: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                29: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                30: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ],
+                31: ['8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
+                    '5:00 PM'
+                ]
+            };
 
-                let selectedDate = null;
-                let selectedTimeSlot = null;
+            let selectedDate = null;
+            let selectedTimeSlot = null;
 
-                const today = new Date();
-                let currentMonth = today.getMonth();
-                let currentYear = today.getFullYear();
+            const today = new Date();
+            let currentMonth = today.getMonth();
+            let currentYear = today.getFullYear();
 
-                function populateMonthYear() {
-                    const monthSelect = document.getElementById('month-select');
-                    const yearSelect = document.getElementById('year-select');
+            function populateMonthYear() {
+                const monthSelect = document.getElementById('month-select');
+                const yearSelect = document.getElementById('year-select');
 
-                    monthSelect.innerHTML = '';
-                    const months = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"
-                    ];
-                    months.forEach((month, index) => {
-                        const option = document.createElement('option');
-                        option.value = index;
-                        option.textContent = month;
-                        monthSelect.appendChild(option);
-                    });
+                monthSelect.innerHTML = '';
+                const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ];
+                months.forEach((month, index) => {
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent = month;
+                    monthSelect.appendChild(option);
+                });
 
-                    yearSelect.innerHTML = '';
-                    for (let year = 2025; year <= 2030; year++) {
-                        const option = document.createElement('option');
-                        option.value = year;
-                        option.textContent = year;
-                        yearSelect.appendChild(option);
-                    }
-
-                    monthSelect.value = currentMonth;
-                    yearSelect.value = currentYear;
+                yearSelect.innerHTML = '';
+                for (let year = 2025; year <= 2030; year++) {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
                 }
 
-                function generateCalendar() {
-                    const calendar = document.getElementById('calendar');
-                    const selectedDateDisplay = document.getElementById('selected-date');
-                    const availableTimesSection = document.getElementById('available-times');
-                    const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-                    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
-                    const totalDaysInMonth = lastDayOfMonth.getDate();
-                    const availableDates = Object.keys(availableTimes).map(Number);
+                monthSelect.value = currentMonth;
+                yearSelect.value = currentYear;
+            }
 
-                    calendar.innerHTML = '';
+            function generateCalendar() {
+                const calendar = document.getElementById('calendar');
+                const selectedDateDisplay = document.getElementById('selected-date');
+                const availableTimesSection = document.getElementById('available-times');
+                const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+                const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+                const totalDaysInMonth = lastDayOfMonth.getDate();
+                const availableDates = Object.keys(availableTimes).map(Number);
 
-                    const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-                    daysOfWeek.forEach(day => {
-                        const dayElement = document.createElement('div');
-                        dayElement.innerText = day;
-                        calendar.appendChild(dayElement);
-                    });
+                calendar.innerHTML = '';
 
-                    for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
-                        const emptyElement = document.createElement('div');
-                        calendar.appendChild(emptyElement);
-                    }
+                const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+                daysOfWeek.forEach(day => {
+                    const dayElement = document.createElement('div');
+                    dayElement.innerText = day;
+                    calendar.appendChild(dayElement);
+                });
 
-                    for (let day = 1; day <= totalDaysInMonth; day++) {
-                        const dateElement = document.createElement('div');
-                        dateElement.innerText = day;
-
-                        const today = new Date();
-                        const todayDay = today.getDate();
-                        const todayMonth = today.getMonth();
-                        const todayYear = today.getFullYear();
-
-                        if (
-                            currentYear < todayYear ||
-                            (currentYear === todayYear && currentMonth < todayMonth) ||
-                            (currentYear === todayYear && currentMonth === todayMonth && day < todayDay)
-                        ) {
-                            dateElement.classList.add('disabled');
-                            dateElement.style.pointerEvents = 'none';
-                            dateElement.style.opacity = 0.5;
-                        } else if (availableDates.includes(day)) {
-                            dateElement.classList.add('available');
-                            dateElement.addEventListener('click', () => {
-                                selectedDate = day;
-                                selectedDateDisplay.innerText =
-                                    `Selected Date: ${currentMonth + 1}/${day}/${currentYear}`;
-                                displayAvailableTimes(day);
-                            });
-                        }
-
-                        calendar.appendChild(dateElement);
-                    }
+                for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
+                    const emptyElement = document.createElement('div');
+                    calendar.appendChild(emptyElement);
                 }
 
-                function displayAvailableTimes(day) {
-                    const availableTimesSection = document.getElementById('available-times');
-                    availableTimesSection.innerHTML = '';
+                for (let day = 1; day <= totalDaysInMonth; day++) {
+                    const dateElement = document.createElement('div');
+                    dateElement.innerText = day;
 
-                    if (availableTimes[day]) {
-                        availableTimes[day].forEach(time => {
-                            const timeSlot = document.createElement('div');
-                            timeSlot.classList.add('time-slot');
-                            timeSlot.innerText = time;
-                            timeSlot.addEventListener('click', () => {
-                                selectTimeSlot(timeSlot, time);
-                            });
-                            availableTimesSection.appendChild(timeSlot);
+                    const today = new Date();
+                    const todayDay = today.getDate();
+                    const todayMonth = today.getMonth();
+                    const todayYear = today.getFullYear();
+
+                    if (
+                        currentYear < todayYear ||
+                        (currentYear === todayYear && currentMonth < todayMonth) ||
+                        (currentYear === todayYear && currentMonth === todayMonth && day < todayDay)
+                    ) {
+                        dateElement.classList.add('disabled');
+                        dateElement.style.pointerEvents = 'none';
+                        dateElement.style.opacity = 0.5;
+                    } else if (availableDates.includes(day)) {
+                        dateElement.classList.add('available');
+                        dateElement.addEventListener('click', () => {
+                            selectedDate = day;
+                            selectedDateDisplay.innerText =
+                                `Selected Date: ${currentMonth + 1}/${day}/${currentYear}`;
+                            displayAvailableTimes(day);
                         });
-
-                        document.getElementById('appointment-form').style.display = 'block';
-                    } else {
-                        availableTimesSection.innerText = 'No available times for this date.';
-                        document.getElementById('appointment-form').style.display = 'none';
-                        selectedDateDisplay.innerText = '';
                     }
+
+                    calendar.appendChild(dateElement);
+                }
+            }
+
+            function displayAvailableTimes(day) {
+                const availableTimesSection = document.getElementById('available-times');
+                availableTimesSection.innerHTML = '';
+
+                if (availableTimes[day]) {
+                    availableTimes[day].forEach(time => {
+                        const timeSlot = document.createElement('div');
+                        timeSlot.classList.add('time-slot');
+                        timeSlot.innerText = time;
+                        timeSlot.addEventListener('click', () => {
+                            selectTimeSlot(timeSlot, time);
+                        });
+                        availableTimesSection.appendChild(timeSlot);
+                    });
+
+                    document.getElementById('appointment-form').style.display = 'block';
+                } else {
+                    availableTimesSection.innerText = 'No available times for this date.';
+                    document.getElementById('appointment-form').style.display = 'none';
+                    selectedDateDisplay.innerText = '';
+                }
+            }
+
+            function selectTimeSlot(timeSlotElement, time) {
+                const selectedDateDisplay = document.getElementById('selected-date');
+                selectedDateDisplay.innerText =
+                    `Selected Date: ${currentMonth + 1}/${selectedDate}/${currentYear} at ${time}`;
+
+                if (selectedTimeSlot) {
+                    selectedTimeSlot.classList.remove('selected');
                 }
 
-                function selectTimeSlot(timeSlotElement, time) {
-                    const selectedDateDisplay = document.getElementById('selected-date');
-                    selectedDateDisplay.innerText =
-                        `Selected Date: ${currentMonth + 1}/${selectedDate}/${currentYear} at ${time}`;
+                selectedTimeSlot = timeSlotElement;
+                selectedTimeSlot.classList.add('selected');
+            }
 
-                    if (selectedTimeSlot) {
-                        selectedTimeSlot.classList.remove('selected');
-                    }
-
-                    selectedTimeSlot = timeSlotElement;
-                    selectedTimeSlot.classList.add('selected');
+            // Navigation buttons
+            document.getElementById('prev-month').onclick = function() {
+                if (currentMonth === 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                } else {
+                    currentMonth--;
                 }
-
-                // Navigation buttons
-                document.getElementById('prev-month').onclick = function () {
-                    if (currentMonth === 0) {
-                        currentMonth = 11;
-                        currentYear--;
-                    } else {
-                        currentMonth--;
-                    }
-                    populateMonthYear();
-                    generateCalendar();
-                };
-
-                document.getElementById('next-month').onclick = function () {
-                    if (currentMonth === 11) {
-                        currentMonth = 0;
-                        currentYear++;
-                    } else {
-                        currentMonth++;
-                    }
-                    populateMonthYear();
-                    generateCalendar();
-                };
-
-                document.getElementById('month-select').addEventListener('change', function () {
-                    currentMonth = parseInt(this.value);
-                    generateCalendar();
-                });
-
-                document.getElementById('year-select').addEventListener('change', function () {
-                    currentYear = parseInt(this.value);
-                    generateCalendar();
-                });
-
                 populateMonthYear();
                 generateCalendar();
+            };
+
+            document.getElementById('next-month').onclick = function() {
+                if (currentMonth === 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                } else {
+                    currentMonth++;
+                }
+                populateMonthYear();
+                generateCalendar();
+            };
+
+            document.getElementById('month-select').addEventListener('change', function() {
+                currentMonth = parseInt(this.value);
+                generateCalendar();
+            });
+
+            document.getElementById('year-select').addEventListener('change', function() {
+                currentYear = parseInt(this.value);
+                generateCalendar();
+            });
+
+            populateMonthYear();
+            generateCalendar();
             </script>
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const accordions = document.querySelectorAll('.faq-accordion');
+            document.addEventListener('DOMContentLoaded', function() {
+                const accordions = document.querySelectorAll('.faq-accordion');
 
-                    if (accordions.length > 0) {
-                        accordions.forEach(button => {
-                            button.addEventListener('click', function () {
-                                this.classList.toggle('active');
-                                const panel = this.nextElementSibling;
+                if (accordions.length > 0) {
+                    accordions.forEach(button => {
+                        button.addEventListener('click', function() {
+                            this.classList.toggle('active');
+                            const panel = this.nextElementSibling;
 
-                                if (panel.style.maxHeight) {
-                                    panel.style.maxHeight = null;
-                                } else {
-                                    panel.style.maxHeight = panel.scrollHeight + "px";
-                                }
-                            });
+                            if (panel.style.maxHeight) {
+                                panel.style.maxHeight = null;
+                            } else {
+                                panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
                         });
-                    }
-                });
+                    });
+                }
+            });
             </script>
 
         </div>
@@ -752,74 +752,50 @@ $csrfToken = CSRFProtection::generateToken();
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+const counterElement = document.getElementsByClassName('count')[0];
+
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+        .catch(error => console.error('Error updating counter:', error));
+}
+
+updateCounter();
 </script>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 <script src="js/lx.bundle.js"></script>
 <script src="js/default-assets/active.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-23581568-13');
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 
-<script>
-    function updatePrice() {
-        var appointment = document.getElementById("appointment").value;
-        var priceInput = document.getElementById("price");
-        let price = 500;
+<script src="js/Appointment.js">
 
-        if (appointment === "SOLO") {
-            price = 500;
-        } else if (appointment === "DUO") {
-            price = 800;
-        } else if (appointment === "TRIO") {
-            price = 900;
-        } else if (appointment === "QUAD") {
-            price = 1000;
-        } else if (appointment === "DELUXE") {
-            price = 2500;
-        } else if (appointment === "GROUP") {
-            price = 1500;
-        } else if (appointment === "PACKAGE 1") {
-            price = 899;
-        } else if (appointment === "PACKAGE 2") {
-            price = 1599;
-        } else if (appointment === "PACKAGE 3") {
-            price = 2599;
-        } else if (appointment === "PACKAGE 4") {
-            price = 3599;
-        }
-
-        priceInput.value = "₱ " + price;
-    }
 </script>
 </body>
 

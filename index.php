@@ -196,19 +196,6 @@
                 <a href="Appointment.php">
                     <div class="card" data-aos="flip-left"
                         style="background-image:url(img/pic/Solo.png); background-size:100% 100%; cursor:pointer;">
-                        <!-- <div class="circle">
-                        <h3>SOLO</h3>
-                    </div>
-                    <div class="content">
-                        <div class="features">
-                            <div>1 Pax</div>
-                            <div>15 Minutes Self Portrait</div>
-                            <div>1 Backdrop Color</div>
-                            <div>2 4R Size Print</div>
-                            <div>All digital copies are FREE</div>
-                        </div>
-                        <a href="#">₱500</a>
-                    </div> -->
                     </div>
                 </a>
 
@@ -280,7 +267,7 @@
                     </div> -->
                 </div>
 
-                <div class="card" data-aos="flip-left"
+                <div class="card" data-aos="flip-left" id="Group"
                     style="background-image:url(img/pic/Group.png); background-size:100% 100%; cursor:pointer;">
                     <!-- <div class="circle">
                         <h3>GROUP</h3>
@@ -787,13 +774,13 @@
 </body>
 
 <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
+function updateCounter() {
+    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+        .then(res => res.json())
+        .then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -801,11 +788,11 @@
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -814,76 +801,76 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 <script>
-    function slide(sliderElement, direction) {
-        let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
-        const cards = sliderElement.querySelectorAll('.card, .card1');
-        const totalCards = cards.length;
-        const cardWidth = 300 + 40;
+function slide(sliderElement, direction) {
+    let currentIndex = parseInt(sliderElement.getAttribute('data-current-index')) || 0;
+    const cards = sliderElement.querySelectorAll('.card, .card1');
+    const totalCards = cards.length;
+    const cardWidth = 300 + 40;
 
-        currentIndex += direction;
+    currentIndex += direction;
 
-        if (currentIndex < 0) {
-            currentIndex = totalCards - 1;
-        } else if (currentIndex >= totalCards) {
-            currentIndex = 0;
+    if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+    } else if (currentIndex >= totalCards) {
+        currentIndex = 0;
+    }
+
+    const sliderInner = sliderElement.querySelector('.slider');
+    sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    sliderElement.setAttribute('data-current-index', currentIndex);
+}
+
+function setupSlider(sliderContainer) {
+    const prevButton = sliderContainer.querySelector('#prev');
+    const nextButton = sliderContainer.querySelector('#next');
+
+    prevButton.addEventListener('click', () => slide(sliderContainer, -1));
+    nextButton.addEventListener('click', () => slide(sliderContainer, 1));
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchend', () => {
+        const swipeThreshold = 50; // Minimum swipe distance to trigger slide
+
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left
+            slide(sliderContainer, 1);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right
+            slide(sliderContainer, -1);
         }
+    });
+}
 
-        const sliderInner = sliderElement.querySelector('.slider');
-        sliderInner.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-        sliderElement.setAttribute('data-current-index', currentIndex);
-    }
-
-    function setupSlider(sliderContainer) {
-        const prevButton = sliderContainer.querySelector('#prev');
-        const nextButton = sliderContainer.querySelector('#next');
-
-        prevButton.addEventListener('click', () => slide(sliderContainer, -1));
-        nextButton.addEventListener('click', () => slide(sliderContainer, 1));
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        });
-
-        sliderContainer.addEventListener('touchmove', (e) => {
-            touchEndX = e.touches[0].clientX;
-        });
-
-        sliderContainer.addEventListener('touchend', () => {
-            const swipeThreshold = 50; // Minimum swipe distance to trigger slide
-
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe left
-                slide(sliderContainer, 1);
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe right
-                slide(sliderContainer, -1);
-            }
-        });
-    }
-
-    document.querySelectorAll('.slider-container').forEach(setupSlider);
+document.querySelectorAll('.slider-container').forEach(setupSlider);
 </script>
 </body>
 
