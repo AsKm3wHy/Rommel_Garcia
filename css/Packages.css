@@ -527,3 +527,7 @@ dialog {
     opacity: 1;
   }
 }
+
+.datetime {
+  display: flex;
+}

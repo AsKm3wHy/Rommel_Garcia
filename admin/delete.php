@@ -156,12 +156,13 @@
                     </span>Calendar</a>
             </li>
             <li>
-                <a href="history.php?page=History" class="active"><span class="material-symbols-outlined active">
+                <a href="history.php?page=History"><span class="material-symbols-outlined ">
                         History </span>History</a>
             </li>
 
             <li>
-                <a href="delete.php?page=delete-history"><span class="material-symbols-outlined"> Delete
+                <a href="delete.php?page=delete-history" class="active"><span class="material-symbols-outlined active">
+                        Delete
                     </span>Delete</a>
             </li>
 

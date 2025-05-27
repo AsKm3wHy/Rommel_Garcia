@@ -527,3 +527,11 @@ dialog {
     opacity: 1;
   }
 }
+
+.datetime {
+  display: flex;
+}
+.apptype {
+  display: flex;
+  margin-bottom: 1rem !important;
+}
