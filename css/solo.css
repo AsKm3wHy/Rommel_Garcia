@@ -30,7 +30,6 @@ Last Update: Feb 22, 2019
 
 --------------------------------------------- */
 
-
 /* Import Fonts & All CSS */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap");
@@ -72,7 +71,16 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(217, 2, 2, 0.945);
-    background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
 }
 
 h1,
@@ -126,7 +134,9 @@ h6 {
 }
 
 #social-sidebar a span {
-    font: 12px "Poppins", sans-serif;
+    font:
+        12px "Poppins",
+        sans-serif;
     text-transform: uppercase;
     border-radius: 3px;
     line-height: 24px;
@@ -135,7 +145,9 @@ h6 {
     opacity: 0;
     padding: 4px 8px;
     position: absolute;
-    transition: opacity 0.3s, left 0.4s;
+    transition:
+        opacity 0.3s,
+        left 0.4s;
     top: 50%;
     z-index: -1;
 }
@@ -252,7 +264,7 @@ ul li {
     z-index: 0;
 }
 
-.jarallax>.jarallax-img {
+.jarallax > .jarallax-img {
     position: absolute;
     object-fit: cover;
     font-family: "object-fit: cover";
@@ -336,7 +348,6 @@ input:required {
 .mfp-arrow-right::before {
     border-left-color: #ffffff;
 }
-
 
 /* :: 02.0 Spacing CSS */
 
@@ -479,7 +490,6 @@ input:required {
     padding-bottom: 0;
 }
 
-
 /* :: 3.0 Preloader CSS */
 
 #preloader {
@@ -565,7 +575,6 @@ input:required {
     }
 }
 
-
 /* :: 4.0 Heading CSS */
 
 .section-heading {
@@ -596,7 +605,6 @@ input:required {
 .section-heading.white h2 {
     color: #ffffff;
 }
-
 
 /* :: 5.0 Backtotop CSS */
 
@@ -632,7 +640,6 @@ input:required {
     background-color: #000000;
     color: #ffffff;
 }
-
 
 /* :: 6.0 Buttons CSS */
 
@@ -696,7 +703,6 @@ input:required {
     color: #ffffff;
     font-weight: 500;
 }
-
 
 /* :: 7.0 Header CSS */
 
@@ -902,9 +908,9 @@ input:required {
     }
 }
 
-.classynav ul li.has-down>a::after,
-.classynav ul li.has-down.active>a::after,
-.classynav ul li.megamenu-item>a::after {
+.classynav ul li.has-down > a::after,
+.classynav ul li.has-down.active > a::after,
+.classynav ul li.megamenu-item > a::after {
     color: #fc6060;
 }
 
@@ -942,7 +948,6 @@ input:required {
 .classy-navbar-toggler .navbarToggler span {
     background-color: #ffffff;
 }
-
 
 /* :: 8.0 Hero CSS */
 
@@ -1106,7 +1111,6 @@ input:required {
 .single-welcome-slide .welcome-text .hero-mail-contact:focus {
     color: #fc6060;
 }
-
 
 /* :: 14.0 Gallery CSS */
 
@@ -1308,12 +1312,12 @@ footer {
     font-size: 22px;
 }
 
-.social-info>.icons {
+.social-info > .icons {
     margin: 0 auto;
     transition: 0.5s;
 }
 
-.social-info>.icons>a {
+.social-info > .icons > a {
     display: inline-block;
 }
 
@@ -1321,13 +1325,13 @@ footer {
     display: flex;
 }
 
-.social-info>h2 {
+.social-info > h2 {
     color: gainsboro;
     margin: 10px;
     text-align: center;
 }
 
-.social-info>.icons>a>img {
+.social-info > .icons > a > img {
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -1335,7 +1339,7 @@ footer {
     transition: 0.3s;
 }
 
-.contact-info>.icons>a>img {
+.contact-info > .icons > a > img {
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -1343,11 +1347,11 @@ footer {
     transition: 0.3s;
 }
 
-.contact-info>.icons>a {
+.contact-info > .icons > a {
     display: inline-block;
 }
 
-.social-info>.icons>a>img:hover {
+.social-info > .icons > a > img:hover {
     cursor: pointer;
     overflow: hidden;
     transform: scale(1.2);
@@ -1380,7 +1384,7 @@ footer {
     margin-top: 0px;
 }
 
-.connect form>input {
+.connect form > input {
     background-color: cornsilk;
     padding: 10px 15px;
     border: solid 1px;
@@ -1391,7 +1395,7 @@ footer {
     margin-right: 2px;
 }
 
-.connect form>button {
+.connect form > button {
     margin: 15px auto;
     border: none;
     padding: 10px 15px;
@@ -1401,7 +1405,7 @@ footer {
     transition: 0.3s;
 }
 
-.connect form>button:hover {
+.connect form > button:hover {
     letter-spacing: 1px;
     color: #ffe89e;
     outline-style: none;
@@ -1418,11 +1422,11 @@ footer {
     }
 }
 
-.containerDown>a>h5 {
+.containerDown > a > h5 {
     color: #f7f7f7;
 }
 
-.containerDown>a>span {
+.containerDown > a > span {
     color: antiquewhite;
 }
 
@@ -1430,18 +1434,17 @@ footer {
     text-align: center;
 }
 
-.last>p {
+.last > p {
     color: burlywood;
 }
 
-.last>p>.heart {
+.last > p > .heart {
     color: red;
 }
 
-.last>p>a {
+.last > p > a {
     color: #afb4bf;
 }
-
 
 /* Pricing Section CSS */
 
@@ -1464,13 +1467,11 @@ footer {
     text-align: center;
 }
 
-
 /* .circle h3 {
     color: #fff;
     font-size: 2em;
     padding: 60px 0;
 } */
-
 
 /* moving body background   */
 
@@ -1481,7 +1482,6 @@ body {
     animation: color 5s ease-in-out infinite; */
     background: #f2f2f2;
 }
-
 
 /* @keyframes color {
     0% {
@@ -1613,7 +1613,6 @@ body {
     opacity: 1;
     color: #000000;
 }
-
 
 /* From Uiverse.io by abrahamcalsin */
 
@@ -1762,13 +1761,11 @@ body {
     margin: 0 2rem;
 }
 
-
 /* .plan-card {
   border: 1px solid #ccc;
   padding: 10px;
   max-width: 700px;
 } */
-
 
 /* .button-get-plan a {
   display: inline-block;
@@ -1788,7 +1785,6 @@ body {
     transition: max-height 0.5s ease;
 }
 
-
 /* .expandable-form {
   max-height: 0;
   overflow: hidden;
@@ -1802,7 +1798,6 @@ body {
 .form-section.show-form {
     display: block;
 }
-
 
 /* Responsive media query code for small screens */
 
@@ -1819,7 +1814,6 @@ body {
         display: none;
     }
 }
-
 
 /* Responsive media queries */
 

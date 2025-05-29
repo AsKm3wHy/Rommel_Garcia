@@ -1,0 +1,315 @@
+/* === Google Font Import - Poppins === */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    /* height: 100vh; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+     */
+    background: #f2f2f2;
+}
+
+.first-package {
+    position: relative;
+    height: 450px;
+    padding: 15px;
+    padding: 0 70px;
+    /* max-width: 1200px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.second-package {
+    position: relative;
+    height: 100%;
+    padding: 15px;
+    padding: 0 70px;
+    /* max-width: 1200px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    /* background: #fff; */
+    /* border-radius: 20px; */
+    /* margin: 20px 0; */
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 40%;
+    width: 100%;
+    /* background: #7d2ae8; */
+    border-radius: 20px 20px 0 0;
+}
+
+.card .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 30px; */
+    position: relative;
+    z-index: 100;
+}
+
+.card .button {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card .button button {
+    background: #7d2ae8;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button button:hover {
+    background: #6616d0;
+}
+
+.swiper-pagination {
+    position: absolute;
+}
+
+.swiper-pagination-bullet {
+    height: 10px;
+    width: 26px;
+    border-radius: 25px;
+    background: #7d2ae8;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.7;
+    color: #7d2ae8;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+    color: #7d2ae8;
+}
+
+/* From Uiverse.io by abrahamcalsin */
+
+.plan-card {
+    background: #fff;
+    width: 18.9rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    border-bottom: 4px solid #000446;
+    box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
+    font-family: "Poppins", sans-serif;
+}
+
+.plan-card h2 {
+    margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.plan-card h2 span {
+    display: block;
+    margin-top: -4px;
+    color: #4d4d4d;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.etiquet-price {
+    position: relative;
+    background: #fdbd4a;
+    width: 18.4rem;
+    margin-left: -0.65rem;
+    padding: 0.2rem 1.2rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.etiquet-price p {
+    margin: 0;
+    padding-top: 0.4rem;
+    display: flex;
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+.etiquet-price p:before {
+    content: "₱";
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.etiquet-price p:after {
+    content: "/ Only";
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.etiquet-price div {
+    position: absolute;
+    bottom: -23px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid #c58102;
+    border-bottom: 10px solid transparent;
+    border-right: 13px solid transparent;
+    z-index: -6;
+}
+
+.benefits-list {
+    margin-top: 16px;
+}
+
+.benefits-list ul {
+    padding: 0;
+    font-size: 16px;
+}
+
+.benefits-list ul li {
+    color: #4d4d4d;
+    list-style: none;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.benefits-list ul li svg {
+    width: 0.9rem;
+    fill: currentColor;
+}
+
+.benefits-list ul li span {
+    font-weight: 300;
+}
+
+.button-get-plan {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+.button-get-plan a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000446;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.button-get-plan a:hover {
+    transform: translateY(-3%);
+    box-shadow: 0 3px 10px rgba(207, 212, 222, 0.9);
+}
+
+.button-get-plan .svg-rocket {
+    margin-right: 10px;
+    width: 0.9rem;
+    fill: currentColor;
+}
+
+.all-copy {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5rem;
+}
+
+.space-card {
+    margin: 0 2rem;
+}
+
+/* .plan-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 700px;
+} */
+
+/* .button-get-plan a {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+} */
+
+.form-section {
+    /* display: none; */
+    /* other styles */
+    margin: 10px auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+/* .expandable-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+} */
+
+.show-form {
+    max-height: 500px;
+}
+
+.form-section.show-form {
+    display: block;
+}
+
+/* Responsive media query code for small screens */
+
+@media (max-width: 768px) {
+    .first-package {
+        padding: 15px;
+    }
+    .first-button-next,
+    .first-button-prev {
+        display: none;
+    }
+    .second-button-next,
+    .second-button-prev {
+        display: none;
+    }
+}
