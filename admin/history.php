@@ -12,13 +12,13 @@
 
 
     <style>
-    .popup {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
 
-    .sub-table {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
     </style>
 
 </head>

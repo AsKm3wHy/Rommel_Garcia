@@ -187,7 +187,7 @@
     <section class="content-section">
         <section class="search-and-user">
 
-            <span class="nav-title">Dashboard</span>
+            <span class="nav-title"> <span class="material-symbols-outlined"> dashboard </span> Dashboard</span>
             <div class="admin-profile">
 
                 <div class="row-date">

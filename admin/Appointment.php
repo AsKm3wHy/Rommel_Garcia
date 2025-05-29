@@ -232,11 +232,15 @@
             <div class="dash-body" style="padding-right: 0px;">
                 <table class="table-appointment" border="0">
                     <tr>
-                        <td width="13%">
-                            <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back"
+                        <td class="top-header-table">
+                            <span class="material-symbols-outlined">
+                                Bookmark
+                            </span>
+                            <span class="nav-title"> Appointment</span>
+                            <!-- <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back"
                                     style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
                                     <font class="tn-in-text">Back</font>
-                                </button></a>
+                                </button></a> -->
                         </td>
 
                         <td>
@@ -724,7 +728,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="text" name="name" class="input-text" placeholder="Client Name" ><br>
+                                    <input type="text" name="name-client" id="name-client" class="input-text" placeholder="Client Name" ><br>
                                 </td>
                                 
                             </tr>
@@ -737,7 +741,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="tel" name="Tele" class="input-text" placeholder="Phone Number" ><br>
+                                   <input type="tel" name="Tele-client" class="input-text" placeholder="Phone Number" id="phoneInput">
                                 </td>
                             </tr>
                                <tr>
@@ -748,7 +752,7 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <select name="spec" id="" class="box">
+                                            <select name="spec" id="sele-category" class="box">
                                             <option value="Trion">Trion</option>
                                             <option value="Duo">Duo</option>
                                             <option value="Solo">Solo</option>
@@ -786,13 +790,12 @@
                                         <td class="label-td" colspan="2">
                                             
                                             <label for="Email" class="form-label">Email: </label>
-                                            <input type="hidden" value="" name="id00">
-                                            <input type="hidden" name="oldemail" value="" >
+                                           
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" ><br>
+                                        <input type="email" name="email" id="email-add" class="input-text" placeholder="Email Address" value="" ><br>
                                         </td>
                                     </tr>
                             
@@ -855,6 +858,7 @@
                                 <div style="display: flex;justify-content: center;">
                                 <div class="abc-popup">
                                 <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                                <form action="#" method="POST" class="add-new-form">
                                 <tr>
                                         <td class="label-td" colspan="2"></td>
                                     </tr>
@@ -886,7 +890,7 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="" required><br>
+                                           <input type="tel" name="Tele-client" class="input-text" placeholder="Phone Number" id="phoneInput"><br>
                                         </td>
                                     </tr>
                                     <tr>
@@ -933,7 +937,7 @@
                                    
                                    <tr>
                                         <td class="label-td" colspan="2">
-                                            <form action="#" method="POST" class="add-new-form">
+                                            
                                             <label for="Email" class="form-label">Email: </label>
                                             <input type="hidden" value="" name="id00">
                                             <input type="hidden" name="oldemail" value="" >
@@ -955,8 +959,9 @@
                         
                                     </tr>
                                 
-                                    </form>
+                                    
                                     </tr>
+                                    </form>
                                 </table>
                                 </div>
                                 </div>
@@ -1007,6 +1012,7 @@
 
     <script src="js/search-filter-appointment.js"></script>
     <script src="js/date.js"></script>
+    <script src="js/appointment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.1/dist/bootstrap-table.min.js"></script>
 
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Posts</title>
     <link rel="stylesheet" href="css/post.css">
-    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
+    <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

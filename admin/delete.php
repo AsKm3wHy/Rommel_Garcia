@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History Dashboard</title>
-    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="css/delete.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
     <style>
-    .popup {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
 
-    .sub-table {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
     </style>
 
 </head>
@@ -183,7 +183,7 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">History Manager</span>
+            <span class="nav-title">Delete History </span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
@@ -206,10 +206,14 @@
         <div class="dash-body">
             <table border="0" width="100%" style="border-spacing:0;margin:0;padding:0;margin-top:25px;">
                 <tr>
+
                     <td colspan="4" style="padding-top:10px;width:100%;">
-                        <p class="heading-main12"
-                            style="text-align:left;margin-left:45px;font-size:18px;color:rgb(49, 49, 49)">All
-                            Appointments (<span id="appointment-count">0</span>)</p>
+
+                        <p class="heading-main12" style="text-align:left;font-size:18px;color:rgb(49, 49, 49)">
+                            <input class="input-checkbox" type="checkbox" id="selectAll" />
+                            All
+                            Appointments (<span id="appointment-count">0</span>)
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -245,6 +249,7 @@
                                 <table width="93%" class="sub-table scrolldown" border="0" id="appointments-table">
                                     <thead>
                                         <tr>
+                                            <th class="table-headin"></th>
                                             <th class="table-headin">Appointment number</th>
                                             <th class="table-headin">Client Name</th>
                                             <th class="table-headin">Category</th>
@@ -256,6 +261,8 @@
                                     </thead>
                                     <tbody>
                                         <tr data-appointment-date="2025-01-02" data-client-name="Russel Requina">
+                                            <td><input type="checkbox" class="rowCheckbox" />
+                                            </td>
                                             <td style="font-weight:600;">123</td>
                                             <td style="text-align:center;">Russel Requina</td>
                                             <td>Duo</td>
@@ -280,6 +287,8 @@
                                             </td>
                                         </tr>
                                         <tr data-appointment-date="2025-01-03" data-client-name="Ivan Requina">
+                                            <td><input type="checkbox" class="rowCheckbox" />
+                                            </td>
                                             <td style="font-weight:600;">124</td>
                                             <td style="text-align:center;">Ivan Requina</td>
                                             <td>Group</td>

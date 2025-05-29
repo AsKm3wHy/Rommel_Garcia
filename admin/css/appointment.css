@@ -579,6 +579,7 @@ body {
 .nav-title {
   font-size: 2rem;
   font-weight: 600;
+  padding-left: 5px;
 }
 
 /* Create two equal columns that floats next to each other */
@@ -940,7 +941,7 @@ input-search-name:hover {
   width: 50%;
   position: relative;
   transition: all 5s ease-in-out;
-  max-height: 90%;
+  max-height: 95%;
 }
 
 .popup .close {
@@ -1210,4 +1211,11 @@ input[type="search"] {
 .content-section p {
   font-size: 1rem;
   color: #666;
+}
+.top-header-table .material-symbols-outlined {
+  font-size: 30px !important;
+}
+.top-header-table {
+  place-items: center;
+  display: flex;
 }
