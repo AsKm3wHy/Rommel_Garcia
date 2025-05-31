@@ -16,13 +16,13 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <style>
-    .popup {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
 
-    .sub-table {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
     </style>
 
 </head>
@@ -187,7 +187,7 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">Posts </span>
+            <span class="nav-title"><span class="material-symbols-outlined active">Library_Add</span> Posts </span>
 
             <div class="admin-profile">
                 <div class="row-date">
@@ -369,42 +369,42 @@
         </div>
 
         <script>
-        document.getElementById("filter-button").addEventListener("click", function() {
-            let dateInput = document.getElementById("date").value;
-            let categoryList = document
-                .getElementById("category-list")
-                .value.toLowerCase();
-            let rows = document.querySelectorAll("#post-table tbody tr");
-            let visibleCount = 0;
+            document.getElementById("filter-button").addEventListener("click", function () {
+                let dateInput = document.getElementById("date").value;
+                let categoryList = document
+                    .getElementById("category-list")
+                    .value.toLowerCase();
+                let rows = document.querySelectorAll("#post-table tbody tr");
+                let visibleCount = 0;
 
-            // Hide the no results message initially
-            document.getElementById("no-results").style.display = "none";
+                // Hide the no results message initially
+                document.getElementById("no-results").style.display = "none";
 
-            rows.forEach((row) => {
-                let appointmentDate = row.getAttribute("data-post-date");
-                let categoryName = row.getAttribute("data-category-name").toLowerCase();
+                rows.forEach((row) => {
+                    let appointmentDate = row.getAttribute("data-post-date");
+                    let categoryName = row.getAttribute("data-category-name").toLowerCase();
 
-                // Date Comparison
-                let dateMatches = !dateInput || appointmentDate === dateInput;
+                    // Date Comparison
+                    let dateMatches = !dateInput || appointmentDate === dateInput;
 
-                // Category Comparison
-                let categoryMatches = !categoryList || categoryName.includes(categoryList);
+                    // Category Comparison
+                    let categoryMatches = !categoryList || categoryName.includes(categoryList);
 
-                if (dateMatches && categoryMatches) {
-                    row.style.display = "";
-                    visibleCount++;
-                } else {
-                    row.style.display = "none";
-                }
+                    if (dateMatches && categoryMatches) {
+                        row.style.display = "";
+                        visibleCount++;
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+
+                // Update post count
+                document.getElementById("post-count").textContent = visibleCount;
+
+                // Show or hide the no results message
+                document.getElementById("no-results").style.display =
+                    visibleCount === 0 ? "block" : "none";
             });
-
-            // Update post count
-            document.getElementById("post-count").textContent = visibleCount;
-
-            // Show or hide the no results message
-            document.getElementById("no-results").style.display =
-                visibleCount === 0 ? "block" : "none";
-        });
         </script>
         <?php
         if ($_GET) {

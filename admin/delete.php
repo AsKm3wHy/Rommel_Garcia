@@ -183,7 +183,9 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">Delete History </span>
+            <span class="nav-title"><span class="material-symbols-outlined ">
+                    Delete
+                </span> Delete History </span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
@@ -213,7 +215,12 @@
                             <input class="input-checkbox" type="checkbox" id="selectAll" />
                             All
                             Appointments (<span id="appointment-count">0</span>)
+                            <a href="?action=drop&id=123"> <button id="deleteBtn"><span
+                                        class="material-symbols-outlined"> Delete
+                                    </span></button></a>
+
                         </p>
+
                     </td>
                 </tr>
                 <tr>
@@ -280,9 +287,9 @@
                                                             <font class="tn-in-text">View</font>
                                                         </button></a>
                                                     &nbsp;&nbsp;&nbsp;
-                                                    <a href="?action=drop&id=123" class="non-style-link"><button
+                                                    <!-- <a href="?action=drop&id=123" class="non-style-link"><button
                                                             class="btn-primary-soft btn button-icon btn-delete"
-                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
+                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a> -->
                                                 </div>
                                             </td>
                                         </tr>
@@ -304,9 +311,9 @@
                                                             <font class="tn-in-text">View</font>
                                                         </button></a>
                                                     &nbsp;&nbsp;&nbsp;
-                                                    <a href="?action=drop&id=124" class="non-style-link"><button
+                                                    <!-- <a href="?action=drop&id=124" class="non-style-link"><button
                                                             class="btn-primary-soft btn button-icon btn-delete"
-                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
+                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a> -->
                                                 </div>
                                             </td>
                                         </tr>
@@ -341,8 +348,8 @@
                             
                         </div>
                         <div style="display: flex;justify-content: center;">
-                        <a href="history.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
-                        <a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
+                        <a href="delete.php?id=" class="non-style-link"><button id="deleteBtn"  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="delete.php" class="non-style-link"><button   class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
 
                         </div>
                     </center>
@@ -467,7 +474,7 @@
 
 
         <script src="js/search-filter-history.js"></script>
-
+        <script src="js/delete.js"></script>
         <script src="js/date.js"></script>
     </section>
 </body>

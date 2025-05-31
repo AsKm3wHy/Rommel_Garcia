@@ -1377,3 +1377,6 @@ div.gallery img {
   font-size: 1rem;
   color: #666;
 }
+.nav-title .material-symbols-outlined {
+  font-size: 30px !important;
+}

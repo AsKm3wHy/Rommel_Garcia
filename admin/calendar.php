@@ -172,7 +172,9 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">Calendar</span>
+            <span class="nav-title"> <span class="material-symbols-outlined active">
+                    Calendar_Month
+                </span>Calendar</span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">

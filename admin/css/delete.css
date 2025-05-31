@@ -886,6 +886,11 @@ input-search-name:hover {
   color: rgb(49, 49, 49);
   margin-top: 18px;
   margin-bottom: 18px;
+  display: flex;
+}
+.heading-main12 .material-symbols-outlined {
+  margin-left: 5px;
+  color: red;
 }
 
 .btn-edit,
@@ -1186,4 +1191,7 @@ td {
 .content-section p {
   font-size: 1rem;
   color: #666;
+}
+.nav-title .material-symbols-outlined {
+  font-size: 30px !important;
 }

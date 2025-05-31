@@ -182,7 +182,8 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">History Manager</span>
+            <span class="nav-title"> <span class="material-symbols-outlined active">
+                    History </span>History Manager</span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
@@ -457,7 +458,6 @@
 
 
         <script src="js/search-filter-history.js"></script>
-
         <script src="js/date.js"></script>
     </section>
 </body>
