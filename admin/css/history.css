@@ -1011,7 +1011,7 @@ input-search-name:hover {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-td {
+.history-tab td {
   text-align: center;
 }
 
@@ -1183,4 +1183,52 @@ td {
 .content-section p {
   font-size: 1rem;
   color: #666;
+}
+.nav-title .material-symbols-outlined {
+  font-size: 30px !important;
+  margin-right: 5px;
+}
+/* -------------------------------------------receipt css------------------------ */
+.header-receipt img {
+  width: 20%;
+}
+.header-receipt {
+  display: none;
+}
+
+@media print {
+  table.sub-table {
+    width: 100%;
+    border: 1px solid #000;
+    font-family: Arial, sans-serif;
+  }
+  table.sub-table thead p {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  /* Remove button styles in print */
+  .close,
+  .login-btn {
+    display: none;
+  }
+}
+.status-text input {
+  background-color: #d8ebfa;
+  padding: 10px;
+}
+
+.data-bold {
+  font-weight: bold;
+}
+
+.tbody-details td {
+  padding: 10px 0px;
+}
+.status-text input {
+  background-color: #cdf8cd;
+  padding: 10px;
+}
+.status-text-cancel input {
+  background-color: #ffb7b5;
+  padding: 10px;
 }

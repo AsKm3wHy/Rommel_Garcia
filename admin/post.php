@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Posts</title>
+    <title>Posts | Rommel Garcia Digital Video & Photography</title>
     <link rel="stylesheet" href="css/post.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
 
@@ -187,7 +187,7 @@
 
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title">Posts </span>
+            <span class="nav-title"><span class="material-symbols-outlined active">Library_Add</span> Posts </span>
 
             <div class="admin-profile">
                 <div class="row-date">
@@ -223,8 +223,7 @@
                 </tr>
                 <tr>
                     <td colspan="4" style="padding-top:10px;width:100%;">
-                        <p class="heading-main12"
-                            style="text-align:left;margin-left:45px;font-size:18px;color:rgb(49, 49, 49)">
+                        <p class="heading-main12" style="text-align:left;font-size:18px;color:rgb(49, 49, 49)">
                             All Posts (<span id="post-count">2</span>)
                         </p>
                     </td>
