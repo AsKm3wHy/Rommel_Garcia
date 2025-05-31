@@ -26,10 +26,10 @@ $header = '
 
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
-                                    <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="Appointment.php">Appointment</a></li>
+                                    <li class=""><a href="index.php">Home</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
 
                             </div>
