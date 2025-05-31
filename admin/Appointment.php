@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Dashboard</title>
+    <title>Appointment | Rommel Garcia Digital Video & Photography</title>
     <link rel="stylesheet" href="css/appointment.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link rel="stylesheet"
@@ -338,9 +338,9 @@
                             Client Name
 
                         </th>
-                        <th class="table-headin">
+                        <!-- <th class="table-headin">
                             Email
-                        </th>
+                        </th> -->
                         <th class="table-headin">
 
                             Category
@@ -348,7 +348,17 @@
                         </th>
                         <th class="table-headin">
 
+                            Payment
+
+                        </th>
+                        <th class="table-headin">
+
                             Date
+
+                        </th>
+                        <th class="table-headin">
+
+                            Time
 
                         </th>
 
@@ -384,17 +394,23 @@
                         <td>
                             Michael Jan Natividad
                         </td>
-                        <td>
+                        <!-- <td>
                             michaeljannatividadgmail.com
-                        </td>
+                        </td> -->
                         <td>
                             Group
                         </td>
                         <td>
+                            2000
+                        </td>
+                        <td>
                             1/23/25
                         </td>
-
                         <td>
+                            1:00 PM
+                        </td>
+
+                        <td class="status-text">
 
                             <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                         </td>
@@ -439,17 +455,23 @@
                         <td>
                             asdasdad
                         </td>
-                        <td>
+                        <!-- <td>
                             asdasd
-                        </td>
+                        </td> -->
                         <td>
                             asdasdad
                         </td>
                         <td>
+                            2000
+                        </td>
+                        <td>
                             1/23/25
                         </td>
-
                         <td>
+                            1:00 PM
+                        </td>
+
+                        <td class="status-text">
                             <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                         </td>
 
@@ -490,17 +512,23 @@
                         <td>
                             asdasdad
                         </td>
-                        <td>
+                        <!-- <td>
                             asdasd
-                        </td>
+                        </td> -->
                         <td>
                             asdasdad
                         </td>
                         <td>
+                            2000
+                        </td>
+                        <td>
                             1/23/25
                         </td>
-
                         <td>
+                            1:00 PM
+                        </td>
+
+                        <td class="status-text">
                             <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
                         </td>
 
@@ -580,7 +608,7 @@
                         <h2>Are you sure?</h2>
                         <a class="close" href="Appointment.php">&times;</a>
                         <div class="content">
-                            You want to Cancel this record<br>().
+                            You want to Cancel this appointment<br>().
                             
                         </div>
                         <div style="display: flex;justify-content: center;">
@@ -603,82 +631,81 @@
                         
                         <div style="display: flex;justify-content: center;">
                         <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                        
-                            <tr>
-                                <td>
+                        <thead><tr>
+                                <th>
                                     <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
+                                </th>
+                            </tr></thead>
+                            
+
+                                 <tbody class="tbody-details">
+
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                  
+                                     <label for="name" class="form-label">Date:  </label>
+                                    
                                 </td>
+                                <td><span class="data-bold">1/2/25</span></td>
                             </tr>
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                  
+                                     <label for="name" class="form-label">Time:  </label>
+                                    
+                                </td>
+                                <td><span class="data-bold">12:00 PM</span></td>
+                            </tr>
+                            
                             
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Name: </label>
+                                    <label for="name" class="form-label">Client Name:  </label>      
                                 </td>
+                                <td><span class="data-bold">Josh Dizon </span></td>
                             </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                  josh <br><br>
-                                </td>
+                             <tr>
                                 
+                                <td class="label-td" colspan="2">
+                              
+                                    <label for="Tele" class="form-label">Phone number: </label>
+                                      
+                                </td>
+                                <td><span class="data-bold">09753204523 </span></td>
                             </tr>
+                         
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Email: </label>
-                                </td>
+                                  <label for="Email" class="form-label">Email: </label>
+                                 
+                                    </td>
+                                    <td> <span class="data-bold">JoshDizon@gmail.com  </span></td>
                             </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                @gmail.com <br><br>
-                                </td>
-                            </tr>
+                           
                             
                             
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Telephone: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                               12312312<br><br>
-                                </td>
-                            </tr>
+                          
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <label for="spec" class="form-label">Category: </label>
+                                     <td> <span class="data-bold">Duo </span></td>
                                     
                                 </td>
                             </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> Duo
-                            <br><br>
-                            </td>
-                            </tr>
+                           
+
+                        
 
                              <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Specialties: </label>
+                                    <label for="spec" class="form-label">Payment </label>
+                                      <td> <span class="data-bold">Php 200 </span></td>
                                     
                                 </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> 1/2/25 12:00 PM
-                            <br><br>
-                            </td>
-                            </tr>
-
-                             <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Payment Method: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> Gcash
-                            <br><br>
-                            </td>
-                            </tr>
+                            </tr></tbody>
+                           
+                         <tr><td><br><br></td></tr>
 
 
 
@@ -693,6 +720,7 @@
                            
 
                         </table>
+                        
                         </div>
                     </center>
                     <br><br>
@@ -723,7 +751,7 @@
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Name: </label>
+                                    <label for="name" class="form-label">*Name: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -736,7 +764,7 @@
                           
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Phone: </label>
+                                    <label for="Tele" class="form-label">*Phone: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -746,13 +774,14 @@
                             </tr>
                                <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="spec" class="form-label">Choose category: (Current )</label>
+                                            <label for="spec" class="form-label">*Choose category: (Current )</label>
                                             
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <select name="spec" id="sele-category" class="box">
+                                            <option value="" selected>-Select Package-</option>
                                             <option value="Trion">Trion</option>
                                             <option value="Duo">Duo</option>
                                             <option value="Solo">Solo</option>
@@ -777,7 +806,7 @@
 
                                      <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="date" class="form-label"> Date: </label>
+                                            <label for="date" class="form-label"> *Date: </label>
                                         </td>
                                     </tr>
                                     <tr>

@@ -32,3 +32,31 @@ document.getElementById("resetButton").addEventListener("click", function () {
     form.reset();
   }
 });
+// --------------------------JSON -----------
+
+// Prepare data to send
+const data = {
+  name: nameClient,
+  phone: phoneInput,
+  category: selectedCategory,
+  datetime: dateTimeValue,
+  email: emailAdd,
+};
+
+// Send data to PHP API
+fetch("your-api-endpoint.php", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json", // Sending JSON data
+  },
+  body: JSON.stringify(data), // Convert JS object to JSON string
+})
+  .then((response) => response.json()) // Parse JSON response from PHP
+  .then((result) => {
+    console.log("Success:", result);
+    // handle success, e.g., show a message
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+    // handle errors
+  });

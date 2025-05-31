@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Dashboard</title>
+    <title>History | Rommel Garcia Digital Video & Photography</title>
     <link rel="stylesheet" href="css/delete.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link rel="stylesheet"
@@ -12,13 +12,13 @@
 
 
     <style>
-        .popup {
-            animation: transitionIn-Y-bottom 0.5s;
-        }
+    .popup {
+        animation: transitionIn-Y-bottom 0.5s;
+    }
 
-        .sub-table {
-            animation: transitionIn-Y-bottom 0.5s;
-        }
+    .sub-table {
+        animation: transitionIn-Y-bottom 0.5s;
+    }
     </style>
 
 </head>
@@ -253,15 +253,16 @@
                     <td colspan="4">
                         <center>
                             <div class="abc scroll">
-                                <table width="93%" class="sub-table scrolldown" border="0" id="appointments-table">
+                                <table class="delete-tab" width="93%" class="sub-table scrolldown" border="0"
+                                    id="appointments-table">
                                     <thead>
                                         <tr>
                                             <th class="table-headin"></th>
                                             <th class="table-headin">Appointment number</th>
                                             <th class="table-headin">Client Name</th>
                                             <th class="table-headin">Category</th>
-                                            <th class="table-headin">Session Date & Time</th>
                                             <th class="table-headin">Appointment Date</th>
+                                            <th class="table-headin">Session Time</th>
                                             <th class="table-headin">Status</th>
                                             <th class="table-headin">Events</th>
                                         </tr>
@@ -273,10 +274,11 @@
                                             <td style="font-weight:600;">123</td>
                                             <td style="text-align:center;">Russel Requina</td>
                                             <td>Duo</td>
-                                            <td style="text-align:center;font-size:12px;">1/2/25 <br>11:00 AM</td>
+
                                             <td style="text-align:center;">1/2/25</td>
-                                            <td><input name="status" type="text" value="Completed" readonly
-                                                    style="text-align:center;"></td>
+                                            <td style="text-align:center;font-size:12px;">11:00 AM</td>
+                                            <td class="status-text"><input name="status" type="text" value="Completed"
+                                                    readonly style="text-align:center;"></td>
                                             <td>
 
 
@@ -299,10 +301,11 @@
                                             <td style="font-weight:600;">124</td>
                                             <td style="text-align:center;">Ivan Requina</td>
                                             <td>Group</td>
-                                            <td style="text-align:center;font-size:12px;">1/3/25 <br>11:30 AM</td>
+
                                             <td style="text-align:center;">1/3/25</td>
-                                            <td><input name="status" type="text" value="Cancelled" readonly
-                                                    style="text-align:center;"></td>
+                                            <td style="text-align:center;font-size:12px;">11:30 AM</td>
+                                            <td class="status-text-cancel"><input name="status" type="text"
+                                                    value="Cancelled" readonly style="text-align:center;"></td>
                                             <td>
                                                 <div style="display:flex;justify-content:center;">
                                                     <a href="?action=view&id=#" class="non-style-link"><button
@@ -367,88 +370,88 @@
                         
                         <div  style="display: flex;justify-content: center;">
                         <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                        
-                            <tr>
-                                <td>
+                        <thead><tr>
+                                <th>
                                     <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
+                                </th>
+                            </tr></thead>
+                            
+
+                                 <tbody class="tbody-details">
+
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                  
+                                     <label for="name" class="form-label">Date:  </label>
+                                    
                                 </td>
+                                <td><span class="data-bold">1/2/25</span></td>
                             </tr>
+                             <tr>
+                                <td class="label-td" colspan="2">
+                                  
+                                     <label for="name" class="form-label">Time:  </label>
+                                    
+                                </td>
+                                <td><span class="data-bold">12:00 PM</span></td>
+                            </tr>
+                            
                             
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Name: </label>
+                                    <label for="name" class="form-label">Client Name:  </label>      
                                 </td>
+                                <td><span class="data-bold">Josh Dizon </span></td>
                             </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                  josh <br><br>
-                                </td>
+                             <tr>
                                 
+                                <td class="label-td" colspan="2">
+                              
+                                    <label for="Tele" class="form-label">Phone number: </label>
+                                      
+                                </td>
+                                <td><span class="data-bold">09753204523 </span></td>
                             </tr>
+                         
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Email: </label>
-                                </td>
+                                  <label for="Email" class="form-label">Email: </label>
+                                 
+                                    </td>
+                                    <td> <span class="data-bold">JoshDizon@gmail.com  </span></td>
                             </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                @gmail.com <br><br>
-                                </td>
-                            </tr>
+                           
                             
                             
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Telephone: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                               12312312<br><br>
-                                </td>
-                            </tr>
+                          
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <label for="spec" class="form-label">Category: </label>
+                                     <td> <span class="data-bold">Duo </span></td>
                                     
                                 </td>
                             </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> Duo
-                            <br><br>
-                            </td>
-                            </tr>
+                           
+
+                        
 
                              <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Specialties: </label>
+                                    <label for="spec" class="form-label">Payment </label>
+                                      <td> <span class="data-bold">Php 200 </span></td>
                                     
                                 </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> 1/2/25 12:00 PM
-                            <br><br>
-                            </td>
-                            </tr>
+                            </tr></tbody>
+                           
+                         <tr><td><br><br></td></tr>
 
-                             <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Payment Method: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2"> Gcash
-                            <br><br>
-                            </td>
-                            </tr>
 
 
 
                             <tr>
                                 <td colspan="2">
-                                    <a href="history.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
+                                    <a href="delete.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
                                 
                                     
                                 </td>

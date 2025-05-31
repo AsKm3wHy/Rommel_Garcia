@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Dashboard</title>
+    <title>Calendar | Rommel Garcia Digital Video & Photography</title>
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.css' rel='stylesheet' />

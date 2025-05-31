@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
-    <title>Admin Dashboard</title>
+    <title>Admin | Rommel Garcia Digital Video & Photography</title>
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet"

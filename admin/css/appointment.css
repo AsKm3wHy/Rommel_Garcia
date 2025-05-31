@@ -1219,3 +1219,30 @@ input[type="search"] {
   place-items: center;
   display: flex;
 }
+.data-bold {
+  font-weight: bold;
+}
+
+.tbody-details td {
+  padding: 10px 0px;
+}
+@media print {
+  table.sub-table {
+    width: 100%;
+    border: 1px solid #000;
+    font-family: Arial, sans-serif;
+  }
+  table.sub-table thead p {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  /* Remove button styles in print */
+  .close,
+  .login-btn {
+    display: none;
+  }
+}
+.status-text input {
+  background-color: #d8ebfa;
+  padding: 10px;
+}
