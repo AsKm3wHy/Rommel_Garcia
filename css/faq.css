@@ -172,3 +172,13 @@ h1 {
     transform: translateX(25%);
   }
 }
+
+.breadcrumb-area {
+  position: relative;
+  z-index: 1;
+  height: 370px;
+}
+
+.page-title {
+  color: #ffff;
+}

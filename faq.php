@@ -79,9 +79,10 @@
                             <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
                                 <ul id="nav">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="Appointment.php">Appointment</a></li>
+                                    <!-- <li><a href="Appointment.php">Appointment</a></li> -->
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li class="active"><a href="faq.php">FAQ</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
 
 
@@ -138,7 +139,8 @@
 
                 <button class="faq-accordion">Do you have a parking area?</button>
                 <div class="faq-panel">
-                    <p>Yes, we have a parking space.</p>
+                    <p>Yes, we have a parking space.<a href="https://www.google.com/maps/place/Rommel+Garcia+Digital+and+Photography/@15.6595974,120.764427,18.5z/data=!4m6!3m5!1s0x33912d004b564cc9:0xba10bc86c12f74e8!8m2!3d15.6602187!4d120.7655935!16s%2Fg%2F11vwlmlzh6?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"> Click here</p>
                     <br>
                     <a href="https://www.google.com/maps/place/Rommel+Garcia+Digital+and+Photography/@15.6595974,120.764427,18.5z/data=!4m6!3m5!1s0x33912d004b564cc9:0xba10bc86c12f74e8!8m2!3d15.6602187!4d120.7655935!16s%2Fg%2F11vwlmlzh6?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"
                         target="_blank"> <img src="img/gmapv3.png"></a>
@@ -212,28 +214,28 @@
             </div>
 
             <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const accordions = document.querySelectorAll('.faq-accordion');
+                document.addEventListener('DOMContentLoaded', function() {
+                    const accordions = document.querySelectorAll('.faq-accordion');
 
-                if (accordions.length > 0) {
-                    accordions.forEach(button => {
-                        button.addEventListener('click', function() {
-                            // Toggle active class
-                            this.classList.toggle('active');
+                    if (accordions.length > 0) {
+                        accordions.forEach(button => {
+                            button.addEventListener('click', function() {
+                                // Toggle active class
+                                this.classList.toggle('active');
 
-                            // Get panel
-                            const panel = this.nextElementSibling;
+                                // Get panel
+                                const panel = this.nextElementSibling;
 
-                            // Toggle panel
-                            if (panel.style.maxHeight) {
-                                panel.style.maxHeight = null;
-                            } else {
-                                panel.style.maxHeight = panel.scrollHeight + "px";
-                            }
+                                // Toggle panel
+                                if (panel.style.maxHeight) {
+                                    panel.style.maxHeight = null;
+                                } else {
+                                    panel.style.maxHeight = panel.scrollHeight + "px";
+                                }
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
             </script>
 
         </div>
@@ -270,13 +272,13 @@
 </body>
 
 <script>
-function updateCounter() {
-    fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-        .then(res => res.json())
-        .then(data => counterElement.innerHTML = data.value)
-}
-updateCounter()
-counterElement = document.getElementsByClassName('count')[0];
+    function updateCounter() {
+        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
+            .then(res => res.json())
+            .then(data => counterElement.innerHTML = data.value)
+    }
+    updateCounter()
+    counterElement = document.getElementsByClassName('count')[0];
 </script>
 
 
@@ -284,11 +286,11 @@ counterElement = document.getElementsByClassName('count')[0];
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -297,14 +299,14 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
@@ -312,7 +314,7 @@ gtag('config', 'UA-23581568-13');
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 </body>
 
