@@ -160,70 +160,69 @@ include_once("header.php");
 
 
     <?php echo $footer; ?>
-</body>
 
-<script>
-    const allImages = document.querySelectorAll(".images .img");
-    const lightbox = document.querySelector(".lightbox");
-    const closeImgBtn = lightbox.querySelector(".close-icon");
-    allImages.forEach(img => {
+    <script>
+        const allImages = document.querySelectorAll(".images .img");
+        const lightbox = document.querySelector(".lightbox");
+        const closeImgBtn = lightbox.querySelector(".close-icon");
+        allImages.forEach(img => {
 
-        img.addEventListener("click", () => showLightbox(img.querySelector("img").src));
-    });
-    const showLightbox = (img) => {
+            img.addEventListener("click", () => showLightbox(img.querySelector("img").src));
+        });
+        const showLightbox = (img) => {
 
-        lightbox.querySelector("img").src = img;
-        lightbox.classList.add("show");
-        document.body.style.overflow = "hidden";
-    }
-    closeImgBtn.addEventListener("click", () => {
+            lightbox.querySelector("img").src = img;
+            lightbox.classList.add("show");
+            document.body.style.overflow = "hidden";
+        }
+        closeImgBtn.addEventListener("click", () => {
 
-        lightbox.classList.remove("show");
-        document.body.style.overflow = "auto";
-    });
-</script>
-
-
-
-<script src="js/jquery.min.js"></script>
-
-<script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-<script>
-    eval(mod_pagespeed_2mSwO3vn68);
-</script>
-
-<script>
-    eval(mod_pagespeed_aQrG1NKKxL);
-</script>
-
-<script src="js/lx.bundle.js"></script>
-
-<script src="js/default-assets/active.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
-</script>
-<!-- animate on scroll js  -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
+            lightbox.classList.remove("show");
+            document.body.style.overflow = "auto";
+        });
+    </script>
 
 
 
-<script src="js-package/packages.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+    <script>
+        eval(mod_pagespeed_2mSwO3vn68);
+    </script>
+
+    <script>
+        eval(mod_pagespeed_aQrG1NKKxL);
+    </script>
+
+    <script src="js/lx.bundle.js"></script>
+
+    <script src="js/default-assets/active.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+    </script>
+    </script>
+    <!-- animate on scroll js  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+    <script src="js-package/packages.js"></script>
 
 </body>
 

@@ -1924,27 +1924,3 @@ input:valid ~ label {
     opacity: 0.85;
     box-shadow: none;
 }
-
-.btn-x {
-    margin-top: -10px;
-    float: right;
-    font-weight: 600;
-    font-size: 18px;
-    border: none;
-    background-color: #fff;
-    padding: 13px;
-    position: absolute;
-    left: 58%;
-}
-
-.btn-x:hover {
-    background-color: rgb(255, 0, 0);
-    color: white;
-}
-
-.success {
-    background-color: rgba(0, 128, 0, 0.658);
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    margin: 0 -20px;
-}

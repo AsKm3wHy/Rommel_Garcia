@@ -28,7 +28,7 @@ include_once("header.php");
     <!-- ===== CSS ===== -->
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/uno.css">
+    <link rel="stylesheet" href="css/tres.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -43,49 +43,40 @@ include_once("header.php");
     </div>
     <?php echo $header; ?>
 
-
-    <!-- <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
-        <li>
-            <a class="entypo-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-                target="_blank"><span>Facebook</span></a>
-        </li>
-
-    </ul> -->
     <section class="pricing">
         <div class="container ">
 
             <div class="row">
                 <div class="col">
                     <div class="plan-card">
-                        <h2>UNO<span>For business services</span></h2>
+                        <h2>TRES<span>For business services</span></h2>
                         <div class="etiquet-price">
-                            <p>199.00</p>
+                            <p>399.00</p>
                             <div></div>
                         </div>
                         <div class="benefits-list">
                             <ul>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                                    </svg><span>1-2 Pax</span></li>
+                                    </svg><span>1-5 Pax</span></li>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                                    </svg><span>10 Minutes Self-Portrait</span></li>
+                                    </svg><span>20 Minutes Shoot</span></li>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                                    </svg><span>1 Backdrop Color</span></li>
+                                    </svg><span>2 Backdrop Color</span></li>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
                                     </svg><span>Free use of basic props</span></li>
                             </ul>
-                            <p class="all-copy">Unlimated Soft Copy</p>
+                            <p class="all-copy">Unlimited Soft Copy</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="col" style="border: 1px solid #dbdbdb; border-radius: 10px;">
                     <h5 class="text-center py-3">Set Your Appointment with Ease</h5>
                     <form id="appointmentForm" action="">
-                        <input type="text" name="package" value="UNO" hidden>
+                        <input type="text" name="package" value="TRES" hidden>
                         <div class="input-group">
                             <input required type="text" name="fullName" autocomplete="off" class="input">
                             <label class="user-label" for="fullName">Full Name</label>
@@ -132,7 +123,7 @@ include_once("header.php");
     </section>
 
 
-    <h1 class="title-grad">Picture Perfect Moments, UNO Style</h1>
+    <h1 class="title-grad">Three Times the Style, Three Times the Smile</h1>
     <div class="lightbox">
         <div class="wrapper">
             <header>
