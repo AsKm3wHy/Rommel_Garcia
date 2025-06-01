@@ -18,6 +18,7 @@ document
         <p><strong>Phone #:</strong> ${phone}</p>
         <p><strong>Date:</strong> ${date}</p>
         <p><strong>Time:</strong> ${time}</p>
+        
     `;
 
     document.getElementById("confirmationModal").style.display = "flex";
