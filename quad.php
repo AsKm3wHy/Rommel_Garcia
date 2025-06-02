@@ -114,11 +114,17 @@ include_once("header.php");
 
 
                 <div id="confirmationModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center;">
-                    <div style="background: #fff; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%;">
-                        <h4>Appointment Details</h4>
-                        <!-- <h2>SOLO</h2> -->
-                        <div id="modalContent"></div>
-                        <button id="closeModal" class="btn btn-secondary" style="margin-top: 10px;">Close</button>
+                    <div id="confirmationModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center;">
+                        <div style="background: #fff; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%;">
+                            <div class="d-flex justify-content-between">
+                                <h4>Appointment Details</h4>
+                                <button id="closeModal" class="btn-x ">X</button>
+                            </div>
+                            <div class="success">
+                                <center>Successfully Submitted!</center>
+                            </div>
+                            <div id="modalContent"></div>
+                        </div>
                     </div>
                 </div>
             </div>

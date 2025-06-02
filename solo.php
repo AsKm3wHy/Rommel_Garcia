@@ -123,10 +123,14 @@ include_once("header.php");
 
                 <div id="confirmationModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center;">
                     <div style="background: #fff; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%;">
-                        <h4>Appointment Details</h4>
-                        <!-- <h2>SOLO</h2> -->
+                        <div class="d-flex justify-content-between">
+                            <h4>Appointment Details</h4>
+                            <button id="closeModal" class="btn-x ">X</button>
+                        </div>
+                        <div class="success">
+                            <center>Successfully Submitted!</center>
+                        </div>
                         <div id="modalContent"></div>
-                        <button id="closeModal" class="btn btn-secondary" style="margin-top: 10px;">Close</button>
                     </div>
                 </div>
             </div>
@@ -453,49 +457,48 @@ include_once("header.php");
 
 
     <?php echo $footer; ?>
-</body>
 
 
 
-<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
-<script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-<script>
-    eval(mod_pagespeed_2mSwO3vn68);
-</script>
+    <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+    <script>
+        eval(mod_pagespeed_2mSwO3vn68);
+    </script>
 
-<script>
-    eval(mod_pagespeed_aQrG1NKKxL);
-</script>
+    <script>
+        eval(mod_pagespeed_aQrG1NKKxL);
+    </script>
 
-<script src="js/lx.bundle.js"></script>
+    <script src="js/lx.bundle.js"></script>
 
-<script src="js/default-assets/active.js"></script>
+    <script src="js/default-assets/active.js"></script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
-</script>
-<!-- animate on scroll js  -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+    </script>
+    </script>
+    <!-- animate on scroll js  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 
 
-<script src="js-package/packages.js"></script>
+    <script src="js-package/packages.js"></script>
 
 </body>
 
