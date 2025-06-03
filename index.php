@@ -87,7 +87,7 @@ include_once("header.php");
                                     <!-- <li><a href="Appointment.php">Appointment</a></li> -->
                                     <li><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="contactUs.php">Contact Us</a></li>
                                 </ul>
 
                             </div>

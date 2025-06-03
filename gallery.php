@@ -112,7 +112,7 @@ include_once("header.php");
                                     <!-- <li><a href="Appointment.php">Appointment</a></li> -->
                                     <li class="active"><a href="gallery.php">Gallery</a></li>
                                     <li><a href="faq.php">FAQ</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="contactUs.php">Contact Us</a></li>
                                 </ul>
 
 
@@ -127,12 +127,12 @@ include_once("header.php");
 
 
     <section class="breadcrumb-area bg-img bg-overlay jarallax"
-        style="background-image:url(img/indexImage/Gallery.jpg)">
+        style="background-image:url(img/indexImage/IMG_9279.jpg)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">G A L L E R Y</h2>
+                        <h2 class="page-title" data-aos="fade-down" data-aos-duration="2000">G A L L E R Y</h2>
                         <nav aria-label="breadcrumb">
 
                         </nav>

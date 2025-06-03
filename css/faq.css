@@ -124,6 +124,10 @@
     font-size: 1rem !important;
     padding: 1rem !important;
   }
+  .page-title {
+    font-size: 2.5rem !important;
+    margin-top: 11rem !important;
+  }
 }
 
 .bg {
@@ -181,4 +185,6 @@ h1 {
 
 .page-title {
   color: #ffff;
+  font-size: 4rem;
+  margin: 9rem 0;
 }
