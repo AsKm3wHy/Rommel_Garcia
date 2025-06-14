@@ -5,12 +5,35 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="Contact Rommel Garcia Digital Video and Photography for professional photography services in the Philippines. Get in touch for bookings, inquiries, and custom photography packages. Visit our studio or reach out online.">
+    <meta name="keywords" content="contact photographer, photography studio contact, Rommel Garcia, photography services, photo studio location, photography booking, professional photographer contact, Philippines photographer">
+    <meta name="author" content="Rommel Garcia">
+    <meta name="robots" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Rommel Garcia Photography | Professional Photography Services">
+    <meta property="og:description" content="Get in touch with Rommel Garcia Digital Video and Photography for professional photography services. Book your session or inquire about our packages today.">
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
+    <meta property="og:url" content="https://rommelgarcia.com/contactUs.php">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rommel Garcia Photography">
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
+    
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content="PH">
+    <meta name="geo.placename" content="Philippines">
+    <meta name="geo.position" content="15.659940768209026;120.763544647759">
+    <meta name="ICBM" content="15.659940768209026, 120.763544647759">
+    
+    <!-- Technical Meta Tags -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="canonical" href="https://rommelgarcia.com/contactUs.php">
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <title>Rommel | Appointment</title>
+    <title>Contact Rommel Garcia Photography | Professional Photography Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -265,4 +288,42 @@
 
 
 
+</html>
+
+
+
+    <!-- Add Schema.org LocalBusiness markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Rommel Garcia Digital Video and Photography",
+        "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+        "url": "https://rommelgarcia.com",
+        "telephone": "",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "PH",
+            "addressRegion": "Philippines"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "15.659940768209026",
+            "longitude": "120.763544647759"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ]
+        }
+    }
+    </script>
+</body>
 </html>

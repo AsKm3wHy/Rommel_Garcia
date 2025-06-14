@@ -5,12 +5,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="Find answers to common questions about Rommel Garcia's photography services in Guimba. Learn about our packages, booking process, studio facilities, and photography services.">
+    <meta name="keywords" content="photography FAQ, photo studio questions, photography packages, studio booking, Rommel Garcia Photography, Guimba photographer, photo session booking, photography services">
+    <meta name="author" content="Rommel Garcia Digital Video and Photography">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="PH">
+    <meta name="geo.placename" content="Guimba">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography">
+    <meta property="og:title" content="Photography Services FAQ | Rommel Garcia Digital Video and Photography">
+    <meta property="og:description" content="Get answers to frequently asked questions about our photography services, packages, booking process, and studio facilities in Guimba.">
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
+    <meta property="og:url" content="https://rommelgarcia.com/faq.php">
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <title>Rommel | Appointment</title>
+    <link rel="canonical" href="https://rommelgarcia.com/faq.php">
+    <title>Photography Services FAQ - Prices, Booking & Services | Rommel Garcia Photography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -113,17 +130,20 @@
 
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
         <div class="container-fluid">
-            <div class="photo-studio-faq">
-
-                <button class="faq-accordion">Do you have a package for big group?</button>
-                <div class="faq-panel">
-                    <p>We can accommodate up to 12 persons per session. You can book multiple group packages and/or add
-                        200 pesos per extra person. <a href="index.php#Group" style="color: blue;">Click here</a></p>
+            <div class="photo-studio-faq" itemscope itemtype="https://schema.org/FAQPage">
+                
+                <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-accordion" itemprop="name">Do you have a package for big group?</button>
+                    <div class="faq-panel" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">We can accommodate up to 12 persons per session. You can book multiple group packages and/or add 200 pesos per extra person. <a href="index.php#Group" style="color: blue;">Click here</a></p>
+                    </div>
                 </div>
 
-                <button class="faq-accordion">How much is the toga rental?</button>
-                <div class="faq-panel">
-                    <p>200 pesos for the rental and 100 pesos for alampay or coat rental.</p>
+                <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-accordion" itemprop="name">How much is the toga rental?</button>
+                    <div class="faq-panel" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">200 pesos for the rental and 100 pesos for alampay or coat rental.</p>
+                    </div>
                 </div>
 
                 <button class="faq-accordion">How much is the extra print?</button>

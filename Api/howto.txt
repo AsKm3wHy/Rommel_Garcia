@@ -1,0 +1,47 @@
+*/
+
+// Example usage with cURL:
+
+/*
+// Create a booking
+curl -X POST http://yourdomain.com/api/bookings/create.php \
+  -H "Content-Type: application/json" \
+  -d '{
+    "package": "DUO",
+    "full_name": "Josh V. Cinense",
+    "email": "jacercinense@gmail.com",
+    "phone": "213123",
+    "booking_date": "2025-06-23",
+    "booking_time": "10:00"
+  }'
+
+// Get all bookings
+curl -X GET http://localhost/api/bookings/read.php
+
+// Get specific booking
+curl -X GET http://yourdomain.com/api/bookings/read_one.php?id=1
+
+// Update booking
+curl -X PUT http://yourdomain.com/api/bookings/update.php \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": 1,
+    "package": "TRIO",
+    "full_name": "Josh V. Cinense",
+    "email": "jacercinense@gmail.com",
+    "phone": "213123",
+    "booking_date": "2025-06-24",
+    "booking_time": "11:00"
+  }'
+
+// Delete booking
+curl -X DELETE http://yourdomain.com/api/bookings/delete.php \
+  -H "Content-Type: application/json" \
+  -d '{"id": 1}'
+
+// Search bookings
+curl -X GET "http://yourdomain.com/api/bookings/search.php?s=Josh"
+
+// Get all packages
+curl -X GET http://yourdomain.com/api/packages/read.php
+*/

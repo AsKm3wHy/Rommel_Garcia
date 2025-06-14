@@ -8,12 +8,33 @@ include_once("header.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="Explore Rommel Garcia's professional photography portfolio featuring stunning portraits, events, and creative photography work. Browse through our extensive gallery of high-quality images showcasing our expertise in digital photography and videography.">
+    <meta name="keywords" content="photography gallery, professional photographer, portrait photography, event photography, Rommel Garcia, digital photography, photo portfolio, photography services, professional photography gallery">
+    <meta name="author" content="Rommel Garcia">
+    <meta name="robots" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Rommel Garcia Photography Gallery">
+    <meta property="og:description" content="Browse through our collection of professional photography work showcasing portraits, events, and creative photography.">
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
+    <meta property="og:url" content="https://rommelgarcia.com/gallery.php">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rommel Garcia Photography">
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
+    
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content="PH">
+    <meta name="geo.placename" content="Philippines">
+    
+    <!-- Technical Meta Tags -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="canonical" href="https://rommelgarcia.com/gallery.php">
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <title>Rommel | Gallery</title>
+    <title>Professional Photography Gallery | Rommel Garcia Photography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />

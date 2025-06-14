@@ -8,12 +8,34 @@ include_once("header.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="Welcome to Rommel Garcia Digital Video and Photography! We specialize in capturing life's precious moments through professional photography services in Guimba. From portrait sessions to special events, we create stunning visual memories that last a lifetime.">
+    <meta name="keywords" content="photography, portrait photography, event photography, digital video, photo studio, professional photographer, Rommel Garcia, photo sessions, Guimba photographer, wedding photography, graduation photos, family portraits">
+    <meta name="author" content="Rommel Garcia Digital Video and Photography">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="PH">
+    <meta name="geo.placename" content="Guimba">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography">
+    <meta property="og:title" content="Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography">
+    <meta property="og:description" content="Capture your special moments with our professional photography services. Specializing in portraits, events, and digital video services in Guimba.">
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
+    <meta property="og:url" content="https://rommelgarcia.com/">
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#f7b315">
+    <meta name="msapplication-TileColor" content="#f7b315">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <title>Rommel | Home</title>
+    <link rel="canonical" href="https://rommelgarcia.com/">
+    <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH">
+    <title>Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
