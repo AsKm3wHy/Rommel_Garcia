@@ -2,40 +2,93 @@
 include_once("header.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
-
-
+<html lang="en-PH">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Welcome to Rommel Garcia Digital Video and Photography! We specialize in capturing life's precious moments through professional photography services in Guimba. From portrait sessions to special events, we create stunning visual memories that last a lifetime.">
-    <meta name="keywords" content="photography, portrait photography, event photography, digital video, photo studio, professional photographer, Rommel Garcia, photo sessions, Guimba photographer, wedding photography, graduation photos, family portraits">
-    <meta name="author" content="Rommel Garcia Digital Video and Photography">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="PH">
-    <meta name="geo.placename" content="Guimba">
+    <meta name="description" content="Trusted photography services in Guimba by Kuya Rommel - Specializing in graduation photos, events, portraits, and digital video services. Professional photographer offering 360° video booth, self-mirror booth, and creative photoshoots. Book your memorable session today!">
+    <meta name="keywords" content="Kuya Rommel, photography Guimba, portrait photography, event photography, digital video, photo studio, professional photographer, graduation photos, wedding photography, 360 video booth, self-mirror booth, photobooth, self-portrait, Nueva Ecija photographer, affordable photography packages, photo studio Guimba">
+    <meta name="author" content="Kuya Rommel Digital Video and Photography">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Geographical Meta Tags -->
+    <meta name="geo.region" content="PH-NUE">
+    <meta name="geo.placename" content="Guimba, Nueva Ecija">
+    <meta name="geo.position" content="15.6557;120.7642">
+    <meta name="ICBM" content="15.6557, 120.7642">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography">
-    <meta property="og:title" content="Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography">
-    <meta property="og:description" content="Capture your special moments with our professional photography services. Specializing in portraits, events, and digital video services in Guimba.">
+    <meta property="og:type" content="business.business">
+    <meta property="og:site_name" content="Kuya Rommel Photography">
+    <meta property="og:title" content="Kuya Rommel Photography | Professional Photographer in Guimba">
+    <meta property="og:description" content="Book your photo session with Kuya Rommel - Guimba's trusted photographer for graduation, events, and portraits. Featuring 360° video booth and creative photoshoots.">
     <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
+    <meta property="og:image:alt" content="Kuya Rommel Photography Logo">
     <meta property="og:url" content="https://rommelgarcia.com/">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="en_PH">
+    <meta property="business:contact_data:street_address" content="Guimba">
+    <meta property="business:contact_data:locality" content="Guimba">
+    <meta property="business:contact_data:region" content="Nueva Ecija">
+    <meta property="business:contact_data:country_name" content="Philippines">
     <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
     
-    <!-- Additional SEO Meta Tags -->
+    <!-- Technical Meta Tags -->
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#f7b315">
     <meta name="msapplication-TileColor" content="#f7b315">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/Header-Pic/rommel-logo-v3.svg">
     <link rel="canonical" href="https://rommelgarcia.com/">
     <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH">
-    <title>Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography</title>
+    <title>Kuya Rommel Photography | Professional Photographer in Guimba</title>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Kuya Rommel Digital Video and Photography",
+      "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+      "@id": "https://rommelgarcia.com",
+      "url": "https://rommelgarcia.com",
+      "telephone": "",
+      "priceRange": "₱₱",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "Guimba",
+        "addressRegion": "Nueva Ecija",
+        "postalCode": "",
+        "addressCountry": "PH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 15.6557,
+        "longitude": 120.7642
+      },
+      "sameAs": [
+        "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -89,8 +142,8 @@ include_once("header.php");
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <!-- <h1 class="home-logo">Rommel Garcia</h1> -->
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
+                            <!-- <h1 class="home-logo">Kuya Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="Kuya Rommel Logo" style="margin-top:0; width:5rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">

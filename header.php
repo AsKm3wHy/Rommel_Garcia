@@ -1,70 +1,53 @@
 <?php
 $header = ' 
+<header class="header-area" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <nav class="classy-navbar justify-content-between" id="lxNav" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                    <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000" aria-label="Rommel Garcia Photography Home">
+                        <img src="img/Header-Pic/rommel-logo-v3.svg" alt="Rommel Garcia Photography Logo" width="80" height="80" style="margin-top:0; width:5rem;">
+                    </a>
 
-<header class="header-area">
+                    <div class="classy-navbar-toggler" aria-label="Menu Toggle">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
 
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-
-                    <nav class="classy-navbar justify-content-between" id="lxNav">
-
-                        <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <!-- <h1 class="home-logo">Rommel Garcia</h1> -->
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
-                        </a>
-
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    <div class="classy-menu">
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
 
-                        <div class="classy-menu">
-
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
-                                <ul id="nav">
-                                    <li class=""><a href="index.php">Home</a></li>
-                                    <li><a href="gallery.php">Gallery</a></li>
-                                    <li><a href="faq.php">FAQ</a></li>
-                                    <li><a href="contactUs.php">Contact Us</a></li>
-                                </ul>
-
-                            </div>
-
+                        <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
+                            <ul id="nav" role="menubar">
+                                <li role="menuitem"><a href="index.php" title="Home Page">Home</a></li>
+                                <li role="menuitem"><a href="gallery.php" title="Photo Gallery">Gallery</a></li>
+                                <li role="menuitem"><a href="faq.php" title="Frequently Asked Questions">FAQ</a></li>
+                                <li role="menuitem"><a href="contactUs.php" title="Contact Information">Contact Us</a></li>
+                            </ul>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </header>';
+    </div>
+</header>';
 
-
-$footer = '  <footer>
-        <div class="wrapper">
-            <div class="containerUp">
-                <div class="social-info">
-                    <h2>Rommel Garcia Digital Video and Photography </h2>
-
-                </div>
-                <!-- <div class="connect">
-                    <h2>Stay up to date on the latest from Lx Gallery</h2>
-                    <form>
-                        <input type="email" placeholder="Enter your email">
-                        <button>Subscribe</button>
-                    </form>
-                </div> -->
-            </div>
-            <hr>
-            <div class="containerDown">
-                <div class="last">
-s
-                </div>
+$footer = '
+<footer role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="wrapper">
+        <div class="containerUp">
+            <div class="social-info">
+                <h2 itemprop="name">Rommel Garcia Digital Video and Photography</h2>
             </div>
         </div>
-    </footer>';
+        <hr>
+        <div class="containerDown">
+            <div class="last">
+            </div>
+        </div>
+    </div>
+</footer>';
 
 $gallery = '
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
@@ -311,7 +294,7 @@ $gallery = '
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
                         <img src="img/pic/Trio4.jpg" alt="">
@@ -321,7 +304,7 @@ $gallery = '
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
                         <img src="img/indexImage/empty.png" alt="">
@@ -361,7 +344,7 @@ $gallery = '
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe
                     data-wow-delay="100ms">
                     <div class="single-portfolio-content">
                         <img src="img/indexImage/empty.png" alt="">
