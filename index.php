@@ -4,75 +4,70 @@ include_once("header.php");
 <!DOCTYPE html>
 <html lang="en-PH">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Trusted photography services in Guimba by Kuya Rommel - Specializing in graduation photos, events, portraits, and digital video services. Professional photographer offering 360° video booth, self-mirror booth, and creative photoshoots. Book your memorable session today!">
-    <meta name="keywords" content="Kuya Rommel, photography Guimba, portrait photography, event photography, digital video, photo studio, professional photographer, graduation photos, wedding photography, 360 video booth, self-mirror booth, photobooth, self-portrait, Nueva Ecija photographer, affordable photography packages, photo studio Guimba">
-    <meta name="author" content="Kuya Rommel Digital Video and Photography">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Rommel Garcia Digital Video & Photography</title>
+
+    <meta name="description" content="Premier photography & digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth. Book your memorable moments with Kuya Rommel's trusted team!" />
+    <meta name="keywords" content="Rommel Garcia Photography, Kuya Rommel Photography, graduation photos Guimba, wedding photography Nueva Ecija, event photography, portrait photography, 360 video booth, self-mirror booth, photobooth rental, affordable photography packages, photo studio Guimba, professional photographer Nueva Ecija, digital video services" />
+    <meta name="author" content="Rommel Garcia Digital Video and Photography Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
     <!-- Geographical Meta Tags -->
-    <meta name="geo.region" content="PH-NUE">
-    <meta name="geo.placename" content="Guimba, Nueva Ecija">
-    <meta name="geo.position" content="15.6557;120.7642">
-    <meta name="ICBM" content="15.6557, 120.7642">
-    
+    <meta name="geo.region" content="PH-NUE" />
+    <meta name="geo.placename" content="Guimba, Nueva Ecija" />
+    <meta name="geo.position" content="15.6602;120.7656" />
+    <meta name="ICBM" content="15.6602, 120.7656" />
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="business.business">
-    <meta property="og:site_name" content="Kuya Rommel Photography">
-    <meta property="og:title" content="Kuya Rommel Photography | Professional Photographer in Guimba">
-    <meta property="og:description" content="Book your photo session with Kuya Rommel - Guimba's trusted photographer for graduation, events, and portraits. Featuring 360° video booth and creative photoshoots.">
-    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
-    <meta property="og:image:alt" content="Kuya Rommel Photography Logo">
-    <meta property="og:url" content="https://rommelgarcia.com/">
-    <meta property="og:locale" content="en_PH">
-    <meta property="business:contact_data:street_address" content="Guimba">
-    <meta property="business:contact_data:locality" content="Guimba">
-    <meta property="business:contact_data:region" content="Nueva Ecija">
-    <meta property="business:contact_data:country_name" content="Philippines">
-    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
-    
+    <meta property="og:type" content="business.business" />
+    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography" />
+    <meta property="og:title" content="Rommel Garcia Digital Video & Photography | Professional Photography Services in Guimba" />
+    <meta property="og:description" content="Trusted photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth. Book your memorable moments with Kuya Rommel's expert team!" />
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg" />
+    <meta property="og:image:alt" content="Rommel Garcia Digital Video and Photography Logo" />
+    <meta property="og:url" content="https://rommelgarcia.com/" />
+    <meta property="og:locale" content="en_PH" />
+    <meta property="business:contact_data:street_address" content="Guimba" />
+    <meta property="business:contact_data:locality" content="Guimba" />
+    <meta property="business:contact_data:region" content="Nueva Ecija" />
+    <meta property="business:contact_data:country_name" content="Philippines" />
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography" />
+
     <!-- Technical Meta Tags -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#f7b315">
-    <meta name="msapplication-TileColor" content="#f7b315">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    
-    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <link rel="canonical" href="https://rommelgarcia.com/">
-    <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH">
-    <title>Kuya Rommel Photography | Professional Photographer in Guimba</title>
-    
-    <!-- Schema.org Markup -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#f7b315" />
+    <meta name="msapplication-TileColor" content="#f7b315" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Icons -->
+    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/Header-Pic/rommel-logo-v3.svg" />
+
+    <!-- Canonical and hreflang -->
+    <link rel="canonical" href="https://rommelgarcia.com/" />
+    <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Kuya Rommel Digital Video and Photography",
+      "name": "Rommel Garcia Digital Video and Photography",
+      "alternateName": ["Kuya Rommel", "Rommel Photography"],
       "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
-      "@id": "https://rommelgarcia.com",
-      "url": "https://rommelgarcia.com",
-      "telephone": "",
+      "url": "https://rommelgarcia.com/",
+      "telephone": "+63-XXX-XXX-XXXX",
       "priceRange": "₱₱",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "",
-        "addressLocality": "Guimba",
-        "addressRegion": "Nueva Ecija",
-        "postalCode": "",
-        "addressCountry": "PH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 15.6557,
-        "longitude": 120.7642
-      },
-      "sameAs": [
-        "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-      ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
@@ -81,30 +76,75 @@ include_once("header.php");
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday",
-          "Sunday"
+          "Saturday"
         ],
-        "opens": "09:00",
+        "opens": "08:00",
         "closes": "18:00"
-      }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Guimba",
+        "addressLocality": "Guimba",
+        "addressRegion": "Nueva Ecija",
+        "addressCountry": "PH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 15.6602,
+        "longitude": 120.7656
+      },
+      "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
+      "sameAs": [
+        "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+      ],
+      "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Guimba",
+        "containedIn": "Nueva Ecija"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Graduation Photography"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wedding Photography"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Event Photography"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "360° Video Booth"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Self-Mirror Booth"
+          }
+        }
+      ]
     }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- <link rel="icon" href="img/core-img/1.png"> -->
-    <!-- <link rel="icon" href="img/core-img/favicon.png"> -->
-    <!-- animate on scroll css  -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- ===== Link Swiper's CSS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- ===== Fontawesome CDN Link ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- ===== CSS ===== -->
-
-    <link rel="stylesheet" href="style.css">
 </head>
+
+
 
 <body>
 
@@ -180,6 +220,25 @@ include_once("header.php");
         </li>
 
     </ul>
+
+    <h1 class="sr-only">
+    Rommel Garcia Digital Video and Photography – Premier Professional Photography and Digital Video Business in Guimba, Nueva Ecija | Specializing in Graduation Photos, Wedding Photography, Event Coverage, Portraits, 360° Video Booth, Self-Mirror Booth, Creative Photoshoots, and Affordable Photography Packages | Trusted Local Photography Studio with Expert Team Delivering Exceptional Customer Experience and Memorable Visual Storytelling
+    </h1>
+
+    <style>
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    </style>
+
 
 
     <section class="welcome-area" data-aos="fade-right-up" data-aos-duration="3000">
