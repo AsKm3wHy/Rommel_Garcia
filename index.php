@@ -8,23 +8,27 @@ include_once("header.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Welcome to Rommel Garcia Digital Video and Photography! We specialize in capturing life's precious moments through professional photography services in Guimba. From portrait sessions to special events, we create stunning visual memories that last a lifetime.">
-    <meta name="keywords" content="photography, portrait photography, event photography, digital video, photo studio, professional photographer, Rommel Garcia, photo sessions, Guimba photographer, wedding photography, graduation photos, family portraits">
+    <meta name="description"
+        content="Welcome to Rommel Garcia Digital Video and Photography! We specialize in capturing life's precious moments through professional photography services in Guimba. From portrait sessions to special events, we create stunning visual memories that last a lifetime.">
+    <meta name="keywords"
+        content="photography, portrait photography, event photography, digital video, photo studio, professional photographer, Rommel Garcia, photo sessions, Guimba photographer, wedding photography, graduation photos, family portraits">
     <meta name="author" content="Rommel Garcia Digital Video and Photography">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="PH">
     <meta name="geo.placename" content="Guimba">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography">
-    <meta property="og:title" content="Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography">
-    <meta property="og:description" content="Capture your special moments with our professional photography services. Specializing in portraits, events, and digital video services in Guimba.">
+    <meta property="og:title"
+        content="Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography">
+    <meta property="og:description"
+        content="Capture your special moments with our professional photography services. Specializing in portraits, events, and digital video services in Guimba.">
     <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
     <meta property="og:url" content="https://rommelgarcia.com/">
     <meta property="og:locale" content="en_US">
     <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#f7b315">
@@ -49,6 +53,7 @@ include_once("header.php");
     <!-- ===== Fontawesome CDN Link ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -122,7 +127,7 @@ include_once("header.php");
     </header>
     <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
         <li>
-            <a class="entypo-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+            <a class="fa fa-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
                 target="_blank"><span>Facebook</span></a>
         </li>
 
