@@ -2,61 +2,155 @@
 include_once("header.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en-PH">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Rommel Garcia Digital Video & Photography</title>
+
     <meta name="description"
-        content="Welcome to Rommel Garcia Digital Video and Photography! We specialize in capturing life's precious moments through professional photography services in Guimba. From portrait sessions to special events, we create stunning visual memories that last a lifetime.">
+        content="Premier photography & digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth. Book your memorable moments with Kuya Rommel's trusted team!" />
     <meta name="keywords"
-        content="photography, portrait photography, event photography, digital video, photo studio, professional photographer, Rommel Garcia, photo sessions, Guimba photographer, wedding photography, graduation photos, family portraits">
-    <meta name="author" content="Rommel Garcia Digital Video and Photography">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="PH">
-    <meta name="geo.placename" content="Guimba">
+        content="Rommel Garcia Photography, Kuya Rommel Photography, graduation photos Guimba, wedding photography Nueva Ecija, event photography, portrait photography, 360 video booth, self-mirror booth, photobooth rental, affordable photography packages, photo studio Guimba, professional photographer Nueva Ecija, digital video services" />
+    <meta name="author" content="Rommel Garcia Digital Video and Photography Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Geographical Meta Tags -->
+    <meta name="geo.region" content="PH-NUE" />
+    <meta name="geo.placename" content="Guimba, Nueva Ecija" />
+    <meta name="geo.position" content="15.6602;120.7656" />
+    <meta name="ICBM" content="15.6602, 120.7656" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography">
+    <meta property="og:type" content="business.business" />
+    <meta property="og:site_name" content="Rommel Garcia Digital Video and Photography" />
     <meta property="og:title"
-        content="Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography">
+        content="Rommel Garcia Digital Video & Photography | Professional Photography Services in Guimba" />
     <meta property="og:description"
-        content="Capture your special moments with our professional photography services. Specializing in portraits, events, and digital video services in Guimba.">
-    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg">
-    <meta property="og:url" content="https://rommelgarcia.com/">
-    <meta property="og:locale" content="en_US">
-    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography">
+        content="Trusted photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth. Book your memorable moments with Kuya Rommel's expert team!" />
+    <meta property="og:image" content="https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg" />
+    <meta property="og:image:alt" content="Rommel Garcia Digital Video and Photography Logo" />
+    <meta property="og:url" content="https://rommelgarcia.com/" />
+    <meta property="og:locale" content="en_PH" />
+    <meta property="business:contact_data:street_address" content="Guimba" />
+    <meta property="business:contact_data:locality" content="Guimba" />
+    <meta property="business:contact_data:region" content="Nueva Ecija" />
+    <meta property="business:contact_data:country_name" content="Philippines" />
+    <meta property="fb:pages" content="rommelgarciadigitalvideoandphotography" />
 
-    <!-- Additional SEO Meta Tags -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#f7b315">
-    <meta name="msapplication-TileColor" content="#f7b315">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Technical Meta Tags -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#f7b315" />
+    <meta name="msapplication-TileColor" content="#f7b315" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
-    <link rel="canonical" href="https://rommelgarcia.com/">
-    <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH">
-    <title>Professional Photography Services in Guimba | Rommel Garcia Digital Video and Photography</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    <!-- Icons -->
+    <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/Header-Pic/rommel-logo-v3.svg" />
+
+    <!-- Canonical and hreflang -->
+    <link rel="canonical" href="https://rommelgarcia.com/" />
+    <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- <link rel="icon" href="img/core-img/1.png"> -->
-    <!-- <link rel="icon" href="img/core-img/favicon.png"> -->
-    <!-- animate on scroll css  -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- ===== Link Swiper's CSS ===== -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- ===== Fontawesome CDN Link ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Rommel Garcia Digital Video and Photography",
+        "alternateName": ["Kuya Rommel", "Rommel Photography"],
+        "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+        "url": "https://rommelgarcia.com/",
+        "telephone": "+63-XXX-XXX-XXXX",
+        "priceRange": "₱₱",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Guimba",
+            "addressLocality": "Guimba",
+            "addressRegion": "Nueva Ecija",
+            "addressCountry": "PH"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 15.6602,
+            "longitude": 120.7656
+        },
+        "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
+        "sameAs": [
+            "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+        ],
+        "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
+        "areaServed": {
+            "@type": "City",
+            "name": "Guimba",
+            "containedIn": "Nueva Ecija"
+        },
+        "makesOffer": [{
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Graduation Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Wedding Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Event Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "360° Video Booth"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Self-Mirror Booth"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
+
+
 
 <body>
 
@@ -94,8 +188,9 @@ include_once("header.php");
                     <nav class="classy-navbar justify-content-between" id="lxNav">
 
                         <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <!-- <h1 class="home-logo">Rommel Garcia</h1> -->
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="logo" style="margin-top:0; width:5rem;">
+                            <!-- <h1 class="home-logo">Kuya Rommel</h1> -->
+                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="Kuya Rommel Logo"
+                                style="margin-top:0; width:5rem;">
                         </a>
 
                         <div class="classy-navbar-toggler">
@@ -132,6 +227,28 @@ include_once("header.php");
         </li>
 
     </ul>
+
+    <h1 class="sr-only">
+        Rommel Garcia Digital Video and Photography – Premier Professional Photography and Digital Video Business in
+        Guimba, Nueva Ecija | Specializing in Graduation Photos, Wedding Photography, Event Coverage, Portraits, 360°
+        Video Booth, Self-Mirror Booth, Creative Photoshoots, and Affordable Photography Packages | Trusted Local
+        Photography Studio with Expert Team Delivering Exceptional Customer Experience and Memorable Visual Storytelling
+    </h1>
+
+    <style>
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    </style>
+
 
 
     <section class="welcome-area" data-aos="fade-right-up" data-aos-duration="3000">
@@ -1292,11 +1409,11 @@ include_once("header.php");
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -1305,114 +1422,114 @@ include_once("header.php");
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-    // Initialize first Swiper
-    var swiper1 = new Swiper('.firstSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+// Initialize first Swiper
+var swiper1 = new Swiper('.firstSwiper', {
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".first-next",
+        prevEl: ".first-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
-        navigation: {
-            nextEl: ".first-next",
-            prevEl: ".first-prev",
+        768: {
+            slidesPerView: 2
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1000: {
-                slidesPerView: 3
-            },
-            1024: {
-                slidesPerView: 4
-            }
-            // 1300: {
-            //     slidesPerView: 5
-            // }
+        1000: {
+            slidesPerView: 3
+        },
+        1024: {
+            slidesPerView: 4
         }
-    });
+        // 1300: {
+        //     slidesPerView: 5
+        // }
+    }
+});
 
-    // Initialize second Swiper
-    var swiper2 = new Swiper('.secondSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+// Initialize second Swiper
+var swiper2 = new Swiper('.secondSwiper', {
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".second-next",
+        prevEl: ".second-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
-        navigation: {
-            nextEl: ".second-next",
-            prevEl: ".second-prev",
+        768: {
+            slidesPerView: 2
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-            1150: {
-                slidesPerView: 4
-            },
-            1600: {
-                slidesPerView: 5
-            }
+        1024: {
+            slidesPerView: 3
+        },
+        1150: {
+            slidesPerView: 4
+        },
+        1600: {
+            slidesPerView: 5
         }
-    });
+    }
+});
 </script>
 
 <script>
-    const buttons = document.querySelectorAll('.uno a');
+const buttons = document.querySelectorAll('.uno a');
 
-    const allSections = document.querySelectorAll('.form-section');
+const allSections = document.querySelectorAll('.form-section');
 
-    buttons.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = btn.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
+buttons.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = btn.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
 
 
-            allSections.forEach(function (section) {
-                section.classList.remove('show-form');
-            });
-            if (targetSection) {
-                targetSection.classList.toggle('show-form');
-            }
+        allSections.forEach(function(section) {
+            section.classList.remove('show-form');
         });
+        if (targetSection) {
+            targetSection.classList.toggle('show-form');
+        }
     });
+});
 </script>
 
 </body>
