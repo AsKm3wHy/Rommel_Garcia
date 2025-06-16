@@ -1452,14 +1452,16 @@ footer {
 /* Pricing Section CSS */
 
 .pricing {
-    padding: 5em 0;
-}
-
-.pricing h2 {
     text-align: center;
-    margin-top: 2rem;
+    margin: 5em 0;
     color: #000;
 }
+
+/* .pricing h2 {
+    text-align: center;
+    margin: 2rem 0;
+    color: #000;
+} */
 
 .circle {
     position: absolute;
@@ -1800,6 +1802,10 @@ body {
 
 .form-section.show-form {
     display: block;
+}
+
+.packages {
+    margin: 3em 0;
 }
 
 /* Responsive media query code for small screens */

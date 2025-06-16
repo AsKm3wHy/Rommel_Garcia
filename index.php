@@ -62,91 +62,92 @@ include_once("header.php");
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 
     <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Rommel Garcia Digital Video and Photography",
-        "alternateName": ["Kuya Rommel", "Rommel Photography"],
-        "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
-        "url": "https://rommelgarcia.com/",
-        "telephone": "+63-XXX-XXX-XXXX",
-        "priceRange": "₱₱",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Rommel Garcia Digital Video and Photography",
+            "alternateName": ["Kuya Rommel", "Rommel Photography"],
+            "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+            "url": "https://rommelgarcia.com/",
+            "telephone": "+63-XXX-XXX-XXXX",
+            "priceRange": "₱₱",
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Guimba",
+                "addressLocality": "Guimba",
+                "addressRegion": "Nueva Ecija",
+                "addressCountry": "PH"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 15.6602,
+                "longitude": 120.7656
+            },
+            "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
+            "sameAs": [
+                "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
             ],
-            "opens": "08:00",
-            "closes": "18:00"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Guimba",
-            "addressLocality": "Guimba",
-            "addressRegion": "Nueva Ecija",
-            "addressCountry": "PH"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 15.6602,
-            "longitude": 120.7656
-        },
-        "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
-        "sameAs": [
-            "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-        ],
-        "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
-        "areaServed": {
-            "@type": "City",
-            "name": "Guimba",
-            "containedIn": "Nueva Ecija"
-        },
-        "makesOffer": [{
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Graduation Photography"
-                }
+            "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
+            "areaServed": {
+                "@type": "City",
+                "name": "Guimba",
+                "containedIn": "Nueva Ecija"
             },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Wedding Photography"
+            "makesOffer": [{
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Graduation Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Wedding Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Event Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "360° Video Booth"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Self-Mirror Booth"
+                    }
                 }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Event Photography"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "360° Video Booth"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Self-Mirror Booth"
-                }
-            }
-        ]
-    }
+            ]
+        }
     </script>
 </head>
 
@@ -236,17 +237,17 @@ include_once("header.php");
     </h1>
 
     <style>
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 
 
@@ -346,7 +347,7 @@ include_once("header.php");
         <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
             <h2>Pick your perfect shot!</h2>
         </div>
-        <section class="first-package" data-aos="zoom-in-up" data-aos-duration="2000">
+        <section class="first-package py-3" data-aos="zoom-in-up" data-aos-duration="2000">
             <!-- Swiper container -->
             <div class="swiper firstSwiper containers">
                 <div class="swiper-wrapper content">
@@ -702,8 +703,9 @@ include_once("header.php");
             <div class="swiper-button-prev first-prev"></div>
             <div class="swiper-pagination"></div>
         </section>
+    </section>
 
-
+    <section class="packages">
         <!-- <hr style="color:#fff; border: solid 1px;"> -->
         <div class="container" data-aos="zoom-in-up" data-aos-duration="2000" style="margin-top:5rem;">
             <!-- <h2>Packages</h2>
@@ -1409,11 +1411,11 @@ include_once("header.php");
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -1422,14 +1424,14 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
@@ -1438,98 +1440,98 @@ gtag('config', 'UA-23581568-13');
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-// Initialize first Swiper
-var swiper1 = new Swiper('.firstSwiper', {
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".first-next",
-        prevEl: ".first-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
+    // Initialize first Swiper
+    var swiper1 = new Swiper('.firstSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        768: {
-            slidesPerView: 2
+        navigation: {
+            nextEl: ".first-next",
+            prevEl: ".first-prev",
         },
-        1000: {
-            slidesPerView: 3
-        },
-        1024: {
-            slidesPerView: 4
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1000: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 4
+            }
+            // 1300: {
+            //     slidesPerView: 5
+            // }
         }
-        // 1300: {
-        //     slidesPerView: 5
-        // }
-    }
-});
+    });
 
-// Initialize second Swiper
-var swiper2 = new Swiper('.secondSwiper', {
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".second-next",
-        prevEl: ".second-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
+    // Initialize second Swiper
+    var swiper2 = new Swiper('.secondSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        768: {
-            slidesPerView: 2
+        navigation: {
+            nextEl: ".second-next",
+            prevEl: ".second-prev",
         },
-        1024: {
-            slidesPerView: 3
-        },
-        1150: {
-            slidesPerView: 4
-        },
-        1600: {
-            slidesPerView: 5
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            },
+            1150: {
+                slidesPerView: 4
+            },
+            1600: {
+                slidesPerView: 5
+            }
         }
-    }
-});
+    });
 </script>
 
 <script>
-const buttons = document.querySelectorAll('.uno a');
+    const buttons = document.querySelectorAll('.uno a');
 
-const allSections = document.querySelectorAll('.form-section');
+    const allSections = document.querySelectorAll('.form-section');
 
-buttons.forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = btn.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
 
 
-        allSections.forEach(function(section) {
-            section.classList.remove('show-form');
+            allSections.forEach(function(section) {
+                section.classList.remove('show-form');
+            });
+            if (targetSection) {
+                targetSection.classList.toggle('show-form');
+            }
         });
-        if (targetSection) {
-            targetSection.classList.toggle('show-form');
-        }
     });
-});
 </script>
 
 </body>
