@@ -1452,16 +1452,24 @@ footer {
 /* Pricing Section CSS */
 
 .pricing {
+    padding: 5em 0;
+}
+
+.pricing h2 {
     text-align: center;
-    margin: 5em 0;
+    margin-top: 2rem;
     color: #000;
 }
 
-/* .pricing h2 {
+.pricing-package {
+    padding: 0;
+}
+
+.pricing-package h2 {
     text-align: center;
-    margin: 2rem 0;
+    margin-top: 2rem;
     color: #000;
-} */
+}
 
 .circle {
     position: absolute;
@@ -1532,7 +1540,34 @@ body {
     align-items: center;
 }
 
+.third-package {
+    /* position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 80%; */
+    position: relative;
+    height: 100%;
+    padding: 0 20px !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.third-package {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.thirdSwiper {
+    margin: 0 4rem;
+    width: 90%;
+}
+
 .second-package {
+    margin: 5rem 0 !important;
     position: relative;
     height: 100%;
     padding: 15px;
@@ -1804,14 +1839,16 @@ body {
     display: block;
 }
 
-.packages {
-    margin: 3em 0;
-}
-
 /* Responsive media query code for small screens */
 
 @media (max-width: 768px) {
     .first-package {
+        padding: 15px;
+    }
+    .thirdSwiper {
+        max-width: 85%;
+    }
+    .containerss {
         padding: 15px;
     }
     .first-button-next,

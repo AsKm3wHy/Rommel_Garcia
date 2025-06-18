@@ -705,16 +705,14 @@ include_once("header.php");
         </section>
     </section>
 
-    <section class="packages">
-        <!-- <hr style="color:#fff; border: solid 1px;"> -->
-        <div class="container" data-aos="zoom-in-up" data-aos-duration="2000" style="margin-top:5rem;">
-            <!-- <h2>Packages</h2>
-            <h5 style="text-align:center; color:#000000bd; margin-bottom:2rem;">Capture the Moments, One Smile at a
-                Time!
-            </h5> -->
-            <section class="graduate-package">
-                <div class="container-flex">
-                    <div class="space-card">
+
+    <section class="third-package" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="swiper thirdSwiper  containers">
+            <div class="swiper-wrapper content">
+
+
+                <div class="swiper-slide card">
+                    <div class="card-content">
                         <div class="plan-card">
                             <h2>GRADUATE<span>Package 1</span></h2>
                             <div class="etiquet-price">
@@ -796,9 +794,10 @@ include_once("header.php");
                             </div>
                         </div>
                     </div>
+                </div>
 
-
-                    <div class="space-card">
+                <div class="swiper-slide card">
+                    <div class="card-content">
                         <div class="plan-card">
                             <h2>GRADUATE<span>Package 2</span></h2>
                             <div class="etiquet-price">
@@ -884,9 +883,10 @@ include_once("header.php");
                             </div>
                         </div>
                     </div>
+                </div>
 
-
-                    <div class="space-card">
+                <div class="swiper-slide card">
+                    <div class="card-content">
                         <div class="plan-card">
                             <h2>GRADUATE<span>Package 3</span></h2>
                             <div class="etiquet-price">
@@ -972,8 +972,10 @@ include_once("header.php");
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="space-card">
+                <div class="swiper-slide card">
+                    <div class="card-content">
                         <div class="plan-card">
                             <h2>GRADUATE<span>Package 4</span></h2>
                             <div class="etiquet-price">
@@ -1059,10 +1061,14 @@ include_once("header.php");
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </section>
+
+            </div>
         </div>
+
+        <div class="swiper-button-next third-next"></div>
+        <div class="swiper-button-prev third-prev"></div>
+        <div class="swiper-pagination"></div>
     </section>
 
     <br>
@@ -1476,6 +1482,34 @@ include_once("header.php");
             // 1300: {
             //     slidesPerView: 5
             // }
+        }
+    });
+
+    var swiper3 = new Swiper('.thirdSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".third-next",
+            prevEl: ".third-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1000: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 4
+            }
         }
     });
 
