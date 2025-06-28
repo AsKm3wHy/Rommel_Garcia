@@ -67,87 +67,87 @@ include_once("header.php");
 
     <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Rommel Garcia Digital Video and Photography",
-            "alternateName": ["Kuya Rommel", "Rommel Photography"],
-            "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
-            "url": "https://rommelgarcia.com/",
-            "telephone": "+63-XXX-XXX-XXXX",
-            "priceRange": "₱₱",
-            "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday"
-                ],
-                "opens": "08:00",
-                "closes": "18:00"
-            },
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Guimba",
-                "addressLocality": "Guimba",
-                "addressRegion": "Nueva Ecija",
-                "addressCountry": "PH"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 15.6602,
-                "longitude": 120.7656
-            },
-            "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
-            "sameAs": [
-                "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Rommel Garcia Digital Video and Photography",
+        "alternateName": ["Kuya Rommel", "Rommel Photography"],
+        "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+        "url": "https://rommelgarcia.com/",
+        "telephone": "+63-XXX-XXX-XXXX",
+        "priceRange": "₱₱",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
             ],
-            "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
-            "areaServed": {
-                "@type": "City",
-                "name": "Guimba",
-                "containedIn": "Nueva Ecija"
-            },
-            "makesOffer": [{
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Graduation Photography"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Wedding Photography"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Event Photography"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "360° Video Booth"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Self-Mirror Booth"
-                    }
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Guimba",
+            "addressLocality": "Guimba",
+            "addressRegion": "Nueva Ecija",
+            "addressCountry": "PH"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 15.6602,
+            "longitude": 120.7656
+        },
+        "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
+        "sameAs": [
+            "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
+        ],
+        "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
+        "areaServed": {
+            "@type": "City",
+            "name": "Guimba",
+            "containedIn": "Nueva Ecija"
+        },
+        "makesOffer": [{
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Graduation Photography"
                 }
-            ]
-        }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Wedding Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Event Photography"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "360° Video Booth"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Self-Mirror Booth"
+                }
+            }
+        ]
+    }
     </script>
 </head>
 
@@ -1441,7 +1441,7 @@ include_once("header.php");
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -1504,11 +1504,8 @@ include_once("header.php");
             768: {
                 slidesPerView: 2
             },
-            1000: {
-                slidesPerView: 3
-            },
             1024: {
-                slidesPerView: 4
+                slidesPerView: 3
             }
         }
     });
@@ -1551,14 +1548,14 @@ include_once("header.php");
 
     const allSections = document.querySelectorAll('.form-section');
 
-    buttons.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
+    buttons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = btn.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
 
 
-            allSections.forEach(function(section) {
+            allSections.forEach(function (section) {
                 section.classList.remove('show-form');
             });
             if (targetSection) {
