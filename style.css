@@ -1579,10 +1579,12 @@ body {
 }
 
 .third-package {
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2.5rem 0 !important ;
 }
 
 .thirdSwiper {
@@ -1591,14 +1593,12 @@ body {
 }
 
 .second-package {
-  margin: 5rem 0 !important;
+  /* margin: 5rem 0 !important; */
   position: relative;
   height: 100%;
   padding: 15px;
-  /* padding: 0 70px; */
-  /* max-width: 1200px; */
   width: 100%;
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 
@@ -1681,7 +1681,7 @@ body {
 /* From Uiverse.io by abrahamcalsin */
 
 .plan-card {
-  background: #fff;
+  background: #ffffff;
   width: 18.9rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -1689,6 +1689,7 @@ body {
   padding-bottom: 20px;
   border-radius: 10px;
   border-bottom: 4px solid #000446;
+  border: 1px solid #000446;
   box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
   font-family: "Poppins", sans-serif;
 }
@@ -1899,6 +1900,12 @@ body {
   /* Optional: reduce font sizes on small screens for better fit */
   .plan-card h2 {
     font-size: 2.3em;
+  }
+  .plan-card {
+    width: 16rem !important;
+  }
+  .etiquet-price {
+    width: 15.4rem !important;
   }
   .benefits-list p.all-shot {
     font-size: 0.9em;

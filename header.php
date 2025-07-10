@@ -51,6 +51,9 @@ $footer = '
 
 $gallery = '
     <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
+    <div class="title-gallery text-center">
+        <h2>GALLERY</h2>
+    </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">

@@ -237,17 +237,17 @@ include_once("header.php");
     </h1>
 
     <style>
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
     </style>
 
 
@@ -706,15 +706,19 @@ include_once("header.php");
     </section>
 
 
-    <section class="third-package" data-aos="zoom-in-up" data-aos-duration="2000">
-        <div class="swiper thirdSwiper  containers">
-            <div class="swiper-wrapper content">
+    <section class="third-package">
+        <div class="title-grad text-center">
+            <h2>GRADUATION PACKAGES</h2>
+            <p>Choose the best package for your graduation photoshoot</p>
+        </div>
 
+        <div class="swiper thirdSwiper  containers ">
+            <div class="swiper-wrapper content">
 
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>GRADUATE<span>Package 1</span></h2>
+                            <h2>Package 1 <span>GRADUATE</span></h2>
                             <div class="etiquet-price">
                                 <p>899.00</p>
                                 <div></div>
@@ -799,7 +803,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>GRADUATE<span>Package 2</span></h2>
+                            <h2>Package 2 <span>GRADUATE</span></h2>
                             <div class="etiquet-price">
                                 <p>1,599.00</p>
                                 <div></div>
@@ -888,7 +892,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>GRADUATE<span>Package 3</span></h2>
+                            <h2>Package 3 <span>GRADUATE</span></h2>
                             <div class="etiquet-price">
                                 <p>2,599.00</p>
                                 <div></div>
@@ -977,7 +981,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>GRADUATE<span>Package 4</span></h2>
+                            <h2>Package 4<span>GRADUATE</span></h2>
                             <div class="etiquet-price">
                                 <p>3,599.00</p>
                                 <div></div>
@@ -1073,7 +1077,10 @@ include_once("header.php");
 
     <br>
     <section class="second-package" data-aos="zoom-in-up" data-aos-duration="2000">
-        <!-- Swiper container -->
+        <div class="title-text text-center">
+            <h2>GRADUATION PACKAGES</h2>
+            <p>Choose the best package for your graduation photoshoot</p>
+        </div>
         <div class="swiper secondSwiper  containers">
             <div class="swiper-wrapper content">
 
@@ -1417,11 +1424,11 @@ include_once("header.php");
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -1430,139 +1437,139 @@ include_once("header.php");
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+</script>
 </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-    // Initialize first Swiper
-    var swiper1 = new Swiper('.firstSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+// Initialize first Swiper
+var swiper1 = new Swiper('.firstSwiper', {
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".first-next",
+        prevEl: ".first-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
-        navigation: {
-            nextEl: ".first-next",
-            prevEl: ".first-prev",
+        768: {
+            slidesPerView: 2
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1000: {
-                slidesPerView: 3
-            },
-            1024: {
-                slidesPerView: 4
-            }
-            // 1300: {
-            //     slidesPerView: 5
-            // }
+        1000: {
+            slidesPerView: 3
+        },
+        1024: {
+            slidesPerView: 4
         }
-    });
+        // 1300: {
+        //     slidesPerView: 5
+        // }
+    }
+});
 
-    var swiper3 = new Swiper('.thirdSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+var swiper3 = new Swiper('.thirdSwiper', {
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".third-next",
+        prevEl: ".third-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
-        navigation: {
-            nextEl: ".third-next",
-            prevEl: ".third-prev",
+        768: {
+            slidesPerView: 2
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            }
+        1024: {
+            slidesPerView: 3
         }
-    });
+    }
+});
 
-    // Initialize second Swiper
-    var swiper2 = new Swiper('.secondSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+// Initialize second Swiper
+var swiper2 = new Swiper('.secondSwiper', {
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".second-next",
+        prevEl: ".second-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
         },
-        navigation: {
-            nextEl: ".second-next",
-            prevEl: ".second-prev",
+        768: {
+            slidesPerView: 2
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-            1150: {
-                slidesPerView: 4
-            },
-            1600: {
-                slidesPerView: 5
-            }
+        1024: {
+            slidesPerView: 3
+        },
+        1150: {
+            slidesPerView: 4
+        },
+        1600: {
+            slidesPerView: 5
         }
-    });
+    }
+});
 </script>
 
 <script>
-    const buttons = document.querySelectorAll('.uno a');
+const buttons = document.querySelectorAll('.uno a');
 
-    const allSections = document.querySelectorAll('.form-section');
+const allSections = document.querySelectorAll('.form-section');
 
-    buttons.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = btn.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
+buttons.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = btn.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
 
 
-            allSections.forEach(function (section) {
-                section.classList.remove('show-form');
-            });
-            if (targetSection) {
-                targetSection.classList.toggle('show-form');
-            }
+        allSections.forEach(function(section) {
+            section.classList.remove('show-form');
         });
+        if (targetSection) {
+            targetSection.classList.toggle('show-form');
+        }
     });
+});
 </script>
 
 </body>
