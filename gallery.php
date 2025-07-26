@@ -163,8 +163,71 @@ include_once("header.php");
         </div>
     </section>
 
-
-    <?php echo $gallery; ?>
+<?php
+// Fetch all images and categories from the gallery table
+$mysqli = new mysqli("localhost", "root", "", "rommelgarciaappointments");
+if ($mysqli->connect_errno) {
+    die("Failed to connect to MySQL: " . $mysqli->connect_error);
+}
+$images = [];
+$res = $mysqli->query("SELECT * FROM gallery ORDER BY uploaded_at DESC");
+while ($row = $res->fetch_assoc()) {
+    $images[] = $row;
+}
+$mysqli->close();
+// List of all categories
+$categories = ["SOLO","DUO","TRIO","QUAD","DELUXE","GROUP","GRADUATE","UNO","DOS","TRES","CUATRO","CINCO","SEIS"];
+?>
+<section class="gallery-section section-padding-80-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <div class="btn-group" role="group" aria-label="Gallery Categories">
+                    <button type="button" class="btn btn-outline-dark filter-btn active" data-filter="all">All</button>
+                    <?php foreach ($categories as $cat): ?>
+                        <button type="button" class="btn btn-outline-dark filter-btn" data-filter="<?php echo strtolower($cat); ?>"><?php echo $cat; ?></button>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <div class="row gallery-grid">
+            <?php foreach ($images as $img): ?>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 gallery-item" data-category="<?php echo strtolower($img['category']); ?>">
+                    <div class="single-portfolio-item">
+                        <a href="uploads/gallery/<?php echo htmlspecialchars($img['filename']); ?>" class="portfolio-img" target="_blank">
+                            <img src="uploads/gallery/<?php echo htmlspecialchars($img['filename']); ?>" alt="gallery image" class="img-fluid">
+                        </a>
+                        <div class="portfolio-meta mt-2 text-center">
+                            <span class="badge badge-secondary"><?php echo htmlspecialchars($img['category']); ?></span>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <?php if (empty($images)): ?>
+                <div class="col-12 text-center"><p>No images in the gallery yet.</p></div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+<script>
+// Simple filter logic for categories
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
 
     <div class="follow-area clearfix">
         <div class="container">
@@ -178,32 +241,7 @@ include_once("header.php");
 
 
 
-        <footer>
-            <div class="wrapper">
-                <div class="containerUp">
-                    <div class="social-info">
-                        <h2>Visit Our Facebook Page</h2>
-                        <div class="icons">
-                            <a href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-                                target="_blank"><img src="./img/footer-icons/facebook.png"></a>
-                        </div>
-                    </div>
-                    <!-- <div class="connect">
-                    <h2>Stay up to date on the latest from Lx Gallery</h2>
-                    <form>
-                        <input type="email" placeholder="Enter your email">
-                        <button>Subscribe</button>
-                    </form>
-                </div> -->
-                </div>
-                <!-- <hr>
-                    <div class="containerDown">
-                        <div class="last">
-
-                        </div>
-                    </div> -->
-            </div>
-        </footer>
+        <?php echo $footer; ?>
 
 
 

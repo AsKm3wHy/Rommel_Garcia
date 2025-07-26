@@ -171,7 +171,7 @@
         <div class="bottom-log">
             <ul class="sidebar-links log-btn">
                 <li>
-                    <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    <a href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
                 </li>
 
             </ul>

@@ -10,9 +10,17 @@ $db = $database->getConnection();
 
 $booking = new Booking($db);
 
-$keywords = isset($_GET["s"]) ? $_GET["s"] : "";
+// Get search parameter
+$search_date = isset($_GET['s']) ? $_GET['s'] : '';
 
-$stmt = $booking->search($keywords);
+if(empty($search_date)) {
+    http_response_code(400);
+    echo json_encode(array("message" => "Search date is required."));
+    exit();
+}
+
+// Search bookings
+$stmt = $booking->searchByDate($search_date);
 $num = $stmt->rowCount();
 
 if($num > 0) {
@@ -41,6 +49,6 @@ if($num > 0) {
     echo json_encode($bookings_arr);
 } else {
     http_response_code(404);
-    echo json_encode(array("message" => "No bookings found."));
+    echo json_encode(array("message" => "No bookings found for the specified date."));
 }
 ?>

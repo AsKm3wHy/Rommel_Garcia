@@ -1,5 +1,96 @@
 <?php
 include_once("header.php");
+
+// Database configuration
+class Database {
+    private $host = "localhost";
+    private $db_name = "rommelgarciaappointments";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            echo "Connection error: " . $e->getMessage();
+        }
+        return $this->conn;
+    }
+}
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get JSON data from request body
+    $json_data = file_get_contents('php://input');
+    $data = json_decode($json_data, true);
+    
+    if ($data) {
+        // Initialize database connection
+        $database = new Database();
+        $db = $database->getConnection();
+        
+        try {
+            // Check for time slot conflicts
+            $conflictCheck = $db->prepare("
+                SELECT COUNT(*) FROM appointments 
+                WHERE appointment_date = ? AND appointment_time = ? AND status_id IN (2)
+            ");
+            $conflictCheck->execute([$data['booking_date'], $data['booking_time']]);
+            
+            if ($conflictCheck->fetchColumn() > 0) {
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'Time slot is already booked. Please choose a different time.'
+                ]);
+                exit;
+            }
+            
+            // Insert appointment into database
+            $stmt = $db->prepare("
+                INSERT INTO appointments (
+                    full_name, email, phone, 
+                    appointment_date, appointment_time, 
+                    status_id, notes, created_at
+                ) VALUES (?, ?, ?, ?, ?, 1, ?, NOW())
+            ");
+
+            $stmt->execute([
+                $data['full_name'],
+                $data['email'],
+                $data['phone'],
+                $data['booking_date'],
+                $data['booking_time'],
+                "DOS Package"
+            ]);
+
+            $id = $db->lastInsertId();
+            
+            echo json_encode([
+                'success' => true,
+                'id' => $id,
+                'full_name' => $data['full_name'],
+                'booking_date' => $data['booking_date'],
+                'booking_time' => $data['booking_time'],
+                'package' => $data['package'],
+                'message' => 'Appointment created successfully'
+            ]);
+        } catch (PDOException $e) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Failed to create appointment: ' . $e->getMessage()
+            ]);
+        }
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +108,6 @@ include_once("header.php");
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- <link rel="icon" href="img/core-img/1.png"> -->
-    <!-- <link rel="icon" href="img/core-img/favicon.png"> -->
     <!-- animate on scroll css  -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- ===== Link Swiper's CSS ===== -->
@@ -60,7 +149,7 @@ include_once("header.php");
                                         <path
                                             d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
                                         </path>
-                                    </svg><span>1-5 Pax</span></li>
+                                    </svg><span>1-3 Pax</span></li>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
@@ -70,12 +159,12 @@ include_once("header.php");
                                         <path
                                             d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
                                         </path>
-                                    </svg><span>1 Backdrop Color</span></li>
+                                    </svg><span>2 Backdrop Color</span></li>
                                 <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
                                         </path>
-                                    </svg><span>Free Access of basic props</span></li>
+                                    </svg><span>Free use of basic props</span></li>
                             </ul>
                             <p class="all-copy">Unlimited Soft Copy</p>
                         </div>
@@ -131,43 +220,6 @@ include_once("header.php");
         </div>
     </section>
 
-
-    <h1 class="title-grad">Duo Moments, Lasting Memories</h1>
-    <div class="lightbox">
-        <div class="wrapper">
-            <header>
-                <div class="details">
-                    <!-- <i class="uil uil-camera"></i>
-                    <span>Image Preview</span> -->
-                </div>
-                <div class="buttons"><i class="close-icon uil uil-times"></i></div>
-            </header>
-            <div class="preview-img">
-                <div class="img"><img src="" alt="preview-img"></div>
-            </div>
-        </div>
-    </div>
-    <section class="gallery">
-        <ul class="images">
-            <li class="img"><img src="my image/13.jpg" alt="img"></li>
-            <li class="img"><img src="my image/15.jpg" alt="img"></li>
-            <li class="img"><img src="img/indeximage/IMG_9279.JPG" alt="img"></li>
-            <li class="img"><img src="my image/14.jpg" alt="img"></li>
-            <li class="img"><img src="my image/21.jpg" alt="img"></li>
-            <li class="img"><img src="my image/18.jpg" alt="img"></li>
-            <li class="img"><img src="my image/19.jpg" alt="img"></li>
-            <li class="img"><img src="my image/20.jpg" alt="img"></li>
-            <li class="img"><img src="my image/22.jpg" alt="img"></li>
-            <li class="img"><img src="my image/f2.jpg" alt="img"></li>
-            <li class="img"><img src="img/indeximage/IMG_9282.JPG" alt="img"></li>
-        </ul>
-    </section>
-
-
-
-
-
-
     <?php echo $footer; ?>
     <script src="js/jquery.min.js"></script>
 
@@ -205,10 +257,83 @@ include_once("header.php");
         AOS.init();
     </script>
 
-
-
     <script src="js-package/packages.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('appointmentForm');
+            const modal = document.getElementById('confirmationModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
+
+            // Set minimum date to today
+            const dateInput = form.querySelector('input[name="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    package: "DOS",
+                    full_name: form.fullName.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    booking_date: form.date.value,
+                    booking_time: form.time.value
+                };
+
+                try {
+                    // Use AJAX to submit to the server-side PHP script
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', window.location.href, true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                const result = JSON.parse(xhr.responseText);
+                                if (result.success) {
+                                    // Display success message and appointment details
+                                    modalContent.innerHTML = `
+                                        <div class="mt-3">
+                                            <p><strong>Booking ID:</strong> ${result.id}</p>
+                                            <p><strong>Name:</strong> ${result.full_name}</p>
+                                            <p><strong>Date:</strong> ${result.booking_date}</p>
+                                            <p><strong>Time:</strong> ${result.booking_time}</p>
+                                            <p><strong>Package:</strong> ${result.package}</p>
+                                            <p><strong>Price:</strong> ₱299.00</p>
+                                        </div>
+                                    `;
+                                    modal.style.display = 'flex';
+                                    form.reset();
+                                } else {
+                                    alert(result.message || 'Failed to book appointment. Please try again.');
+                                }
+                            } else {
+                                alert('An error occurred. Please try again later.');
+                            }
+                        }
+                    };
+                    xhr.send(JSON.stringify(formData));
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+
+            // Close modal when clicking the X button
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

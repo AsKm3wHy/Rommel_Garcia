@@ -1,469 +1,406 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: index.php');
+    exit;
+}
+require_once 'config/database.php';
+require_once 'models/Appointment.php';
+
+$database = new Database();
+$db = $database->getConnection();
+$appointmentModel = new Appointment($db);
+
+// Handle search, sort, and fetch appointments (only completed/cancelled)
+$searchTerm = isset($_POST['search']) ? trim($_POST['search']) : '';
+$sortField = isset($_GET['sort']) ? $_GET['sort'] : 'appointment_date';
+$sortDir = (isset($_GET['dir']) && strtolower($_GET['dir']) === 'desc') ? 'DESC' : 'ASC';
+$allowedSortFields = ['appointment_date', 'notes', 'status_id', 'appointment_time'];
+if (!in_array($sortField, $allowedSortFields)) {
+    $sortField = 'appointment_date';
+}
+$appointments = [];
+if ($searchTerm !== '') {
+    $query = "SELECT * FROM appointments WHERE full_name LIKE ? AND status_id IN (3,4) ORDER BY $sortField $sortDir, appointment_date DESC, appointment_time ASC";
+    $stmt = $db->prepare($query);
+    $stmt->execute(['%' . $searchTerm . '%']);
+    $appointments = $stmt->fetchAll();
+} else {
+    $query = "SELECT * FROM appointments WHERE status_id IN (3,4) ORDER BY $sortField $sortDir, appointment_date DESC, appointment_time ASC";
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $appointments = $stmt->fetchAll();
+}
+
+// Handle view/edit modal logic
+$popupAppointment = null;
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $popupAppointment = $appointmentModel->getAppointmentById($_GET['id']);
+}
+
+// Handle edit appointment
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
+    $dt = $_POST['datetime'];
+    $date = $time = '';
+    if (strpos($dt, 'T') !== false) {
+        list($date, $time) = explode('T', $dt);
+    }
+    // If status is being changed to Pending or Confirmed, and date is in the past, set to tomorrow
+    $newStatus = null;
+    if (isset($_POST['new_status'])) {
+        $newStatus = (int)$_POST['new_status'];
+    }
+    $today = date('Y-m-d');
+    if (($newStatus === 1 || $newStatus === 2) && $date <= $today) {
+        $date = date('Y-m-d', strtotime('+1 day'));
+    }
+    $data = [
+        'full_name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'phone' => $_POST['Tele-client'],
+        'appointment_date' => $date,
+        'appointment_time' => $time,
+        'notes' => $_POST['spec']
+    ];
+    $appointmentModel->updateAppointment($_POST['edit_id'], $data);
+    header('Location: history.php?action=success');
+    exit;
+}
+
+// Handle status update from modal
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['status_id'], $_POST['new_status'])) {
+    $id = (int)$_POST['status_id'];
+    $newStatus = (int)$_POST['new_status'];
+    switch ($newStatus) {
+        case 1: $appointmentModel->setPending($id); break;
+        case 2: $appointmentModel->confirmAppointment($id); break;
+        case 3: $appointmentModel->markAsDone($id); break;
+        case 4: $appointmentModel->cancelAppointment($id); break;
+    }
+    if (isset($_POST['from_view']) && $_POST['from_view'] == '1') {
+        header('Location: history.php?action=view&id=' . $id . '&status_updated=1');
+    } else {
+        header('Location: history.php');
+    }
+    exit;
+}
+
+function getStatusText($status_id) {
+    switch ($status_id) {
+        case 1: return 'Pending';
+        case 2: return 'Confirmed';
+        case 3: return 'Completed';
+        case 4: return 'Cancelled';
+        default: return 'Unknown';
+    }
+}
+function sanitizeOutput($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+function formatDate($date) {
+    return date('n/j/y', strtotime($date));
+}
+function formatDateTime($time) {
+    return date('g:i A', strtotime($time));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History | Rommel Garcia Digital Video & Photography</title>
-    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="css/appointment.css">
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-
     <style>
-    .popup {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
-
-    .sub-table {
-        animation: transitionIn-Y-bottom 0.5s;
-    }
+    .popup { animation: transitionIn-Y-bottom 0.5s; }
+    .sub-table { animation: transitionIn-Y-bottom 0.5s; }
     </style>
-
 </head>
-
 <body>
     <svg style="display:none;">
-
-
-
-
-        <symbol id="dashboard" viewBox="0 0 24 24">
-            <path
-                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z" />
-        </symbol>
-
-
-        <symbol id="calendar-btn" viewBox="0 0 448 512">
-            <path
-                d="M152 64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0C141.3 0 152 10.75 152 24V64zM48 448C48 456.8 55.16 464 64 464H384C392.8 464 400 456.8 400 448V192H48V448z" />
-        </symbol>
-
-        <symbol id="history" viewBox="0 0 20 21">
-            <path
-                d="M10.5,0 C7,0 3.9,1.9 2.3,4.8 L0,2.5 L0,9 L6.5,9 L3.7,6.2 C5,3.7 7.5,2 10.5,2 C14.6,2 18,5.4 18,9.5 C18,13.6 14.6,17 10.5,17 C7.2,17 4.5,14.9 3.4,12 L1.3,12 C2.4,16 6.1,19 10.5,19 C15.8,19 20,14.7 20,9.5 C20,4.3 15.7,0 10.5,0 L10.5,0 Z M9,5 L9,10.1 L13.7,12.9 L14.5,11.6 L10.5,9.2 L10.5,5 L9,5 L9,5 Z" />
-        </symbol>
-
-        <symbol id="bookmark" viewBox="0 0 96 96">
-            <path
-                d="M78-.0011H18a5.9965,5.9965,0,0,0-6,6v84a6.0015,6.0015,0,0,0,9.75,4.6875L48,73.6805,74.25,94.6864A6.0015,6.0015,0,0,0,84,89.9989v-84A5.9965,5.9965,0,0,0,78-.0011ZM72,77.5125,51.75,61.3114a6.0134,6.0134,0,0,0-7.5,0L24,77.5125V11.9989H72Z" />
-        </symbol>
-
-        <symbol id="logout" viewBox="0 0 24 24">
-            <path d="M12,10c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2s-2,0.9-2,2v4C10,9.1,10.9,10,12,10z" />
-            <path
-                d="M19.1,4.9L19.1,4.9c-0.3-0.3-0.6-0.4-1.1-0.4c-0.8,0-1.5,0.7-1.5,1.5c0,0.4,0.2,0.8,0.4,1.1l0,0c0,0,0,0,0,0c0,0,0,0,0,0c1.3,1.3,2,3,2,4.9c0,3.9-3.1,7-7,7s-7-3.1-7-7c0-1.9,0.8-3.7,2.1-4.9l0,0C7.3,6.8,7.5,6.4,7.5,6c0-0.8-0.7-1.5-1.5-1.5c-0.4,0-0.8,0.2-1.1,0.4l0,0C3.1,6.7,2,9.2,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,9.2,20.9,6.7,19.1,4.9z" />
-        </symbol>
-
-        <symbol id="gallery" viewBox="0 0 24 24">
-            <path
-                d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
-        </symbol>
+        <!-- SVG symbols as in Appointment.php -->
     </svg>
-
-    <!-- <header class="page-header">
-        <nav>
-            <a href="dashboard.html" aria-label="forecastr logo" class="logo">
-                <img src="img/rommel-logo-v3.svg" alt="logo" width="150">
-            </a>
-
-            <ul class="admin-menu">
-                <li class="menu-heading">
-                    <h3>Admin</h3>
-                </li>
-                <li>
-                    <a href="index.php">
-                        <svg>
-                            <use href="#dashboard"></use> 
-                        </svg>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="appointment.php">
-                        <svg>
-                            <use href="#bookmark"></use> 
-                        </svg>
-                        <span>Appointment</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="calendar.php">
-                        <svg>
-                            <use href="#calendar-btn"></use> 
-                        </svg>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="history.php" class="active">
-                        <svg>
-                            <use href="#history"></use> 
-                        </svg>
-                        <span>History</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="post.php">
-                        <svg>
-                            <use xlink:href="#gallery"></use>
-                        </svg>
-                        <span>Gallery</span>
-                    </a>
-                </li>
-
-                <li>
-                    <button class="logout-btn" aria-expanded="true" aria-label="collapse menu">
-                        <svg aria-hidden="true">
-                            <use href="#logout"></use> 
-                        </svg>
-                        <span>Logout</span>
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    </header> -->
-
     <aside class="sidebar">
         <div class="sidebar-header">
             <img src="img/rommel-logo.png" alt="logo" />
-
         </div>
         <ul class="sidebar-links bt-top">
             <h4>
                 <span>Main Menu</span>
                 <div class="menu-separator"></div>
             </h4>
-            <li>
-                <a href="index.php?page=dashboard">
-                    <span class="material-symbols-outlined "> dashboard </span>Dashboard</a>
-            </li>
-
-            <li>
-                <a href="Appointment.php?page=Appointment"><span class="material-symbols-outlined ">
-                        Bookmark
-                    </span>Appointment</a>
-            </li>
-
-            <li>
-                <a href="post.php?page=Post-image"><span class="material-symbols-outlined">
-                        Add_Photo_Alternate</span>Gallery</a>
-            </li>
-
-            <li>
-                <a href="calendar.php?page=Calendar"><span class="material-symbols-outlined"> Calendar_Month
-                    </span>Calendar</a>
-            </li>
-            <li>
-                <a href="history.php?page=History" class="active"><span class="material-symbols-outlined active">
-                        History </span>History</a>
-            </li>
-
-            <li>
-                <a href="delete.php?page=delete-history"><span class="material-symbols-outlined"> Delete
-                    </span>Delete</a>
-            </li>
+            <li><a href="index.php?page=dashboard"><span class="material-symbols-outlined"> dashboard </span>Dashboard</a></li>
+            <li><a href="Appointment.php?page=Appointment"><span class="material-symbols-outlined">Bookmark</span>Appointment</a></li>
+            <li><a href="post.php?page=Post-image"><span class="material-symbols-outlined">Add_Photo_Alternate</span>Gallery</a></li>
+            <li><a href="calendar.php?page=Calendar"><span class="material-symbols-outlined">Calendar_Month</span>Calendar</a></li>
+            <li><a href="history.php?page=History" class="active"><span class="material-symbols-outlined active">History</span>History</a></li>
 
         </ul>
-
         <div class="bottom-log">
             <ul class="sidebar-links log-btn">
-                <li>
-                    <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
-                </li>
-
+                <li><a href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a></li>
             </ul>
-
-        </div>
         </div>
     </aside>
-
-
     <section class="content-section">
         <section class="search-and-user">
-            <span class="nav-title"> <span class="material-symbols-outlined active">
-                    History </span>History Manager</span>
+            <span class="nav-title"> <span class="material-symbols-outlined active">History</span>History Manager</span>
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
-                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
-                            Today's Date
-                        </p>
-                        <p class="heading-sub12" id="currentDate">
-
-                        </p>
+                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">Today's Date</p>
+                        <p class="heading-sub12" id="currentDate"></p>
                     </div>
                     <div class="column-button">
-                        <a href="calendar.php"> <button class="btn-label"
-                                style="display: flex;justify-content: center;align-items: center;"><img
-                                    src="img/calendar.svg" width="100%"></button></a>
+                        <a href="calendar.php"> <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button></a>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div class="dash-body">
-            <table class="history-tab" border="0" width="100%"
-                style="border-spacing:0;margin:0;padding:0;margin-top:25px;">
+        <div class="dash-body" style="padding-right: 0px;">
+            <table class="table-appointment" border="0">
                 <tr>
-                    <td colspan="4" style="padding-top:10px;width:100%;">
-                        <p class="heading-main12" style="text-align:left;font-size:18px;color:rgb(49, 49, 49)">All
-                            Appointments (<span id="appointment-count">0</span>)</p>
+                    <td class="top-header-table">
+                        <span class="material-symbols-outlined">History</span>
+                        <span class="nav-title"> History</span>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="4" style="padding-top:0px;width:100%;">
-                        <center>
-                            <table class="filter-container" border="0">
-                                <tr>
-                                    <td width="5%" style="text-align:center;">Date:</td>
-                                    <td width="30%">
-                                        <input type="date" name="scheduledate" id="date"
-                                            class="input-text filter-container-items" style="margin:0;width:95%;">
-                                    </td>
-                                    <td width="10%" style="text-align:center;">Client Name:</td>
-                                    <td width="30%">
-                                        <input type="text" name="clientname" id="clientname"
-                                            class="box filter-container-items" style="width:90%;height:37px;margin:0;"
-                                            placeholder="Client Name from the list">
-                                    </td>
-                                    <td width="12%">
-                                        <button id="filter-button" class="btn-primary-soft btn button-icon btn-filter"
-                                            style="background-image:url('img/icon/filter-iceblue.svg');"> Filter
-                                        </button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </center>
+                    <td>
+                        <form action="" method="post" class="header-search">
+                            <input type="search" name="search" class="input-text header-searchbar" placeholder="Search Client Name " list="clientname" style="background-image: url('img/search.svg');" autocomplete="off">&nbsp;&nbsp;
+                            <input type="Submit" value="Search" class="login-btn btn-primary btn" style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+                        </form>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <center>
-                            <div class="abc scroll">
-                                <table width="93%" class="sub-table scrolldown" border="0" id="appointments-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="table-headin">Appointment number</th>
-                                            <th class="table-headin">Client Name</th>
-                                            <th class="table-headin">Category</th>
-                                            <th class="table-headin">Appointment Date</th>
-                                            <th class="table-headin">Session Time</th>
-
-                                            <th class="table-headin">Status</th>
-                                            <th class="table-headin">Events</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr data-appointment-date="2025-01-02" data-client-name="Russel Requina">
-                                            <td style="font-weight:600;">123</td>
-                                            <td style="text-align:center;">Russel Requina</td>
-                                            <td>Duo</td>
-                                            <td style="text-align:center;">1/2/25</td>
-                                            <td style="text-align:center;font-size:12px;">11:00 AM</td>
-
-                                            <td class="status-text"><input name="status" type="text" value="Completed"
-                                                    readonly style="text-align:center;"></td>
-                                            <td>
-
-
-                                                <div style="display:flex;justify-content:center;">
-                                                    <a href="?action=view&id=#" class="non-style-link"><button
-                                                            class="btn-primary-soft btn button-icon btn-view"
-                                                            style="background-image: url(' img/icon/view-iceblue.svg')">
-                                                            <font class="tn-in-text">View</font>
-                                                        </button></a>
-                                                    &nbsp;&nbsp;&nbsp;
-                                                    <a href="?action=drop&id=123" class="non-style-link"><button
-                                                            class="btn-primary-soft btn button-icon btn-delete"
-                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr data-appointment-date="2025-01-03" data-client-name="Ivan Requina">
-                                            <td style="font-weight:600;">124</td>
-                                            <td style="text-align:center;">Ivan Requina</td>
-                                            <td>Group</td>
-                                            <td style="text-align:center;">1/3/25</td>
-                                            <td style="text-align:center;font-size:12px;">11:30 AM</td>
-
-                                            <td class="status-text-cancel"><input name="status" type="text"
-                                                    value="Cancelled" readonly style="text-align:center;"></td>
-                                            <td>
-                                                <div style="display:flex;justify-content:center;">
-                                                    <a href="?action=view&id=#" class="non-style-link"><button
-                                                            class="btn-primary-soft btn button-icon btn-view"
-                                                            style="background-image: url(' img/icon/view-iceblue.svg')">
-                                                            <font class="tn-in-text">View</font>
-                                                        </button></a>
-                                                    &nbsp;&nbsp;&nbsp;
-                                                    <a href="?action=drop&id=124" class="non-style-link"><button
-                                                            class="btn-primary-soft btn button-icon btn-delete"
-                                                            style="background-image:url('img/icon/delete-iceblue.svg')">Delete</button></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                                <p id="no-results" class="heading-main12 no-results">We couldn't find anything related
-                                    to your keywords!</p>
-                            </div>
-                        </center>
+                    <td width="15%">
+                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">Today's Date</p>
+                        <p class="heading-sub12" id="currentDate"></p>
+                    </td>
+                    <td width="4%">
+                        <a href="calendar.php"> <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="img/calendar.svg" width="100%"></button></a>
                     </td>
                 </tr>
             </table>
         </div>
-
-
-        <?php
-        if ($_GET) {
-            $action = $_GET["action"];
-
-            if ($action == 'drop') {
-
-                echo '
+        <div class="appointment-list-scroll-container">
+            <table width="100%" class="sub-table main-table scrolldown " border="0">
+                <thead>
+                    <tr>
+                        <th class="table-headin">Appointment number</th>
+                        <th class="table-headin">Client Name</th>
+                        <th class="table-headin">Category</th>
+                        <th class="table-headin">Payment</th>
+                        <th class="table-headin">Date</th>
+                        <th class="table-headin">Time</th>
+                        <th class="table-headin">Status</th>
+                        <th class="table-headin">Events</th>
+                    </tr>
+                </thead>
+                <tbody id="client-table-body">
+<?php if (empty($appointments)): ?>
+<tr><td colspan="8" style="text-align:center;">No appointments found.</td></tr>
+<?php else: foreach ($appointments as $row): ?>
+<tr>
+    <td><?= sanitizeOutput($row['id']) ?></td>
+    <td><?= sanitizeOutput($row['full_name']) ?></td>
+    <td><?= sanitizeOutput($row['notes']) ?></td>
+    <td><?= sanitizeOutput($row['payment'] ?? 'N/A') ?></td>
+    <td><?= formatDate($row['appointment_date']) ?></td>
+    <td><?= formatDateTime($row['appointment_time']) ?></td>
+    <td class="status-text">
+        <span class="status-badge status-<?= strtolower(getStatusText($row['status_id'])) ?>">
+            <?= getStatusText($row['status_id']) ?>
+        </span>
+    </td>
+    <td>
+        <div class="events-td">
+            <a href="?action=edit&id=<?= $row['id'] ?>&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')"><font class="tn-in-text">Edit</font></button></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="?action=view&id=<?= $row['id'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')"><font class="tn-in-text">View</font></button></a>
+        </div>
+    </td>
+</tr>
+<?php endforeach; endif; ?>
+                </tbody>
+            </table>
+        </div>
+<?php
+if (isset($_GET["action"])) {
+    $action = $_GET["action"];
+    if ($action == 'view' && $popupAppointment) {
+        $statusText = getStatusText($popupAppointment['status_id']);
+        $statusClass = strtolower($statusText);
+        $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
+        echo '<div id="popup1" class="overlay" style="z-index: 1000;">
+    <div class="popup" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
+        <a class="close" href="history.php" style="font-size: 2.5rem; top: 18px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
+        <div class="abc-popup" style="padding: 0;">
+            <div style="padding: 32px 32px 0 32px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="material-symbols-outlined" style="font-size: 2.1em; color: #1976d2;">event</span>
+                        <h2 style="margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.5px;">Manage Appointment</h2>
+                    </div>
+                    <span class="status-badge status-'.$statusClass.'" style="font-size: 1rem; padding: 0.4em 1.2em; display: flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.1em;">verified</span> '.$statusText.'
+                    </span>
+                </div>
+                <hr style="margin-bottom: 18px;">
+                <div style="margin-bottom: 24px;">
+                    <h3 style="margin: 0 0 12px 0; font-size: 1.15em; color: #1976d2; letter-spacing: 0.5px;">Appointment Details</h3>
+                    <div class="details-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; background: #f5faff; border-radius: 10px; padding: 18px 12px; font-size: 1.05em;">
+                        <div><span style="font-weight: 600; color: #444;">Client Name:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['full_name']).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Phone:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['phone']).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Email:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['email']).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Category:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['notes']).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Date:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['appointment_date']).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Time:</span><br><span class="data-bold">'.date('g:i A', strtotime($popupAppointment['appointment_time'])).'</span></div>
+                        <div><span style="font-weight: 600; color: #444;">Payment:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['payment'] ?? 'N/A').'</span></div>
+                    </div>
+                </div>
+                <div style="margin: 0 -32px 0 -32px;"><hr></div>
+                <div style="margin: 32px 0 0 0;">
+                    <div style="background: #f5faff; border-radius: 10px; padding: 22px 18px 18px 18px; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);">
+                        <h3 style="margin: 0 0 12px 0; font-size: 1.08em; color: #1976d2; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">edit_square</span>Update Appointment Status</h3>
+                        '.($showSuccess ? '<div style="background: #e8f5e9; color: #2e7d32; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">check_circle</span> Status updated successfully!</div>' : '').'
+                        <form method="post" action="" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%;">
+                            <input type="hidden" name="status_id" value="'.htmlspecialchars($popupAppointment['id']).'">
+                            <input type="hidden" name="from_view" value="1">
+                            <label for="view-status-dropdown" style="font-weight: 500;">Status:</label>
+                            <div style="display: flex; align-items: center; gap: 8px; width: 100%;">
+                                <span class="material-symbols-outlined" style="font-size: 1.3em; color: #1976d2;">arrow_drop_down_circle</span>
+                                <select id="view-status-dropdown" name="new_status" class="status-dropdown status-'.strtolower($statusText). '" style="min-width: 160px; flex: 1; font-size: 1.05em;">
+                                    <option value="1" '.($popupAppointment['status_id']==1?'selected':'').'>Pending</option>
+                                    <option value="2" '.($popupAppointment['status_id']==2?'selected':'').'>Confirmed</option>
+                                    <option value="3" '.($popupAppointment['status_id']==3?'selected':'').'>Completed</option>
+                                    <option value="4" '.($popupAppointment['status_id']==4?'selected':'').'>Cancelled</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary btn" style="margin-top: 12px; background: #1976d2; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 1.05em;">
+                                <span class="material-symbols-outlined" style="font-size: 1.2em;">check</span> Update Status
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>';
+    } elseif ($action == 'edit' && $popupAppointment) {
+        echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
-                    <center>
-                        <h2>Are you sure?</h2>
-                        <a class="close" href="history.php">&times;</a>
-                        <div class="content">
-                            You want to Delete this record<br>().
-                            
-                        </div>
+                        <a class="close" href="history.php">&times;</a> 
                         <div style="display: flex;justify-content: center;">
-                        <a href="history.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
-                        <a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
-
-                        </div>
-                    </center>
-            </div>
-            </div>
-            ';
-            } elseif ($action == 'view') {
-
-                echo '
-            <div id="popup1" class="overlay">
-                    <div class="popup">
-                    <center>
-                     
-                        <h2></h2>
-                        <a class="close" href=" history.php">&times;</a>
-                        
-                        <div  style="display: flex;justify-content: center;">
-                       
+                        <div class="abc-popup">
                         <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                         <thead><tr>
-                                <th>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
-                                </th>
-                            </tr></thead>
-                            
-
-                                 <tbody class="tbody-details">
-
+                        <form action="#" method="POST" class="add-new-form">
+                            <input type="hidden" name="edit_id" value="'.htmlspecialchars($popupAppointment['id']).'">
+                        <tr>
+                                <td class="label-td" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Client Details.</p>
+                                    Client ID : '.htmlspecialchars($popupAppointment['id']).' (Auto Generated)<br><br>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                  
-                                     <label for="name" class="form-label">Date:  </label>
-                                    
+                                    <label for="name" class="form-label">Name: </label>
                                 </td>
-                                <td><span class="data-bold">1/2/25</span></td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                        <input type="text" name="name" class="input-text" placeholder="Client Name" value="'.htmlspecialchars($popupAppointment['full_name']).'" required><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Tele" class="form-label">Phone: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                       <input type="tel" name="Tele-client" class="input-text" placeholder="Phone Number" id="phoneInput" value="'.htmlspecialchars($popupAppointment['phone']).'"><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                        <label for="spec" class="form-label">Choose category: (Current '.htmlspecialchars($popupAppointment['notes']).')</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <select name="spec" id="" class="box">';
+                                    $categories = [
+    "SOLO",
+    "DUO",
+    "TRIO",
+    "QUAD",
+    "DELUXE",
+    "GROUP",
+    "GRADUATE",
+    "GRADUATE Package 1",
+    "GRADUATE Package 2",
+    "GRADUATE Package 3",
+    "GRADUATE Package 4",
+    "UNO",
+    "DOS",
+    "TRES",
+    "CUATRO",
+    "CINCO",
+    "SEIS"
+];
+                                    foreach ($categories as $cat) {
+                                        $selected = (strtolower($popupAppointment['notes']) == strtolower($cat)) ? 'selected' : '';
+                                        echo '<option value="'.htmlspecialchars($cat).'" '.$selected.'>'.htmlspecialchars($cat).'</option>';
+                                    }
+                                    echo '</select><br><br>
+                                </td>
                             </tr>
                              <tr>
                                 <td class="label-td" colspan="2">
-                                  
-                                     <label for="name" class="form-label">Time:  </label>
-                                    
+                                    <label for="date" class="form-label"> Appointment Date: </label>
                                 </td>
-                                <td><span class="data-bold">12:00 PM</span></td>
                             </tr>
-                            
-                            
-                            <tr>
-                                
-                                <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Client Name:  </label>      
-                                </td>
-                                <td><span class="data-bold">Josh Dizon </span></td>
-                            </tr>
-                             <tr>
-                                
-                                <td class="label-td" colspan="2">
-                              
-                                    <label for="Tele" class="form-label">Phone number: </label>
-                                      
-                                </td>
-                                <td><span class="data-bold">09753204523 </span></td>
-                            </tr>
-                         
                             <tr>
                                 <td class="label-td" colspan="2">
-                                  <label for="Email" class="form-label">Email: </label>
-                                 
-                                    </td>
-                                    <td> <span class="data-bold">JoshDizon@gmail.com  </span></td>
+                                        <input type="datetime-local" id="datetime" class="input-text" name="datetime" value="'.htmlspecialchars($popupAppointment['appointment_date']).'T'.htmlspecialchars(substr($popupAppointment['appointment_time'],0,5)).'" required><br>
+                                </td>
                             </tr>
-                           
-                            
-                            
-                          
+                           <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Email" class="form-label">Email: </label>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Category: </label>
-                                     <td> <span class="data-bold">Duo </span></td>
-                                    
+                                    <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.htmlspecialchars($popupAppointment['email']).'" required><br>
                                 </td>
                             </tr>
-                           
-
-                        
-
-                             <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Payment </label>
-                                      <td> <span class="data-bold">Php 200 </span></td>
-                                    
-                                </td>
-                            </tr></tbody>
-                           
-                         <tr><td><br><br></td></tr>
-
-
-
                             <tr>
                                 <td colspan="2">
-                                    <a href="history.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
-                                
-                                    
+                                    <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="submit" value="Save" class="login-btn btn-primary btn">
                                 </td>
-                
                             </tr>
-                           
-
+                            </form>
                         </table>
                         </div>
-                    </center>
+                        </div>
                     <br><br>
             </div>
-            </div>
-            ';
-            }
-        }
-        ;
-
-
-        ?>
-
-
-
-
-        <script src="js/search-filter-history.js"></script>
-        <script src="js/date.js"></script>
+            </div>';
+    } elseif ($action == 'success') {
+        echo '<div id="popup1" class="overlay"><div class="popup"><center><br><br><br><br><h2>Edit Successfully!</h2><a class="close" href="history.php">&times;</a><div class="content"></div><div style="display: flex;justify-content: center;"><a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a></div><br><br></center></div></div>';
+    }
+}
+?>
     </section>
+    <script src="js/search-filter-appointment.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/appointment.js"></script>
 </body>
-
 </html>

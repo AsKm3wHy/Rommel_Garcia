@@ -1,0 +1,27 @@
+{
+  "name": "rommel-garcia-photography",
+  "version": "1.0.0",
+  "description": "Rommel Garcia Digital Video and Photography Website",
+  "main": "index.php",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o css/tailwind.css --minify",
+    "watch": "tailwindcss -i src/input.css -o css/tailwind.css --watch",
+    "dev": "tailwindcss -i src/input.css -o css/tailwind.css --watch",
+    "production": "tailwindcss -i src/input.css -o css/tailwind.min.css --minify"
+  },
+  "keywords": [
+    "photography",
+    "videography",
+    "php",
+    "tailwindcss",
+    "material-ui"
+  ],
+  "author": "Rommel Garcia",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^4.1.11"
+  }
+} 

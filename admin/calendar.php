@@ -1,3 +1,27 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: index.php');
+    exit;
+}
+require_once 'config/database.php';
+require_once 'models/Appointment.php';
+$database = new Database();
+$db = $database->getConnection();
+$appointmentModel = new Appointment($db);
+$appointments = $appointmentModel->getAllAppointments();
+$calendarEvents = [];
+foreach ($appointments as $appt) {
+    $calendarEvents[] = [
+        'title' => htmlspecialchars($appt['full_name'] . (isset($appt['notes']) && $appt['notes'] ? ' (' . $appt['notes'] . ')' : '')),
+        'start' => $appt['appointment_date'] . 'T' . substr($appt['appointment_time'], 0, 5),
+        'url' => 'Appointment.php?action=view&id=' . $appt['id'],
+    ];
+}
+?>
+<script>
+window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -151,17 +175,14 @@
                 <a href="history.php?page=History"><span class="material-symbols-outlined"> History </span>History</a>
             </li>
 
-            <li>
-                <a href="delete.php?page=delete-history"><span class="material-symbols-outlined"> Delete
-                    </span>Delete</a>
-            </li>
+
 
         </ul>
 
         <div class="bottom-log">
             <ul class="sidebar-links log-btn">
                 <li>
-                    <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    <a href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
                 </li>
 
             </ul>

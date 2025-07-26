@@ -1,5 +1,77 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 include_once("header.php");
+
+class Database {
+    private $host;
+    private $username;
+    private $password;
+    private $database;
+    private $conn;
+    public function __construct() {
+        $this->host = getenv('DB_HOST');
+        $this->username = getenv('DB_USER');
+        $this->password = getenv('DB_PASS');
+        $this->database = getenv('DB_NAME');
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->database,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
+    public function getConnection() {
+        return $this->conn;
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $json = file_get_contents("php://input");
+    $data = json_decode($json, true);
+    if ($data) {
+        $package = $data["package"];
+        $full_name = $data["full_name"];
+        $email = $data["email"];
+        $phone = $data["phone"];
+        $booking_date = $data["booking_date"];
+        $booking_time = $data["booking_time"];
+        if (empty($package) || empty($full_name) || empty($email) || empty($phone) || empty($booking_date) || empty($booking_time)) {
+            echo json_encode(["success" => false, "message" => "All fields are required"]);
+            exit;
+        }
+        $database = new Database();
+        $conn = $database->getConnection();
+        $stmt = $conn->prepare("SELECT * FROM appointments WHERE booking_date = ? AND booking_time = ?");
+        $stmt->execute([$booking_date, $booking_time]);
+        $existing = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($existing) {
+            echo json_encode(["success" => false, "message" => "This time slot is already booked. Please select another time."]);
+            exit;
+        }
+        $stmt = $conn->prepare("INSERT INTO appointments (package, full_name, email, phone, booking_date, booking_time) VALUES (?, ?, ?, ?, ?, ?)");
+        $result = $stmt->execute([$package, $full_name, $email, $phone, $booking_date, $booking_time]);
+        if ($result) {
+            $id = $conn->lastInsertId();
+            echo json_encode([
+                "success" => true,
+                "message" => "Appointment booked successfully",
+                "id" => $id,
+                "full_name" => $full_name,
+                "booking_date" => $booking_date,
+                "booking_time" => $booking_time,
+                "package" => $package
+            ]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Failed to book appointment"]);
+        }
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -213,6 +285,121 @@ include_once("header.php");
     </section>
 
     <h1 class="title-grad">Celebrate Your Milestone with Memorable Moments</h1>
+    
+    <!-- Swiper container for graduate package gallery -->
+    <section class="graduate-gallery">
+        <div class="swiper graduateSwiper container">
+            <div class="swiper-wrapper content">
+                
+                <!-- Swiper slide item 1 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/13.jpg" alt="Graduate Photo 1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 2 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/15.jpg" alt="Graduate Photo 2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 3 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="img/indeximage/IMG_9279.JPG" alt="Graduate Photo 3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 4 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/14.jpg" alt="Graduate Photo 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 5 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/21.jpg" alt="Graduate Photo 5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 6 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/18.jpg" alt="Graduate Photo 6">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 7 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/19.jpg" alt="Graduate Photo 7">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 8 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/20.jpg" alt="Graduate Photo 8">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 9 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/22.jpg" alt="Graduate Photo 9">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 10 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="my image/f2.jpg" alt="Graduate Photo 10">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper slide item 11 -->
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="gallery-item">
+                            <img src="img/indeximage/IMG_9282.JPG" alt="Graduate Photo 11">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Swiper navigation buttons -->
+        <div class="swiper-button-next graduate-next"></div>
+        <div class="swiper-button-prev graduate-prev"></div>
+        <div class="swiper-pagination graduate-pagination"></div>
+    </section>
+
+    <!-- Lightbox for image preview -->
     <div class="lightbox">
         <div class="wrapper">
             <header>
@@ -227,49 +414,63 @@ include_once("header.php");
             </div>
         </div>
     </div>
-    <section class="gallery">
-        <ul class="images">
-            <li class="img"><img src="my image/13.jpg" alt="img"></li>
-            <li class="img"><img src="my image/15.jpg" alt="img"></li>
-            <li class="img"><img src="img/indeximage/IMG_9279.JPG" alt="img"></li>
-            <li class="img"><img src="my image/14.jpg" alt="img"></li>
-            <li class="img"><img src="my image/21.jpg" alt="img"></li>
-            <li class="img"><img src="my image/18.jpg" alt="img"></li>
-            <li class="img"><img src="my image/19.jpg" alt="img"></li>
-            <li class="img"><img src="my image/20.jpg" alt="img"></li>
-            <li class="img"><img src="my image/22.jpg" alt="img"></li>
-            <li class="img"><img src="my image/f2.jpg" alt="img"></li>
-            <li class="img"><img src="img/indeximage/IMG_9282.JPG" alt="img"></li>
-        </ul>
-    </section>
-
-
 
     <?php echo $footer; ?>
 </body>
 
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
 <script>
-    const allImages = document.querySelectorAll(".images .img");
+    // Initialize graduate gallery Swiper
+    var graduateSwiper = new Swiper('.graduateSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".graduate-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".graduate-next",
+            prevEl: ".graduate-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            },
+            1150: {
+                slidesPerView: 4
+            }
+        }
+    });
+
+    // Lightbox functionality for gallery images
+    const allImages = document.querySelectorAll(".graduateSwiper .gallery-item img");
     const lightbox = document.querySelector(".lightbox");
     const closeImgBtn = lightbox.querySelector(".close-icon");
+    
     allImages.forEach(img => {
-
-        img.addEventListener("click", () => showLightbox(img.querySelector("img").src));
+        img.addEventListener("click", () => showLightbox(img.src));
     });
+    
     const showLightbox = (img) => {
-
         lightbox.querySelector("img").src = img;
         lightbox.classList.add("show");
         document.body.style.overflow = "hidden";
     }
+    
     closeImgBtn.addEventListener("click", () => {
-
         lightbox.classList.remove("show");
         document.body.style.overflow = "auto";
     });
 </script>
-
-
 
 <script src="js/jquery.min.js"></script>
 
@@ -311,6 +512,77 @@ include_once("header.php");
 
 <script src="js-package/packages.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('appointmentForm');
+            const modal = document.getElementById('confirmationModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
+
+            // Set minimum date to today
+            const dateInput = form.querySelector('input[name=\"date\"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    package: "GRADUATE Package 3",
+                    full_name: form.fullName.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    booking_date: form.date.value,
+                    booking_time: form.time.value
+                };
+
+                try {
+                    const response = await fetch('/API/api/bookings/create.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Display success message and appointment details
+                        modalContent.innerHTML = `
+                            <div class=\"mt-3\">
+                                <p><strong>Booking ID:</strong> ${result.id}</p>
+                                <p><strong>Name:</strong> ${result.full_name}</p>
+                                <p><strong>Date:</strong> ${result.booking_date}</p>
+                                <p><strong>Time:</strong> ${result.booking_time}</p>
+                                <p><strong>Package:</strong> ${result.package}</p>
+                                <p><strong>Price:</strong> ₱2,599.00</p>
+                            </div>
+                        `;
+                        modal.style.display = 'flex';
+                        form.reset();
+                    } else {
+                        alert(result.message || 'Failed to book appointment. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+
+            // Close modal when clicking the X button
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

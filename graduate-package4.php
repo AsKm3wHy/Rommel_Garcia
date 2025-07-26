@@ -1,5 +1,77 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 include_once("header.php");
+
+class Database {
+    private $host;
+    private $username;
+    private $password;
+    private $database;
+    private $conn;
+    public function __construct() {
+        $this->host = getenv('DB_HOST');
+        $this->username = getenv('DB_USER');
+        $this->password = getenv('DB_PASS');
+        $this->database = getenv('DB_NAME');
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->database,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
+    public function getConnection() {
+        return $this->conn;
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $json = file_get_contents("php://input");
+    $data = json_decode($json, true);
+    if ($data) {
+        $package = $data["package"];
+        $full_name = $data["full_name"];
+        $email = $data["email"];
+        $phone = $data["phone"];
+        $booking_date = $data["booking_date"];
+        $booking_time = $data["booking_time"];
+        if (empty($package) || empty($full_name) || empty($email) || empty($phone) || empty($booking_date) || empty($booking_time)) {
+            echo json_encode(["success" => false, "message" => "All fields are required"]);
+            exit;
+        }
+        $database = new Database();
+        $conn = $database->getConnection();
+        $stmt = $conn->prepare("SELECT * FROM appointments WHERE booking_date = ? AND booking_time = ?");
+        $stmt->execute([$booking_date, $booking_time]);
+        $existing = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($existing) {
+            echo json_encode(["success" => false, "message" => "This time slot is already booked. Please select another time."]);
+            exit;
+        }
+        $stmt = $conn->prepare("INSERT INTO appointments (package, full_name, email, phone, booking_date, booking_time) VALUES (?, ?, ?, ?, ?, ?)");
+        $result = $stmt->execute([$package, $full_name, $email, $phone, $booking_date, $booking_time]);
+        if ($result) {
+            $id = $conn->lastInsertId();
+            echo json_encode([
+                "success" => true,
+                "message" => "Appointment booked successfully",
+                "id" => $id,
+                "full_name" => $full_name,
+                "booking_date" => $booking_date,
+                "booking_time" => $booking_time,
+                "package" => $package
+            ]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Failed to book appointment"]);
+        }
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -301,6 +373,75 @@ include_once("header.php");
 
 <script src="js-package/packages.js"></script>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('appointmentForm');
+            const modal = document.getElementById('confirmationModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
 
+            // Set minimum date to today
+            const dateInput = form.querySelector('input[name="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    package: "GRADUATE Package 4",
+                    full_name: form.fullName.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    booking_date: form.date.value,
+                    booking_time: form.time.value
+                };
+
+                try {
+                    const response = await fetch('/API/api/bookings/create.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Display success message and appointment details
+                        modalContent.innerHTML = `
+                            <div class=\"mt-3\">
+                                <p><strong>Booking ID:</strong> ${result.id}</p>
+                                <p><strong>Name:</strong> ${result.full_name}</p>
+                                <p><strong>Date:</strong> ${result.booking_date}</p>
+                                <p><strong>Time:</strong> ${result.booking_time}</p>
+                                <p><strong>Package:</strong> ${result.package}</p>
+                                <p><strong>Price:</strong> ₱3,599.00</p>
+                            </div>
+                        `;
+                        modal.style.display = 'flex';
+                        form.reset();
+                    } else {
+                        alert(result.message || 'Failed to book appointment. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+
+            // Close modal when clicking the X button
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </html>

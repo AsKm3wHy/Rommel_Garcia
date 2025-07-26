@@ -1380,3 +1380,158 @@ div.gallery img {
 .nav-title .material-symbols-outlined {
   font-size: 30px !important;
 }
+
+/* Gallery Modal Card */
+.gallery-modal-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(60,60,60,0.15);
+  padding: 32px 32px 24px 32px;
+  max-width: 420px;
+  margin: 0 auto;
+  position: relative;
+}
+.gallery-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.gallery-modal-icon {
+  font-size: 2.2rem;
+  color: #1976d2;
+}
+.gallery-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.gallery-drop-area {
+  border: 2px dashed #1976d2;
+  border-radius: 12px;
+  padding: 32px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #f7faff;
+  position: relative;
+}
+.gallery-drop-area.dragover {
+  border-color: #1565c0;
+  background: #e3f2fd;
+}
+.gallery-drop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.gallery-drop-icon {
+  font-size: 2.5rem;
+  color: #1976d2;
+}
+#galleryDropText {
+  color: #1976d2;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+#galleryImagePreview {
+  margin-top: 10px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+}
+.gallery-modal-field label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #333;
+}
+.gallery-modal-select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  font-size: 1rem;
+  background: #f9f9f9;
+  margin-top: 2px;
+}
+.gallery-modal-upload-btn {
+  width: 100%;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.gallery-modal-upload-btn:hover {
+  background: #1565c0;
+}
+@media (max-width: 600px) {
+  .gallery-modal-card {
+    padding: 18px 6px 16px 6px;
+    max-width: 98vw;
+  }
+}
+
+/* Center modal overlay and modal card */
+#addImageModal.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: opacity 0.3s;
+}
+#addImageModal.modal.show {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#addImageModal .gallery-modal-card {
+  margin: 0 !important;
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(60,60,60,0.15);
+  border-radius: 16px;
+  background: #fff;
+  padding: 32px 32px 24px 32px;
+}
+#addImageModal .close {
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  #addImageModal .gallery-modal-card {
+    padding: 18px 6px 16px 6px;
+    max-width: 98vw;
+  }
+}
+
+#deleteModal.modal {
+  display: none !important;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: opacity 0.3s;
+}
+#deleteModal.modal.show {
+  display: flex !important;
+}

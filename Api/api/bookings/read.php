@@ -1,44 +1,52 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once '../config/database.php';
-include_once '../models/Booking.php';
+require_once '../../config.php';
 
-$database = new Database();
-$db = $database->getConnection();
+$db = Database::getInstance()->getConnection();
 
-$booking = new Booking($db);
+try {
+    $stmt = $db->prepare("
+        SELECT a.*, s.name as status_name, s.color as status_color 
+        FROM appointments a 
+        LEFT JOIN appointment_statuses s ON a.status_id = s.id 
+        ORDER BY a.appointment_date DESC, a.appointment_time ASC
+    ");
+    $stmt->execute();
+    $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$stmt = $booking->read();
-$num = $stmt->rowCount();
+    if (count($appointments) > 0) {
+        $appointments_arr = array();
+        $appointments_arr["records"] = array();
 
-if($num > 0) {
-    $bookings_arr = array();
-    $bookings_arr["records"] = array();
-    
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        extract($row);
-        
-        $booking_item = array(
-            "id" => $id,
-            "package" => $package,
-            "full_name" => $full_name,
-            "email" => $email,
-            "phone" => $phone,
-            "booking_date" => $booking_date,
-            "booking_time" => $booking_time,
-            "created_at" => $created_at,
-            "updated_at" => $updated_at
-        );
-        
-        array_push($bookings_arr["records"], $booking_item);
+        foreach ($appointments as $appointment) {
+            $appointment_item = array(
+                "id" => $appointment["id"],
+                "full_name" => $appointment["full_name"],
+                "email" => $appointment["email"],
+                "phone" => $appointment["phone"],
+                "booking_date" => $appointment["appointment_date"],
+                "booking_time" => $appointment["appointment_time"],
+                "status" => $appointment["status_name"],
+                "status_color" => $appointment["status_color"],
+                "package" => str_replace(" Package", "", $appointment["notes"])
+            );
+
+            array_push($appointments_arr["records"], $appointment_item);
+        }
+
+        http_response_code(200);
+        echo json_encode($appointments_arr);
+    } else {
+        http_response_code(200);
+        echo json_encode(array("message" => "No appointments found."));
     }
-    
-    http_response_code(200);
-    echo json_encode($bookings_arr);
-} else {
-    http_response_code(404);
-    echo json_encode(array("message" => "No bookings found."));
+} catch (PDOException $e) {
+    http_response_code(503);
+    echo json_encode(array("message" => "Unable to read appointments: " . $e->getMessage()));
 }
 ?>

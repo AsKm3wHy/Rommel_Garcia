@@ -1,5 +1,12 @@
 <?php
 include_once("header.php");
+
+// Set cache headers for better performance
+header("Cache-Control: max-age=3600, public"); // Cache for 1 hour
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + 3600) . " GMT");
+header("X-Content-Type-Options: nosniff"); // Security header
+header("X-Frame-Options: SAMEORIGIN"); // Security header
+header("X-XSS-Protection: 1; mode=block"); // Security header
 ?>
 <!DOCTYPE html>
 <html lang="en-PH">
@@ -237,17 +244,17 @@ include_once("header.php");
     </h1>
 
     <style>
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 
 
@@ -706,19 +713,15 @@ include_once("header.php");
     </section>
 
 
-    <section class="third-package">
-        <div class="title-grad text-center">
-            <h2>GRADUATION PACKAGES</h2>
-            <p>Choose the best package for your graduation photoshoot</p>
-        </div>
-
-        <div class="swiper thirdSwiper  containers ">
+    <section class="third-package" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="swiper thirdSwiper  containers">
             <div class="swiper-wrapper content">
+
 
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>Package 1 <span>GRADUATE</span></h2>
+                            <h2>GRADUATE<span>Package 1</span></h2>
                             <div class="etiquet-price">
                                 <p>899.00</p>
                                 <div></div>
@@ -803,7 +806,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>Package 2 <span>GRADUATE</span></h2>
+                            <h2>GRADUATE<span>Package 2</span></h2>
                             <div class="etiquet-price">
                                 <p>1,599.00</p>
                                 <div></div>
@@ -892,7 +895,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>Package 3 <span>GRADUATE</span></h2>
+                            <h2>GRADUATE<span>Package 3</span></h2>
                             <div class="etiquet-price">
                                 <p>2,599.00</p>
                                 <div></div>
@@ -981,7 +984,7 @@ include_once("header.php");
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="plan-card">
-                            <h2>Package 4<span>GRADUATE</span></h2>
+                            <h2>GRADUATE<span>Package 4</span></h2>
                             <div class="etiquet-price">
                                 <p>3,599.00</p>
                                 <div></div>
@@ -1065,7 +1068,6 @@ include_once("header.php");
                             </div>
                         </div>
                     </div>
-                </div>
 
             </div>
         </div>
@@ -1077,10 +1079,7 @@ include_once("header.php");
 
     <br>
     <section class="second-package" data-aos="zoom-in-up" data-aos-duration="2000">
-        <div class="title-text text-center">
-            <h2>GRADUATION PACKAGES</h2>
-            <p>Choose the best package for your graduation photoshoot</p>
-        </div>
+        <!-- Swiper container -->
         <div class="swiper secondSwiper  containers">
             <div class="swiper-wrapper content">
 
@@ -1382,31 +1381,82 @@ include_once("header.php");
     </section>
 
 
-    <?php echo $gallery; ?>
-
-    <footer>
-        <div class="wrapper">
-            <div class="containerUp">
-                <div class="social-info">
-                    <h2>Rommel Garcia Digital Video and Photography </h2>
-
+    <?php
+    // List of all categories
+    $categories = ["SOLO","DUO","TRIO","QUAD","DELUXE","GROUP","GRADUATE","UNO","DOS","TRES","CUATRO","CINCO","SEIS"];
+    
+    // Fetch all images and categories from the gallery table
+    $mysqli = new mysqli("localhost", "root", "", "rommelgarciaappointments");
+    if ($mysqli->connect_errno) {
+        die("Failed to connect to MySQL: " . $mysqli->connect_error);
+    }
+    $images = [];
+    $res = $mysqli->query("SELECT * FROM gallery ORDER BY uploaded_at DESC");
+    while ($row = $res->fetch_assoc()) {
+        $images[] = $row;
+    }
+    $mysqli->close();
+    ?>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section section-padding-80-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Our Gallery</h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Explore our collection of professional photography work</p>
+                    <div class="btn-group" role="group" aria-label="Gallery Categories" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <button type="button" class="btn btn-outline-dark filter-btn active" data-filter="all">All</button>
+                        <?php foreach ($categories as $cat): ?>
+                            <button type="button" class="btn btn-outline-dark filter-btn" data-filter="<?php echo strtolower($cat); ?>"><?php echo $cat; ?></button>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <!-- <div class="connect">
-                    <h2>Stay up to date on the latest from Lx Gallery</h2>
-                    <form>
-                        <input type="email" placeholder="Enter your email">
-                        <button>Subscribe</button>
-                    </form>
-                </div> -->
             </div>
-            <hr>
-            <div class="containerDown">
-                <div class="last">
-
-                </div>
+            <div class="row gallery-grid">
+                <?php foreach ($images as $img): ?>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 gallery-item" data-category="<?php echo strtolower($img['category']); ?>" data-aos="fade-up" data-aos-duration="800">
+                        <div class="single-portfolio-item">
+                            <a href="uploads/gallery/<?php echo htmlspecialchars($img['filename']); ?>" class="portfolio-img" target="_blank">
+                                <img src="uploads/gallery/<?php echo htmlspecialchars($img['filename']); ?>" alt="gallery image" class="img-fluid">
+                            </a>
+                            <div class="portfolio-meta mt-2 text-center">
+                                <span class="badge badge-secondary"><?php echo htmlspecialchars($img['category']); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <?php if (empty($images)): ?>
+                    <div class="col-12 text-center" data-aos="fade-up" data-aos-duration="800"><p>No images in the gallery yet.</p></div>
+                <?php endif; ?>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <script>
+    // Simple filter logic for categories
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
+    <?php echo $footer; ?>
 </body>
 
 <!-- <script>
@@ -1424,11 +1474,11 @@ include_once("header.php");
 
 <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
 <script>
-eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
 </script>
 
 <script>
-eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
 </script>
 
 <script src="js/lx.bundle.js"></script>
@@ -1437,139 +1487,143 @@ eval(mod_pagespeed_aQrG1NKKxL);
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-</script>
+    </script>
 </script>
 <!-- animate on scroll js  -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-// Initialize first Swiper
-var swiper1 = new Swiper('.firstSwiper', {
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".first-next",
-        prevEl: ".first-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
+    // Initialize first Swiper
+    var swiper1 = new Swiper('.firstSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        768: {
-            slidesPerView: 2
+        navigation: {
+            nextEl: ".first-next",
+            prevEl: ".first-prev",
         },
-        1000: {
-            slidesPerView: 3
-        },
-        1024: {
-            slidesPerView: 4
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1000: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 4
+            }
+            // 1300: {
+            //     slidesPerView: 5
+            // }
         }
-        // 1300: {
-        //     slidesPerView: 5
-        // }
-    }
-});
+    });
 
-var swiper3 = new Swiper('.thirdSwiper', {
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".third-next",
-        prevEl: ".third-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
+    var swiper3 = new Swiper('.thirdSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        768: {
-            slidesPerView: 2
+        navigation: {
+            nextEl: ".third-next",
+            prevEl: ".third-prev",
         },
-        1024: {
-            slidesPerView: 3
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            }
         }
-    }
-});
+    });
 
-// Initialize second Swiper
-var swiper2 = new Swiper('.secondSwiper', {
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".second-next",
-        prevEl: ".second-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
+    // Initialize second Swiper
+    var swiper2 = new Swiper('.secondSwiper', {
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        768: {
-            slidesPerView: 2
+        navigation: {
+            nextEl: ".second-next",
+            prevEl: ".second-prev",
         },
-        1024: {
-            slidesPerView: 3
-        },
-        1150: {
-            slidesPerView: 4
-        },
-        1600: {
-            slidesPerView: 5
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            },
+            1150: {
+                slidesPerView: 4
+            },
+            1600: {
+                slidesPerView: 5
+            }
         }
-    }
-});
+    });
 </script>
 
 <script>
-const buttons = document.querySelectorAll('.uno a');
+    const buttons = document.querySelectorAll('.uno a');
 
-const allSections = document.querySelectorAll('.form-section');
+    const allSections = document.querySelectorAll('.form-section');
 
-buttons.forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = btn.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
+    buttons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
 
 
-        allSections.forEach(function(section) {
-            section.classList.remove('show-form');
+            allSections.forEach(function (section) {
+                section.classList.remove('show-form');
+            });
+            if (targetSection) {
+                targetSection.classList.toggle('show-form');
+            }
         });
-        if (targetSection) {
-            targetSection.classList.toggle('show-form');
-        }
     });
-});
+</script>
+
+<script>
+// This script is no longer needed as we're using server-side rendering for the gallery
 </script>
 
 </body>

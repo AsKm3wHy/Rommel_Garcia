@@ -1,3 +1,255 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: index.php');
+    exit;
+}
+require_once 'config/error_handler.php';
+require_once 'config/database.php';
+require_once 'models/Appointment.php';
+
+// Initialize DB and model
+$database = new Database();
+$db = $database->getConnection();
+$appointmentModel = new Appointment($db);
+
+// Handle search
+$searchTerm = isset($_POST['search']) ? trim($_POST['search']) : '';
+$sortField = isset($_GET['sort']) ? $_GET['sort'] : 'appointment_date';
+$sortDir = (isset($_GET['dir']) && strtolower($_GET['dir']) === 'desc') ? 'DESC' : 'ASC';
+$allowedSortFields = ['appointment_date', 'notes', 'status_id', 'appointment_time'];
+if (!in_array($sortField, $allowedSortFields)) {
+    $sortField = 'appointment_date';
+}
+$appointments = [];
+if ($searchTerm !== '') {
+    $query = "SELECT * FROM appointments WHERE full_name LIKE ? AND status_id NOT IN (3,4) ORDER BY $sortField $sortDir, appointment_date DESC, appointment_time ASC";
+    $stmt = $db->prepare($query);
+    $stmt->execute(['%' . $searchTerm . '%']);
+    $appointments = $stmt->fetchAll();
+} else {
+    $query = "SELECT * FROM appointments WHERE status_id NOT IN (3,4) ORDER BY $sortField $sortDir, appointment_date DESC, appointment_time ASC";
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $appointments = $stmt->fetchAll();
+}
+
+// Handle add new appointment
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name-client'], $_POST['Tele-client'], $_POST['spec'], $_POST['datetime'])) {
+    $dt = $_POST['datetime'];
+    $date = $time = '';
+    if (strpos($dt, 'T') !== false) {
+        list($date, $time) = explode('T', $dt);
+    }
+    $data = [
+        'full_name' => $_POST['name-client'],
+        'email' => $_POST['email'] ?? '',
+        'phone' => $_POST['Tele-client'],
+        'appointment_date' => $date,
+        'appointment_time' => $time,
+        'status_id' => 1,
+        'notes' => $_POST['spec']
+    ];
+    $appointmentModel->addAppointment($data);
+    header('Location: Appointment.php?action=added');
+    exit;
+}
+
+// Handle view, edit, done, cancel actions (fetch by ID)
+$popupAppointment = null;
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $popupAppointment = $appointmentModel->getAppointmentById($_GET['id']);
+}
+
+// Handle edit appointment
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
+    $dt = $_POST['datetime'];
+    $date = $time = '';
+    if (strpos($dt, 'T') !== false) {
+        list($date, $time) = explode('T', $dt);
+    }
+    $data = [
+        'full_name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'phone' => $_POST['Tele-client'],
+        'appointment_date' => $date,
+        'appointment_time' => $time,
+        'notes' => $_POST['spec']
+    ];
+    $appointmentModel->updateAppointment($_POST['edit_id'], $data);
+    header('Location: Appointment.php?action=success');
+    exit;
+}
+
+// Handle mark as done
+if (isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'done' && is_numeric($_GET['id'])) {
+    $appointmentModel->markAsDone($_GET['id']);
+    header('Location: Appointment.php?action=done-success');
+    exit;
+}
+
+// Handle cancel
+if (isset($_GET['action'], $_GET['id'], $_GET['confirm']) && $_GET['action'] === 'cancel' && is_numeric($_GET['id']) && $_GET['confirm'] == 1) {
+    $appointmentModel->cancelAppointment($_GET['id']);
+    header('Location: Appointment.php?action=cancel-success');
+    exit;
+}
+
+// Handle confirm
+if (isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'confirm' && is_numeric($_GET['id'])) {
+    $appointmentModel->confirmAppointment($_GET['id']);
+    header('Location: Appointment.php?action=confirm-success');
+    exit;
+}
+
+// Handle set pending
+if (isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'set-pending' && is_numeric($_GET['id'])) {
+    $appointmentModel->setPending($_GET['id']);
+    header('Location: Appointment.php?action=pending-success');
+    exit;
+}
+
+// Handle reschedule POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reschedule_id'], $_POST['reschedule_datetime'])) {
+    $id = (int)$_POST['reschedule_id'];
+    $dt = $_POST['reschedule_datetime'];
+    $date = $time = '';
+    if (strpos($dt, 'T') !== false) {
+        list($date, $time) = explode('T', $dt);
+    }
+    // Fetch current appointment data
+    $appointment = $appointmentModel->getAppointmentById($id);
+    // Update only date and time, keep other fields (only supported fields)
+    $data = [
+        'full_name' => $appointment['full_name'],
+        'email' => $appointment['email'],
+        'phone' => $appointment['phone'],
+        'appointment_date' => $date,
+        'appointment_time' => $time,
+        'notes' => $appointment['notes']
+    ];
+    $appointmentModel->updateAppointment($id, $data);
+    // Send email and redirect as before
+    $appointment = $appointmentModel->getAppointmentById($id);
+    sendStatusUpdateEmail($appointment, getStatusText($appointment['status_id']), 'reschedule');
+    header('Location: Appointment.php?action=view&id=' . $id . '&rescheduled=1');
+    exit;
+}
+
+// Helper function to send status update or reschedule email receipt
+function sendStatusUpdateEmail($appointment, $newStatusText, $type = 'status') {
+    $to = $appointment['email'];
+    $fullName = htmlspecialchars($appointment['full_name']);
+    $date = htmlspecialchars($appointment['appointment_date']);
+    $time = htmlspecialchars($appointment['appointment_time']);
+    $category = htmlspecialchars($appointment['notes']);
+    $status = htmlspecialchars($newStatusText);
+    $subject = ($type === 'reschedule') ? "Your Appointment Has Been Rescheduled Receipt" : "Your Appointment Status Update";
+    $mainMessage = ($type === 'reschedule')
+        ? "Your appointment has been <b>rescheduled</b>. Please see your new appointment details below:"
+        : "Your appointment status has been updated. Please see the details below:";
+    $highlight = ($type === 'reschedule')
+        ? "Rescheduled: $date $time"
+        : "Status: $status";
+    $message = <<<EOD
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>$subject</title>
+    </head>
+    <body style="background:#f6f6f6;margin:0;padding:0;font-family:Arial,sans-serif;">
+      <table width="100%" bgcolor="#f6f6f6" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+            <table style="max-width:600px;margin:40px auto;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);padding:40px 30px;" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="text-align:center;">
+                  <img src="http://localhost/img/Header-Pic/rommel-logo-v3.svg" alt="Rommel Garcia Logo" style="width:90px;height:auto;margin-bottom:12px;">
+                  <h2 style="color:#1976d2;margin-bottom:8px;">Rommel Garcia Digital Video & Photography</h2>
+                  <h3 style="color:#333;margin-top:0;margin-bottom:24px;">$subject</h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p style="font-size:1.1em;color:#444;margin-bottom:24px;">Hello <b>$fullName</b>,<br><br>$mainMessage</p>
+                  <table width="100%" cellpadding="8" cellspacing="0" border="0" style="background:#f5faff;border-radius:8px;margin-bottom:24px;">
+                    <tr>
+                      <td style="color:#888;font-weight:bold;width:160px;">Name:</td>
+                      <td style="color:#222;">$fullName</td>
+                    </tr>
+                    <tr>
+                      <td style="color:#888;font-weight:bold;">Category:</td>
+                      <td style="color:#222;">$category</td>
+                    </tr>
+                    <tr>
+                      <td style="color:#888;font-weight:bold;">Date:</td>
+                      <td style="color:#222;">$date</td>
+                    </tr>
+                    <tr>
+                      <td style="color:#888;font-weight:bold;">Time:</td>
+                      <td style="color:#222;">$time</td>
+                    </tr>
+                    <tr>
+                      <td style="color:#888;font-weight:bold;">Status:</td>
+                      <td style="color:#1976d2;font-weight:bold;">$status</td>
+                    </tr>
+                  </table>
+                  <p style="color:#555;font-size:1em;margin-bottom:24px;">If you have any questions or need to reschedule, please <a href="https://www.facebook.com/rommelgarciadigitalvideoandphotography" target="_blank" style="color:#4267B2;text-decoration:underline;">contact us</a>.<br><br>Thank you for choosing Rommel Garcia Digital Video & Photography!</p>
+                  <div style="text-align:center;margin-top:32px;">
+                    <span style="display:inline-block;background:#1976d2;color:#fff;padding:12px 32px;border-radius:6px;font-size:1.1em;font-weight:bold;letter-spacing:1px;">$highlight</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:center;color:#aaa;font-size:0.95em;padding-top:32px;">&copy; Rommel Garcia Digital Video & Photography</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
+    EOD;
+    // Email headers
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: Rommel Garcia <no-reply@rommelgarcia.com>\r\n";
+    // Log the email to a file for local testing
+    file_put_contents('email_test.html', $message);
+}
+
+// At the top PHP, handle POST for status change
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['status_id'], $_POST['new_status'])) {
+    $id = (int)$_POST['status_id'];
+    $newStatus = (int)$_POST['new_status'];
+    switch ($newStatus) {
+        case 1: $appointmentModel->setPending($id); break;
+        case 2: $appointmentModel->confirmAppointment($id); break;
+        case 3: $appointmentModel->markAsDone($id); break;
+        case 4: $appointmentModel->cancelAppointment($id); break;
+    }
+    // Fetch appointment details after update
+    $appointment = $appointmentModel->getAppointmentById($id);
+    $newStatusText = getStatusText($newStatus);
+    sendStatusUpdateEmail($appointment, $newStatusText);
+    if (isset($_POST['from_view']) && $_POST['from_view'] == '1') {
+        header('Location: Appointment.php?action=view&id=' . $id . '&status_updated=1');
+    } else {
+        header('Location: Appointment.php');
+    }
+    exit;
+}
+
+function getStatusText($status_id) {
+    switch ($status_id) {
+        case 1: return 'Pending';
+        case 2: return 'Confirmed';
+        case 3: return 'Completed';
+        case 4: return 'Cancelled';
+        default: return 'Unknown';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,17 +426,14 @@
                 <a href="history.php?page=History"><span class="material-symbols-outlined"> History </span>History</a>
             </li>
 
-            <li>
-                <a href="delete.php?page=delete-history"><span class="material-symbols-outlined"> Delete
-                    </span>Delete</a>
-            </li>
+
 
         </ul>
 
         <div class="bottom-log">
             <ul class="sidebar-links log-btn">
                 <li>
-                    <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    <a href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
                 </li>
 
             </ul>
@@ -322,7 +571,7 @@
         </div>
 
 
-        <div class="abc scroll scroll-table dash-body">
+        <div class="appointment-list-scroll-container">
             <table width="100%" class="sub-table main-table scrolldown " border="0">
                 <thead>
                     <tr>
@@ -342,30 +591,59 @@
                             Email
                         </th> -->
                         <th class="table-headin">
-
+                            <form method="get" style="display:inline;">
+                                <input type="hidden" name="sort" value="notes">
+                                <input type="hidden" name="dir" value="<?= ($sortField=='notes' && $sortDir=='ASC') ? 'desc' : 'asc' ?>">
                             Category
-
+                                <button type="submit" style="background:none;border:none;cursor:pointer;vertical-align:middle;">
+                                    <span class="material-symbols-outlined" style="font-size:1em;vertical-align:middle;">
+                                        <?= $sortField=='notes' ? ($sortDir=='ASC' ? 'arrow_drop_up' : 'arrow_drop_down') : 'unfold_more' ?>
+                                    </span>
+                                </button>
+                            </form>
                         </th>
                         <th class="table-headin">
-
+                            <form method="get" style="display:inline;">
+                                <input type="hidden" name="sort" value="payment">
+                                <input type="hidden" name="dir" value="<?= ($sortField=='payment' && $sortDir=='ASC') ? 'desc' : 'asc' ?>">
                             Payment
-
+                            </form>
                         </th>
                         <th class="table-headin">
-
-                            Date
-
+                            <form method="get" style="display:inline;">
+                                <input type="hidden" name="sort" value="appointment_date">
+                                <input type="hidden" name="dir" value="<?= ($sortField=='appointment_date' && $sortDir=='ASC') ? 'desc' : 'asc' ?>">
+                                Date
+                                <button type="submit" style="background:none;border:none;cursor:pointer;vertical-align:middle;">
+                                    <span class="material-symbols-outlined" style="font-size:1em;vertical-align:middle;">
+                                        <?= $sortField=='appointment_date' ? ($sortDir=='ASC' ? 'arrow_drop_up' : 'arrow_drop_down') : 'unfold_more' ?>
+                                    </span>
+                                </button>
+                            </form>
                         </th>
                         <th class="table-headin">
-
-                            Time
-
+                            <form method="get" style="display:inline;">
+                                <input type="hidden" name="sort" value="appointment_time">
+                                <input type="hidden" name="dir" value="<?= ($sortField=='appointment_time' && $sortDir=='ASC') ? 'desc' : 'asc' ?>">
+                                Time
+                                <button type="submit" style="background:none;border:none;cursor:pointer;vertical-align:middle;">
+                                    <span class="material-symbols-outlined" style="font-size:1em;vertical-align:middle;">
+                                        <?= $sortField=='appointment_time' ? ($sortDir=='ASC' ? 'arrow_drop_up' : 'arrow_drop_down') : 'unfold_more' ?>
+                                    </span>
+                                </button>
+                            </form>
                         </th>
-
                         <th class="table-headin">
-
+                            <form method="get" style="display:inline;">
+                                <input type="hidden" name="sort" value="status_id">
+                                <input type="hidden" name="dir" value="<?= ($sortField=='status_id' && $sortDir=='ASC') ? 'desc' : 'asc' ?>">
                             Status
-
+                                <button type="submit" style="background:none;border:none;cursor:pointer;vertical-align:middle;">
+                                    <span class="material-symbols-outlined" style="font-size:1em;vertical-align:middle;">
+                                        <?= $sortField=='status_id' ? ($sortDir=='ASC' ? 'arrow_drop_up' : 'arrow_drop_down') : 'unfold_more' ?>
+                                    </span>
+                                </button>
+                            </form>
                         </th>
                         <th class="table-headin">
 
@@ -374,198 +652,30 @@
                     </tr>
                 </thead>
                 <tbody id="client-table-body">
-
-                    <!--                            <tr>
-                                    <td colspan="4">
-                                    <br><br><br><br>
-                                    <center>
-                                    <img src="../img/notfound.svg" width="25%">
-                                    
-                                    <br>
-                                    <p class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49)">We  couldnt find anything related to your keywords !</p>
-                                    <a class="non-style-link" href="doctors.php"><button  class="login-btn btn-primary-soft btn"  style="display: flex;justify-content: center;align-items: center;margin-left:20px;">&nbsp; Show all Doctors &nbsp;</font></button>
-                                    </a>
-                                    </center>
-                                    <br><br><br><br>
-                                    </td>
-                                    </tr> -->
-                    <tr>
-                        <td>123</td>
-                        <td>
-                            Michael Jan Natividad
-                        </td>
-                        <!-- <td>
-                            michaeljannatividadgmail.com
-                        </td> -->
-                        <td>
-                            Group
-                        </td>
-                        <td>
-                            2000
-                        </td>
-                        <td>
-                            1/23/25
-                        </td>
-                        <td>
-                            1:00 PM
-                        </td>
-
+<?php if (empty($appointments)): ?>
+<tr><td colspan="8" style="text-align:center;">No appointments found.</td></tr>
+<?php else: foreach ($appointments as $row): ?>
+<tr>
+    <td><?= sanitizeOutput($row['id']) ?></td>
+    <td><?= sanitizeOutput($row['full_name']) ?></td>
+    <td><?= sanitizeOutput($row['notes']) ?></td>
+    <td><?= sanitizeOutput($row['payment'] ?? 'N/A') ?></td>
+    <td><?= formatDate($row['appointment_date']) ?></td>
+    <td><?= formatDateTime($row['appointment_time']) ?></td>
                         <td class="status-text">
-
-                            <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
+        <span class="status-badge status-<?= strtolower(getStatusText($row['status_id'])) ?>">
+            <?= getStatusText($row['status_id']) ?>
+        </span>
                         </td>
-
-
                         <td>
                             <div class="events-td">
-                                <a href="?action=edit&id=#&error=0" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-edit"
-                                        style=" background-image: url(' img/icon/edit-iceblue.svg')">
-                                        <font class="tn-in-text">Edit</font>
-                                    </button></a>
+            <a href="?action=edit&id=<?= $row['id'] ?>&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')"><font class="tn-in-text">Edit</font></button></a>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="?action=view&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-view"
-                                        style="background-image: url(' img/icon/view-iceblue.svg')">
-                                        <font class="tn-in-text">View</font>
-                                    </button></a>
-                                &nbsp;&nbsp;&nbsp;
-
-                                <a href="?action=done&id=#&name=" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-done"
-                                        style="background-image: url(' img/icon/done_iceblue.svg')">
-                                        <font class="tn-in-text">Done</font>
-                                    </button></a>
-
-
-                                &nbsp;&nbsp;&nbsp;
-
-
-                                <a href="?action=cancel&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-cancel"
-                                        style="background-image: url(' img/icon/cancel-iceblue.svg')">
-                                        <font class="tn-in-text">Cancel</font>
-                                    </button></a>
-
+            <a href="?action=view&id=<?= $row['id'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')"><font class="tn-in-text">View</font></button></a>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td> &nbsp;asddasd</td>
-                        <td>
-                            asdasdad
-                        </td>
-                        <!-- <td>
-                            asdasd
-                        </td> -->
-                        <td>
-                            asdasdad
-                        </td>
-                        <td>
-                            2000
-                        </td>
-                        <td>
-                            1/23/25
-                        </td>
-                        <td>
-                            1:00 PM
-                        </td>
-
-                        <td class="status-text">
-                            <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
-                        </td>
-
-                        <td>
-                            <div class="events-td">
-                                <a href="?action=edit&id=&error=0" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-edit"
-                                        style=" background-image: url(' img/icon/edit-iceblue.svg')">
-                                        <font class="tn-in-text">Edit</font>
-                                    </button></a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="?action=view&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-view"
-                                        style="background-image: url(' img/icon/view-iceblue.svg')">
-                                        <font class="tn-in-text">View</font>
-                                    </button></a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="?action=done&id=#&name=" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-done"
-                                        style="background-image: url(' img/icon/done_iceblue.svg')">
-                                        <font class="tn-in-text">Done</font>
-                                    </button></a>
-
-
-                                &nbsp;&nbsp;&nbsp;
-
-
-                                <a href="?action=cancel&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-cancel"
-                                        style="background-image: url(' img/icon/cancel-iceblue.svg')">
-                                        <font class="tn-in-text">Cancel</font>
-                                    </button></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> &nbsp;asddasd</td>
-                        <td>
-                            asdasdad
-                        </td>
-                        <!-- <td>
-                            asdasd
-                        </td> -->
-                        <td>
-                            asdasdad
-                        </td>
-                        <td>
-                            2000
-                        </td>
-                        <td>
-                            1/23/25
-                        </td>
-                        <td>
-                            1:00 PM
-                        </td>
-
-                        <td class="status-text">
-                            <input name="status" type="text" value="Pending..." readonly style="text-align: center;" />
-                        </td>
-
-                        <td>
-                            <div class="events-td">
-                                <a href="?action=edit&id=#&error=0" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-edit"
-                                        style=" background-image: url(' img/icon/edit-iceblue.svg')">
-                                        <font class="tn-in-text">Edit</font>
-                                    </button></a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="?action=view&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-view"
-                                        style="background-image: url(' img/icon/view-iceblue.svg')">
-                                        <font class="tn-in-text">View</font>
-                                    </button></a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="?action=done&id=#&name=" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-done"
-                                        style="background-image: url(' img/icon/done_iceblue.svg')">
-                                        <font class="tn-in-text">Done</font>
-                                    </button></a>
-
-
-                                &nbsp;&nbsp;&nbsp;
-
-
-                                <a href="?action=cancel&id=#" class="non-style-link"><button
-                                        class="btn-primary-soft btn button-icon btn-cancel"
-                                        style="background-image: url(' img/icon/cancel-iceblue.svg')">
-                                        <font class="tn-in-text">Cancel</font>
-                                    </button></a>
-                            </div>
-                        </td>
-                    </tr>
-
-
+<?php endforeach; endif; ?>
                 </tbody>
 
             </table>
@@ -599,8 +709,8 @@
                 </div>
                 </div>
             ';
-            } elseif ($action == 'cancel') {
-
+            } elseif ($action == 'cancel' && isset($_GET['id'])) {
+                $id = (int)$_GET['id'];
                 echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
@@ -608,125 +718,89 @@
                         <h2>Are you sure?</h2>
                         <a class="close" href="Appointment.php">&times;</a>
                         <div class="content">
-                            You want to Cancel this appointment<br>().
-                            
+                            You want to Cancel this appointment<br>('.htmlspecialchars($id).').
                         </div>
                         <div style="display: flex;justify-content: center;">
-                        <a href="Appointment.php?id=" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="Appointment.php?action=cancel&id='.htmlspecialchars($id).'&confirm=1" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
                         <a href="Appointment.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
-
                         </div>
                     </center>
             </div>
-            </div>
-            ';
+            </div>';
             } elseif ($action == 'view') {
-
-                echo '
-            <div id="popup1" class="overlay">
-                    <div class="popup">
-                    <center>
-                        <h2></h2>
-                        <a class="close" href=" Appointment.php">&times;</a>
-                        
-                        <div style="display: flex;justify-content: center;">
-                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                        <thead><tr>
-                                <th>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
-                                </th>
-                            </tr></thead>
-                            
-
-                                 <tbody class="tbody-details">
-
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                  
-                                     <label for="name" class="form-label">Date:  </label>
-                                    
-                                </td>
-                                <td><span class="data-bold">1/2/25</span></td>
-                            </tr>
-                             <tr>
-                                <td class="label-td" colspan="2">
-                                  
-                                     <label for="name" class="form-label">Time:  </label>
-                                    
-                                </td>
-                                <td><span class="data-bold">12:00 PM</span></td>
-                            </tr>
-                            
-                            
-                            <tr>
-                                
-                                <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Client Name:  </label>      
-                                </td>
-                                <td><span class="data-bold">Josh Dizon </span></td>
-                            </tr>
-                             <tr>
-                                
-                                <td class="label-td" colspan="2">
-                              
-                                    <label for="Tele" class="form-label">Phone number: </label>
-                                      
-                                </td>
-                                <td><span class="data-bold">09753204523 </span></td>
-                            </tr>
-                         
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                  <label for="Email" class="form-label">Email: </label>
-                                 
-                                    </td>
-                                    <td> <span class="data-bold">JoshDizon@gmail.com  </span></td>
-                            </tr>
-                           
-                            
-                            
-                          
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Category: </label>
-                                     <td> <span class="data-bold">Duo </span></td>
-                                    
-                                </td>
-                            </tr>
-                           
-
-                        
-
-                             <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Payment </label>
-                                      <td> <span class="data-bold">Php 200 </span></td>
-                                    
-                                </td>
-                            </tr></tbody>
-                           
-                         <tr><td><br><br></td></tr>
-
-
-
-                            <tr>
-                                <td colspan="2">
-                                    <a href="Appointment.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
-                                
-                                    
-                                </td>
-                
-                            </tr>
-                           
-
-                        </table>
-                        
+                if ($popupAppointment) {
+                    $statusText = getStatusText($popupAppointment['status_id']);
+                    $statusClass = strtolower($statusText);
+                    $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
+                    $showRescheduled = (isset($_GET['rescheduled']) && $_GET['rescheduled'] == '1');
+                    echo '<div id="popup1" class="overlay" style="z-index: 1000;">
+                <div class="popup" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
+                    <a class="close" href="Appointment.php" style="font-size: 2.5rem; top: 18px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
+                    <div class="abc-popup" style="padding: 0;">
+                        <div style="padding: 32px 32px 0 32px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span class="material-symbols-outlined" style="font-size: 2.1em; color: #1976d2;">event</span>
+                                    <h2 style="margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.5px;">Manage Appointment</h2>
+                                </div>
+                                <span class="status-badge status-'.$statusClass.'" style="font-size: 1rem; padding: 0.4em 1.2em; display: flex; align-items: center; gap: 6px;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1em;">verified</span> '.$statusText.'
+                                </span>
+                            </div>
+                            <hr style="margin-bottom: 18px;">
+                            <div style="margin-bottom: 24px;">
+                                <h3 style="margin: 0 0 12px 0; font-size: 1.15em; color: #1976d2; letter-spacing: 0.5px;">Appointment Details</h3>
+                                <div class="details-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; background: #f5faff; border-radius: 10px; padding: 18px 12px; font-size: 1.05em;">
+                                    <div><span style="font-weight: 600; color: #444;">Client Name:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['full_name']).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Phone:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['phone']).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Email:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['email']).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Category:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['notes']).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Date:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['appointment_date']).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Time:</span><br><span class="data-bold">'.date('g:i A', strtotime($popupAppointment['appointment_time'])).'</span></div>
+                                    <div><span style="font-weight: 600; color: #444;">Payment:</span><br><span class="data-bold">'.htmlspecialchars($popupAppointment['payment'] ?? 'N/A').'</span></div>
+                                </div>
+                            </div>
+                            <div style="margin: 0 -32px 0 -32px;"><hr></div>
+                            <div style="margin: 32px 0 0 0;">
+                                <div style="background: #fff; border-radius: 10px; padding: 22px 18px 18px 18px; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06); margin-bottom: 28px;">
+                                    <h3 style="margin: 0 0 12px 0; font-size: 1.08em; color: #ff9800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">event_repeat</span>Reschedule Appointment</h3>
+                                    '.($showRescheduled ? '<div style="background: #fff3e0; color: #e65100; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">event_repeat</span> Appointment rescheduled successfully!</div>' : '').'
+                                    <form method="post" action="" style="display: flex; flex-direction: column; gap: 8px;">
+                                        <input type="hidden" name="reschedule_id" value="'.htmlspecialchars($popupAppointment['id']).'">
+                                        <label for="reschedule-datetime" style="font-weight: 600;">New Date & Time:</label>
+                                        <input type="datetime-local" id="reschedule-datetime" name="reschedule_datetime" value="'.htmlspecialchars($popupAppointment['appointment_date']).'T'.htmlspecialchars(substr($popupAppointment['appointment_time'],0,5)).'" required style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1.05em;">
+                                        <button type="submit" class="btn-primary btn" style="margin-top: 8px; background: #ff9800; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 1.05em;">
+                                            <span class="material-symbols-outlined" style="font-size: 1.2em;">event_repeat</span> Reschedule
+                                        </button>
+                                    </form>
+                                </div>
+                                <div style="background: #f5faff; border-radius: 10px; padding: 22px 18px 18px 18px; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);">
+                                    <h3 style="margin: 0 0 12px 0; font-size: 1.08em; color: #1976d2; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">edit_square</span>Update Appointment Status</h3>
+                                    '.($showSuccess ? '<div style="background: #e8f5e9; color: #2e7d32; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">check_circle</span> Status updated successfully!</div>' : '').'
+                                    <form method="post" action="" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%;">
+                                        <input type="hidden" name="status_id" value="'.htmlspecialchars($popupAppointment['id']).'">
+                                        <input type="hidden" name="from_view" value="1">
+                                        <label for="view-status-dropdown" style="font-weight: 500;">Status:</label>
+                                        <div style="display: flex; align-items: center; gap: 8px; width: 100%;">
+                                            <span class="material-symbols-outlined" style="font-size: 1.3em; color: #1976d2;">arrow_drop_down_circle</span>
+                                            <select id="view-status-dropdown" name="new_status" class="status-dropdown status-'.strtolower($statusText).'" style="min-width: 160px; flex: 1; font-size: 1.05em;">
+                                                <option value="1" '.($popupAppointment['status_id']==1?'selected':'').'>Pending</option>
+                                                <option value="2" '.($popupAppointment['status_id']==2?'selected':'').'>Confirmed</option>
+                                                <option value="3" '.($popupAppointment['status_id']==3?'selected':'').'>Completed</option>
+                                                <option value="4" '.($popupAppointment['status_id']==4?'selected':'').'>Cancelled</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn-primary btn" style="margin-top: 12px; background: #1976d2; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 1.05em;">
+                                            <span class="material-symbols-outlined" style="font-size: 1.2em;">check</span> Update Status
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </center>
-                    <br><br>
-            </div>
-            </div>
-            ';
+                    </div>
+                </div>
+            </div>';
+                }
             } elseif ($action == 'ad-new') {
 
                 echo '
@@ -782,22 +856,23 @@
                                         <td class="label-td" colspan="2">
                                             <select name="spec" id="sele-category" class="box">
                                             <option value="" selected>-Select Package-</option>
-                                            <option value="Trion">Trion</option>
-                                            <option value="Duo">Duo</option>
-                                            <option value="Solo">Solo</option>
-                                            <option value="Quad">Quad</option>
-                                            <option value="Deluxe">Deluxe</option>
-                                            <option value="Group">Group</option>
-                                            <option value="Graduate">Graduate</option>
-                                            <option value="Package2">Package 2</option>
-                                            <option value="Package3">Package 3</option>
-                                            <option value="Package4">Package 4</option>
-                                            <option value="Unopackage">Uno Package</option>
-                                            <option value="Dospackage">Dos Package</option>
-                                            <option value="Trespackage">Tres Package</option>
-                                            <option value="Cuatropackage">Cuantro Package</option>
-                                            <option value="Cincopackage">Cinco Package</option>
-                                            <option value="Seispackage">Seis Package</option>
+                                            <option value="SOLO">SOLO</option>
+                                            <option value="DUO">DUO</option>
+                                            <option value="TRIO">TRIO</option>
+                                            <option value="QUAD">QUAD</option>
+                                            <option value="DELUXE">DELUXE</option>
+                                            <option value="GROUP">GROUP</option>
+                                            <option value="GRADUATE">GRADUATE</option>
+                                            <option value="GRADUATE Package 1">GRADUATE Package 1</option>
+                                            <option value="GRADUATE Package 2">GRADUATE Package 2</option>
+                                            <option value="GRADUATE Package 3">GRADUATE Package 3</option>
+                                            <option value="GRADUATE Package 4">GRADUATE Package 4</option>
+                                            <option value="UNO">UNO</option>
+                                            <option value="DOS">DOS</option>
+                                            <option value="TRES">TRES</option>
+                                            <option value="CUATRO">CUATRO</option>
+                                            <option value="CINCO">CINCO</option>
+                                            <option value="SEIS">SEIS</option>
                                             
 
                                                    </select><br><br>
@@ -877,41 +952,36 @@
 
             // /////////////////////////////////  END ADD   /////////////////////////
             elseif ($action == 'edit') {
-
+                if ($popupAppointment) {
                 echo '
                     <div id="popup1" class="overlay">
                             <div class="popup">
-                          
                             
                                 <a class="close" href="Appointment.php">&times;</a> 
                                 <div style="display: flex;justify-content: center;">
                                 <div class="abc-popup">
                                 <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
                                 <form action="#" method="POST" class="add-new-form">
+                                    <input type="hidden" name="edit_id" value="'.htmlspecialchars($popupAppointment['id']).'">
                                 <tr>
                                         <td class="label-td" colspan="2"></td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Client Details.</p>
-                                        Client ID :  (Auto Generated)<br><br>
+                                            Client ID : '.htmlspecialchars($popupAppointment['id']).' (Auto Generated)<br><br>
                                         </td>
                                     </tr>
-                                    
                                     <tr>
-                                        
                                         <td class="label-td" colspan="2">
                                             <label for="name" class="form-label">Name: </label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <input type="text" name="name" class="input-text" placeholder="Client Name" value="" required><br>
+                                                <input type="text" name="name" class="input-text" placeholder="Client Name" value="'.htmlspecialchars($popupAppointment['full_name']).'" required><br>
                                         </td>
-                                        
                                     </tr>
-                                    
-                                   
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <label for="Tele" class="form-label">Phone: </label>
@@ -919,40 +989,45 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                           <input type="tel" name="Tele-client" class="input-text" placeholder="Phone Number" id="phoneInput"><br>
+                                               <input type="tel" name="Tele-client" class="input-text" placeholder="Phone Number" id="phoneInput" value="'.htmlspecialchars($popupAppointment['phone']).'"><br>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="spec" class="form-label">Choose category: (Current )</label>
-                                            
+                                                <label for="spec" class="form-label">Choose category: (Current '.htmlspecialchars($popupAppointment['notes']).')</label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <select name="spec" id="" class="box">
-                                            <option value="Trion">Trion</option>
-                                            <option value="Duo">Duo</option>
-                                            <option value="Solo">Solo</option>
-                                            <option value="Quad">Quad</option>
-                                            <option value="Deluxe">Deluxe</option>
-                                            <option value="Group">Group</option>
-                                            <option value="Graduate">Graduate</option>
-                                            <option value="Package2">Package 2</option>
-                                            <option value="Package3">Package 3</option>
-                                            <option value="Package4">Package 4</option>
-                                            <option value="Unopackage">Uno Package</option>
-                                            <option value="Dospackage">Dos Package</option>
-                                            <option value="Trespackage">Tres Package</option>
-                                            <option value="Cuatropackage">Cuantro Package</option>
-                                            <option value="Cincopackage">Cinco Package</option>
-                                            <option value="Seispackage">Seis Package</option>
-                                            
-
+                                                ';
+                                                $categories = [
+                                                    "SOLO",
+                                                    "DUO",
+                                                    "TRIO",
+                                                    "QUAD",
+                                                    "DELUXE",
+                                                    "GROUP",
+                                                    "GRADUATE",
+                                                    "GRADUATE Package 1",
+                                                    "GRADUATE Package 2",
+                                                    "GRADUATE Package 3",
+                                                    "GRADUATE Package 4",
+                                                    "UNO",
+                                                    "DOS",
+                                                    "TRES",
+                                                    "CUATRO",
+                                                    "CINCO",
+                                                    "SEIS"
+                                                ];
+                                                foreach ($categories as $cat) {
+                                                    $selected = (strtolower($popupAppointment['notes']) == strtolower($cat)) ? 'selected' : '';
+                                                    echo '<option value="'.htmlspecialchars($cat).'" '.$selected.'>'.htmlspecialchars($cat).'</option>';
+                                                }
+                                                echo '
                                                    </select><br><br>
                                         </td>
                                     </tr>
-
                                      <tr>
                                         <td class="label-td" colspan="2">
                                             <label for="date" class="form-label"> Appointment Date: </label>
@@ -960,45 +1035,33 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <input type="datetime-local" id="datetime" class="input-text" name="datetime" required><br>
+                                                <input type="datetime-local" id="datetime" class="input-text" name="datetime" value="'.htmlspecialchars($popupAppointment['appointment_date']).'T'.htmlspecialchars(substr($popupAppointment['appointment_time'],0,5)).'" required><br>
                                         </td>
                                     </tr>
-                                   
                                    <tr>
                                         <td class="label-td" colspan="2">
-                                            
                                             <label for="Email" class="form-label">Email: </label>
-                                            <input type="hidden" value="" name="id00">
-                                            <input type="hidden" name="oldemail" value="" >
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="" required><br>
+                                            <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.htmlspecialchars($popupAppointment['email']).'" required><br>
                                         </td>
                                     </tr>
-                                    
-                        
                                     <tr>
                                         <td colspan="2">
                                             <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        
-                                            <a href="?action=success&id=#&error=0"></a><input type="submit" value="Save" class="login-btn btn-primary btn">
+                                                <input type="submit" value="Save" class="login-btn btn-primary btn">
                                         </td>
-                        
-                                    </tr>
-                                
-                                    
                                     </tr>
                                     </form>
                                 </table>
                                 </div>
                                 </div>
-                            
                             <br><br>
                     </div>
-                    </div>
-                    ';
+                    </div>';
+                }
             }
             if ($action == 'success') {
                 echo '

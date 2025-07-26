@@ -1,5 +1,91 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 include_once("header.php");
+
+class Database {
+    private $host;
+    private $username;
+    private $password;
+    private $database;
+    private $conn;
+    public function __construct() {
+        $this->host = getenv('DB_HOST');
+        $this->username = getenv('DB_USER');
+        $this->password = getenv('DB_PASS');
+        $this->database = getenv('DB_NAME');
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->database,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
+    public function getConnection() {
+        return $this->conn;
+    }
+}
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Get the raw POST data
+    $json = file_get_contents("php://input");
+    $data = json_decode($json, true);
+
+    if ($data) {
+        $package = $data["package"];
+        $full_name = $data["full_name"];
+        $email = $data["email"];
+        $phone = $data["phone"];
+        $booking_date = $data["booking_date"];
+        $booking_time = $data["booking_time"];
+
+        // Validate inputs
+        if (empty($package) || empty($full_name) || empty($email) || empty($phone) || empty($booking_date) || empty($booking_time)) {
+            echo json_encode(["success" => false, "message" => "All fields are required"]);
+            exit;
+        }
+
+        // Create database connection
+        $database = new Database();
+        $conn = $database->getConnection();
+
+        // Check for time slot conflicts
+        $stmt = $conn->prepare("SELECT * FROM appointments WHERE booking_date = ? AND booking_time = ?");
+        $stmt->execute([$booking_date, $booking_time]);
+        $existing = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($existing) {
+            echo json_encode(["success" => false, "message" => "This time slot is already booked. Please select another time."]);
+            exit;
+        }
+
+        // Insert appointment
+        $stmt = $conn->prepare("INSERT INTO appointments (package, full_name, email, phone, booking_date, booking_time) VALUES (?, ?, ?, ?, ?, ?)");
+        $result = $stmt->execute([$package, $full_name, $email, $phone, $booking_date, $booking_time]);
+
+        if ($result) {
+            $id = $conn->lastInsertId();
+            echo json_encode([
+                "success" => true,
+                "message" => "Appointment booked successfully",
+                "id" => $id,
+                "full_name" => $full_name,
+                "booking_date" => $booking_date,
+                "booking_time" => $booking_time,
+                "package" => $package
+            ]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Failed to book appointment"]);
+        }
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -141,321 +227,6 @@ include_once("header.php");
 
     </section>
 
-    <div class="lx-portfolio-area section-padding-80 clearfix" data-aos="fade-up" data-aos-duration="3000">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="lx-projects-menu wow fadeInUp" data-wow-delay="100ms">
-                        <div class="portfolio-menu text-center">
-                            <button class="btn " data-filter="*">All</button>
-                            <button class="btn " data-filter=".solo">Solo</button>
-                            <button class="btn" data-filter=".duo">Duo</button>
-                            <button class="btn " data-filter=".trio">Trio</button>
-                            <button class="btn " data-filter=".quad">Quad</button>
-                            <button class="btn " data-filter=".deluxe">Deluxe</button>
-                            <button class="btn active" data-filter=".group">Group</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row lx-portfolio">
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo4.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo4.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad2.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad2.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo3.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo3.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad3.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad3.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad 8.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad 8.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo2.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo2.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp solo"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Solo5.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Solo5.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Trio1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Trio1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad 4.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad 4.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad 6.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad 6.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp duo" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad 5.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad 5.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp quad"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Quad 7.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Quad 7.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Trio3.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Trio3.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Trio2.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Trio2.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Trio4.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Trio4.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp trio"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/pic/Group1.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/pic/Group1.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp group"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp deluxe"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/indexImage/empty.png" alt="">
-                        <div class="hover-content">
-                            <a href="img/indexImage/empty.png" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="800ms">
-                        <!-- <a href="#" class="btn lx-btn btn-2 mt-15">View More</a> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <?php echo $footer; ?>
 </body>
@@ -502,6 +273,88 @@ include_once("header.php");
 
 <script src="js-package/packages.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('appointmentForm');
+            const modal = document.getElementById('confirmationModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
+
+            // Set minimum date to today
+            const dateInput = form.querySelector('input[name="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    package: "GROUP",
+                    full_name: form.fullName.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    booking_date: form.date.value,
+                    booking_time: form.time.value
+                };
+
+                // Create XMLHttpRequest object
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', window.location.href, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                
+                xhr.onload = function() {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        try {
+                            const result = JSON.parse(xhr.responseText);
+                            
+                            if (result.success) {
+                                // Display success message and appointment details
+                                modalContent.innerHTML = `
+                                    <div class="mt-3">
+                                        <p><strong>Booking ID:</strong> ${result.id}</p>
+                                        <p><strong>Name:</strong> ${result.full_name}</p>
+                                        <p><strong>Date:</strong> ${result.booking_date}</p>
+                                        <p><strong>Time:</strong> ${result.booking_time}</p>
+                                        <p><strong>Package:</strong> ${result.package}</p>
+                                        <p><strong>Price:</strong> ₱1,500.00</p>
+                                    </div>
+                                `;
+                                modal.style.display = 'flex';
+                                form.reset();
+                            } else {
+                                alert(result.message || 'Failed to book appointment. Please try again.');
+                            }
+                        } catch (error) {
+                            console.error('Error parsing response:', error);
+                            alert('An error occurred. Please try again later.');
+                        }
+                    } else {
+                        console.error('Request failed with status:', xhr.status);
+                        alert('An error occurred. Please try again later.');
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    console.error('Request failed');
+                    alert('An error occurred. Please try again later.');
+                };
+                
+                xhr.send(JSON.stringify(formData));
+            });
+
+            // Close modal when clicking the X button
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

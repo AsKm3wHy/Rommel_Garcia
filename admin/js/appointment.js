@@ -60,3 +60,32 @@ fetch("your-api-endpoint.php", {
     console.error("Error:", error);
     // handle errors
   });
+
+// --- Disable buttons if unchanged in view modal ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Status update form
+    const statusDropdown = document.getElementById('view-status-dropdown');
+    const statusForm = statusDropdown ? statusDropdown.closest('form') : null;
+    const statusButton = statusForm ? statusForm.querySelector('button[type="submit"]') : null;
+    if (statusDropdown && statusButton) {
+        const initialStatus = statusDropdown.value;
+        function updateStatusButton() {
+            statusButton.disabled = (statusDropdown.value === initialStatus);
+        }
+        statusDropdown.addEventListener('change', updateStatusButton);
+        updateStatusButton();
+    }
+
+    // Reschedule form
+    const rescheduleInput = document.getElementById('reschedule-datetime');
+    const rescheduleForm = rescheduleInput ? rescheduleInput.closest('form') : null;
+    const rescheduleButton = rescheduleForm ? rescheduleForm.querySelector('button[type="submit"]') : null;
+    if (rescheduleInput && rescheduleButton) {
+        const initialDateTime = rescheduleInput.value;
+        function updateRescheduleButton() {
+            rescheduleButton.disabled = (rescheduleInput.value === initialDateTime);
+        }
+        rescheduleInput.addEventListener('input', updateRescheduleButton);
+        updateRescheduleButton();
+    }
+});

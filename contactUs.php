@@ -1,7 +1,8 @@
+<?php
+include_once("header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-
 
 <head>
     <meta charset="UTF-8">
@@ -214,29 +215,7 @@
     </div>
 
 
-    <footer>
-        <div class="wrapper">
-            <div class="containerUp">
-                <div class="social-info">
-                    <h2>Rommel Garcia Digital Video and Photography </h2>
-
-                </div>
-                <!-- <div class="connect">
-                    <h2>Stay up to date on the latest from Lx Gallery</h2>
-                    <form>
-                        <input type="email" placeholder="Enter your email">
-                        <button>Subscribe</button>
-                    </form>
-                </div> -->
-            </div>
-            <hr>
-            <div class="containerDown">
-                <div class="last">
-
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php echo $footer; ?>
 </body>
 
 <script>

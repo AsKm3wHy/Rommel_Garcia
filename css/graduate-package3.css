@@ -2114,3 +2114,137 @@ header .buttons i:hover {
   padding: 20px;
   margin: 0 -20px;
 }
+
+/* Graduate Gallery Slider Styles */
+.graduate-gallery {
+  position: relative;
+  padding: 50px 0;
+  background: #f8f9fa;
+}
+
+.graduate-gallery .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.graduate-gallery .swiper-slide {
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.graduate-gallery .swiper-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.graduate-gallery .card-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.graduate-gallery .gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.graduate-gallery .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.graduate-gallery .gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Swiper Navigation Buttons for Graduate Gallery */
+.graduate-gallery .swiper-button-next,
+.graduate-gallery .swiper-button-prev {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.graduate-gallery .swiper-button-next:hover,
+.graduate-gallery .swiper-button-prev:hover {
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.graduate-gallery .swiper-button-next::after,
+.graduate-gallery .swiper-button-prev::after {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Swiper Pagination for Graduate Gallery */
+.graduate-gallery .swiper-pagination {
+  position: relative;
+  margin-top: 30px;
+}
+
+.graduate-gallery .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.graduate-gallery .swiper-pagination-bullet-active {
+  background: #2196f3;
+  transform: scale(1.2);
+}
+
+/* Responsive Design for Graduate Gallery */
+@media (max-width: 768px) {
+  .graduate-gallery {
+    padding: 30px 0;
+  }
+  
+  .graduate-gallery .swiper-slide {
+    height: 250px;
+  }
+  
+  .graduate-gallery .swiper-button-next,
+  .graduate-gallery .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .graduate-gallery .swiper-button-next::after,
+  .graduate-gallery .swiper-button-prev::after {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .graduate-gallery .swiper-slide {
+    height: 200px;
+  }
+  
+  .graduate-gallery .swiper-button-next,
+  .graduate-gallery .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .graduate-gallery .swiper-button-next::after,
+  .graduate-gallery .swiper-button-prev::after {
+    font-size: 14px;
+  }
+}
