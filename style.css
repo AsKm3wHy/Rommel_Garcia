@@ -1999,19 +1999,20 @@ body {
 }
 
 .nav-appointment-btn {
-    background: #f7b315;
-    color: #fff !important;
-    font-weight: bold;
-    border-radius: 2em;
-    padding: 0.5em 1.5em;
-    margin-left: 1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    display: inline-block;
+  background: #f7b315;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
+  margin-left: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
 }
-.nav-appointment-btn:hover, .nav-appointment-btn:focus {
-    background: #d49e13;
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    text-decoration: none;
+.nav-appointment-btn:hover,
+.nav-appointment-btn:focus {
+  background: #d49e13;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
 }
