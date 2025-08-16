@@ -1208,6 +1208,7 @@ input[type="search"] {
 .content-section h2 {
   font-size: 1.5rem;
   color: #333;
+  text-align: center;
 }
 
 /* Optional: Style for paragraph inside section */
