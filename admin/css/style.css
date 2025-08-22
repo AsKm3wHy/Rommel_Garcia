@@ -618,6 +618,8 @@ body {
   min-height: 125px;
   justify-content: space-between;
   align-items: center;
+  height: 155px;
+  max-height: 155px;
 }
 
 .h1-dashboard {
@@ -700,6 +702,7 @@ body {
   border: 1px solid #ebebeb;
   border-radius: 8px;
   width: 85%;
+
   max-height: 45vh;
   height: 45vh;
 }
@@ -779,7 +782,7 @@ body {
   align-items: center;
   position: relative;
   max-width: 280px;
-  left: 4rem;
+  left: 3.5rem;
   padding-bottom: 10px;
 }
 
@@ -1003,3 +1006,105 @@ input-search-name:hover {
 .nav-title .material-symbols-outlined {
   font-size: 30px !important;
 }
+/* --------------------------start table css ------------- */
+.title-table-top {
+  padding: 10px;
+  padding-left: 48px;
+  padding-bottom: 0;
+  font-size: 23px !important;
+  font-weight: 700;
+  color: var(--primarycolor) !important;
+}
+.txt-table-top {
+  padding-bottom: 19px;
+  padding-left: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #212529e3;
+  line-height: 20px;
+}
+
+/* ------------------------------------- start nav header css----------------------------- */
+
+.navbar-brand img {
+  width: 5rem;
+}
+.navbar-toggler {
+  background-color: #fff !important;
+}
+a {
+  text-decoration: none !important;
+}
+ol,
+ul {
+  padding-left: 0px !important;
+}
+.nav-link {
+  color: #fff !important;
+}
+@media (min-width: 768px) {
+  .navbar-expand-md {
+    display: none !important;
+  }
+  .filter-container-second {
+    display: none !important;
+  }
+  .table-responsive {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .sidebar {
+    display: none !important;
+  }
+  .content-section {
+    margin-left: 0px !important;
+  }
+  .search-and-user {
+    position: relative;
+    left: 0px !important;
+    top: 0px !important;
+    width: 100%;
+  }
+  .filter-container {
+    display: none;
+  }
+  .filter-container-second {
+    display: block;
+  }
+  .sub-table {
+    width: 100%;
+  }
+  .group-search {
+    left: 0px;
+  }
+
+  .title-table-top,
+  .txt-table-top {
+    padding: 0px;
+    text-align: left;
+  }
+  .table-responsive {
+    display: block;
+  }
+  .table-old {
+    display: none;
+  }
+}
+
+@media (max-width: 545px) {
+  .btn-icon-back {
+    display: none;
+  }
+  .h3-dashboard {
+    font-size: 0.9rem;
+  }
+  .nav-title {
+    font-size: 1.5rem;
+  }
+  .dashboard-items {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------end nav header css--------------------------------- */
