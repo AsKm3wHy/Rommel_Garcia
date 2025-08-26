@@ -17,10 +17,12 @@ $todaySessions = $appointmentModel->getTodaySessions();
 $upcomingSessions = $appointmentModel->getUpcomingSessions();
 $todayAppointments = $appointmentModel->getTodayAppointments();
 $upcomingAppointments = $appointmentModel->getUpcomingAppointments();
-function formatTime($time) {
+function formatTime($time)
+{
     return date('g:ia', strtotime($time));
 }
-function formatDate($date) {
+function formatDate($date)
+{
     return date('n/j/y', strtotime($date));
 }
 ?>
@@ -39,16 +41,14 @@ function formatDate($date) {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <style type="text/css">
         /* -------nav header stlyle------ */
-        .bg-light{
-  background-color: #161a2d !important; 
-  
-}
+        .bg-light {
+            background-color: #161a2d !important;
 
-
+        }
     </style>
 </head>
 
@@ -165,42 +165,42 @@ function formatDate($date) {
 
   </header> -->
 
-   <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-   
-      <a class="navbar-brand" href="index.php?page=dashboard">
-        <img src="img/rommel-logo.png" alt="Logo" class="d-inline-block align-text-top " />
-        
-      </a>
- 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Appointment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Calendar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">History</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.php?page=dashboard">
+                <img src="img/rommel-logo.png" alt="Logo" class="d-inline-block align-text-top " />
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Appointment.php?page=Appointment">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.php?page=Post-image">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.php?page=Calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.php?page=History">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex log-col" style="gap:10px; color: #b23b3b !important;" href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -244,7 +244,7 @@ function formatDate($date) {
         <div class="bottom-log">
             <ul class="sidebar-links log-btn">
                 <li>
-                    <a href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    <a href="logout.php"><span class="material-symbols-outlined "> logout </span>Logout</a>
                 </li>
 
             </ul>
@@ -255,8 +255,10 @@ function formatDate($date) {
 
     <section class="content-section">
         <section class="search-and-user">
-        <div class="d-flex"><span class="nav-title "> <span class="material-symbols-outlined"> dashboard </span> </span> <h2>Dashboard</h2></div>
-            
+            <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined"> dashboard </span> </span>
+                <h2>Dashboard</h2>
+            </div>
+
 
             <div class="admin-profile">
 
@@ -280,74 +282,75 @@ function formatDate($date) {
             </div>
         </section>
 
-<div class="row filter-container-second">
-     <p style="font-size: 20px;font-weight:600;padding-left: 12px;">Status</p>
-      <div class="col-6 col-md-3 mb-3">
-        <div class="  text-white ">
-            <a href="appointment.php">
-                            <div class="dashboard-items">
-                                <div>
-                                    <div class="h1-dashboard"> <?php echo $totalAppointments; ?>
-                                    </div><br>
-                                    <div class="h3-dashboard">
-                                        Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </div>
-                                </div>
-                                <div class="btn-icon-back dashboard-icons"
-                                    style="background-image: url('img/icon/Appointment.svg');">
+        <div class="row filter-container-second">
+            <p style="font-size: 20px;font-weight:600;padding-left: 12px;">Status</p>
+            <div class="col-6 col-md-3 mb-3">
+                <div class="  text-white ">
+                    <a href="appointment.php">
+                        <div class="dashboard-items">
+                            <div>
+                                <div class="h1-dashboard"> <?php echo $totalAppointments; ?>
+                                </div><br>
+                                <div class="h3-dashboard">
+                                    Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                             </div>
-                        </a></div>
-      </div>
-      <div class="col-6 col-md-3 mb-3">
-        <div class="  text-white "> <a href="appointment.php">
-                            <div class="dashboard-items">
-                                <div>
-                                    <div class="h1-dashboard">
-                                        <?php echo $newAppointments; ?>
-                                    </div><br>
-                                    <div class="h3-dashboard">
-                                        New Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </div>
-                                </div>
-                                <div class="btn-icon-back dashboard-icons"
-                                    style="background-image: url('img/icon/New-Appointment.svg');"></div>
+                            <div class="btn-icon-back dashboard-icons"
+                                style="background-image: url('img/icon/Appointment.svg');">
                             </div>
-                        </a></div>
-      </div>
-      <div class="col-6 col-md-3 mb-3">
-        <div class="  text-white "><a href="appointment.php">
-                            <div class="dashboard-items">
-                                <div>
-                                    <div class="h1-dashboard">
-                                        <?php echo $todaySessions; ?>
-                                    </div><br>
-                                    <div class="h3-dashboard">
-                                        Today Sessions &nbsp;&nbsp;
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <div class="  text-white "> <a href="appointment.php">
+                        <div class="dashboard-items">
+                            <div>
+                                <div class="h1-dashboard">
+                                    <?php echo $newAppointments; ?>
+                                </div><br>
+                                <div class="h3-dashboard">
+                                    New Appointment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <div class="btn-icon-back dashboard-icons"
-                                    style="background-image: url('img/icon/Today-Sessions.svg');"></div>
                             </div>
-                        </a></div>
-      </div>
-      <div class="col-6 col-md-3 mb-3">
-        <div class="  text-white "><a href="appointment.php">
-                            <div class="dashboard-items">
-                                <div>
-                                    <div class="h1-dashboard">
-                                        <?php echo $upcomingSessions; ?>
-                                    </div><br>
-                                    <div class="h3-dashboard">
-                                        Upcomming Sessions
-                                    </div>
+                            <div class="btn-icon-back dashboard-icons"
+                                style="background-image: url('img/icon/New-Appointment.svg');"></div>
+                        </div>
+                    </a></div>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <div class="  text-white "><a href="appointment.php">
+                        <div class="dashboard-items">
+                            <div>
+                                <div class="h1-dashboard">
+                                    <?php echo $todaySessions; ?>
+                                </div><br>
+                                <div class="h3-dashboard">
+                                    Today Sessions &nbsp;&nbsp;
                                 </div>
-                                <div class="btn-icon-back dashboard-icons"
-                                    style="background-image: url('img/icon/Upcomming-Sessions.svg');"></div>
                             </div>
-                        </a></div>
-      </div>
-    </div>
+                            <div class="btn-icon-back dashboard-icons"
+                                style="background-image: url('img/icon/Today-Sessions.svg');"></div>
+                        </div>
+                    </a></div>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <div class="  text-white "><a href="appointment.php">
+                        <div class="dashboard-items">
+                            <div>
+                                <div class="h1-dashboard">
+                                    <?php echo $upcomingSessions; ?>
+                                </div><br>
+                                <div class="h3-dashboard">
+                                    Upcomming Sessions
+                                </div>
+                            </div>
+                            <div class="btn-icon-back dashboard-icons"
+                                style="background-image: url('img/icon/Upcomming-Sessions.svg');"></div>
+                        </div>
+                    </a></div>
+            </div>
+        </div>
 
 
 
@@ -438,13 +441,13 @@ function formatDate($date) {
 
         <!-- ------------------------------------------table appointment schedule------------------- -->
 
-     
 
 
-         <table width="100%" border="0" class="dashbord-tables table-responsive py-4">
+
+        <table width="100%" border="0" class="dashbord-tables table-responsive py-4">
             <tr>
                 <td>
-                    <p class="title-table-top" >
+                    <p class="title-table-top">
                         Today’s Appointment Schedule
                     </p>
                     <p class="txt-table-top">
@@ -453,7 +456,7 @@ function formatDate($date) {
                     </p>
 
                 </td>
-               
+
             </tr>
             <tr>
                 <td width="50%">
@@ -471,55 +474,58 @@ function formatDate($date) {
                     </div>
                     <!-- <center> -->
 
-                        <div class="abc scroll">
+                    <div class="abc scroll">
 
-                            <table class="sub-table scrolldown" border="0">
-                                <thead>
+                        <table class="sub-table scrolldown" border="0">
+                            <thead>
+                                <tr>
+                                    <th class="table-headin">
+
+                                        Appointment number
+
+                                    </th>
+                                    <th class="table-headin">
+                                        Client name
+                                    </th>
+                                    <th class="table-headin">
+
+
+                                        Category
+
+                                    </th>
+                                    <th class="table-headin">
+
+
+                                        Time
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="appointment-table-body">
+                                <?php if (empty($todayAppointments)): ?>
                                     <tr>
-                                        <th class="table-headin">
-
-                                            Appointment number
-
-                                        </th>
-                                        <th class="table-headin">
-                                            Client name
-                                        </th>
-                                        <th class="table-headin">
-
-
-                                            Category
-
-                                        </th>
-                                        <th class="table-headin">
-
-
-                                            Time
-
-                                        </th>
+                                        <td colspan="4" style="text-align:center;">No appointments found.</td>
                                     </tr>
-                                </thead>
-                                <tbody id="appointment-table-body">
-<?php if (empty($todayAppointments)): ?>
-<tr><td colspan="4" style="text-align:center;">No appointments found.</td></tr>
-<?php else: foreach ($todayAppointments as $row): ?>
-<tr>
-    <td class="data-app-num">&nbsp;<?php echo htmlspecialchars($row['id']); ?></td>
-    <td class="data-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
-    <td class="data-cat">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
-    <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
-</tr>
-<?php endforeach; endif; ?>
-                                </tbody>
+                                    <?php else: foreach ($todayAppointments as $row): ?>
+                                        <tr>
+                                            <td class="data-app-num">&nbsp;<?php echo htmlspecialchars($row['id']); ?></td>
+                                            <td class="data-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
+                                            <td class="data-cat">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
+                                            <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
+                                        </tr>
+                                <?php endforeach;
+                                endif; ?>
+                            </tbody>
 
-                            </table>
+                        </table>
 
 
-                        </div>
+                    </div>
                     <!-- </center> -->
 
 
                 </td>
-               
+
             </tr>
             <tr>
                 <td>
@@ -529,31 +535,29 @@ function formatDate($date) {
                                 Appointments</button></a>
                     </center>
                 </td>
-               
+
             </tr>
         </table>
 
 
 
-        
-
-       
 
 
 
 
 
 
-         <table width="100%" border="0" class="dashbord-tables table-responsive py-4">
+
+
+
+        <table width="100%" border="0" class="dashbord-tables table-responsive py-4">
             <tr>
-               
+
                 <td>
-                    <p class="title-table-top"
-                       >
+                    <p class="title-table-top">
                         Upcoming Appointments Next Week
                     </p>
-                    <p class="txt-table-top"
-                       >
+                    <p class="txt-table-top">
                         Here's Quick access to Upcoming Appointments that Scheduled next week 7 days<br>
                         Add,Remove and Many features available in @Appointment section.
                     </p>
@@ -562,7 +566,7 @@ function formatDate($date) {
                 </td>
             </tr>
             <tr>
-               
+
                 <td width="50%" style="padding: 0;">
                     <div class="group-search">
                         <svg class="icon-search" aria-hidden="true" viewBox="0 0 24 24">
@@ -604,16 +608,19 @@ function formatDate($date) {
                                     </tr>
                                 </thead>
                                 <tbody id="appointment-two-table-body">
-<?php if (empty($upcomingAppointments)): ?>
-<tr><td colspan="4" style="text-align:center;">No appointments found.</td></tr>
-<?php else: foreach ($upcomingAppointments as $row): ?>
-<tr>
-    <td class="data-up-next-week">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
-    <td class="data-two-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
-    <td class="data-date">&nbsp;<?php echo formatDate($row['appointment_date']); ?></td>
-    <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
-</tr>
-<?php endforeach; endif; ?>
+                                    <?php if (empty($upcomingAppointments)): ?>
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;">No appointments found.</td>
+                                        </tr>
+                                        <?php else: foreach ($upcomingAppointments as $row): ?>
+                                            <tr>
+                                                <td class="data-up-next-week">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
+                                                <td class="data-two-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
+                                                <td class="data-date">&nbsp;<?php echo formatDate($row['appointment_date']); ?></td>
+                                                <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
+                                            </tr>
+                                    <?php endforeach;
+                                    endif; ?>
                                 </tbody>
 
                             </table>
@@ -622,7 +629,7 @@ function formatDate($date) {
                 </td>
             </tr>
             <tr>
-               
+
                 <td>
                     <center>
                         <a href="Appointment.php" class="non-style-link"><button class="btn-primary btn"
@@ -714,16 +721,19 @@ function formatDate($date) {
                                     </tr>
                                 </thead>
                                 <tbody id="appointment-table-body">
-<?php if (empty($todayAppointments)): ?>
-<tr><td colspan="4" style="text-align:center;">No appointments found.</td></tr>
-<?php else: foreach ($todayAppointments as $row): ?>
-<tr>
-    <td class="data-app-num">&nbsp;<?php echo htmlspecialchars($row['id']); ?></td>
-    <td class="data-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
-    <td class="data-cat">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
-    <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
-</tr>
-<?php endforeach; endif; ?>
+                                    <?php if (empty($todayAppointments)): ?>
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;">No appointments found.</td>
+                                        </tr>
+                                        <?php else: foreach ($todayAppointments as $row): ?>
+                                            <tr>
+                                                <td class="data-app-num">&nbsp;<?php echo htmlspecialchars($row['id']); ?></td>
+                                                <td class="data-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
+                                                <td class="data-cat">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
+                                                <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
+                                            </tr>
+                                    <?php endforeach;
+                                    endif; ?>
                                 </tbody>
 
                             </table>
@@ -775,16 +785,19 @@ function formatDate($date) {
                                     </tr>
                                 </thead>
                                 <tbody id="appointment-two-table-body">
-<?php if (empty($upcomingAppointments)): ?>
-<tr><td colspan="4" style="text-align:center;">No appointments found.</td></tr>
-<?php else: foreach ($upcomingAppointments as $row): ?>
-<tr>
-    <td class="data-up-next-week">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
-    <td class="data-two-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
-    <td class="data-date">&nbsp;<?php echo formatDate($row['appointment_date']); ?></td>
-    <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
-</tr>
-<?php endforeach; endif; ?>
+                                    <?php if (empty($upcomingAppointments)): ?>
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;">No appointments found.</td>
+                                        </tr>
+                                        <?php else: foreach ($upcomingAppointments as $row): ?>
+                                            <tr>
+                                                <td class="data-up-next-week">&nbsp;<?php echo htmlspecialchars($row['category']); ?></td>
+                                                <td class="data-two-cla-name">&nbsp;<?php echo htmlspecialchars($row['full_name']); ?></td>
+                                                <td class="data-date">&nbsp;<?php echo formatDate($row['appointment_date']); ?></td>
+                                                <td class="data-time">&nbsp;<?php echo formatTime($row['appointment_time']); ?></td>
+                                            </tr>
+                                    <?php endforeach;
+                                    endif; ?>
                                 </tbody>
 
                             </table>
@@ -811,7 +824,7 @@ function formatDate($date) {
         </table>
 
 
-        
+
         <div class="py-4"></div>
 
 
@@ -820,7 +833,7 @@ function formatDate($date) {
 
     </script>
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/date.js"></script>
 
