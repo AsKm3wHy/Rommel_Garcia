@@ -540,18 +540,29 @@ function getStatusText($status_id)
       </div> -->
 
 
-            <div class="dash-body" style="padding-right: 0px;">
+            <div class="dash-body">
                 <table class="table-appointment" border="0">
                     <tr>
                         <td class="top-header-table">
-                            <span class="material-symbols-outlined">
+                            <!-- <span class="material-symbols-outlined">
                                 Bookmark
                             </span>
-                            <span class="nav-title"> Appointment</span>
+                            <span class="nav-title">
+                                <h2>Appointment</h2>
+                            </span> -->
+
+
                             <!-- <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back"
                                     style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
                                     <font class="tn-in-text">Back</font>
                                 </button></a> -->
+
+
+                            <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                                        Bookmark
+                                    </span> </span>
+                                <h2>Appointment</h2>
+                            </div>
                         </td>
 
                         <td>
@@ -604,7 +615,7 @@ function getStatusText($status_id)
                         <div class="d-flex justify-content-between">
                             <p class="heading-main12">Add New Client</p>
 
-                            <a href="?action=ad-new&id=none" class="non-style-link">
+                            <a href="?action=ad-new&id=none" class="non-style-link d-grid">
                                 <!-- <button
                                     class="login-btn btn-primary btn button-icon add-btn-table"
                                     style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add
@@ -656,11 +667,11 @@ function getStatusText($status_id)
         </div>
 
 
-        <div class="appointment-list-scroll-container">
-            <table width="100%" class="sub-table main-table scrolldown " border="0">
-                <thead>
+        <div class="appointment-list-scroll-container scroll-table">
+            <table id="tablepress-30" width="100%" class="  text-center sub-table main-table scrolldown table-responsive  table-striped">
+                <thead class="thead-light  thead-text">
                     <tr>
-                        <th class="table-headin">
+                        <th class="table-headin sz-table">
 
 
                             Appointment number
@@ -730,7 +741,7 @@ function getStatusText($status_id)
                                 </button>
                             </form>
                         </th>
-                        <th class="table-headin">
+                        <th class="table-headin sz-table">
 
                             Events
 
@@ -757,11 +768,11 @@ function getStatusText($status_id)
                                 <td>
                                     <div class="events-td">
                                         <a href="?action=edit&id=<?= $row['id'] ?>&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
-                                                <font class="tn-in-text">Edit</font>
+                                                Edit
                                             </button></a>
-                                        &nbsp;&nbsp;&nbsp;
+
                                         <a href="?action=view&id=<?= $row['id'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
-                                                <font class="tn-in-text">View</font>
+                                                View
                                             </button></a>
                                     </div>
                                 </td>
@@ -904,7 +915,7 @@ function getStatusText($status_id)
                         <div style="display: flex;justify-content: center;">
                         <div class="abc-popup">
                         <form action="" method="POST" class="add-new-form">
-                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                        <table width="80%" class="sub-table  pd-5 scrolldown add-doc-form-container" border="0">
                         <tr>
                                 <td class="label-td" colspan="2"></td>
                             </tr>
@@ -1052,7 +1063,7 @@ function getStatusText($status_id)
                                 <a class="close" href="Appointment.php">&times;</a> 
                                 <div style="display: flex;justify-content: center;">
                                 <div class="abc-popup">
-                                <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                                <table width="80%" class=" sub-table scrolldown add-doc-form-container" border="0">
                                 <form action="#" method="POST" class="add-new-form">
                                     <input type="hidden" name="edit_id" value="' . htmlspecialchars($popupAppointment['id']) . '">
                                 <tr>

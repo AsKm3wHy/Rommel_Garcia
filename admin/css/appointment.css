@@ -224,7 +224,7 @@ body {
 .search-and-user {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-column-gap: 50px;
+  /* grid-column-gap: 50px; */
   align-items: center;
   background: var(--whitecolor);
   margin-bottom: 30px;
@@ -630,9 +630,7 @@ body {
 
 .dash-body {
   width: 100%;
-  /* height: 100vh; */
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding: 0px 50px;
 }
 
 .dashboard-items {
@@ -907,18 +905,18 @@ input-search-name:hover {
 .btn-view,
 .btn-done,
 .btn-cancel {
-  padding-left: 40px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  margin-top: 10px;
+  padding-left: 40px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  margin-top: 10px !important;
 }
 
 .btn-primary-soft {
-  background-color: #d8ebfa;
+  background-color: #d8ebfa !important;
   /* border: 1px solid rgba(57, 108, 240, 0.1); */
-  color: #1969aa;
-  font-weight: 500;
-  font-size: 16px;
+  color: #1969aa !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
   border: none;
   /* box-shadow: 0 3px 5px 0 rgba(57, 108, 240, 0.3); */
 }
@@ -941,7 +939,7 @@ input-search-name:hover {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 50%;
+  width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
   max-height: 95%;
@@ -1015,6 +1013,7 @@ input-search-name:hover {
 .header-search {
   display: flex;
   justify-content: center;
+  place-items: center;
 }
 
 .header-searchbar {
@@ -1034,6 +1033,7 @@ input[type="search"] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  justify-content: space-around;
 }
 
 .table-appointment {
@@ -1214,39 +1214,26 @@ input[type="search"] {
 }
 
 .sidebar:hover .user-account {
-  /*  background: #fff;*/
   border-radius: 4px;
 }
 
-/* Style for the new content section */
-
 .content-section {
   margin-left: 85px;
-  /* same as sidebar width for initial state */
   padding: 20px;
   min-height: 100vh;
-  /* full viewport height */
   background-color: #ffffff;
-  /* white background */
   transition: margin-left 0.4s ease;
 }
 
-/* Adjust margin when sidebar is hovered (expanded) */
-
 .sidebar:hover ~ .content-section {
   margin-left: 260px;
-  /* expanded sidebar width */
 }
 
-/* Optional: Style for heading inside section */
-
 .content-section h2 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: #333;
   text-align: center;
 }
-
-/* Optional: Style for paragraph inside section */
 
 .content-section p {
   font-size: 1rem;
@@ -1280,7 +1267,6 @@ input[type="search"] {
     font-size: 20px;
     margin-bottom: 15px;
   }
-  /* Remove button styles in print */
   .close,
   .login-btn {
     display: none;
@@ -1291,8 +1277,6 @@ input[type="search"] {
   background-color: #d8ebfa;
   padding: 10px;
 }
-
-/* Add status badge styles */
 
 .status-badge {
   display: inline-block;
@@ -1321,14 +1305,6 @@ input[type="search"] {
 .status-cancelled {
   background: #ffcdd2;
   color: #c62828;
-}
-
-/* Style event buttons for clarity and spacing */
-
-.events-td {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
 }
 
 .events-td a button {
@@ -1381,8 +1357,6 @@ input[type="search"] {
   color: #fff;
 }
 
-/* Status dropdown styling */
-
 .status-dropdown {
   font-weight: normal;
   border-radius: 6px;
@@ -1428,11 +1402,26 @@ input[type="search"] {
   place-items: center;
 }
 
+.sz-table {
+  width: 15%;
+}
+
+.nav-title .material-symbols-outlined {
+  font-size: 40px !important;
+}
+
+/* .table-responsive {
+  overflow-y: auto;
+}
+
+.table-responsive thead th {
+  position: sticky;
+} */
+
 /* ---------------------------button add css---------------- */
 
 .non-style-link {
   place-items: center;
-  display: grid;
 }
 
 .cssbuttons-io-button {
@@ -1508,9 +1497,6 @@ ul {
   .filter-container-second {
     display: none !important;
   }
-  .table-responsive {
-    display: none;
-  }
 }
 
 @media (max-width: 767px) {
@@ -1543,9 +1529,6 @@ ul {
     padding: 0px;
     text-align: left;
   }
-  .table-responsive {
-    display: block;
-  }
   .table-old {
     display: none;
   }
@@ -1554,6 +1537,20 @@ ul {
   }
   .dis-form {
     display: none;
+  }
+  .popup {
+    width: 60%;
+  }
+  .scroll-table {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  #tablepress-30 {
+    width: 100%;
+    min-width: 1544px;
+  }
+  .cssbuttons-io-button {
+    height: 40px;
   }
 }
 
