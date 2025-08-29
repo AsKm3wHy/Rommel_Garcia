@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 }
 require_once 'config/error_handler.php';
 require_once 'config/database.php';
-require_once 'models/Appointment.php';
+require_once 'models/Appointment.php'; 
 
 // Initialize DB and model
 $database = new Database();
@@ -558,7 +558,8 @@ function getStatusText($status_id)
                                 </button></a> -->
 
 
-                            <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                            <div class="d-flex for-text">
+                                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
                                         Bookmark
                                     </span> </span>
                                 <h2>Appointment</h2>
@@ -616,10 +617,7 @@ function getStatusText($status_id)
                             <p class="heading-main12">Add New Client</p>
 
                             <a href="?action=ad-new&id=none" class="non-style-link d-grid">
-                                <!-- <button
-                                    class="login-btn btn-primary btn button-icon add-btn-table"
-                                    style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add
-                                    New</button> -->
+                              
 
                                 <button class="cssbuttons-io-button">
                                     <svg

@@ -87,30 +87,6 @@ body {
   background: var(--page-header-bgColor);
 }
 
-/*In case you prefer an absolutely positioned header that covers the full page height, add these styles*/
-
-/*body {
-  position: relative;
-}
-
-.page-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-}*/
-
-/*remove these styles*/
-
-/*.page-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-}*/
-
 .page-header nav {
   display: flex;
   flex-direction: column;
@@ -510,11 +486,6 @@ body {
   --page-content-bgColor: #fff;
   --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.25);
 }
-
-/* .active {
-  background-color: var(--page-header-bgColor-hover) !important;
-  fill: var(--page-content-bgColor) !important;
-} */
 
 .logout-btn:hover {
   background-color: #b23b3b !important;
@@ -1163,30 +1134,26 @@ td {
   white-space: nowrap;
 }
 .sidebar:hover .user-account {
-  /*  background: #fff;*/
   border-radius: 4px;
 }
-/* Style for the new content section */
+
 .content-section {
-  margin-left: 85px; /* same as sidebar width for initial state */
+  margin-left: 85px;
   padding: 20px;
-  min-height: 100vh; /* full viewport height */
-  background-color: #ffffff; /* white background */
+  min-height: 100vh;
+  background-color: #ffffff;
   transition: margin-left 0.4s ease;
 }
 
-/* Adjust margin when sidebar is hovered (expanded) */
 .sidebar:hover ~ .content-section {
-  margin-left: 260px; /* expanded sidebar width */
+  margin-left: 260px;
 }
 
-/* Optional: Style for heading inside section */
 .content-section h2 {
   font-size: 1.5rem;
   color: #333;
 }
 
-/* Optional: Style for paragraph inside section */
 .content-section p {
   font-size: 1rem;
   color: #666;
@@ -1195,3 +1162,200 @@ td {
   font-size: 30px !important;
   margin-right: 5px;
 }
+
+/* ---------------------other css ---------------- */
+
+.events-td button {
+  min-width: 130px;
+  margin-bottom: 0.2em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.content-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+}
+.for-text h2 {
+  margin: 0px 5px !important;
+  display: grid;
+  place-items: center;
+}
+
+.sz-table {
+  width: 15%;
+}
+
+.nav-title .material-symbols-outlined {
+  font-size: 40px !important;
+}
+
+/* .table-responsive {
+  overflow-y: auto;
+}
+
+.table-responsive thead th {
+  position: sticky;
+} */
+
+/* ---------------------------button add css---------------- */
+
+.non-style-link {
+  place-items: center;
+}
+
+.cssbuttons-io-button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #0d6efd;
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 0.5em;
+}
+
+.cssbuttons-io-button svg {
+  margin-right: 6px;
+}
+
+.cssbuttons-io-button:hover {
+  background: #0166ff;
+}
+
+/* --------------------------start table css ------------- */
+
+.title-table-top {
+  padding: 10px;
+  padding-left: 48px;
+  padding-bottom: 0;
+  font-size: 23px !important;
+  font-weight: 700;
+  color: var(--primarycolor) !important;
+}
+
+.txt-table-top {
+  padding-bottom: 19px;
+  padding-left: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #212529e3;
+  line-height: 20px;
+}
+
+/* ------------------------------------- start nav header css----------------------------- */
+
+.navbar-brand img {
+  width: 5rem;
+}
+
+.navbar-toggler {
+  background-color: #fff !important;
+}
+
+a {
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+ol,
+ul {
+  padding-left: 0px !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md {
+    display: none !important;
+  }
+  .filter-container-second {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: none !important;
+  }
+  .content-section {
+    margin-left: 0px !important;
+  }
+  .search-and-user {
+    position: relative;
+    left: 0px !important;
+    top: 0px !important;
+    width: 100%;
+  }
+  .filter-container {
+    display: none;
+  }
+  .filter-container-second {
+    display: block;
+  }
+  .sub-table {
+    width: 100%;
+  }
+  .group-search {
+    left: 0px;
+  }
+  .title-table-top,
+  .txt-table-top {
+    padding: 0px;
+    text-align: left;
+  }
+  .table-old {
+    display: none;
+  }
+  .dash-body {
+    padding: 0px !important;
+  }
+  .dis-form {
+    display: none;
+  }
+  .popup {
+    width: 60%;
+  }
+  .scroll-table {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  #tablepress-30 {
+    width: 100%;
+    min-width: 1544px;
+  }
+  .cssbuttons-io-button {
+    height: 40px;
+  }
+  .content-section h2 {
+    font-size: 2rem;
+  }
+  .fc-today-button {
+    display: none !important;
+  }
+}
+
+@media (max-width: 545px) {
+  .btn-icon-back {
+    display: none;
+  }
+  .h3-dashboard {
+    font-size: 0.9rem;
+  }
+  .nav-title {
+    font-size: 1.5rem;
+  }
+  .dashboard-items {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------end nav header css--------------------------------- */
