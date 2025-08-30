@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector('input[name="search"]');
   const searchButton = document.querySelector('input[type="submit"]');
   const clientTableBody = document.getElementById("client-table-body");
+  const totalCountSpan = document.getElementById("totalCount");
+
+  function updateTotalCount() {
+    const visibleRows = clientTableBody.querySelectorAll(
+      "tr:not(.no-results-message):not([style*='display: none'])"
+    );
+    totalCountSpan.textContent = visibleRows.length;
+  }
 
   function filterClients() {
     const filterValue = searchInput.value.toLowerCase();
@@ -9,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let anyMatch = false;
 
     for (let i = 0; i < rows.length; i++) {
+      if (rows[i].classList.contains("no-results-message")) continue;
+
       const clientNameCell = rows[i].children[1];
       if (clientNameCell) {
         const clientName =
@@ -22,13 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Clear previous messages
     const messageRow = document.querySelector(".no-results-message");
     if (messageRow) {
       messageRow.remove();
     }
 
-    // Show message if no matches found
     if (!anyMatch) {
       const noResultsRow = document.createElement("tr");
       noResultsRow.classList.add("no-results-message");
@@ -37,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </td>`;
       clientTableBody.appendChild(noResultsRow);
     }
+
+    updateTotalCount();
   }
 
   searchButton.addEventListener("click", function (event) {
@@ -50,4 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
       filterClients();
     }
   });
+
+  updateTotalCount();
 });

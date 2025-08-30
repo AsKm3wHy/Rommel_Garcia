@@ -540,22 +540,11 @@ function getStatusText($status_id)
       </div> -->
 
 
-            <div class="dash-body">
+            <div class="dash-body-top">
                 <table class="table-appointment" border="0">
                     <tr>
                         <td class="top-header-table">
-                            <!-- <span class="material-symbols-outlined">
-                                Bookmark
-                            </span>
-                            <span class="nav-title">
-                                <h2>Appointment</h2>
-                            </span> -->
 
-
-                            <!-- <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back"
-                                    style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
-                                    <font class="tn-in-text">Back</font>
-                                </button></a> -->
 
 
                             <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
@@ -612,14 +601,12 @@ function getStatusText($status_id)
 
                 <tr>
                     <td colspan="2">
+                        <div class="py-3"></div>
+
                         <div class="d-flex justify-content-between">
                             <p class="heading-main12">Add New Client</p>
 
                             <a href="?action=ad-new&id=none" class="non-style-link d-grid">
-                                <!-- <button
-                                    class="login-btn btn-primary btn button-icon add-btn-table"
-                                    style="display: flex;justify-content: center;align-items: center;margin-left:75px;background-image: url('img/icon/add.svg');">Add
-                                    New</button> -->
 
                                 <button class="cssbuttons-io-button">
                                     <svg
@@ -639,27 +626,47 @@ function getStatusText($status_id)
                             </a>
 
                         </div>
+                        <div class="py-3"></div>
 
                     </td>
-                    <!-- <td colspan="2">
 
-                    </td> -->
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <p class="heading-main12">All Client (0)</p>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex total-clients"><span class="material-symbols-outlined">
+                                    group
+                                </span>
+                                <p class="heading-main12">All Client: (<span id="totalCount">0</span>)</p>
+
+
+                            </div>
+
+
+                            <div class="dis-form-2">
+                                <form action="" method="post" class="header-search ">
+
+                                    <input type="search" name="search" class="input-text header-searchbar"
+                                        placeholder="Search Client Name " list="clientname"
+                                        style="background-image: url('img/search.svg');" autocomplete="off">&nbsp;&nbsp;
+
+
+
+                                    <input type="Submit" value="Search" class="login-btn btn-primary btn"
+                                        style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+
+                                </form>
+                            </div>
+
+
+                        </div>
                     </td>
 
                 </tr>
 
 
-                <tr>
-                    <td colspan="4">
 
-
-
-                    </td>
-                </tr>
 
 
 
@@ -678,10 +685,7 @@ function getStatusText($status_id)
 
                         </th>
                         <th class="table-headin">
-
-
                             Client Name
-
                         </th>
                         <!-- <th class="table-headin">
                             Email
@@ -837,8 +841,8 @@ function getStatusText($status_id)
                     $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
                     $showRescheduled = (isset($_GET['rescheduled']) && $_GET['rescheduled'] == '1');
                     echo '<div id="popup1" class="overlay" style="z-index: 1000;">
-                <div class="popup" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
-                    <a class="close" href="Appointment.php" style="font-size: 2.5rem; top: 18px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
+                <div class="popup-detail" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
+                    <a class="close" href="Appointment.php" style="font-size: 2.5rem; top: -10px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
                     <div class="abc-popup" style="padding: 0;">
                         <div style="padding: 32px 32px 0 32px;">
                             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
@@ -1202,9 +1206,20 @@ function getStatusText($status_id)
     </footer> -->
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tbody = document.getElementById("client-table-body");
+            const totalCountSpan = document.getElementById("totalCount");
+            const rowCount = tbody.querySelectorAll("tr").length;
+            totalCountSpan.textContent = rowCount;
+        });
+    </script> -->
 
 
-    <script src="js/search-filter-appointment.js"></script>
+
+    <script src="js/search-filter-appointment.js">
+
+    </script>
     <script src="js/date.js"></script>
     <script src="js/appointment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.1/dist/bootstrap-table.min.js"></script>
