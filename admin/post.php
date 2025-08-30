@@ -94,10 +94,58 @@ $mysqli->close();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>.popup { animation: transitionIn-Y-bottom 0.5s; } .sub-table { animation: transitionIn-Y-bottom 0.5s; }</style>
-</head>
+
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .bg-light {
+  background-color: #161a2d !important;
+}
+    .popup { animation: transitionIn-Y-bottom 0.5s; } .sub-table { animation: transitionIn-Y-bottom 0.5s; }</style>
+</head> 
 <body>
-<!-- Sidebar and header as before -->
+
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.php?page=dashboard">
+                <img src="img/rommel-logo.png" alt="Logo" class="d-inline-block align-text-top " />
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Appointment.php?page=Appointment">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.php?page=Post-image">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.php?page=Calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.php?page=History">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex log-col" style="gap:10px; color: #b23b3b !important;" href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
     <aside class="sidebar">
         <div class="sidebar-header">
             <img src="img/rommel-logo.png" alt="logo" />
@@ -119,26 +167,69 @@ $mysqli->close();
     </aside>
     <section class="content-section">
         <section class="search-and-user">
-        <span class="nav-title"><span class="material-symbols-outlined active">Library_Add</span> Gallery </span>
+      
+
+
+        <div class="d-flex for-text">
+                                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                                        Library_Add
+                                    </span> </span>
+                                <h2> Gallery</h2>
+                            </div>
+
+
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
                     <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">Today's Date</p>
                     <p class="heading-sub12" id="currentDate"></p>
                     </div>
+
                     <div class="column-button">
-                    <button class="btn-label" id="add-image-btn" style="display: flex;justify-content: center;align-items: center;"><img src="img/icon/add.svg" width="100%"> Add Image</button>
+                    <!-- <button class="btn-label" id="add-image-btn" style="display: flex;justify-content: center;align-items: center;"><img src="img/icon/add.svg" width="100%"> Add Image</button> -->
+                       <a href="calendar.php"> <button class="btn-label"
+                                    style="display: flex;justify-content: center;align-items: center;"><img
+                                        src="img/calendar.svg" width="100%"></button></a>
                     </div>
+
                 </div>
             </div>
+
+
+            
         </section>
-        <div class="dash-body">
-            <table border="0" width="100%" style="border-spacing:0;margin:0;padding:0;margin-top:25px;">
+
+         <div class="d-flex justify-content-between  dash-body">
+                            <p class="heading-main12">Post Image</p>
+
+                            <a  class="non-style-link d-grid">
+                              
+
+                                <button class="cssbuttons-io-button" id="add-image-btn">
+                                    <svg
+                                        height="24"
+                                        width="24"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+                                    </svg>
+                                    <span>Add Image</span>
+                                </button>
+
+
+
+
+                            </a>
+
+                        </div>
+        <div class="appointment-list-scroll-container scroll-table ">
+            <table id="tablepress-30" class="text-center sub-table main-table scrolldown table-responsive  table-striped" border="0" width="100%" >
             <tr><td colspan="4">
                         <center>
-                            <div class="abc scroll">
+                            <div >
                         <table width="93%" class="sub-table main-table scrolldown" border="0" id="gallery-table">
-                                    <thead>
+                                    <thead class="text-center">
                                         <tr>
                                             <th class="table-headin">
                                                 #
@@ -225,7 +316,7 @@ $mysqli->close();
                                         <?php echo date('n/j/y H:i', strtotime($img['uploaded_at'])); ?>
                                             </td>
                                     <td>
-                                        <div style="display:flex;justify-content:center;gap:8px;">
+                                        <div class="events-td" style="display:flex;justify-content:center;gap:8px;">
                                             <button class="btn-primary-soft btn button-icon btn-delete" style="background-image:url('img/icon/delete-iceblue.svg')" onclick="openDeleteModal(<?php echo $img['id']; ?>);return false;">Delete</button>
                                                 </div>
                                             </td>
@@ -374,6 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
     <script src="js/post.js"></script>
     <script src="js/date.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 function showEditCategory(id, category) {
     document.getElementById('editCategoryId').value = id;

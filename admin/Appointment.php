@@ -544,10 +544,22 @@ function getStatusText($status_id)
                 <table class="table-appointment" border="0">
                     <tr>
                         <td class="top-header-table">
+                            <!-- <span class="material-symbols-outlined">
+                                Bookmark
+                            </span>
+                            <span class="nav-title">
+                                <h2>Appointment</h2>
+                            </span> -->
 
 
+                            <!-- <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back"
+                                    style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px; ">
+                                    <font class="tn-in-text">Back</font>
+                                </button></a> -->
 
-                            <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+
+                            <div class="d-flex for-text">
+                                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
                                         Bookmark
                                     </span> </span>
                                 <h2>Appointment</h2>
@@ -607,6 +619,7 @@ function getStatusText($status_id)
                             <p class="heading-main12">Add New Client</p>
 
                             <a href="?action=ad-new&id=none" class="non-style-link d-grid">
+
 
                                 <button class="cssbuttons-io-button">
                                     <svg
