@@ -144,6 +144,12 @@ function formatDateTime($time)
         .sub-table {
             animation: transitionIn-Y-bottom 0.5s;
         }
+
+
+        .bg-light {
+            background-color: #161a2d !important;
+
+        }
     </style>
 </head>
 
@@ -151,6 +157,48 @@ function formatDateTime($time)
     <svg style="display:none;">
         <!-- SVG symbols as in Appointment.php -->
     </svg>
+
+
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.php?page=dashboard">
+                <img src="img/rommel-logo.png" alt="Logo" class="d-inline-block align-text-top " />
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Appointment.php?page=Appointment">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.php?page=Post-image">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.php?page=Calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.php?page=History">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex log-col" style="gap:10px; color: #b23b3b !important;" href="logout.php"><span class="material-symbols-outlined"> logout </span>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
     <aside class="sidebar">
         <div class="sidebar-header">
             <img src="img/rommel-logo.png" alt="logo" />
@@ -236,8 +284,8 @@ function formatDateTime($time)
                 </tr>
             </table>
         </div>
-        <div class="appointment-list-scroll-container">
-            <table width="100%" class="sub-table main-table scrolldown text-center " border="0">
+        <div class="appointment-list-scroll-container scroll-table">
+            <table id="tablepress-30" width="100%" class="sub-table main-table scrolldown text-center " border="0">
                 <thead>
                     <tr>
                         <th class="table-headin sz-table">Appointment number</th>
