@@ -1225,7 +1225,7 @@ input[type="search"] {
 .content-section {
   margin-left: 85px;
   padding: 20px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #ffffff;
   transition: margin-left 0.4s ease;
 }

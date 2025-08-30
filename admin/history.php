@@ -223,52 +223,48 @@ function formatDateTime($time)
     </aside>
     <section class="content-section">
 
-        <section class="search-and-user">
+
+        <div class="dash-body-top ">
+            <table class="table-appointment" border="0">
+                <tr>
+                    <td class="top-header-table">
 
 
-            <div class="dash-body-top">
-                <table class="table-appointment" border="0">
-                    <tr>
-                        <td class="top-header-table">
+                        <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                                    History
+                                </span> </span>
+                            <h2>History Manager</h2>
+                        </div>
+                    </td>
+
+                    <td>
 
 
-                            <div class="d-flex for-text"><span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
-                                        History
-                                    </span> </span>
-                                <h2>History Manager</h2>
-                            </div>
-                        </td>
+                    </td>
+                    <td width="15%">
+                        <p
+                            style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
+                            Today's Date
+                        </p>
+                        <p class="heading-sub12" id="currentDate">
 
-                        <td>
+                        </p>
+                    </td>
+                    <td width="4%">
+                        <a href="calendar.php"> <button class="btn-label"
+                                style="display: flex;justify-content: center;align-items: center;"><img
+                                    src="img/calendar.svg" width="100%"></button></a>
 
-
-                        </td>
-                        <td width="15%">
-                            <p
-                                style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
-                                Today's Date
-                            </p>
-                            <p class="heading-sub12" id="currentDate">
-
-                            </p>
-                        </td>
-                        <td width="4%">
-                            <a href="calendar.php"> <button class="btn-label"
-                                    style="display: flex;justify-content: center;align-items: center;"><img
-                                        src="img/calendar.svg" width="100%"></button></a>
-
-                        </td>
+                    </td>
 
 
-                    </tr>
+                </tr>
 
-                </table>
-            </div>
+            </table>
+        </div>
 
 
-        </section>
-
-        <div class="dash-body">
+        <div class="dash-body py-4">
             <table class=" table-appointment" border="0">
                 <tr>
                     <td class="top-header-table">
@@ -333,14 +329,18 @@ function formatDateTime($time)
                 </tbody>
             </table>
         </div>
-        <?php
-        if (isset($_GET["action"])) {
-            $action = $_GET["action"];
-            if ($action == 'view' && $popupAppointment) {
-                $statusText = getStatusText($popupAppointment['status_id']);
-                $statusClass = strtolower($statusText);
-                $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
-                echo '<div id="popup1" class="overlay" style="z-index: 1000;">
+
+
+    </section>
+
+    <?php
+    if (isset($_GET["action"])) {
+        $action = $_GET["action"];
+        if ($action == 'view' && $popupAppointment) {
+            $statusText = getStatusText($popupAppointment['status_id']);
+            $statusClass = strtolower($statusText);
+            $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
+            echo '<div id="popup1" class="overlay" style="z-index: 1000;">
     <div class="popup" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
         <a class="close" href="history.php" style="font-size: 2.5rem; top: 18px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
         <div class="abc-popup" style="padding: 0;">
@@ -395,8 +395,8 @@ function formatDateTime($time)
         </div>
     </div>
 </div>';
-            } elseif ($action == 'edit' && $popupAppointment) {
-                echo '
+        } elseif ($action == 'edit' && $popupAppointment) {
+            echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
                         <a class="close" href="history.php">&times;</a> 
@@ -442,30 +442,30 @@ function formatDateTime($time)
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <select name="spec" id="" class="box">';
-                $categories = [
-                    "SOLO",
-                    "DUO",
-                    "TRIO",
-                    "QUAD",
-                    "DELUXE",
-                    "GROUP",
-                    "GRADUATE",
-                    "GRADUATE Package 1",
-                    "GRADUATE Package 2",
-                    "GRADUATE Package 3",
-                    "GRADUATE Package 4",
-                    "UNO",
-                    "DOS",
-                    "TRES",
-                    "CUATRO",
-                    "CINCO",
-                    "SEIS"
-                ];
-                foreach ($categories as $cat) {
-                    $selected = (strtolower($popupAppointment['notes']) == strtolower($cat)) ? 'selected' : '';
-                    echo '<option value="' . htmlspecialchars($cat) . '" ' . $selected . '>' . htmlspecialchars($cat) . '</option>';
-                }
-                echo '</select><br><br>
+            $categories = [
+                "SOLO",
+                "DUO",
+                "TRIO",
+                "QUAD",
+                "DELUXE",
+                "GROUP",
+                "GRADUATE",
+                "GRADUATE Package 1",
+                "GRADUATE Package 2",
+                "GRADUATE Package 3",
+                "GRADUATE Package 4",
+                "UNO",
+                "DOS",
+                "TRES",
+                "CUATRO",
+                "CINCO",
+                "SEIS"
+            ];
+            foreach ($categories as $cat) {
+                $selected = (strtolower($popupAppointment['notes']) == strtolower($cat)) ? 'selected' : '';
+                echo '<option value="' . htmlspecialchars($cat) . '" ' . $selected . '>' . htmlspecialchars($cat) . '</option>';
+            }
+            echo '</select><br><br>
                                 </td>
                             </tr>
                              <tr>
@@ -501,11 +501,11 @@ function formatDateTime($time)
                     <br><br>
             </div>
             </div>';
-            } elseif ($action == 'success') {
-                echo '<div id="popup1" class="overlay"><div class="popup"><center><br><br><br><br><h2>Edit Successfully!</h2><a class="close" href="history.php">&times;</a><div class="content"></div><div style="display: flex;justify-content: center;"><a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a></div><br><br></center></div></div>';
-            }
+        } elseif ($action == 'success') {
+            echo '<div id="popup1" class="overlay"><div class="popup"><center><br><br><br><br><h2>Edit Successfully!</h2><a class="close" href="history.php">&times;</a><div class="content"></div><div style="display: flex;justify-content: center;"><a href="history.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a></div><br><br></center></div></div>';
         }
-        ?>
+    }
+    ?>
 
 
     </section>
