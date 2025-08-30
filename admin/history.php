@@ -263,12 +263,21 @@ function formatDateTime($time)
             </table>
         </div>
 
+        <div class="py-4"></div>
 
-        <div class="dash-body py-4">
+        <div class="dash-body ">
             <table class=" table-appointment" border="0">
                 <tr>
                     <td class="top-header-table">
-                        <p class="heading-main12">All Client History (0)</p>
+
+                        <div class="d-flex total-clients"><span class="material-symbols-outlined">
+                                group
+                            </span>
+                            <p class="heading-main12">All Client History: (<span id="totalCount">0</span>)</p>
+
+
+                        </div>
+                        <!-- <p class="heading-main12">All Client History (0)</p> -->
                     </td>
                     <td>
                         <form action="" method="post" class="header-search">
@@ -314,9 +323,9 @@ function formatDateTime($time)
                                 </td>
                                 <td>
                                     <div class="events-td">
-                                        <a href="?action=edit&id=<?= $row['id'] ?>&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
+                                        <!-- <a href="?action=edit&id=<?= $row['id'] ?>&error=0" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit" style=" background-image: url(' img/icon/edit-iceblue.svg')">
                                                 <font class="tn-in-text">Edit</font>
-                                            </button></a>
+                                            </button></a> -->
 
                                         <a href="?action=view&id=<?= $row['id'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view" style="background-image: url(' img/icon/view-iceblue.svg')">
                                                 <font class="tn-in-text">View</font>
@@ -341,8 +350,8 @@ function formatDateTime($time)
             $statusClass = strtolower($statusText);
             $showSuccess = (isset($_GET['status_updated']) && $_GET['status_updated'] == '1');
             echo '<div id="popup1" class="overlay" style="z-index: 1000;">
-    <div class="popup" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
-        <a class="close" href="history.php" style="font-size: 2.5rem; top: 18px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
+    <div class="popup-detail" style="max-width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 0; overflow: visible; background: #f8fafc;">
+        <a class="close" href="history.php" style="font-size: 2.5rem; top: -10px; right: 24px; color: #333; text-shadow: 0 2px 8px #fff; font-weight: bold; position: absolute;">&times;</a>
         <div class="abc-popup" style="padding: 0;">
             <div style="padding: 32px 32px 0 32px;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">

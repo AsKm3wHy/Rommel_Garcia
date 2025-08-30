@@ -961,6 +961,28 @@ input-search-name:hover {
   color: #333;
 }
 
+.popup-detail {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  max-height: 95%;
+}
+
+.popup-detail .close {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
 .abc-popup {
   width: 100%;
   height: auto;
@@ -1263,7 +1285,7 @@ input[type="search"] {
 }
 
 @media print {
-  table.sub-table {
+  /* table.sub-table {
     width: 100%;
     border: 1px solid #000;
     font-family: Arial, sans-serif;
@@ -1275,7 +1297,7 @@ input[type="search"] {
   .close,
   .login-btn {
     display: none;
-  }
+  } */
 }
 
 .status-text input {
@@ -1415,6 +1437,14 @@ input[type="search"] {
   font-size: 40px !important;
 }
 
+.total-clients {
+  place-items: center !important;
+}
+
+.total-clients p {
+  margin: 20px 10px;
+}
+
 /* .table-responsive {
   overflow-y: auto;
 }
@@ -1547,6 +1577,7 @@ ul {
   .dis-form {
     display: none;
   }
+  .popup-detail,
   .popup {
     width: 60%;
   }
