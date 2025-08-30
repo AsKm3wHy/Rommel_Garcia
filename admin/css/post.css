@@ -68,7 +68,9 @@ svg {
 body {
   margin: 0;
   padding: 0;
-  font: 16px/1.5 "Lato", sans-serif;
+  font:
+    16px/1.5 "Lato",
+    sans-serif;
 }
 
 /* HEADER STYLES
@@ -896,7 +898,6 @@ input-search-name:hover {
 
 .btn-primary-soft {
   background-color: #d8ebfa !important;
-
   color: #1969aa !important;
   font-weight: 500 !important;
   font-size: 16px !important;
@@ -985,7 +986,9 @@ input-search-name:hover {
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .add-doc-form-container {
@@ -1005,7 +1008,9 @@ input-search-name:hover {
   line-height: 1.5;
   width: 100%;
   background-clip: padding-box;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   margin: 0;
   width: 95%;
 }
@@ -1214,7 +1219,9 @@ div.gallery img {
 .bottom-log {
   height: 13%;
 }
+
 /* --------------------------------  START ASIDE CSS -----------------------------  */
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -1228,6 +1235,7 @@ div.gallery img {
   padding: 25px 20px;
   transition: all 0.4s ease;
 }
+
 .sidebar:hover {
   width: 260px;
 }
@@ -1237,6 +1245,7 @@ div.gallery img {
   /*  align-items: center;*/
   place-items: center;
 }
+
 .sidebar .sidebar-header img {
   width: 80%;
   border-radius: 50%;
@@ -1249,6 +1258,7 @@ div.gallery img {
   white-space: nowrap;
   margin-left: 23px;
 }
+
 .sidebar-links h4 {
   color: #fff;
   font-weight: 500;
@@ -1256,12 +1266,15 @@ div.gallery img {
   margin: 10px 0;
   position: relative;
 }
+
 .sidebar-links h4 span {
   opacity: 0;
 }
+
 .sidebar:hover .sidebar-links h4 span {
   opacity: 1;
 }
+
 .sidebar-links .menu-separator {
   position: absolute;
   left: 0;
@@ -1274,10 +1287,12 @@ div.gallery img {
   transform-origin: right;
   transition-delay: 0.2s;
 }
+
 .sidebar:hover .sidebar-links .menu-separator {
   transition-delay: 0s;
   transform: scaleX(0);
 }
+
 .sidebar-links {
   list-style: none;
   /*  margin-top: 20px;*/
@@ -1293,6 +1308,7 @@ div.gallery img {
 .sidebar-links::-webkit-scrollbar {
   display: none;
 }
+
 .sidebar-links li a {
   display: flex;
   align-items: center;
@@ -1304,6 +1320,7 @@ div.gallery img {
   text-decoration: none;
   transition: 0.2s ease;
 }
+
 .sidebar-links li a:hover {
   color: #161a2d;
   background: #fff;
@@ -1315,72 +1332,91 @@ div.gallery img {
   background: #e03a3e !important;
   border-radius: 4px;
 }
+
 .active {
   color: #161a2d !important;
   background: #fff;
   border-radius: 4px;
 }
+
 .user-account {
   /* margin-top: auto; */
   padding: 12px 10px;
   margin-left: -10px;
 }
+
 .user-profile {
   display: flex;
   align-items: center;
   color: #161a2d;
 }
+
 .user-profile img {
   width: 42px;
   border-radius: 50%;
   border: 2px solid #fff;
 }
+
 .user-profile h3 {
   font-size: 1rem;
   font-weight: 600;
 }
+
 .user-profile span {
   font-size: 0.775rem;
   font-weight: 600;
 }
+
 .user-detail {
   margin-left: 23px;
   white-space: nowrap;
 }
+
 .sidebar:hover .user-account {
   /*  background: #fff;*/
   border-radius: 4px;
 }
+
 /* Style for the new content section */
+
 .content-section {
-  margin-left: 85px; /* same as sidebar width for initial state */
+  margin-left: 85px;
+  /* same as sidebar width for initial state */
   padding: 20px;
-  min-height: 100vh; /* full viewport height */
-  background-color: #ffffff; /* white background */
+  min-height: 100vh;
+  /* full viewport height */
+  background-color: #ffffff;
+  /* white background */
   transition: margin-left 0.4s ease;
 }
 
 /* Adjust margin when sidebar is hovered (expanded) */
+
 .sidebar:hover ~ .content-section {
-  margin-left: 260px; /* expanded sidebar width */
+  margin-left: 260px;
+  /* expanded sidebar width */
 }
 
 /* Optional: Style for heading inside section */
-.content-section h2 {
+
+.content-section .title-modal {
   font-size: 1.5rem;
   color: #333;
 }
 
 /* Optional: Style for paragraph inside section */
+
 .content-section p {
   font-size: 1rem;
   color: #666;
 }
+
 .nav-title .material-symbols-outlined {
   font-size: 30px !important;
 }
 
 /* Gallery Modal Card */
+
 .gallery-modal-card {
   background: #fff;
   border-radius: 16px;
@@ -1390,61 +1426,74 @@ div.gallery img {
   margin: 0 auto;
   position: relative;
 }
+
 .gallery-modal-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 18px;
 }
+
 .gallery-modal-icon {
   font-size: 2.2rem;
   color: #1976d2;
 }
+
 .gallery-modal-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
+
 .gallery-drop-area {
   border: 2px dashed #1976d2;
   border-radius: 12px;
   padding: 32px 0;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
   background: #f7faff;
   position: relative;
 }
+
 .gallery-drop-area.dragover {
   border-color: #1565c0;
   background: #e3f2fd;
 }
+
 .gallery-drop-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
+
 .gallery-drop-icon {
   font-size: 2.5rem;
   color: #1976d2;
 }
+
 #galleryDropText {
   color: #1976d2;
   font-size: 1.1rem;
   font-weight: 500;
 }
+
 #galleryImagePreview {
   margin-top: 10px;
   max-width: 90%;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(60, 60, 60, 0.1);
 }
+
 .gallery-modal-field label {
   font-weight: 500;
   margin-bottom: 4px;
   color: #333;
 }
+
 .gallery-modal-select {
   width: 100%;
   padding: 8px 12px;
@@ -1454,6 +1503,7 @@ div.gallery img {
   background: #f9f9f9;
   margin-top: 2px;
 }
+
 .gallery-modal-upload-btn {
   width: 100%;
   background: #1976d2;
@@ -1471,9 +1521,11 @@ div.gallery img {
   gap: 8px;
   transition: background 0.2s;
 }
+
 .gallery-modal-upload-btn:hover {
   background: #1565c0;
 }
+
 @media (max-width: 600px) {
   .gallery-modal-card {
     padding: 18px 6px 16px 6px;
@@ -1482,6 +1534,7 @@ div.gallery img {
 }
 
 /* Center modal overlay and modal card */
+
 #addImageModal.modal {
   position: fixed;
   top: 0;
@@ -1497,11 +1550,13 @@ div.gallery img {
   justify-content: center !important;
   transition: opacity 0.3s;
 }
+
 #addImageModal.modal.show {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
+
 #addImageModal .gallery-modal-card {
   margin: 0 !important;
   position: relative;
@@ -1512,9 +1567,18 @@ div.gallery img {
   background: #fff;
   padding: 32px 32px 24px 32px;
 }
-#addImageModal .close {
+
+.close {
   cursor: pointer;
+  text-align: end !important;
+  font-weight: 600;
+  font-size: 2rem;
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  top: -20px;
 }
+
 @media (max-width: 600px) {
   #addImageModal .gallery-modal-card {
     padding: 18px 6px 16px 6px;
@@ -1537,6 +1601,7 @@ div.gallery img {
   justify-content: center !important;
   transition: opacity 0.3s;
 }
+
 #deleteModal.modal.show {
   display: flex !important;
 }
@@ -1548,7 +1613,9 @@ div.gallery img {
   margin-bottom: 0.2em;
   border-radius: 6px;
   font-size: 0.95em;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .content-section h2 {
@@ -1556,6 +1623,7 @@ div.gallery img {
   color: #333;
   text-align: center;
 }
+
 .for-text h2 {
   margin: 0px 5px !important;
   display: grid;

@@ -369,7 +369,7 @@ $mysqli->close();
                 <span class="close" onclick="closeAddImageModal()">&times;</span>
                 <div class="gallery-modal-header">
                     <span class="gallery-modal-icon"><i class="fa fa-image"></i></span>
-                    <h2>Add New Image</h2>
+                    <h2 class="title-modal">Add New Image</h2>
                 </div>
                 <form id="addImageForm" method="POST" enctype="multipart/form-data" class="gallery-modal-form">
                     <input type="hidden" name="upload_image" value="1">
@@ -410,7 +410,7 @@ $mysqli->close();
                 <span class="close" onclick="closeDeleteModal()">&times;</span>
                 <div class="gallery-modal-header">
                     <span class="gallery-modal-icon"><i class="fa fa-trash"></i></span>
-                    <h2>Delete Image</h2>
+                    <h2 class="title-modal">Delete Image</h2>
                 </div>
                 <p style="margin-bottom:18px;">Are you sure you want to delete this image?</p>
                 <form id="deleteForm" method="GET" style="margin:0;">

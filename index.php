@@ -74,87 +74,87 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
     <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Rommel Garcia Digital Video and Photography",
-        "alternateName": ["Kuya Rommel", "Rommel Photography"],
-        "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
-        "url": "https://rommelgarcia.com/",
-        "telephone": "+63-XXX-XXX-XXXX",
-        "priceRange": "₱₱",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Rommel Garcia Digital Video and Photography",
+            "alternateName": ["Kuya Rommel", "Rommel Photography"],
+            "image": "https://rommelgarcia.com/img/Header-Pic/rommel-logo-v3.svg",
+            "url": "https://rommelgarcia.com/",
+            "telephone": "+63-XXX-XXX-XXXX",
+            "priceRange": "₱₱",
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Guimba",
+                "addressLocality": "Guimba",
+                "addressRegion": "Nueva Ecija",
+                "addressCountry": "PH"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 15.6602,
+                "longitude": 120.7656
+            },
+            "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
+            "sameAs": [
+                "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
             ],
-            "opens": "08:00",
-            "closes": "18:00"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Guimba",
-            "addressLocality": "Guimba",
-            "addressRegion": "Nueva Ecija",
-            "addressCountry": "PH"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 15.6602,
-            "longitude": 120.7656
-        },
-        "hasMap": "https://maps.app.goo.gl/DReEDuF5pnugP2TR9",
-        "sameAs": [
-            "https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-        ],
-        "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
-        "areaServed": {
-            "@type": "City",
-            "name": "Guimba",
-            "containedIn": "Nueva Ecija"
-        },
-        "makesOffer": [{
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Graduation Photography"
-                }
+            "description": "Professional photography and digital video studio in Guimba, Nueva Ecija. Specializing in graduation photos, weddings, events, portraits, 360° video booth, and self-mirror booth services. Trusted local photography business with affordable packages.",
+            "areaServed": {
+                "@type": "City",
+                "name": "Guimba",
+                "containedIn": "Nueva Ecija"
             },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Wedding Photography"
+            "makesOffer": [{
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Graduation Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Wedding Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Event Photography"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "360° Video Booth"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Self-Mirror Booth"
+                    }
                 }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Event Photography"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "360° Video Booth"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Self-Mirror Booth"
-                }
-            }
-        ]
-    }
+            ]
+        }
     </script>
 </head>
 
@@ -162,9 +162,9 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
 <body>
 
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
 
     <div class="top-search-area">
@@ -1445,12 +1445,12 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
     <script>
         // Simple filter logic for categories
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
 
             filterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
+                btn.addEventListener('click', function() {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     const filter = this.getAttribute('data-filter');
@@ -1508,7 +1508,7 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-        </script>
+    </script>
     </script>
     <!-- animate on scroll js  -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -1615,14 +1615,14 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
         const allSections = document.querySelectorAll('.form-section');
 
-        buttons.forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
+        buttons.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = btn.getAttribute('data-target');
                 const targetSection = document.getElementById(targetId);
 
 
-                allSections.forEach(function (section) {
+                allSections.forEach(function(section) {
                     section.classList.remove('show-form');
                 });
                 if (targetSection) {
