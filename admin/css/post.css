@@ -1608,6 +1608,14 @@ div.gallery img {
 
 /* ---------------------other css ---------------- */
 
+.date-top {
+  font-size: 14px;
+  color: rgb(119, 119, 119);
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
 .events-td button {
   min-width: 130px;
   margin-bottom: 0.2em;
@@ -1797,6 +1805,21 @@ ul {
   }
   .dashboard-items {
     width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-title .material-symbols-outlined {
+    font-size: 30px !important;
+  }
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+  .date-top {
+    font-size: 12px;
+  }
+  .cssbuttons-io-button {
+    font-size: 14px;
   }
 }
 

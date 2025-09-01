@@ -68,7 +68,9 @@ svg {
 body {
   margin: 0;
   padding: 0;
-  font: 16px/1.5 "Lato", sans-serif;
+  font:
+    16px/1.5 "Lato",
+    sans-serif;
 }
 
 /* HEADER STYLES
@@ -230,6 +232,7 @@ body {
 
 .search-and-user form {
   position: relative;
+  width: 50%;
 }
 
 .search-and-user [type="search"] {
@@ -1007,7 +1010,9 @@ input-search-name:hover {
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .add-doc-form-container {
@@ -1028,7 +1033,9 @@ input-search-name:hover {
   line-height: 1.5;
   width: 100%;
   background-clip: padding-box;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .header-search {
@@ -1265,10 +1272,10 @@ input[type="search"] {
   font-size: 30px !important;
 }
 
-.top-header-table {
+/* .top-header-table {
   place-items: center;
   display: flex;
-}
+} */
 
 .data-bold {
   font-weight: bold;
@@ -1333,7 +1340,9 @@ input[type="search"] {
   margin-bottom: 0.2em;
   border-radius: 6px;
   font-size: 0.95em;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .btn-confirm {
@@ -1392,7 +1401,11 @@ input[type="search"] {
   min-width: 160px;
   text-align: left;
   margin: 0;
-  transition: border 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  transition:
+    border 0.2s,
+    box-shadow 0.2s,
+    background 0.2s,
+    color 0.2s;
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
@@ -1410,6 +1423,12 @@ input[type="search"] {
 }
 
 /* ---------------------other css ---------------- */
+
+.client-front {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+}
 
 .for-text h2 {
   margin: 0px 5px !important;
@@ -1601,6 +1620,33 @@ ul {
   }
   .dashboard-items {
     width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-title .material-symbols-outlined {
+    font-size: 30px !important;
+  }
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+  .date-top {
+    font-size: 12px;
+  }
+  .cssbuttons-io-button {
+    font-size: 14px;
+  }
+  .client-front {
+    display: grid;
+  }
+}
+
+@media (max-width: 433px) {
+  .client-front {
+    display: grid;
+  }
+  .col-span {
+    grid-template-columns: 60% 50%;
   }
 }
 

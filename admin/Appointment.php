@@ -543,7 +543,7 @@ function getStatusText($status_id)
             <div class="dash-body-top">
                 <table class="table-appointment" border="0">
                     <tr>
-                        <td class="top-header-table">
+                        <td>
                             <!-- <span class="material-symbols-outlined">
                                 Bookmark
                             </span>
@@ -557,16 +557,48 @@ function getStatusText($status_id)
                                     <font class="tn-in-text">Back</font>
                                 </button></a> -->
 
+                            <div class="client-front col-span">
+                                <div class="d-flex for-text">
+                                    <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                                            Bookmark
+                                        </span> </span>
+                                    <h2>Appointment</h2>
+                                </div>
 
-                            <div class="d-flex for-text">
-                                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
-                                        Bookmark
-                                    </span> </span>
-                                <h2>Appointment</h2>
+                                <form action="" method="post" class="header-search dis-form">
+
+                                    <input type="search" name="search" class="input-text header-searchbar"
+                                        placeholder="Search Client Name " list="clientname"
+                                        style="background-image: url('img/search.svg');" autocomplete="off">&nbsp;&nbsp;
+
+
+
+                                    <input type="Submit" value="Search" class="login-btn btn-primary btn"
+                                        style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+
+                                </form>
+
+                                <div class="d-flex">
+                                    <div class="d-grid">
+                                        <p
+                                            style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
+                                            Today's Date
+                                        </p>
+                                        <p class="heading-sub12" id="currentDate">
+
+                                        </p>
+                                    </div>
+                                    <a href="calendar.php"> <button class="btn-label"
+                                            style="display: flex;justify-content: center;align-items: center;"><img
+                                                src="img/calendar.svg" width="100%"></button></a>
+
+                                </div>
                             </div>
+
+
                         </td>
 
-                        <td>
+                        <!-- <td>
 
                             <form action="" method="post" class="header-search dis-form">
 
@@ -581,22 +613,30 @@ function getStatusText($status_id)
 
                             </form>
 
-                        </td>
-                        <td width="15%">
-                            <p
-                                style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
-                                Today's Date
-                            </p>
-                            <p class="heading-sub12" id="currentDate">
+                        </td> -->
+                        <!-- <td width="15%">
+                            <div class="d-flex">
+                                <div class="d-grid">
+                                    <p
+                                        style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
+                                        Today's Date
+                                    </p>
+                                    <p class="heading-sub12" id="currentDate">
 
-                            </p>
+                                    </p>
+                                </div>
+                                <a href="calendar.php"> <button class="btn-label"
+                                        style="display: flex;justify-content: center;align-items: center;"><img
+                                            src="img/calendar.svg" width="100%"></button></a>
+
+                            </div>
+
+
                         </td>
                         <td width="4%">
-                            <a href="calendar.php"> <button class="btn-label"
-                                    style="display: flex;justify-content: center;align-items: center;"><img
-                                        src="img/calendar.svg" width="100%"></button></a>
 
-                        </td>
+
+                        </td> -->
 
 
                     </tr>
@@ -647,7 +687,7 @@ function getStatusText($status_id)
                 <tr>
                     <td colspan="4">
 
-                        <div class="d-flex justify-content-between">
+                        <div class="client-front justify-content-between">
                             <div class="d-flex total-clients"><span class="material-symbols-outlined">
                                     group
                                 </span>

@@ -193,7 +193,7 @@ $mysqli->close();
             <div class="admin-profile">
                 <div class="row-date">
                     <div class="column-date">
-                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">Today's Date</p>
+                        <p class="date-top">Today's Date</p>
                         <p class="heading-sub12" id="currentDate"></p>
                     </div>
 
