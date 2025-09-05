@@ -1100,7 +1100,7 @@ td {
   display: flex;
   align-items: center;
   gap: 0 20px;
-  color: #fff !important;
+  color: #fff;
   font-weight: 500;
   white-space: nowrap;
   padding: 15px 10px;
@@ -1109,8 +1109,8 @@ td {
 }
 
 .sidebar-links li a:hover {
-  color: #161a2d;
-  background: #fff;
+  color: #161a2d !important;
+  background-color: #fff !important;
   border-radius: 4px;
 }
 
@@ -1122,7 +1122,7 @@ td {
 
 .active {
   color: #161a2d !important;
-  background: #fff;
+  background-color: #fff;
   border-radius: 4px;
 }
 
@@ -1289,7 +1289,7 @@ td {
   background-color: #fff !important;
 }
 
-a {
+#calendar a {
   color: #000000 !important;
   text-decoration: none !important;
 }

@@ -20,7 +20,7 @@ foreach ($appointments as $appt) {
 }
 ?>
 <script>
-window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
+    window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +38,12 @@ window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <style>
-             .bg-light {
-  background-color: #161a2d !important;
-}
-        </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .bg-light {
+            background-color: #161a2d !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -150,7 +150,7 @@ window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
     </header> -->
 
 
-     <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="index.php?page=dashboard">
@@ -217,7 +217,7 @@ window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
             </li>
 
             <li>
-                <a href="calendar.php?page=Calendar" class="active"><span class="material-symbols-outlined active">
+                <a href="calendar.php?page=Calendar" class="active"><span class="material-symbols-outlined ">
                         Calendar_Month
                     </span>Calendar</a>
             </li>
@@ -245,12 +245,12 @@ window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
         <section class="search-and-user">
 
 
-                 <div class="d-flex for-text">
-                                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
-                                        Calendar_Month
-                                    </span> </span>
-                                <h2> Calendar</h2>
-                            </div>
+            <div class="d-flex for-text">
+                <span class="nav-title " style="display: grid; place-items: center;"> <span class="material-symbols-outlined">
+                        Calendar_Month
+                    </span> </span>
+                <h2> Calendar</h2>
+            </div>
 
             <div class="admin-profile">
                 <div class="row-date">
@@ -271,16 +271,19 @@ window.appointmentsData = <?php echo json_encode($calendarEvents); ?>;
             </div>
         </section>
 
-        <div >
+        <div>
             <div id='calendar'></div>
         </div>
 
     </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.js'></script>
+
+
+
 
     <script src="js/calendar.js"> </script>
     <script src="js/date.js"></script>
