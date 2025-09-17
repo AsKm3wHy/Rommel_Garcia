@@ -5,20 +5,23 @@ $dotenv->load();
 include_once("header.php");
 
 // Database configuration
-class Database {
+class Database
+{
     private $host;
     private $db_name;
     private $username;
     private $password;
     public $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->db_name = getenv('DB_NAME');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
         try {
             $this->conn = new PDO(
@@ -28,7 +31,7 @@ class Database {
             );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection error: " . $e->getMessage();
         }
         return $this->conn;
@@ -40,12 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get JSON data from request body
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
-    
+
     if ($data) {
         // Initialize database connection
         $database = new Database();
         $db = $database->getConnection();
-        
+
         try {
             // Check for time slot conflicts
             $conflictCheck = $db->prepare("
@@ -53,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 WHERE appointment_date = ? AND appointment_time = ? AND status_id IN (2)
             ");
             $conflictCheck->execute([$data['booking_date'], $data['booking_time']]);
-            
+
             if ($conflictCheck->fetchColumn() > 0) {
                 echo json_encode([
                     'success' => false,
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ]);
                 exit;
             }
-            
+
             // Insert appointment into database
             $stmt = $db->prepare("
                 INSERT INTO appointments (
@@ -75,19 +78,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data['full_name'],
                 $data['email'],
                 $data['phone'],
-                $data['booking_date'],
-                $data['booking_time'],
+                $data['date'],
+                $data['time'],
                 "SOLO"
             ]);
 
             $id = $db->lastInsertId();
-            
+            $conflictCheck->execute([$data['date'], $data['time']]);
+
             echo json_encode([
                 'success' => true,
                 'id' => $id,
                 'full_name' => $data['full_name'],
-                'booking_date' => $data['booking_date'],
-                'booking_time' => $data['booking_time'],
+                'booking_date' => $data['date'],
+                'booking_time' => $data['time'],
                 'package' => $data['package'],
                 'message' => 'Appointment created successfully'
             ]);
@@ -144,18 +148,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php echo $header; ?>
 
 
-    <!-- <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
-        <li>
-            <a class="entypo-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
-                target="_blank"><span>Facebook</span></a>
-        </li>
-
-    </ul> -->
     <section class="pricing">
         <div class="container ">
 
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center align-items-center">
                     <div class="plan-card">
                         <h2>SOLO<span>For business services</span></h2>
                         <div class="etiquet-price">
@@ -187,14 +184,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </ul>
                             <p class="all-copy">All Digital copies are free</p>
                         </div>
-                        <!-- <div class="button-get-plan">
-                            <a href="solo.php">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-rocket">
-                                    <path d="M156.6 384.9L125.7 353.1C117.2 345.5 114.2 333.1 117.1 321.8C120.1 312.9 124.1 301.3 129.8 288H24C15.38 288 7.414 283.4 3.146 275.9C-1.123 268.4-1.042 259.2 3.357 251.8L55.83 163.3C68.79 141.4 92.33 127.1 117.8 127.1H200C202.4 124 204.8 120.3 207.2 116.7C289.1-4.07 411.1-8.142 483.9 5.275C495.6 7.414 504.6 16.43 506.7 28.06C520.1 100.9 516.1 222.9 395.3 304.8C391.8 307.2 387.1 309.6 384 311.1V394.2C384 419.7 370.6 443.2 348.7 456.2L260.2 508.6C252.8 513 243.6 513.1 236.1 508.9C228.6 504.6 224 496.6 224 488V380.8C209.9 385.6 197.6 389.7 188.3 392.7C177.1 396.3 164.9 393.2 156.6 384.9V384.9zM384 167.1C406.1 167.1 424 150.1 424 127.1C424 105.9 406.1 87.1 384 87.1C361.9 87.1 344 105.9 344 127.1C344 150.1 361.9 167.1 384 167.1z"></path>
-                                </svg>
-                                <span>SEE PREVIEW</span>
-                            </a>
-                        </div> -->
                     </div>
                 </div>
                 <div class="col" style="border: 1px solid #dbdbdb; border-radius: 10px;">
@@ -249,6 +238,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </section>
 
+    <section class="list-branch">
+
+        <div class="branch-container">
+
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo1.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo2.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo3.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img\pic\Solo4.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img\pic\Solo5.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img\pic\Solo.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo1.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo2.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/Solo3.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img\pic\Solo4.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img\pic\Solo5.JPG" alt="mobile" width="100%" height="auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js-package/solo.js"></script>
+
     <?php echo $footer; ?>
 
 
@@ -257,11 +291,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-        eval(mod_pagespeed_2mSwO3vn68);
+    eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-        eval(mod_pagespeed_aQrG1NKKxL);
+    eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -270,23 +304,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-23581568-13');
+    gtag('config', 'UA-23581568-13');
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-        </script>
+    </script>
     </script>
     <!-- animate on scroll js  -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
 
 
@@ -294,41 +328,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="js-package/packages.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('appointmentForm');
-            const modal = document.getElementById('confirmationModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeModal = document.getElementById('closeModal');
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('appointmentForm');
+        const modal = document.getElementById('confirmationModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
 
-            // Set minimum date to today
-            const dateInput = form.querySelector('input[name="date"]');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
+        // Set minimum date to today
+        const dateInput = form.querySelector('input[name="date"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-                const formData = {
-                    package: "SOLO",
-                    full_name: form.fullName.value,
-                    email: form.email.value,
-                    phone: form.phone.value,
-                    booking_date: form.date.value,
-                    booking_time: form.time.value
-                };
+            const formData = {
+                package: "SOLO",
+                full_name: form.fullName.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                booking_date: form.date.value,
+                booking_time: form.time.value
+            };
 
-                try {
-                    // Use AJAX to submit to the server-side PHP script
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('POST', window.location.href, true);
-                    xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status === 200) {
-                                const result = JSON.parse(xhr.responseText);
-                                if (result.success) {
-                                    // Display success message and appointment details
-                                    modalContent.innerHTML = `
+            try {
+                // Use AJAX to submit to the server-side PHP script
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', window.location.href, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            const result = JSON.parse(xhr.responseText);
+                            if (result.success) {
+                                // Display success message and appointment details
+                                modalContent.innerHTML = `
                                         <div class="mt-3">
                                             <p><strong>Booking ID:</strong> ${result.id}</p>
                                             <p><strong>Name:</strong> ${result.full_name}</p>
@@ -338,35 +372,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <p><strong>Price:</strong> ₱500.00</p>
                                         </div>
                                     `;
-                                    modal.style.display = 'flex';
-                                    form.reset();
-                                } else {
-                                    alert(result.message || 'Failed to book appointment. Please try again.');
-                                }
+                                modal.style.display = 'flex';
+                                form.reset();
                             } else {
-                                alert('An error occurred. Please try again later.');
+                                alert(result.message ||
+                                    'Failed to book appointment. Please try again.');
                             }
+                        } else {
+                            alert('An error occurred. Please try again later.');
                         }
-                    };
-                    xhr.send(JSON.stringify(formData));
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again later.');
-                }
-            });
-
-            // Close modal when clicking the X button
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-
-            // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
+                    }
+                };
+                xhr.send(JSON.stringify(formData));
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
         });
+
+        // Close modal when clicking the X button
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
     </script>
 </body>
 
