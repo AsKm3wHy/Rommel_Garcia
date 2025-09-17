@@ -1422,6 +1422,21 @@ input[type="search"] {
   color: #222;
 }
 
+.btn-view-2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .btn-view-2 button {
+  width: 100%;
+} */
+
+@media (max-width: 655px) {
+  .btn-view-2 {
+    display: grid;
+  }
+}
+
 /* ---------------------other css ---------------- */
 
 .client-front {

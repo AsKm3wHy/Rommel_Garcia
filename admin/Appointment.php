@@ -276,10 +276,6 @@ function getStatusText($status_id)
     <link rel="icon" href="../img/Header-Pic/rommel-logo-v3.svg">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/admin.css"> -->
-
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -339,78 +335,6 @@ function getStatusText($status_id)
     </svg>
 
 
-
-    <!-- <header class="page-header">
-    <nav>
-      <a href="dashboard.php" aria-label="forecastr logo" class="logo">
-
-        <img src="img/rommel-logo-v3.svg" alt="logo" width="150">
-      </a>
-
-
-      <ul class="admin-menu">
-        <li class="menu-heading">
-          <h3>Admin</h3>
-        </li>
-        <li>
-          <a href="index.php">
-            <svg>
-              <use xlink:href="#dashboard"></use>
-            </svg>
-            <span>Dashboard</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="appointment.php" class="active">
-            <svg>
-              <use xlink:href="#bookmark"></use>
-            </svg>
-            <span>Appointment</span>
-          </a>
-        </li>
-        <li>
-          <a href="calendar.php">
-            <svg>
-              <use xlink:href="#calendar-btn"></use>
-            </svg>
-            <span>Calendar</span>
-          </a>
-        </li>
-        <li>
-          <a href="history.php">
-            <svg>
-              <use xlink:href="#history"></use>
-            </svg>
-            <span>History</span>
-          </a>
-        </li>
-        <li>
-          <a href="post.php">
-            <svg>
-              <use xlink:href="#gallery"></use>
-            </svg>
-            <span>Gallery</span>
-          </a>
-        </li>
-
-
-
-        <li>
-
-          <button class="logout-btn" aria-expanded="true" aria-label="collapse menu">
-            <svg aria-hidden="true">
-              <use xlink:href="#logout"></use>
-            </svg>
-            <span>Logout</span>
-          </button>
-        </li>
-
-      </ul>
-
-    </nav>
-
-  </header> -->
 
 
     <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -937,7 +861,7 @@ function getStatusText($status_id)
                                 <div style="background: #f5faff; border-radius: 10px; padding: 22px 18px 18px 18px; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);">
                                     <h3 style="margin: 0 0 12px 0; font-size: 1.08em; color: #1976d2; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">edit_square</span>Update Appointment Status</h3>
                                     ' . ($showSuccess ? '<div style="background: #e8f5e9; color: #2e7d32; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 6px;"><span class="material-symbols-outlined" style="font-size: 1.2em;">check_circle</span> Status updated successfully!</div>' : '') . '
-                                    <form method="post" action="" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%;">
+                                    <form method="post" action="" style="display: flex; flex-direction: column;  gap: 8px; width: 100%;">
                                         <input type="hidden" name="status_id" value="' . htmlspecialchars($popupAppointment['id']) . '">
                                         <input type="hidden" name="from_view" value="1">
                                         <label for="view-status-dropdown" style="font-weight: 500;">Status:</label>
@@ -950,10 +874,20 @@ function getStatusText($status_id)
                                                 <option value="4" ' . ($popupAppointment['status_id'] == 4 ? 'selected' : '') . '>Cancelled</option>
                                             </select>
                                         </div>
+                                        <div class=" btn-view-2 ">
                                         <button type="submit" class="btn-primary btn" style="margin-top: 12px; background: #1976d2; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 1.05em;">
                                             <span class="material-symbols-outlined" style="font-size: 1.2em;">check</span> Update Status
                                         </button>
+
+                                        <a href="clientRecord.php?page=client-info">
+                                        <button type="button" class="btn-primary btn" style="margin-top: 12px; background: #1976d2; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 1.05em; width:100%;">
+                                            <span class="material-symbols-outlined" style="font-size: 1.2em;">article_person</span> Records
+                                        </button></a>
+                                        </div>
+                                        
                                     </form>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
