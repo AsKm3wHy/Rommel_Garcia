@@ -4,13 +4,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 include_once("header.php");
 
-class Database {
+class Database
+{
     private $host;
     private $username;
     private $password;
     private $database;
     private $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
@@ -26,7 +28,8 @@ class Database {
             die("Connection failed: " . $e->getMessage());
         }
     }
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 }
@@ -227,54 +230,96 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     </section>
 
+    <section class="list-branch">
 
+        <div class="branch-container">
+
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js-package/gallery.js"></script>
     <?php echo $footer; ?>
-</body>
+    <!-- </body> -->
 
 
 
-<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
-<script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-<script>
-    eval(mod_pagespeed_2mSwO3vn68);
-</script>
-
-<script>
-    eval(mod_pagespeed_aQrG1NKKxL);
-</script>
-
-<script src="js/lx.bundle.js"></script>
-
-<script src="js/default-assets/active.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+    <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+    <script>
+        eval(mod_pagespeed_2mSwO3vn68);
     </script>
-</script>
-<!-- animate on scroll js  -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-
-
-
-<script src="js-package/packages.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        eval(mod_pagespeed_aQrG1NKKxL);
+    </script>
+
+    <script src="js/lx.bundle.js"></script>
+
+    <script src="js/default-assets/active.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+        </script>
+    </script>
+    <!-- animate on scroll js  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+    <script src="js-package/packages.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('appointmentForm');
             const modal = document.getElementById('confirmationModal');
             const modalContent = document.getElementById('modalContent');
@@ -285,7 +330,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
 
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 const formData = {
@@ -301,12 +346,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', window.location.href, true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
-                
-                xhr.onload = function() {
+
+                xhr.onload = function () {
                     if (xhr.status >= 200 && xhr.status < 300) {
                         try {
                             const result = JSON.parse(xhr.responseText);
-                            
+
                             if (result.success) {
                                 // Display success message and appointment details
                                 modalContent.innerHTML = `
@@ -322,7 +367,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 modal.style.display = 'flex';
                                 form.reset();
                             } else {
-                                alert(result.message || 'Failed to book appointment. Please try again.');
+                                alert(result.message ||
+                                    'Failed to book appointment. Please try again.');
                             }
                         } catch (error) {
                             console.error('Error parsing response:', error);
@@ -333,22 +379,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         alert('An error occurred. Please try again later.');
                     }
                 };
-                
-                xhr.onerror = function() {
+
+                xhr.onerror = function () {
                     console.error('Request failed');
                     alert('An error occurred. Please try again later.');
                 };
-                
+
                 xhr.send(JSON.stringify(formData));
             });
 
             // Close modal when clicking the X button
-            closeModal.addEventListener('click', function() {
+            closeModal.addEventListener('click', function () {
                 modal.style.display = 'none';
             });
 
             // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
+            window.addEventListener('click', function (e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }

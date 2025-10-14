@@ -64,9 +64,9 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
     <link rel="alternate" href="https://rommelgarcia.com/" hreflang="en-PH" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -189,45 +189,6 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
         </div>
     </div>
 
-    <!-- <header class="header-area">
-
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-
-                    <nav class="classy-navbar justify-content-between" id="lxNav">
-
-                        <a class="nav-brand" href="index.php" data-aos="fade-right" data-aos-duration="3000">
-                            <img src="img/Header-Pic/rommel-logo-v3.svg" alt="Kuya Rommel Logo"
-                                style="margin-top:0; width:5rem;">
-                        </a>
-
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <div class="classy-menu">
-
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <div class="classynav" data-aos="fade-left" data-aos-duration="3000">
-                                <ul id="nav">
-                                    <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="gallery.php">Gallery</a></li>
-                                    <li><a href="faq.php">FAQ</a></li>
-                                    <li><a href="contactUs.php">Contact Us</a></li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header> -->
     <ul id="social-sidebar" data-aos="fade-right" data-aos-duration="3000" style="z-index: 200">
         <li>
             <a class="fa fa-facebook" href="https://www.facebook.com/rommelgarciadigitalvideoandphotography"
@@ -269,15 +230,9 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
                         <div class="col-12 col-lg-8 col-xl-6">
                             <div class="welcome-text">
-                                <h2 data-animation="bounceInUp" data-delay="100ms" style="margin-top:3rem;">Welcome to a
+                                <h2 data-animation="bounceInUp" data-delay="100ms" style="margin-top:4rem;">Welcome to a
                                     Journey of Memories!
                                 </h2>
-                                <!-- <p data-animation="bounceInUp" data-delay="500ms">At Rommel Garcia Digital Video and
-                                    Photography, we believe that every moment is a treasure waiting to be captured. Our
-                                    instinctive approach allows us to freeze time, preserving the emotions and stories
-                                    that make life beautiful. Let us help you save your most cherished memories, turning
-                                    fleeting moments into lasting keepsakes that you can reminisce about for years to
-                                    come.</p> -->
                                 <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                     <a href="#pricing" class="btn lx-btn mb-3 mb-sm-0 mr-4">Get an
                                         Appointment</a>
@@ -1469,15 +1424,6 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
 
     <?php echo $footer; ?>
 
-    <!-- <script>
-    function updateCounter() {
-        fetch('https://api.countapi.xyz/update/uimonk/youtubechannel/?amount=1')
-            .then(res => res.json())
-            .then(data => counterElement.innerHTML = data.value)
-    }
-    updateCounter()
-    counterElement = document.getElementsByClassName('count')[0];
-</script> -->
 
 
     <script src="js/jquery.min.js"></script>
@@ -1632,9 +1578,6 @@ header("X-XSS-Protection: 1; mode=block"); // Security header
         });
     </script>
 
-    <script>
-        // This script is no longer needed as we're using server-side rendering for the gallery
-    </script>
 
 </body>
 

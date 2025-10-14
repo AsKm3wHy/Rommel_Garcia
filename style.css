@@ -797,7 +797,8 @@ input:required {
 }
 
 .classy-nav-container {
-  background-color: transparent;
+  background-color: #00000080;
+  /* background-color: transparent; */
   padding: 0;
 }
 
@@ -1902,10 +1903,10 @@ body {
     font-size: 2.3em;
   }
   .plan-card {
-    width: 16rem !important;
+    width: 18rem !important;
   }
   .etiquet-price {
-    width: 15.4rem !important;
+    width: 17.4rem !important;
   }
   .benefits-list p.all-shot {
     font-size: 0.9em;

@@ -4,13 +4,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 include_once("header.php");
 
-class Database {
+class Database
+{
     private $host;
     private $username;
     private $password;
     private $database;
     private $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
@@ -26,7 +28,8 @@ class Database {
             die("Connection failed: " . $e->getMessage());
         }
     }
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 }
@@ -227,6 +230,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     </section>
 
+    <section class="list-branch">
+
+        <div class="branch-container">
+
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js-package/gallery.js"></script>
+
     <?php echo $footer; ?>
 </body>
 
@@ -272,43 +319,43 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <script src="js-package/packages.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('appointmentForm');
-            const modal = document.getElementById('confirmationModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeModal = document.getElementById('closeModal');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('appointmentForm');
+        const modal = document.getElementById('confirmationModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
 
-            // Set minimum date to today
-            const dateInput = form.querySelector('input[name=\"date\"]');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
+        // Set minimum date to today
+        const dateInput = form.querySelector('input[name=\"date\"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-                const formData = {
-                    package: "DELUXE",
-                    full_name: form.fullName.value,
-                    email: form.email.value,
-                    phone: form.phone.value,
-                    booking_date: form.date.value,
-                    booking_time: form.time.value
-                };
+            const formData = {
+                package: "DELUXE",
+                full_name: form.fullName.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                booking_date: form.date.value,
+                booking_time: form.time.value
+            };
 
-                // Create XMLHttpRequest object
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', window.location.href, true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                
-                xhr.onload = function() {
-                    if (xhr.status >= 200 && xhr.status < 300) {
-                        try {
-                            const result = JSON.parse(xhr.responseText);
-                            
-                            if (result.success) {
-                                // Display success message and appointment details
-                                modalContent.innerHTML = `
+            // Create XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', window.location.href, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        const result = JSON.parse(xhr.responseText);
+
+                        if (result.success) {
+                            // Display success message and appointment details
+                            modalContent.innerHTML = `
                                     <div class=\"mt-3\">
                                         <p><strong>Booking ID:</strong> ${result.id}</p>
                                         <p><strong>Name:</strong> ${result.full_name}</p>
@@ -318,42 +365,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <p><strong>Price:</strong> ₱2,500.00</p>
                                     </div>
                                 `;
-                                modal.style.display = 'flex';
-                                form.reset();
-                            } else {
-                                alert(result.message || 'Failed to book appointment. Please try again.');
-                            }
-                        } catch (error) {
-                            console.error('Error parsing response:', error);
-                            alert('An error occurred. Please try again later.');
+                            modal.style.display = 'flex';
+                            form.reset();
+                        } else {
+                            alert(result.message || 'Failed to book appointment. Please try again.');
                         }
-                    } else {
-                        console.error('Request failed with status:', xhr.status);
+                    } catch (error) {
+                        console.error('Error parsing response:', error);
                         alert('An error occurred. Please try again later.');
                     }
-                };
-                
-                xhr.onerror = function() {
-                    console.error('Request failed');
+                } else {
+                    console.error('Request failed with status:', xhr.status);
                     alert('An error occurred. Please try again later.');
-                };
-                
-                xhr.send(JSON.stringify(formData));
-            });
-
-            // Close modal when clicking the X button
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-
-            // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
                 }
-            });
+            };
+
+            xhr.onerror = function () {
+                console.error('Request failed');
+                alert('An error occurred. Please try again later.');
+            };
+
+            xhr.send(JSON.stringify(formData));
         });
-    </script>
+
+        // Close modal when clicking the X button
+        closeModal.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

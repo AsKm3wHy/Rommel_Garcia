@@ -4,13 +4,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 include_once("header.php");
 
-class Database {
+class Database
+{
     private $host;
     private $username;
     private $password;
     private $database;
     private $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
@@ -26,7 +28,8 @@ class Database {
             die("Connection failed: " . $e->getMessage());
         }
     }
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 }
@@ -128,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="container ">
 
             <div class="row">
-                <div class="col">
+                <div class="col-sm d-flex justify-content-center align-items-center">
                     <div class="plan-card">
                         <h2>GRADUATE<span>Package 2</span></h2>
                         <div class="etiquet-price">
@@ -204,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-                <div class="col frames">
+                <div class="col-sm frames">
                     <div class="text-center">
                         <h1 class="py-2">With Frame</h1>
                     </div>
@@ -225,35 +228,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <h6>2.5" x 3.5" <br> Wallet Size</h6>
                     </div>
                 </div>
-                <div class="col forms">
-                    <h5 class="text-center py-3">Set Your Appointment with Ease</h5>
-                    <form id="appointmentForm" action="">
-                        <input type="text" name="package" value="GRADUATE Package 2" hidden>
-                        <div class="input-group">
-                            <input required type="text" name="fullName" autocomplete="off" class="input">
-                            <label class="user-label" for="fullName">Full Name</label>
-                        </div>
-                        <div class="input-group">
-                            <input required type="email" name="email" autocomplete="off" class="input">
-                            <label class="user-label" for="email">Email</label>
-                        </div>
-                        <div class="input-group">
-                            <input required type="number" name="phone" min="0" autocomplete="off" class="input">
-                            <label class="user-label" for="phone">Phone Number</label>
-                        </div>
-                        <div class="date-time">
+                <div class="col-sm ">
+                    <div class="forms">
+                        <h5 class="text-center py-3">Set Your Appointment with Ease</h5>
+                        <form id="appointmentForm" action="">
+                            <input type="text" name="package" value="GRADUATE Package 2" hidden>
                             <div class="input-group">
-                                <input type="date" name="date" min="" autocomplete="off" class="input">
-                                <label class="user-label">Date</label>
+                                <input required type="text" name="fullName" autocomplete="off" class="input">
+                                <label class="user-label" for="fullName">Full Name</label>
                             </div>
                             <div class="input-group">
-                                <input type="time" name="time" min="08:00" max="17:00" autocomplete="off" class="input">
-                                <label class="user-label">Time</label>
+                                <input required type="email" name="email" autocomplete="off" class="input">
+                                <label class="user-label" for="email">Email</label>
                             </div>
-                        </div>
+                            <div class="input-group">
+                                <input required type="number" name="phone" min="0" autocomplete="off" class="input">
+                                <label class="user-label" for="phone">Phone Number</label>
+                            </div>
+                            <div class="date-time">
+                                <div class="input-group">
+                                    <input type="date" name="date" min="" autocomplete="off" class="input">
+                                    <label class="user-label">Date</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="time" name="time" min="08:00" max="17:00" autocomplete="off"
+                                        class="input">
+                                    <label class="user-label">Time</label>
+                                </div>
+                            </div>
 
-                        <button type="submit" class="btn btn-sub btn-primary">Submit</button>
-                    </form>
+                            <button type="submit" class="btn btn-sub btn-primary">Submit</button>
+                        </form>
+                    </div>
+
                 </div>
 
 
@@ -275,17 +282,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </section>
 
     <h1 class="title-grad">Celebrate Your Milestone with Memorable Moments</h1>
-    
+
     <!-- Swiper container for graduate package gallery -->
     <section class="graduate-gallery">
         <div class="swiper graduateSwiper container">
             <div class="swiper-wrapper content">
-                
+
                 <!-- Swiper slide item 1 -->
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/13.jpg" alt="Graduate Photo 1">
+                            <img src="img/pic/default.png" alt="Graduate Photo 1">
                         </div>
                     </div>
                 </div>
@@ -294,7 +301,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/15.jpg" alt="Graduate Photo 2">
+                            <img src="img/pic/default.png" alt="Graduate Photo 2">
                         </div>
                     </div>
                 </div>
@@ -303,7 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="img/indeximage/IMG_9279.JPG" alt="Graduate Photo 3">
+                            <img src="img/pic/default.png" alt="Graduate Photo 3">
                         </div>
                     </div>
                 </div>
@@ -312,7 +319,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/14.jpg" alt="Graduate Photo 4">
+                            <img src="img/pic/default.png" alt="Graduate Photo 4">
                         </div>
                     </div>
                 </div>
@@ -321,7 +328,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/21.jpg" alt="Graduate Photo 5">
+                            <img src="img/pic/default.png" alt="Graduate Photo 5">
                         </div>
                     </div>
                 </div>
@@ -330,7 +337,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/18.jpg" alt="Graduate Photo 6">
+                            <img src="img/pic/default.png" alt="Graduate Photo 6">
                         </div>
                     </div>
                 </div>
@@ -339,7 +346,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/19.jpg" alt="Graduate Photo 7">
+                            <img src="img/pic/default.png" alt="Graduate Photo 7">
                         </div>
                     </div>
                 </div>
@@ -348,7 +355,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/20.jpg" alt="Graduate Photo 8">
+                            <img src="img/pic/default.png" alt="Graduate Photo 8">
                         </div>
                     </div>
                 </div>
@@ -357,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/22.jpg" alt="Graduate Photo 9">
+                            <img src="img/pic/default.png" alt="Graduate Photo 9">
                         </div>
                     </div>
                 </div>
@@ -366,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="my image/f2.jpg" alt="Graduate Photo 10">
+                            <img src="img/pic/default.png" alt="Graduate Photo 10">
                         </div>
                     </div>
                 </div>
@@ -375,18 +382,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="gallery-item">
-                            <img src="img/indeximage/IMG_9282.JPG" alt="Graduate Photo 11">
+                            <img src="img/pic/default.png" alt="Graduate Photo 11">
                         </div>
                     </div>
                 </div>
-
             </div>
+            <!-- Swiper navigation buttons -->
+            <div class="swiper-button-next graduate-next"></div>
+            <div class="swiper-button-prev graduate-prev"></div>
+            <div class="swiper-pagination graduate-pagination"></div>
         </div>
-
-        <!-- Swiper navigation buttons -->
-        <div class="swiper-button-next graduate-next"></div>
-        <div class="swiper-button-prev graduate-prev"></div>
-        <div class="swiper-pagination graduate-pagination"></div>
     </section>
 
     <!-- Lightbox for image preview -->
@@ -406,104 +411,104 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <?php echo $footer; ?>
-</body>
+    <!-- </body> -->
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Initialize Swiper -->
-<script>
-    // Initialize graduate gallery Swiper
-    var graduateSwiper = new Swiper('.graduateSwiper', {
-        spaceBetween: 30,
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".graduate-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".graduate-next",
-            prevEl: ".graduate-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        // Initialize graduate gallery Swiper
+        var graduateSwiper = new Swiper('.graduateSwiper', {
+            spaceBetween: 30,
+            grabCursor: true,
+            loop: true,
+            pagination: {
+                el: ".graduate-pagination",
+                clickable: true,
             },
-            768: {
-                slidesPerView: 2
+            navigation: {
+                nextEl: ".graduate-next",
+                prevEl: ".graduate-prev",
             },
-            1024: {
-                slidesPerView: 3
-            },
-            1150: {
-                slidesPerView: 4
+            breakpoints: {
+                0: {
+                    slidesPerView: 1
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                },
+                1150: {
+                    slidesPerView: 4
+                }
             }
+        });
+
+        // Lightbox functionality for gallery images
+        const allImages = document.querySelectorAll(".graduateSwiper .gallery-item img");
+        const lightbox = document.querySelector(".lightbox");
+        const closeImgBtn = lightbox.querySelector(".close-icon");
+
+        allImages.forEach(img => {
+            img.addEventListener("click", () => showLightbox(img.src));
+        });
+
+        const showLightbox = (img) => {
+            lightbox.querySelector("img").src = img;
+            lightbox.classList.add("show");
+            document.body.style.overflow = "hidden";
         }
-    });
 
-    // Lightbox functionality for gallery images
-    const allImages = document.querySelectorAll(".graduateSwiper .gallery-item img");
-    const lightbox = document.querySelector(".lightbox");
-    const closeImgBtn = lightbox.querySelector(".close-icon");
-    
-    allImages.forEach(img => {
-        img.addEventListener("click", () => showLightbox(img.src));
-    });
-    
-    const showLightbox = (img) => {
-        lightbox.querySelector("img").src = img;
-        lightbox.classList.add("show");
-        document.body.style.overflow = "hidden";
-    }
-    
-    closeImgBtn.addEventListener("click", () => {
-        lightbox.classList.remove("show");
-        document.body.style.overflow = "auto";
-    });
-</script>
-
-<script src="js/jquery.min.js"></script>
-
-<script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-<script>
-    eval(mod_pagespeed_2mSwO3vn68);
-</script>
-
-<script>
-    eval(mod_pagespeed_aQrG1NKKxL);
-</script>
-
-<script src="js/lx.bundle.js"></script>
-
-<script src="js/default-assets/active.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+        closeImgBtn.addEventListener("click", () => {
+            lightbox.classList.remove("show");
+            document.body.style.overflow = "auto";
+        });
     </script>
-</script>
-<!-- animate on scroll js  -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
 
+    <script src="js/jquery.min.js"></script>
 
-
-<script src="js-package/packages.js"></script>
+    <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
+    <script>
+        eval(mod_pagespeed_2mSwO3vn68);
+    </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        eval(mod_pagespeed_aQrG1NKKxL);
+    </script>
+
+    <script src="js/lx.bundle.js"></script>
+
+    <script src="js/default-assets/active.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
+        </script>
+    </script>
+    <!-- animate on scroll js  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+    <script src="js-package/packages.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('appointmentForm');
             const modal = document.getElementById('confirmationModal');
             const modalContent = document.getElementById('modalContent');
@@ -514,7 +519,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
 
-            form.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 const formData = {
@@ -561,12 +566,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
 
             // Close modal when clicking the X button
-            closeModal.addEventListener('click', function() {
+            closeModal.addEventListener('click', function () {
                 modal.style.display = 'none';
             });
 
             // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
+            window.addEventListener('click', function (e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }

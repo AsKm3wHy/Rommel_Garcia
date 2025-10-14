@@ -5,19 +5,22 @@ $dotenv->load();
 include_once("header.php");
 
 // Database configuration (match solo.php style)
-class Database {
+class Database
+{
     private $host;
     private $db_name;
     private $username;
     private $password;
     public $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->db_name = getenv('DB_NAME');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
     }
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
         try {
             $this->conn = new PDO(
@@ -27,7 +30,7 @@ class Database {
             );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection error: " . $e->getMessage();
         }
         return $this->conn;
@@ -38,7 +41,7 @@ class Database {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
-    
+
     if ($data) {
         $database = new Database();
         $db = $database->getConnection();
@@ -94,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -101,7 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/Header-Pic/rommel-logo-v3.svg">
     <title>DUO | Rommel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -112,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <div id="preloader">
         <div class="loader"></div>
@@ -129,10 +135,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div class="benefits-list">
                             <ul>
-                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg><span>2 Pax</span></li>
-                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg><span>20 Minutes Self-Portrait</span></li>
-                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg><span>2 Backdrop Color</span></li>
-                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg><span>4 4r size Print</span></li>
+                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
+                                        </path>
+                                    </svg><span>2 Pax</span></li>
+                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
+                                        </path>
+                                    </svg><span>20 Minutes Self-Portrait</span></li>
+                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
+                                        </path>
+                                    </svg><span>2 Backdrop Color</span></li>
+                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
+                                        </path>
+                                    </svg><span>4 4r size Print</span></li>
                             </ul>
                             <p class="all-copy">All Digital copies are free</p>
                         </div>
@@ -183,17 +205,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </section>
+
+    <section class="list-branch">
+
+        <div class="branch-container">
+
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js-package/gallery.js"></script>
+
     <?php echo $footer; ?>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
-    <script>eval(mod_pagespeed_2mSwO3vn68);</script>
-    <script>eval(mod_pagespeed_aQrG1NKKxL);</script>
+    <script>
+        eval(mod_pagespeed_2mSwO3vn68);
+    </script>
+    <script>
+        eval(mod_pagespeed_aQrG1NKKxL);
+    </script>
     <script src="js/lx.bundle.js"></script>
     <script src="js/default-assets/active.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-23581568-13');
     </script>
@@ -207,7 +281,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
     <script src="js-package/packages.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('appointmentForm');
             const modal = document.getElementById('confirmationModal');
             const modalContent = document.getElementById('modalContent');
@@ -216,7 +290,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             const dateInput = form.querySelector('input[name="date"]');
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
-            form.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const formData = {
                     package: "DUO",
@@ -230,7 +304,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', window.location.href, true);
                     xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.onreadystatechange = function() {
+                    xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
                                 const result = JSON.parse(xhr.responseText);
@@ -248,7 +322,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     modal.style.display = 'flex';
                                     form.reset();
                                 } else {
-                                    alert(result.message || 'Failed to book appointment. Please try again.');
+                                    alert(result.message ||
+                                        'Failed to book appointment. Please try again.');
                                 }
                             } else {
                                 alert('An error occurred. Please try again later.');
@@ -261,10 +336,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     alert('An error occurred. Please try again later.');
                 }
             });
-            closeModal.addEventListener('click', function() {
+            closeModal.addEventListener('click', function () {
                 modal.style.display = 'none';
             });
-            window.addEventListener('click', function(e) {
+            window.addEventListener('click', function (e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }
@@ -272,4 +347,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         });
     </script>
 </body>
+
 </html>

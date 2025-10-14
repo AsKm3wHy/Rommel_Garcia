@@ -244,44 +244,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="owl-carousel owl-theme">
                 <div class="item">
-                    <img class="viewer" src="img/pic/Solo1.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img/pic/Solo2.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img/pic/Solo3.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img\pic\Solo4.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img\pic\Solo5.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img\pic\Solo.png" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img/pic/Solo1.JPG" alt="mobile" width="100%" height="auto">
-                </div>
-
-                <div class="item">
-                    <img class="viewer" src="img/pic/Solo2.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img/pic/Solo3.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img\pic\Solo4.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
                 <div class="item">
-                    <img class="viewer" src="img\pic\Solo5.JPG" alt="mobile" width="100%" height="auto">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
+                </div>
+                <div class="item">
+                    <img class="viewer" src="img/pic/default.png" alt="mobile" width="100%" height="auto">
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="js-package/solo.js"></script>
+    <script src="js-package/gallery.js"></script>
 
     <?php echo $footer; ?>
 
@@ -291,11 +290,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.9S4FA15Zn6.js"></script>
     <script>
-    eval(mod_pagespeed_2mSwO3vn68);
+        eval(mod_pagespeed_2mSwO3vn68);
     </script>
 
     <script>
-    eval(mod_pagespeed_aQrG1NKKxL);
+        eval(mod_pagespeed_aQrG1NKKxL);
     </script>
 
     <script src="js/lx.bundle.js"></script>
@@ -304,23 +303,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-23581568-13');
+        gtag('config', 'UA-23581568-13');
     </script>
     <script defer src="../../../static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"699023133d611baa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'>
-    </script>
+        </script>
     </script>
     <!-- animate on scroll js  -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
 
 
@@ -328,41 +327,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="js-package/packages.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('appointmentForm');
-        const modal = document.getElementById('confirmationModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModal = document.getElementById('closeModal');
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('appointmentForm');
+            const modal = document.getElementById('confirmationModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
 
-        // Set minimum date to today
-        const dateInput = form.querySelector('input[name="date"]');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.min = today;
+            // Set minimum date to today
+            const dateInput = form.querySelector('input[name="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
 
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
 
-            const formData = {
-                package: "SOLO",
-                full_name: form.fullName.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                booking_date: form.date.value,
-                booking_time: form.time.value
-            };
+                const formData = {
+                    package: "SOLO",
+                    full_name: form.fullName.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    booking_date: form.date.value,
+                    booking_time: form.time.value
+                };
 
-            try {
-                // Use AJAX to submit to the server-side PHP script
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', window.location.href, true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            const result = JSON.parse(xhr.responseText);
-                            if (result.success) {
-                                // Display success message and appointment details
-                                modalContent.innerHTML = `
+                try {
+                    // Use AJAX to submit to the server-side PHP script
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', window.location.href, true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                const result = JSON.parse(xhr.responseText);
+                                if (result.success) {
+                                    // Display success message and appointment details
+                                    modalContent.innerHTML = `
                                         <div class="mt-3">
                                             <p><strong>Booking ID:</strong> ${result.id}</p>
                                             <p><strong>Name:</strong> ${result.full_name}</p>
@@ -372,36 +371,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <p><strong>Price:</strong> ₱500.00</p>
                                         </div>
                                     `;
-                                modal.style.display = 'flex';
-                                form.reset();
+                                    modal.style.display = 'flex';
+                                    form.reset();
+                                } else {
+                                    alert(result.message ||
+                                        'Failed to book appointment. Please try again.');
+                                }
                             } else {
-                                alert(result.message ||
-                                    'Failed to book appointment. Please try again.');
+                                alert('An error occurred. Please try again later.');
                             }
-                        } else {
-                            alert('An error occurred. Please try again later.');
                         }
-                    }
-                };
-                xhr.send(JSON.stringify(formData));
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
-            }
-        });
+                    };
+                    xhr.send(JSON.stringify(formData));
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
 
-        // Close modal when clicking the X button
-        closeModal.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
+            // Close modal when clicking the X button
+            closeModal.addEventListener('click', function () {
                 modal.style.display = 'none';
-            }
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
-    });
     </script>
 </body>
 

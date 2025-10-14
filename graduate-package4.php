@@ -4,13 +4,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 include_once("header.php");
 
-class Database {
+class Database
+{
     private $host;
     private $username;
     private $password;
     private $database;
     private $conn;
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASS');
@@ -26,7 +28,8 @@ class Database {
             die("Connection failed: " . $e->getMessage());
         }
     }
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 }
@@ -128,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="container ">
 
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center align-items-center">
                     <div class="plan-card">
                         <h2>GRADUATE<span>Package 4</span></h2>
                         <div class="etiquet-price">
@@ -373,44 +376,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <script src="js-package/packages.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('appointmentForm');
-            const modal = document.getElementById('confirmationModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeModal = document.getElementById('closeModal');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('appointmentForm');
+        const modal = document.getElementById('confirmationModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
 
-            // Set minimum date to today
-            const dateInput = form.querySelector('input[name="date"]');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
+        // Set minimum date to today
+        const dateInput = form.querySelector('input[name="date"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-                const formData = {
-                    package: "GRADUATE Package 4",
-                    full_name: form.fullName.value,
-                    email: form.email.value,
-                    phone: form.phone.value,
-                    booking_date: form.date.value,
-                    booking_time: form.time.value
-                };
+            const formData = {
+                package: "GRADUATE Package 4",
+                full_name: form.fullName.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                booking_date: form.date.value,
+                booking_time: form.time.value
+            };
 
-                try {
-                    const response = await fetch('/API/api/bookings/create.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
+            try {
+                const response = await fetch('/API/api/bookings/create.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-                    const result = await response.json();
+                const result = await response.json();
 
-                    if (result.success) {
-                        // Display success message and appointment details
-                        modalContent.innerHTML = `
+                if (result.success) {
+                    // Display success message and appointment details
+                    modalContent.innerHTML = `
                             <div class=\"mt-3\">
                                 <p><strong>Booking ID:</strong> ${result.id}</p>
                                 <p><strong>Name:</strong> ${result.full_name}</p>
@@ -420,28 +423,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <p><strong>Price:</strong> ₱3,599.00</p>
                             </div>
                         `;
-                        modal.style.display = 'flex';
-                        form.reset();
-                    } else {
-                        alert(result.message || 'Failed to book appointment. Please try again.');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again later.');
+                    modal.style.display = 'flex';
+                    form.reset();
+                } else {
+                    alert(result.message || 'Failed to book appointment. Please try again.');
                 }
-            });
-
-            // Close modal when clicking the X button
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-
-            // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
         });
-    </script>
+
+        // Close modal when clicking the X button
+        closeModal.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
 </html>

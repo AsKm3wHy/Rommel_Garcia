@@ -2215,17 +2215,17 @@ header .buttons i:hover {
   .graduate-gallery {
     padding: 30px 0;
   }
-  
+
   .graduate-gallery .swiper-slide {
     height: 250px;
   }
-  
+
   .graduate-gallery .swiper-button-next,
   .graduate-gallery .swiper-button-prev {
     width: 40px;
     height: 40px;
   }
-  
+
   .graduate-gallery .swiper-button-next::after,
   .graduate-gallery .swiper-button-prev::after {
     font-size: 16px;
@@ -2236,13 +2236,13 @@ header .buttons i:hover {
   .graduate-gallery .swiper-slide {
     height: 200px;
   }
-  
+
   .graduate-gallery .swiper-button-next,
   .graduate-gallery .swiper-button-prev {
     width: 35px;
     height: 35px;
   }
-  
+
   .graduate-gallery .swiper-button-next::after,
   .graduate-gallery .swiper-button-prev::after {
     font-size: 14px;
